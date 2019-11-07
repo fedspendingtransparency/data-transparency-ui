@@ -2,11 +2,13 @@
   "name": "data-transparency-ui",
   "version": "1.0.0",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "./.storybook/index.js",
+  "main": "./component-lib-export/index.js",
   "scripts": {
-    "build": "build-storybook -c .storybook -o dist",
-    "start": "start-storybook",
-    "deploy": "git subtree push --prefix dist/ storybook gh-pages"
+    "build-sb": "build-storybook -c .storybook -o dist",
+    "start-sb": "start-storybook",
+    "deploy-sb": "git subtree push --prefix dist/ storybook gh-pages",
+    "build-cl": "webpack --progress --config webpack.config.js",
+    "deploy-cl": "git push origin master"
   },
   "repository": {
     "type": "git",
@@ -20,15 +22,22 @@
   },
   "homepage": "https://github.com/fedspendingtransparency.github.io/data-transparency-ui",
   "devDependencies": {
-    "@babel/core": "^7.7.2",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
     "@storybook/react": "^5.2.5",
-    "babel-loader": "^8.0.6",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "sass-loader": "^8.0.0",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
