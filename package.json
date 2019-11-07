@@ -1,0 +1,41 @@
+{
+  "name": "data-transparency-ui",
+  "version": "1.0.0",
+  "description": "Library of UI components powering Data Transparency websites",
+  "main": "index.js",
+  "scripts": {
+    "build": "build-storybook -c .storybook -o dist",
+    "start": "start-storybook",
+    "deploy": "git subtree push --prefix dist/ storybook gh-pages"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedspendingtransparency/data-transparency-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fedspendingtransparency/data-transparency-ui/issues"
+  },
+  "homepage": "https://github.com/fedspendingtransparency.github.io/data-transparency-ui",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@storybook/react": "^5.2.5",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "prop-types": "^15.7.2",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
+    "lodash": "^4.17.15",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
