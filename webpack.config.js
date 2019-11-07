@@ -43,7 +43,7 @@ module.exports = {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: "[name].[contenthash].css"
+        filename: "data-transparency-ui.css"
       })
     ]
 };
