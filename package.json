@@ -2,7 +2,7 @@
   "name": "data-transparency-ui",
   "version": "1.0.0",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "index.js",
+  "main": "./.storybook/index.js",
   "scripts": {
     "build": "build-storybook -c .storybook -o dist",
     "start": "start-storybook",
