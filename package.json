@@ -10,7 +10,7 @@
     "deploy-cl": "git push origin master",
     "build-sb": "build-storybook -c .storybook -o dist",
     "start-sb": "start-storybook",
-    "deploy-sb": "git subtree push --prefix dist/ storybook gh-pages"
+    "deploy-sb": "git subtree push --prefix dist/ origin gh-pages"
   },
   "repository": {
     "type": "git",
