@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "./component-lib-export/index.js",
+  "style": "./component-lib-export/data-transparency-ui.css",
   "scripts": {
     "build-sb": "build-storybook -c .storybook -o dist",
     "start-sb": "start-storybook",
     "deploy-sb": "git subtree push --prefix dist/ storybook gh-pages",
     "build-cl": "webpack --progress --config webpack.config.js",
+    "prepare": "npm run build-cl",
     "deploy-cl": "git push origin master"
   },
   "repository": {
