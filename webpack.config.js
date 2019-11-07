@@ -7,7 +7,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'index.js'),
     output: {
       path: path.resolve(__dirname, './component-lib-export'),
-      filename: 'index.js',
+      filename: 'data-transparency-ui.js',
       library: '',
       libraryTarget: 'commonjs'
     },
