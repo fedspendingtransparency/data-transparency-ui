@@ -1,4 +1,4 @@
-import { Button } from "./.storybook/components/Button";
+import { Button } from "./components/Button";
 
 export {
     Button

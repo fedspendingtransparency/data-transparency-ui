@@ -66,6 +66,6 @@ library.add(
   faUserTie
 );
 
-require('./styles/main.scss');
+require('../styles/main.scss');
 
 configure(require.context('./stories', true, /\.stories\.js$/), module);
