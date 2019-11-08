@@ -1,4 +1,6 @@
 import { configure } from '@storybook/react';
+import { addParameters } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleDown,
@@ -64,8 +66,15 @@ library.add(
   faThLarge,
   faTimes,
   faUserTie
-);
-
+  );
+  
 require('../styles/main.scss');
+
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+});
 
 configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);
