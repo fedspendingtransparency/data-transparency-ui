@@ -67,7 +67,8 @@ library.add(
   faThLarge,
   faTimes,
   faUserTie
-  );
+);
+import dataTransparencyUiTheme from './theme';
   
 require('../styles/main.scss');
 
@@ -76,6 +77,10 @@ addParameters({
     container: DocsContainer,
     page: DocsPage,
   },
+  options: {
+    name: 'Data Transparency UI'
+    // theme: dataTransparencyUiTheme
+  }
 });
 
 addDecorator((storyFn) => {
