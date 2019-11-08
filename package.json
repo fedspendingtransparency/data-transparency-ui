@@ -7,9 +7,9 @@
   "scripts": {
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
-    "deploy-cl": "git push origin master",
     "build-sb": "build-storybook -c .storybook -o docs",
-    "start-sb": "start-storybook"
+    "start": "start-storybook",
+    "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;"
   },
   "repository": {
     "type": "git",
@@ -37,9 +37,16 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
-    "prop-types": "^15.7.2",
     "react-is": "^16.11.0",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
@@ -50,6 +57,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }
