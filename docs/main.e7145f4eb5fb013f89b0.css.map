@@ -1,0 +1,1 @@
+{"version":3,"file":"main.e7145f4eb5fb013f89b0.css","sources":["webpack:///./styles/storybook-demo/_index.scss","webpack:///./styles/components/_button.scss"],"sourcesContent":["#root {\n    height: 100vh;\n}\n","@import \"../global/vars\";\n\n.default-button {\n    color: $button-color\n}"],"mappings":"AAAA;;ACEA;;","sourceRoot":""}
