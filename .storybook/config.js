@@ -1,5 +1,6 @@
+import React from 'react';
 import { configure } from '@storybook/react';
-import { addParameters } from '@storybook/react';
+import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -75,6 +76,12 @@ addParameters({
     container: DocsContainer,
     page: DocsPage,
   },
+});
+
+addDecorator((storyFn) => {
+  return (
+    <div style={{ textAlign: "center" }}>{storyFn()}</div>
+  );
 });
 
 configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);
