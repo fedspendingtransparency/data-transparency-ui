@@ -68,4 +68,4 @@ library.add(
 
 require('../styles/main.scss');
 
-configure(require.context('./stories', true, /\.stories\.js$/), module);
+configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);
