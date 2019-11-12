@@ -87,7 +87,8 @@ addParameters({
       if (obj.kind === 'Welcome') return -1;
       if (obj2.kind === 'Welcome') return 1;
       return 1;
-    }
+    },
+    showAddonPanel: true
   },
   viewport: {
     viewports: INITIAL_VIEWPORTS,
