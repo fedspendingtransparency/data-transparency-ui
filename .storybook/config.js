@@ -2,6 +2,7 @@ import React from 'react';
 import { configure } from '@storybook/react';
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleDown,
@@ -69,7 +70,7 @@ library.add(
   faUserTie
 );
 import dataTransparencyUiTheme from './theme';
-  
+
 require('../styles/main.scss');
 
 addParameters({
@@ -87,7 +88,10 @@ addParameters({
       if (obj2.kind === 'Welcome') return 1;
       return 1;
     }
-  }
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+  },
 });
 
 addDecorator((storyFn) => {
