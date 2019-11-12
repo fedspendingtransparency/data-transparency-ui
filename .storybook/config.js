@@ -78,8 +78,15 @@ addParameters({
     page: DocsPage,
   },
   options: {
-    name: 'Data Transparency UI'
+    name: 'Data Transparency UI',
     // theme: dataTransparencyUiTheme
+    storySort: (a, b) => {
+      const [className, obj] = a;
+      const [className2, obj2] = b;
+      if (obj.kind === 'Welcome') return -1;
+      if (obj2.kind === 'Welcome') return 1;
+      return 1;
+    }
   }
 });
 
