@@ -1,4 +1,8 @@
+import React from 'react';
 import { configure } from '@storybook/react';
+import { addParameters, addDecorator } from '@storybook/react';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faAngleDown,
@@ -65,7 +69,36 @@ library.add(
   faTimes,
   faUserTie
 );
+import dataTransparencyUiTheme from './theme';
 
 require('../styles/main.scss');
 
-configure(require.context('./stories', true, /\.stories\.js$/), module);
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+  options: {
+    name: 'Data Transparency UI',
+    // theme: dataTransparencyUiTheme
+    storySort: (a, b) => {
+      const [className, obj] = a;
+      const [className2, obj2] = b;
+      if (obj.kind === 'Welcome') return -1;
+      if (obj2.kind === 'Welcome') return 1;
+      return 1;
+    },
+    showAddonPanel: true
+  },
+  viewport: {
+    viewports: INITIAL_VIEWPORTS,
+  },
+});
+
+addDecorator((storyFn) => {
+  return (
+    <div style={{ textAlign: "center" }}>{storyFn()}</div>
+  );
+});
+
+configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);

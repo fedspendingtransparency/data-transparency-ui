@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 require("../styles/components/_button.scss");
 
 const propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string               
 };
 
 const defaultProps = {
