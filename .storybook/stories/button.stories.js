@@ -1,13 +1,14 @@
 import React from 'react';
 import { withKnobs, text } from "@storybook/addon-knobs";
-import { withA11Y } from '@storybook/addon-a11y';
+import { withA11y } from '@storybook/addon-a11y';
+import { withActions, actions } from '@storybook/addon-actions';
 
 import { Button } from '../../components/Button';
 
 export default {
   title: 'Button',
   component: Button,
-  decorators: [withKnobs, withA11Y],
+  decorators: [withKnobs, withA11y, withActions('onClick')],
   parameters: {
     a11y: {
       // ... axe options
@@ -20,7 +21,7 @@ export default {
 
 export const defaultButton = () => (
   <div className="button-story__container">
-    <Button text={text("text", "Click Yo Self Always")} />
+    <Button {...actions({ 'handleClick': 'onClick handler parameters' })} text={text("text", "Click Yo Self Always")} />
   </div>
 );
 
