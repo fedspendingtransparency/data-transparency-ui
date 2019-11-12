@@ -1,9 +1,11 @@
 import React from 'react';
 import { configure } from '@storybook/react';
+import { withConsole } from '@storybook/addon-console';
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
+
 import {
   faAngleDown,
   faAngleRight,
@@ -95,10 +97,9 @@ addParameters({
   },
 });
 
-addDecorator((storyFn) => {
-  return (
-    <div style={{ textAlign: "center" }}>{storyFn()}</div>
-  );
-});
+addDecorator(
+  (storyFn) => <div style={{ textAlign: "center" }}>{storyFn()}</div>,
+  (storyFn, context) => withConsole()(storyFn)(context)
+);
 
 configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);
