@@ -1,7 +1,7 @@
 module.exports = {
     plugins: {
       'autoprefixer': {},
-      'postcss-preset-env': {},  
+      'css-nano': {}
     },
     autoprefixer: {
       browsers: ['last 2 versions', 'ie 8-11', 'Firefox > 20']

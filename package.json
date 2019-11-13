@@ -55,6 +55,7 @@
     "jest-cli": "^24.6.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
     "react-is": "^16.11.0",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
@@ -70,5 +71,10 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie 6-8",
+    "Firefox > 20"
+  ]
 }
