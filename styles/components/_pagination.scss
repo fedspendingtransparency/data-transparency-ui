@@ -1,18 +1,18 @@
 .pagination {
-    @include display(flex);
-    @include align-items(center);
-    @include flex-wrap(wrap);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     .pagination__totals {
-        @include flex(1 1 auto);
+        flex:1 1 auto;
     }
     .pager {
-        @include display(flex);
-        @include flex(0 0 auto);
+        display: flex;
+        flex:0 0 auto;
         padding-left: 0;
         list-style-type: none;
         margin: 0;
         .pager__item {
-            @include flex(0 0 auto);
+            flex:0 0 auto;
             .pager__button {
                 padding: rem(7) rem(10);
                 background-color: $color-white;
