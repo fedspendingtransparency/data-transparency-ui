@@ -5,10 +5,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { range } from 'lodash';
-import { formatNumberWithPrecision } from 'helpers/moneyFormatter';
-import { calculatePageRange } from 'helpers/paginationHelper';
+
+import { formatNumberWithPrecision } from '../helpers/moneyFormatter';
+import { calculatePageRange } from '../helpers/paginationHelper';
 
 const propTypes = {
     onChangePage: PropTypes.func.isRequired,
@@ -17,6 +17,8 @@ const propTypes = {
     pageSize: PropTypes.number,
     resultsText: PropTypes.element
 };
+
+require('../styles/components/_pagination.scss');
 
 export default class Pagination extends React.Component {
     constructor(props) {
