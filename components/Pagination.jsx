@@ -145,7 +145,6 @@ export default class Pagination extends React.Component {
 
     render() {
         const pager = this.getPager();
-
         const pageRange = calculatePageRange(pager.currentPage, pager.pageSize, pager.totalItems);
         let resultsText = (
             <div className="pagination__totals">
