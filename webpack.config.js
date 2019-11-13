@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
-    // context: path.resolve(__dirname, "./storybook"),
     entry: path.resolve(__dirname, 'index.js'),
     output: {
       path: path.resolve(__dirname, './component-lib-export'),
@@ -31,10 +30,15 @@ module.exports = {
             { loader: MiniCssExtractPlugin.loader },
             { loader: "css-loader", options: { url: false, sourceMap: true } },
             {
-                loader: "sass-loader",
-                options: {
-                    sourceMap: true
+              loader: "postcss-loader",
+              options: {
+                config: {
+                  path: path.resolve(__dirname, "../")
                 }
+              }
+            },
+            {
+                loader: "sass-loader"
             }
           ]
         }

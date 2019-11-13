@@ -1,3 +1,7 @@
+@import "../global/index";
+
 #root {
     height: 100vh;
+    display: flex;
+    user-select: none;
 }

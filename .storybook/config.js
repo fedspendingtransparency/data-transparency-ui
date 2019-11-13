@@ -73,7 +73,7 @@ library.add(
 );
 import dataTransparencyUiTheme from './theme';
 
-require('../styles/main.scss');
+require('../styles/storybook-demo/_index.scss');
 
 addParameters({
   docs: {

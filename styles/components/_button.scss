@@ -1,5 +1,7 @@
-@import "../global/vars";
+@import "../global/index";
 
 .default-button {
-    color: $button-color
+    color: $button-color;
+    display: flex;
+    width: rem(400);
 }
