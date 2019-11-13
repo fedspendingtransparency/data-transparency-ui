@@ -6,10 +6,12 @@ module.exports = {
     target: 'node',
     entry: path.resolve(__dirname, 'index.js'),
     output: {
-      path: path.resolve(__dirname, './component-lib-export'),
+      path: path.resolve(__dirname, './dist'),
       filename: 'index.js',
       library: 'data-transparency-ui',
-      libraryTarget:'umd'
+      libraryTarget: 'umd',
+      publicPath: '/dist/',
+      umdNamedDefine: true
     },
     resolve: {
       extensions: [".js", ".jsx"],
@@ -43,6 +45,21 @@ module.exports = {
           ]
         }
       ]
+    },
+    externals: {
+      // Don't bundle react or react-dom
+      react: {
+          commonjs: "react",
+          commonjs2: "react",
+          amd: "React",
+          root: "React"
+      },
+      "react-dom": {
+        commonjs: "react-dom",
+        commonjs2: "react-dom",
+        amd: "ReactDOM",
+        root: "ReactDOM"
+      }
     },
     plugins: [
       new MiniCssExtractPlugin({
