@@ -3,12 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
+    target: 'node',
     entry: path.resolve(__dirname, 'index.js'),
     output: {
       path: path.resolve(__dirname, './component-lib-export'),
       filename: 'index.js',
-      library: '',
-      libraryTarget: 'commonjs'
+      library: 'data-transparency-ui',
+      libraryTarget:'umd'
     },
     resolve: {
       extensions: [".js", ".jsx"],

@@ -2,7 +2,7 @@
   "name": "data-transparency-ui",
   "version": "1.0.0",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "index.js",
+  "main": "component-lib-export/index.js",
   "style": "./component-lib-export/data-transparency-ui.css",
   "scripts": {
     "prepare": "npm run build-cl",
