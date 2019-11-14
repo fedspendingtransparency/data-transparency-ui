@@ -1,7 +1,11 @@
 @import "../global/index";
+@import "../shared/index";
+@import "./tooltipDemo";
 
 #root {
     height: 100vh;
     display: flex;
-    user-select: none;
+    .story__container {
+        border: 1px solid red;
+    }
 }
