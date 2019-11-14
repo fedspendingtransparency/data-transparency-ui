@@ -11,8 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 require('../styles/components/_tooltipWrapper.scss');
 
 const propTypes = {
-    children: PropTypes.node,
-    tooltipComponent: PropTypes.node,
+    children: PropTypes.element,
+    tooltipComponent: PropTypes.element,
     left: PropTypes.bool,
     wide: PropTypes.bool,
     icon: PropTypes.string,
@@ -27,20 +27,27 @@ const propTypes = {
         right: PropTypes.number,
         left: PropTypes.number
     }),
-    styles: PropTypes.shape({}) // currently only using width
+    styles: PropTypes.object
 };
 
 const defaultProps = {
+    children: null,
+    toolTipComponent: null,
+    left: false,
     wide: false,
-    verticalCenter: false,
+    icon: "info",
+    controlledProps: {
+        isControlled: false,
+        showTooltip: () => {},
+        closeTooltip: () => {},
+        isVisible: false
+    },
     offsetAdjustments: {
         top: -15, // InfoToolTip offset
         right: 30, // InfoToolTip offset
         left: 0
     },
-    controlledProps: {
-        isControlled: false
-    }
+    styles: {}
 };
 
 const horizontalPadding = 20;
@@ -196,5 +203,5 @@ export default class TooltipWrapper extends React.Component {
     }
 }
 
-TooltipWrapper.defaultProps = defaultProps;
 TooltipWrapper.propTypes = propTypes;
+TooltipWrapper.defaultProps = defaultProps;
