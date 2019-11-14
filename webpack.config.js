@@ -3,13 +3,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'production',
-    // context: path.resolve(__dirname, "./storybook"),
+    target: 'node',
     entry: path.resolve(__dirname, 'index.js'),
     output: {
-      path: path.resolve(__dirname, './component-lib-export'),
+      path: path.resolve(__dirname, './dist'),
       filename: 'index.js',
-      library: '',
-      libraryTarget: 'commonjs'
+      library: 'data-transparency-ui',
+      libraryTarget: 'umd',
+      publicPath: '/dist/',
+      umdNamedDefine: true
     },
     resolve: {
       extensions: [".js", ".jsx"],
@@ -31,14 +33,33 @@ module.exports = {
             { loader: MiniCssExtractPlugin.loader },
             { loader: "css-loader", options: { url: false, sourceMap: true } },
             {
-                loader: "sass-loader",
-                options: {
-                    sourceMap: true
-                }
+              loader: "postcss-loader",
+              options: {
+                indent: 'postcss',
+                plugins: [require('autoprefixer')]
+              }
+            },
+            {
+                loader: "sass-loader"
             }
           ]
         }
       ]
+    },
+    externals: {
+      // Don't bundle react or react-dom
+      react: {
+          commonjs: "react",
+          commonjs2: "react",
+          amd: "React",
+          root: "React"
+      },
+      "react-dom": {
+        commonjs: "react-dom",
+        commonjs2: "react-dom",
+        amd: "ReactDOM",
+        root: "ReactDOM"
+      }
     },
     plugins: [
       new MiniCssExtractPlugin({

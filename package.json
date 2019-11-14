@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "index.js",
-  "style": "./component-lib-export/data-transparency-ui.css",
+  "style": "dist/data-transparency-ui.css",
   "scripts": {
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
     "build-sb": "build-storybook -c .storybook -o docs",
     "start": "start-storybook --port 3001",
-    "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;"
+    "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
+    "test": "./node_modules/.bin/jest; exit 0;"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-a11y": "^5.2.6",
     "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-docs": "^5.3.0-alpha.41",
     "@storybook/addon-knobs": "^5.2.5",
     "@storybook/addon-viewport": "^5.2.6",
@@ -40,6 +42,8 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.2.0",
     "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-babel": "^5.3.0",
@@ -48,8 +52,11 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
+    "jest": "^24.6.0",
+    "jest-cli": "^24.6.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
     "react-is": "^16.11.0",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
@@ -59,10 +66,15 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
-    "@storybook/addon-console": "^1.2.1",
+    "accounting": "^0.4.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie 6-8",
+    "Firefox > 20"
+  ]
 }

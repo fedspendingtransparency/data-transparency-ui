@@ -1,3 +1,4 @@
+const path = require('path');
 const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -17,27 +18,29 @@ module.exports = async ({ config, mode }) => {
   config.module.rules.push(
     ...[
       {
-        test: /\.css$/,
-        use: [
-            {
-                loader: MiniCssExtractPlugin.loader
-            },
-            "css-loader"
-        ]
-      },
-      {
         test: /\.scss$/,
         use: [
             { loader: MiniCssExtractPlugin.loader },
             { loader: "css-loader", options: { url: false, sourceMap: true } },
+            {
+              loader: "postcss-loader",
+              options: {
+                sourceMap: true,
+                indent: 'postcss',
+                plugins: [require('autoprefixer')],
+                config: {
+                  path: path.resolve(__dirname, "../postcss.config.js")
+                }
+              }
+            },
             {
                 loader: "sass-loader",
                 options: {
                     sourceMap: true
                 }
             }
-        ]
-      },
+          ]
+        },
       {
         test: /\.(stories|story)\.mdx$/,
         use: [
