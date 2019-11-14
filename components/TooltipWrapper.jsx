@@ -150,7 +150,7 @@ export default class TooltipWrapper extends React.Component {
                 if (item === 'offsetTop') return { ...acc, top: this.state[item] };
                 return { ...acc, [item]: this.state[item] };
             }, {});
-        console.log("style", style);
+
         if (showTooltip) {
             tooltip = (
                 <div className="tooltip-spacer" style={style}>

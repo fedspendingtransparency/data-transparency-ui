@@ -1,11 +1,19 @@
 @import "../global/index";
 
 .tooltip-wrapper {
-    div:first-of-type {
-        height: 100%;
-        width: 100%;
-        display: flex;
+    .tooltip-spacer {
+        display: none;
+        @include for-tablet-landscape-up {
+            display: block;
+            position: absolute;
+            z-index: 9;
+        }
     }
+    // div:first-of-type {
+    //     height: 100%;
+    //     width: 100%;
+    //     display: flex;
+    // }
     .tooltip__hover-wrapper {
         .tooltip__icon {
             color: $color-gray-border;
@@ -13,14 +21,6 @@
             &:hover {
                 color: $color-gray;
             }
-        }
-    }
-    .tooltip-spacer {
-        display: none;
-        @include for-tablet-landscape-up {
-            display: block;
-            position: absolute;
-            z-index: 9;
         }
     }
     .tooltip {
@@ -37,57 +37,58 @@
                 top: rem(15);
             }
         }
-    }
-
-    .tooltip__content {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        box-shadow: $box-shadow;
-        background-color: $color-white;
-        border: solid rem(1) $color-gray-light;
-        .tooltip__message {
+        .tooltip__content {
+            display: flex;
+            flex-direction: row;
             width: 100%;
-            font-size: $small-font-size;
-            div:first-of-type {
-                flex-direction: column;
-            }
-            .tooltip__title {
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: $box-shadow;
+            background-color: $color-white;
+            border: solid rem(1) $color-gray-light;
+            .tooltip__message {
+                width: 100%;
                 font-size: $small-font-size;
-                background-color: $color-gray-lightest;
-                padding: rem(10) rem(15);
-                font-weight: $font-bold;
-                z-index: 10;
-                margin-top: 0;
-                text-align: center;
-            }
-            .tooltip__text {
-                padding: 0 rem(15);
-                font-weight: $font-normal;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                ul {
-                    margin: 0;
-                    padding-left: 0;
-                    list-style-type: none;
-                }
-            }
-            .tooltip__list {
-                padding: 0 rem(15);
-                display: flex;
-                flex-wrap: wrap;
-                flex-direction: column;
-                list-style-type: none;
-                li {
+                text-align: left;
+                .tooltip__title {
+                    font-size: $small-font-size;
+                    background-color: $color-gray-lightest;
+                    padding: rem(10) rem(15);
+                    font-weight: $font-bold;
+                    z-index: 10;
+                    margin-top: 0;
                     text-align: center;
-                    list-style: none;
-                    padding-bottom: rem(10);
-                    &:last-of-type {
-                        padding-bottom: 0;
+                }
+                .tooltip__text {
+                    padding: 0 rem(15);
+                    font-weight: $font-normal;
+                    display: flex;
+                    flex-direction: column;
+                    // bold items in tooltip
+                    strong {
+                        margin-top: rem(10);
+                    }
+                    // lists inside tooltip
+                    ul {
+                        margin: 0;
+                        padding-left: 0;
+                        list-style-type: none;
+                    }
+                    .tooltip__list {
+                        padding: 0 rem(15);
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        list-style-type: none;
+                        li {
+                            text-align: center;
+                            list-style: none;
+                            padding-bottom: rem(10);
+                            &:last-of-type {
+                                padding-bottom: 0;
+                            }
+                        }
                     }
                 }
             }
