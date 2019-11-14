@@ -1,5 +1,5 @@
 import React from 'react';
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
@@ -24,7 +24,9 @@ export const tooltipWrapper = () => (
   <div className="story__container tooltip-story">
     <TooltipWrapper
         icon="info"
-        tooltipComponent={<TooltipComponent />} />
+        tooltipComponent={<TooltipComponent />}
+        wide={boolean("wide", true)}
+        left={boolean("left", true)} />
   </div>
 );
 

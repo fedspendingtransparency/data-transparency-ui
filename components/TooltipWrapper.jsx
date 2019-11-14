@@ -68,6 +68,12 @@ export default class TooltipWrapper extends React.Component {
         window.addEventListener("resize", this.measureOffset);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.wide !== this.props.wide || prevProps.left !== this.props.left) {
+            this.measureOffset();
+        }
+    }
+
     componentWillUnmount() {
         window.removeEventListener("scroll", this.measureOffset);
         window.removeEventListener("resize", this.measureOffset);
