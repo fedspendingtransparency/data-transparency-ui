@@ -16,16 +16,6 @@ const propTypes = {
 import "../styles/components/_quarterPicker.scss";
 
 export default class QuarterPicker extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            showTooltip: 0
-        };
-
-        this.toggleTooltip = this.toggleTooltip.bind(this);
-    }
-
     generateQuarters() {
         const quarters = [];
         for (let i = 1; i <= 4; i++) {

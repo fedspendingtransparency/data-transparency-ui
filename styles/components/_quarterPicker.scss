@@ -1,3 +1,5 @@
+@import "../global/index";
+
 .quarter-picker {
     .warning-tooltip {
         // space the tooltip to the right of the quarter buttons
@@ -6,9 +8,9 @@
     }
     ul.quarter-picker__list {
         @include unstyled-list;
-        @include display(flex);
-        @include align-items(center);
-        @include flex(1 1 auto);
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
 
         padding: rem(5) 0;
 
@@ -43,12 +45,12 @@
                 }
 
                 &:active, &.quarter-picker__quarter_active {
-                    background-color: $color-primary;
+                    background-color: $br-color-primary;
                     color: $color-white;
                 }
 
                 &:hover{
-                    background-color: $color-primary-darker;
+                    background-color: $br-color-primary-darker;
                     color: $color-white;
                 }
 
