@@ -1,0 +1,8 @@
+@import "./global/index";
+@import "./shared/index";
+@import "./demo-pages/index";
+
+#root {
+    height: 100vh;
+    display: flex;
+}
