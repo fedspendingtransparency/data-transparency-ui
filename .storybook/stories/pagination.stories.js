@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withKnobs, number, object } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
@@ -18,16 +18,26 @@ export default {
     },
   }
 };
-
-export const defaultPagination = () => (
+/*
+ * If this PR Gets merged (https://github.com/storybookjs/storybook/pull/3909)...
+ * We can use knobs for controlled components.
+ * As of right now, if we use knobs to update a prop the component will only update via knobs
+*/  
+export const defaultPagination = () => {
+  const [page, onChangePage] = useState(1);
+  const handlePageChange = (pg) => {
+    console.log("onChangePage handler invoked w/ this parameter: ", pg);
+    onChangePage(pg);
+  };
+  return (
     <div className="story__container">
         <Pagination
-            {...actions({ onChangePage: 'pageChange params' })}
-            pageNumber={number("pageNumber", 1)}
-            pageSize={number("pageSize", 10)}
-            totalItems={number("totalItems", 100)}
-            resultsText={object("resultsText", <p>Results</p>)} />
+            onChangePage={handlePageChange}
+            pageNumber={page}
+            pageSize={10}
+            totalItems={100} />
     </div>
-);
+  );
+};
 
 defaultPagination.story = { name: 'Default Pagination' };
