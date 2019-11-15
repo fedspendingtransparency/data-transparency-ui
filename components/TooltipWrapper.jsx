@@ -150,13 +150,11 @@ export default class TooltipWrapper extends React.Component {
     render() {
         const showTooltip = (this.props.controlledProps.isControlled) ? this.props.controlledProps.isVisible : this.state.showTooltip;
         let tooltip = null;
-        const style = Object.keys(this.state)
-            .filter((key) => ['offsetTop', 'offsetLeft', 'width'].includes(key))
-            .reduce((acc, item) => {
-                if (item === 'offsetLeft') return { ...acc, left: this.state[item] };
-                if (item === 'offsetTop') return { ...acc, top: this.state[item] };
-                return { ...acc, [item]: this.state[item] };
-            }, {});
+        const style = {
+            width: this.state.width,
+            left: this.state.offsetLeft,
+            top: this.state.offsetTop
+        };
 
         if (showTooltip) {
             tooltip = (
