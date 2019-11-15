@@ -1,4 +1,5 @@
+$em-base: 10;
+
 @function rem($px) {
-    $valueInRems: $px / 16;
-    @return #{$valueInRems}rem;
+    @return ($px / $em-base) * 1rem;
 }
