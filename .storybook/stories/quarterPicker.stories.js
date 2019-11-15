@@ -20,10 +20,20 @@ export default {
 
 export const defaultQuarterPicker = () => {
     const [selectedQuarters, setSelectedQuarters] = useState([]); 
+
+    const handlePickQuarter = (newlySelectedQuarter) => {
+      if (selectedQuarters.includes(newlySelectedQuarter)) {
+        setSelectedQuarters(selectedQuarters.filter((quarter) => quarter !== newlySelectedQuarter))
+      }
+      else {
+        setSelectedQuarters([...new Set([...selectedQuarters, newlySelectedQuarter])])
+      }
+    }
+
     return (
         <div className="story__container tooltip-story">
             <QuarterPicker
-                pickedQuarter={setSelectedQuarters}
+                pickedQuarter={handlePickQuarter}
                 disabledQuarters={[false, false, false, false]}
                 selectedQuarters={selectedQuarters} />
         </div>
