@@ -73,7 +73,7 @@ library.add(
 );
 import dataTransparencyUiTheme from './theme';
 
-require('../styles/storybook-demo/_index.scss');
+import '../styles/storybook.scss';
 
 addParameters({
   docs: {
@@ -103,7 +103,7 @@ addParameters({
 });
 
 addDecorator(
-  (storyFn) => <div style={{ textAlign: "center" }}>{storyFn()}</div>,
+  (storyFn) => <div style={{ textAlign: "center",  width: "100%" }}>{storyFn()}</div>,
   (storyFn, context) => withConsole()(storyFn)(context)
 );
 

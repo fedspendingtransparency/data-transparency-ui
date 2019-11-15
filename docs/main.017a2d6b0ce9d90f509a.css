@@ -1,8 +1,0 @@
-#root{height:100vh;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
-
-.default-button{color:orange;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:flex;width:25rem}
-
-.pagination{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;-ms-flex-wrap:wrap;flex-wrap:wrap}.pagination .pagination__totals{-webkit-box-flex:1;-moz-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto}.pagination .pager{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-flex:0;-moz-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;padding-left:0;list-style-type:none;margin:0}.pagination .pager .pager__item{-webkit-box-flex:0;-moz-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}.pagination .pager .pager__item .pager__button{padding:.4375rem .625rem;background-color:#fff;color:#5b616b;border:solid .0625rem #aeb0b5;font-style:normal;font-size:.75rem;margin:.3125rem .3125rem .3125rem 0}.pagination .pager .pager__item .pager__button:hover{background-color:#e1f3f8}.pagination .pager .pager__item .pager__button.pager__button_disabled{border-color:#d6d7d9;color:#aeb0b5}.pagination .pager .pager__item .pager__button.pager__button_disabled:hover{background-color:#fff;cursor:auto}.pagination .pager .pager__item .pager__button.pager__button_active{background-color:#00a6d2;color:#fff;border-color:#00a6d2}.pagination .pager .pager__ellipsis{font-weight:bold;margin-top:14px;margin-right:5px}
-
-
-/*# sourceMappingURL=main.017a2d6b0ce9d90f509a.css.map*/
