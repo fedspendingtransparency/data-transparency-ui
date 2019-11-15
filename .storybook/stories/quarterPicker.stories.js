@@ -31,7 +31,7 @@ export const defaultQuarterPicker = () => {
     }
 
     return (
-        <div className="story__container tooltip-story">
+        <div className="story__container quarter-picker-story">
             <QuarterPicker
                 pickedQuarter={handlePickQuarter}
                 disabledQuarters={[false, false, false, false]}
@@ -40,4 +40,4 @@ export const defaultQuarterPicker = () => {
     );
 };
 
-defaultQuarterPicker.story = { name: 'Tooltip Wrapper' };
+defaultQuarterPicker.story = { name: 'Default Quarter Picker' };
