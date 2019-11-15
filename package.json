@@ -10,7 +10,8 @@
     "build-sb": "build-storybook -c .storybook -o docs",
     "start": "start-storybook --port 3001",
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
-    "test": "./node_modules/.bin/jest; exit 0;"
+    "test": "./node_modules/.bin/jest; exit 0;",
+    "build": "npm run build-cl && npm run build-sb"
   },
   "repository": {
     "type": "git",
