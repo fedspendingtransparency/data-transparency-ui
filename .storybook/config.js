@@ -103,7 +103,7 @@ addParameters({
 });
 
 addDecorator(
-  (storyFn) => <div style={{ textAlign: "center" }}>{storyFn()}</div>,
+  (storyFn) => <div style={{ textAlign: "center", width: "100%"}}>{storyFn()}</div>,
   (storyFn, context) => withConsole()(storyFn)(context)
 );
 
