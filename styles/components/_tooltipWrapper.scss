@@ -1,6 +1,7 @@
 @import "../global/index";
 
 .tooltip-wrapper {
+    font-size: $base-font-size;
     .tooltip-spacer {
         display: none;
         @include for-tablet-landscape-up {

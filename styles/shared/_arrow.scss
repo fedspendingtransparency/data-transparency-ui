@@ -12,8 +12,8 @@ $color-tooltip-border: $color-gray-light;
         width: rem(16);
         height: rem(16);
         background: #f0f0f0;
-        border-bottom: 1px solid $color-tooltip-border;
-        border-left: 1px solid $color-tooltip-border;
+        border-bottom: rem(1) solid $color-tooltip-border;
+        border-left: rem(1) solid $color-tooltip-border;
         transform: rotate(45deg);
         pointer-events: none;
     }

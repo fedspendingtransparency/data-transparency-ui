@@ -12,10 +12,21 @@ $color-gray-border:          #D8D8D8;
 $br-color-primary:              #0071bc;
 $br-color-primary-darker:       #205493;
 
-// Fonts:
-$font-normal:         400;
+// Font Sizes
+$em-base:             10px;
 $small-font-size:     rem(14);
+$base-font-size:      rem(16);
+
+// Font Weights:
+$font-normal:         400;
 $font-bold:           700;
+
+// Font Families:
+$helvetica:           "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$georgia:             "Georgia", "Cambria", "Times New Roman", "Times", serif;
+$font-sans:           'Source Sans Pro', $helvetica;
+$font-serif:          'Merriweather', $georgia;
+
 
 // Spacing:
 $global-pad-mrg: rem(15);
