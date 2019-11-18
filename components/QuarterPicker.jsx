@@ -7,13 +7,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QuarterButton from './QuarterButton';
 
+import "../styles/components/_quarterPicker.scss";
+
 const propTypes = {
     selectedQuarters: PropTypes.array,
     pickedQuarter: PropTypes.func,
     disabledQuarters: PropTypes.array
 };
 
-import "../styles/components/_quarterPicker.scss";
 
 export default class QuarterPicker extends React.Component {
     generateQuarters() {
