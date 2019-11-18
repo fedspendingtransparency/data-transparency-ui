@@ -2,6 +2,11 @@
 @import "./shared/index";
 @import "./demo-pages/index";
 
+html {
+    font-size: $em-base;
+    font-family: $font-sans;
+}
+
 #root {
     height: 100vh;
     display: flex;

@@ -9,7 +9,7 @@ module.exports = {
       path: path.resolve(__dirname, './dist'),
       filename: 'index.js',
       library: 'data-transparency-ui',
-      libraryTarget: 'umd',
+      libraryTarget: 'commonjs',
       publicPath: '/dist/',
       umdNamedDefine: true
     },
@@ -47,7 +47,7 @@ module.exports = {
       ]
     },
     externals: {
-      // Don't bundle react or react-dom
+      // Don't bundle react, react-dom, or lodash
       react: {
           commonjs: "react",
           commonjs2: "react",
@@ -59,6 +59,24 @@ module.exports = {
         commonjs2: "react-dom",
         amd: "ReactDOM",
         root: "ReactDOM"
+      },
+      lodash: {
+        commonjs: "lodash",
+        commonjs2: "lodash",
+        amd: "lodash",
+        root: "lodash"
+      },
+      accounting: {
+        commonjs: "accounting",
+        commonjs2: "accounting",
+        amd: "accounting",
+        root: "accounting"
+      },
+      "prop-types": {
+        commonjs: "prop-types",
+        commonjs2: "prop-types",
+        amd: "prop-types",
+        root: "prop-types"
       }
     },
     plugins: [
