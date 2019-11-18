@@ -6,11 +6,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { throttle } from "lodash";
+import cx from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 require('../styles/components/_tooltipWrapper.scss');
 
 const propTypes = {
+    className: PropTypes.string,
     children: PropTypes.element,
     tooltipComponent: PropTypes.element,
     left: PropTypes.bool,
@@ -31,6 +33,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    className: null,
     children: null,
     toolTipComponent: null,
     left: false,
@@ -176,7 +179,7 @@ export default class TooltipWrapper extends React.Component {
             );
         }
         return (
-            <div className="tooltip-wrapper" style={this.props.styles}>
+            <div className={cx({ 'tooltip-wrapper': true, [this.props.className]: this.props.className !== null })} style={this.props.styles}>
                 <div
                     ref={(div) => {
                         this.tooltipContainer = div;
