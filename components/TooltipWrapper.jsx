@@ -35,7 +35,7 @@ const defaultProps = {
     toolTipComponent: null,
     left: false,
     wide: false,
-    icon: "info",
+    icon: "",
     controlledProps: {
         isControlled: false,
         showTooltip: () => {},
