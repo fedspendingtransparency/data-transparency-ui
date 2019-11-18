@@ -57,7 +57,7 @@
                     text-align: center;
                 }
                 .tooltip__text {
-                    padding: 0 rem(15);
+                    padding: 0 rem(15) rem(15) rem(15);
                     font-weight: $font-normal;
                     display: flex;
                     flex-direction: column;
@@ -65,11 +65,19 @@
                     strong {
                         margin-top: rem(10);
                     }
+                    p:last-of-type {
+                        padding-bottom: 0;
+                        margin-bottom: 0;
+                    }
                     // lists inside tooltip
                     ul {
                         margin: 0;
                         padding-left: 0;
                         list-style-type: none;
+                        &:last-of-type {
+                            padding-bottom: 0;
+                            margin-bottom: 0;
+                        }
                     }
                     .tooltip__list {
                         padding: 0 rem(15);
