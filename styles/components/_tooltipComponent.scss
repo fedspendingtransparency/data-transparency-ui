@@ -25,7 +25,7 @@
                     text-align: center;
                 }
                 &.left {
-                    text-align: center;
+                    text-align: left;
                 }
             }
             .tooltip__amount {
@@ -51,7 +51,7 @@
                     text-align: center;
                 }
                 &.left {
-                    text-align: center;
+                    text-align: left;
                 }
                 ul {
                     padding-left: 0;
@@ -59,7 +59,7 @@
                 }
                 p,
                 strong {
-                    margin: rem(14) 0;
+                    margin: rem(7) 0;
                 }
                 > *:first-child,
                 > *:last-child {

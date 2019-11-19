@@ -20,7 +20,7 @@ export default {
 };
 
 const Tooltip = () => ( 
-  <TooltipComponent title="An Example Tooltip">
+  <TooltipComponent title="An Example Tooltip" textAlign={{ title: 'left', text: 'left'}}>
     <React.Fragment>
       <p>Here are some random words serving the purpose of illustrating how the tooltip component works</p>
       <p>Its really pretty neat and easy to use. I think you are gonna like it a ton.</p>
