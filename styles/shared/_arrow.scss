@@ -19,7 +19,7 @@ $color-tooltip-border: $color-gray-light;
     }
     &.right {
         left: auto;
-        right: rem(7);
+        right: rem(8.5);
         &:after {
             transform: rotate(225deg);
         }

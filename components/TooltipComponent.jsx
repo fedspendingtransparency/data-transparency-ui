@@ -1,12 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
 
-export const TooltipComponent = () => (
-    <div>
-        <h1 className="tooltip__title">Here is an example Header for the tooltip</h1>
+import "../styles/components/_tooltipComponent.scss";
+
+const propTypes = {
+    title: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string
+};
+
+const defaultProps = {
+    title: "Tooltip Info",
+    children: <p>Here is some info.</p>,
+    className: null
+};
+
+// eslint-disable-next-line import/prefer-default-export
+export const TooltipComponent = (props) => (
+    <div className={cx({ [props.className]: props.className !== null })}>
+        <h1 className="tooltip__title">{props.title}</h1>
         <div className="tooltip__text">
-            <p>Here are some random words serving the purpose of illustrating how the tooltip component works</p>
-            <p>Its really pretty neat and easy to use. I think you are gonna like it a ton.</p>
-            <p>You are welcome.</p>
+            {props.children}
         </div>
     </div>
 );
+
+TooltipComponent.propTypes = propTypes;
+TooltipComponent.defaultProps = defaultProps;

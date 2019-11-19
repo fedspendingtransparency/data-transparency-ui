@@ -19,11 +19,21 @@ export default {
   }
 };
 
+const Tooltip = () => ( 
+  <TooltipComponent title="An Example Tooltip">
+    <React.Fragment>
+      <p>Here are some random words serving the purpose of illustrating how the tooltip component works</p>
+      <p>Its really pretty neat and easy to use. I think you are gonna like it a ton.</p>
+      <p>You are welcome.</p>
+    </React.Fragment>
+  </TooltipComponent>
+);
+
 export const tooltipWrapper = () => (
   <div className="story__container tooltip-story">
     <TooltipWrapper
         icon="info"
-        tooltipComponent={<TooltipComponent />}
+        tooltipComponent={<Tooltip />}
         wide={boolean("wide", true)}
         left={boolean("left", true)}
         controlledProps={object("controlledTooltip", {
