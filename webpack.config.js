@@ -47,7 +47,7 @@ module.exports = {
         ]
     },
     externals: {
-        // Don't bundle react, react-dom, or lodash
+        // Don't bundle any of these packages, the consumer needs to install these
         react: {
             commonjs: "react",
             commonjs2: "react",
