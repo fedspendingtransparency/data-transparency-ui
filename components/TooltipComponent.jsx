@@ -8,14 +8,20 @@ const propTypes = {
     title: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    textAlign: PropTypes.oneOf(['left', 'center'])
+    textAlign: PropTypes.shape({
+        title: PropTypes.oneOf(["center", "left"]),
+        text: PropTypes.oneOf(["center", "left"])
+    })
 };
 
 const defaultProps = {
     title: "Tooltip Info",
     children: <p>Here is some info.</p>,
     className: null,
-    textAlign: 'left'
+    textAlign: {
+        title: 'left',
+        text: 'left'
+    }
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -26,8 +32,8 @@ const TooltipComponent = ({
     textAlign
 }) => (
     <div className={cx({ [className]: className !== null })}>
-        <h1 className="tooltip__title">{title}</h1>
-        <div className={cx("tooltip__text", textAlign)}>
+        <h1 className={cx("tooltip__title", textAlign.title)}>{title}</h1>
+        <div className={cx("tooltip__text", textAlign.text)}>
             {children}
         </div>
     </div>

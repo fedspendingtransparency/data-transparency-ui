@@ -21,7 +21,12 @@
                 font-weight: $font-bold;
                 z-index: 10;
                 margin: 0;
-                text-align: center;
+                &.center {
+                    text-align: center;
+                }
+                &.left {
+                    text-align: center;
+                }
             }
             .tooltip__amount {
                 margin: 0;
@@ -42,6 +47,12 @@
                 font-weight: $font-normal;
                 display: flex;
                 flex-direction: column;
+                &.center {
+                    text-align: center;
+                }
+                &.left {
+                    text-align: center;
+                }
                 ul {
                     padding-left: 0;
                     list-style-type: none;
