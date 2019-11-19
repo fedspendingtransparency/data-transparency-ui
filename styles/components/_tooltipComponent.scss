@@ -47,9 +47,11 @@
                     list-style-type: none;
                 }
                 p,
-                ul,
                 strong {
                     margin: rem(5) 0;
+                }
+                ul {
+                    margin: rem(15) 0;
                 }
             }
             .tooltip__list {
