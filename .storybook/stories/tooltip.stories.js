@@ -25,6 +25,13 @@ const Tooltip = () => (
       <p>Here are some random words serving the purpose of illustrating how the tooltip component works</p>
       <p>Its really pretty neat and easy to use. I think you are gonna like it a ton.</p>
       <p>You are welcome.</p>
+      <ul>
+        <li>Some List Item</li>
+        <li>Some List Item</li>
+        <li>Some List Item</li>
+        <li>Some List Item</li>
+      </ul>
+      <p>More Paragraph</p>
     </React.Fragment>
   </TooltipComponent>
 );
