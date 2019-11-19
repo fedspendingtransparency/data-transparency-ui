@@ -20,7 +20,7 @@
                 padding: rem(10) rem(15);
                 font-weight: $font-bold;
                 z-index: 10;
-                margin-top: 0;
+                margin: 0;
                 text-align: center;
             }
             .tooltip__amount {
@@ -38,7 +38,7 @@
                 }
             }
             .tooltip__text {
-                padding: 0 rem(15) rem(15) rem(15);
+                padding: rem(20);
                 font-weight: $font-normal;
                 display: flex;
                 flex-direction: column;
@@ -47,11 +47,9 @@
                     list-style-type: none;
                 }
                 p,
-                ul {
-                    margin: rem(5);
-                }
-                ul p {
-                    margin: 0;
+                ul,
+                strong {
+                    margin: rem(5) 0;
                 }
             }
             .tooltip__list {
