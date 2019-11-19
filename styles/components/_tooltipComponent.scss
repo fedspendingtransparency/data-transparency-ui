@@ -49,7 +49,10 @@
                 p,
                 ul {
                     margin: rem(5);
-                } 
+                }
+                ul p {
+                    margin: 0;
+                }
             }
             .tooltip__list {
                 // award amounts lists
