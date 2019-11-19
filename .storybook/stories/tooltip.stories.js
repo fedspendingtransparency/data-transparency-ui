@@ -3,7 +3,7 @@ import { withKnobs, boolean, object } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 
 import TooltipWrapper from '../../components/TooltipWrapper';
-import { TooltipComponent } from '../../components/TooltipComponent';
+import TooltipComponent from '../../components/TooltipComponent';
 
 export default {
   title: 'TooltipWrapper',
