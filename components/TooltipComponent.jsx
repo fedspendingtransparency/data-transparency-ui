@@ -17,7 +17,7 @@ const defaultProps = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const TooltipComponent = (props) => (
+const TooltipComponent = (props) => (
     <div className={cx({ [props.className]: props.className !== null })}>
         <h1 className="tooltip__title">{props.title}</h1>
         <div className="tooltip__text">
@@ -28,3 +28,5 @@ export const TooltipComponent = (props) => (
 
 TooltipComponent.propTypes = propTypes;
 TooltipComponent.defaultProps = defaultProps;
+
+export default TooltipComponent;
