@@ -49,6 +49,10 @@
                 p,
                 strong {
                     margin: rem(5) 0;
+                    &:first-of-type,
+                    &:last-of-type {
+                        margin: 0;
+                    }
                 }
                 ul {
                     margin: rem(10) 0;
