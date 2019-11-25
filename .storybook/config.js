@@ -91,8 +91,8 @@ addParameters({
     storySort: (a, b) => {
       const [className, obj] = a;
       const [className2, obj2] = b;
-      if (obj.kind === 'Welcome') return -1;
-      if (obj2.kind === 'Welcome') return 1;
+      if (obj.kind === 'Introduction') return -1;
+      if (obj2.kind === 'Introduction') return 1;
       return 1;
     },
     showAddonPanel: true
