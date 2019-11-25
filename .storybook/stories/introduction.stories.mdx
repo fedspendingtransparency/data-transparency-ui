@@ -1,10 +1,10 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import infoGraphic from "../img/ui_ux_approval.png";
 
-<Meta title="Welcome" parameters={{ options: { showAddonPanel: false } }}/>
+<Meta title="Introduction" parameters={{ options: { showAddonPanel: false } }}/>
 
 # Data Transparency User Interface (UI) Component Library
-The purpose of this webpage is to give visibility into the patterns built into the 
+The purpose of this project is to give visibility into the patterns built into the 
 [Broker](https://broker.usaspending.gov/) and [USASpending](https://usaspending.gov/) UI and their corresponding techincal implementations.
 These implementations, refered to as UI Components, exist outside of the USASpending
 and Broker codebase.
@@ -20,7 +20,7 @@ in a single place and then see those changes propogated throughout the website i
 
 ## UI/UX & Development Collaboration Process
 
-The below infographic displays how the UI/UX and Development Teams work together to identify new components for this library.
+The below infographic displays how the UI/UX and Development Teams will iteratively work together to identify new components for this library.
 
 <img src={infoGraphic} alt="Data Transparency USASpending.gov logo" />
 
@@ -46,7 +46,7 @@ Currently, we are using the following Storybook features to display our current 
 
 When adding a new component to this library, please follow the below guide:
 - Build storybook artifacts and Component's CSS by running `npm run build`
-    - Storybook build artifacts are compiled in `docs/` and deployed using GitHub Pages from the master branch
+    - Storybook build artifacts are compiled in `docs/` and deployed using GitHub Pages once merged to the master branch
     - Component CSS is compiled to `dist/`
 - Export the new component in `index.js`
 - Consult the storybook documentation
