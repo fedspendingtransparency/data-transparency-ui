@@ -3,6 +3,7 @@ const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = async ({ config, mode }) => {
+  console.log("working dir", path.resolve(__dirname));
   config.resolve = {
     ...config.resolve,
     extensions: [
@@ -17,30 +18,49 @@ module.exports = async ({ config, mode }) => {
   }
   config.module.rules.push(
     ...[
-      {
-        test: /\.scss$/,
-        use: [
-            { loader: MiniCssExtractPlugin.loader },
-            { loader: "css-loader", options: { url: false, sourceMap: true } },
-            {
-              loader: "postcss-loader",
-              options: {
-                sourceMap: true,
-                indent: 'postcss',
-                plugins: [require('autoprefixer')],
-                config: {
-                  path: path.resolve(__dirname, "../postcss.config.js")
-                }
+    {
+      test: /\.scss$/,
+      use: [
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: "css-loader", options: { url: false, sourceMap: true } },
+          { loader: 'resolve-url-loader' },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true,
+              indent: 'postcss',
+              plugins: [require('autoprefixer')],
+              config: {
+                path: path.resolve(__dirname, "../postcss.config.js")
               }
-            },
-            {
-                loader: "sass-loader",
-                options: {
-                    sourceMap: true
-                }
             }
-          ]
-        },
+          },
+          {
+              loader: "sass-loader",
+              options: {
+                  sourceMap: true
+              }
+          }
+        ],
+        include: [
+          path.resolve(__dirname, "../styles"),
+          path.resolve(__dirname, "../img"),
+          path.resolve(__dirname, "../fonts")
+        ]
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2|png|svg|ico|gif|jpg)$/,
+        use: [{
+          loader: 'file-loader',
+          query: {
+            name: '[name].[ext]'
+          },
+        }],
+        include: [
+          path.resolve(__dirname, '../img'),
+          path.resolve(__dirname, '../fonts')
+        ],
+      },
       {
         test: /\.(stories|story)\.mdx$/,
         use: [
