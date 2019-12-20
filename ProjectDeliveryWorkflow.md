@@ -11,7 +11,7 @@ Do tags persist beyond the lifecycle of the branch which was its original target
 	- Yes; if you publish a branch and publish a tag to that branch,  the tag will persist even after the branch is deleted.
 
 ## Specifying a Commit-ish as Dependency in Consumer 
-`npm i fedspendingtransparency/data-transparency-ui/#vX.X.X` 
+`npm i fedspendingtransparency/data-transparency-ui#vX.X.X` 
 
 ## Semantic Versioning
 We are adopting this method for handling open source packaging in order to avoid introducing breaking changes to consumers who aren’t opting in to the newest iteration of the package.
