@@ -3,7 +3,7 @@ import { withKnobs, number, object } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
-import Pagination from '../../components/Pagination';
+import Pagination from '../../components/pagination/Pagination';
 
 export default {
   title: 'Pagination',
@@ -33,11 +33,31 @@ export const defaultPagination = () => {
     <div className="story__container">
         <Pagination
             onChangePage={handlePageChange}
-            pageNumber={page}
+            currentPage={page}
             pageSize={10}
             totalItems={100} />
     </div>
   );
 };
 
+export const resultsTextPagination = () => {
+  const [page, onChangePage] = useState(1);
+  const handlePageChange = (pg) => {
+    console.log("onChangePage handler invoked w/ this parameter: ", pg);
+    onChangePage(pg);
+  };
+  const resultsText = (<span><strong>Custom</strong> results text</span>);
+  return (
+    <div className="story__container">
+        <Pagination
+            onChangePage={handlePageChange}
+            currentPage={page}
+            pageSize={10}
+            totalItems={100}
+            resultsText={resultsText} />
+    </div>
+  );
+};
+
 defaultPagination.story = { name: 'Default Pagination' };
+resultsTextPagination.story = { name: 'Pagination with custom results text' };

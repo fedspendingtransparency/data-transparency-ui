@@ -7,18 +7,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { range } from 'lodash';
 
-import { formatNumberWithPrecision } from '../helpers/moneyFormatter';
-import { calculatePageRange } from '../helpers/paginationHelper';
+import { formatNumberWithPrecision } from '../../helpers/moneyFormatter';
 
 const propTypes = {
     onChangePage: PropTypes.func.isRequired,
-    pageNumber: PropTypes.number,
-    totalItems: PropTypes.number,
+    totalItems: PropTypes.number.isRequired,
+    currentPage: PropTypes.number,
     pageSize: PropTypes.number,
-    resultsText: PropTypes.element
+    resultsText: PropTypes.element,
+    limitSelector: PropTypes.bool,
+    changeLimit: PropTypes.func
 };
 
-require('../styles/components/_pagination.scss');
+const defaultProps = {
+    currentPage: 1,
+    pageSize: 10,
+    limitSelector: false,
+    changeLimit: () => {}
+};
+
+require('../../styles/components/_pagination.scss');
 
 export default class Pagination extends React.Component {
     constructor(props) {
@@ -30,9 +38,7 @@ export default class Pagination extends React.Component {
     }
 
     getPager() {
-        const totalItems = this.props.totalItems;
-        const currentPage = this.props.pageNumber;
-        const pageSize = this.props.pageSize;
+        const { totalItems, currentPage, pageSize } = this.props;
 
         // calculate total pages
         const totalPages = Math.ceil(totalItems / pageSize);
@@ -45,6 +51,7 @@ export default class Pagination extends React.Component {
             <li className="pager__item">
                 <button
                     className="pager__button"
+                    type="button"
                     onClick={() => this.setPage(1)}>
                     {1}
                 </button>
@@ -54,6 +61,7 @@ export default class Pagination extends React.Component {
             <li className="pager__item">
                 <button
                     className="pager__button"
+                    type="button"
                     onClick={() => this.setPage(totalPages)}>
                     {formatNumberWithPrecision(totalPages, 0)}
                 </button>
@@ -128,30 +136,31 @@ export default class Pagination extends React.Component {
     }
 
     generatePageButtons(pages, totalPages) {
-        return (pages.map((page, index) =>
-            (
-                <li
-                    key={index}
-                    className="pager__item">
-                    <button
-                        className={`pager__button ${this.props.pageNumber === page ? 'pager__button_active' : ''}`}
-                        onClick={() => this.setPage(page, totalPages)}>
-                        {formatNumberWithPrecision(page, 0)}
-                    </button>
-                </li>
-            )
+        const { currentPage } = this.props;
+        return (pages.map((page, index) => (
+            <li
+                key={index}
+                className="pager__item">
+                <button
+                    className={`pager__button ${currentPage === page ? 'pager__button_active' : ''}`}
+                    type="button"
+                    onClick={() => this.setPage(page, totalPages)}>
+                    {formatNumberWithPrecision(page, 0)}
+                </button>
+            </li>
+        )
         ));
     }
 
     render() {
         const pager = this.getPager();
-        const pageRange = calculatePageRange(pager.currentPage, pager.pageSize, pager.totalItems);
-        let resultsText = (
+        const { resultsText } = this.props;
+
+        const description = resultsText ? (
             <div className="pagination__totals">
-                {formatNumberWithPrecision(pageRange.start, 0)}-{formatNumberWithPrecision(pageRange.end, 0)} of {formatNumberWithPrecision(this.props.totalItems, 0)} results
+                {resultsText}
             </div>
-        );
-        if (this.props.resultsText) resultsText = this.props.resultsText;
+        ) : null;
 
         if (!pager.pages || pager.pages.length <= 1) {
             // don't display pager if there is only 1 page
@@ -161,11 +170,12 @@ export default class Pagination extends React.Component {
 
         return (
             <div className="pagination">
-                {resultsText}
+                {description}
                 <ul className="pager">
                     <li className="pager__item">
                         <button
                             className={`pager__button ${pager.currentPage === 1 ? 'pager__button_disabled' : ''}`}
+                            type="button"
                             disabled={pager.currentPage === 1}
                             onClick={() => this.setPage(pager.currentPage - 1)}>{`<`}
                         </button>
@@ -178,8 +188,10 @@ export default class Pagination extends React.Component {
                     <li className="pager__item">
                         <button
                             className={`pager__button ${pager.currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
+                            type="button"
                             disabled={pager.currentPage === pager.totalPages}
-                            onClick={() => this.setPage(pager.currentPage + 1)}>{`>`}
+                            onClick={() => this.setPage(pager.currentPage + 1)}>
+                            {`>`}
                         </button>
                     </li>
                 </ul>
@@ -189,3 +201,4 @@ export default class Pagination extends React.Component {
 }
 
 Pagination.propTypes = propTypes;
+Pagination.defaultProps = defaultProps;
