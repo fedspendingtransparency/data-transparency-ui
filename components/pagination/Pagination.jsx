@@ -9,6 +9,8 @@ import { range } from 'lodash';
 
 import { formatNumberWithPrecision } from '../../helpers/moneyFormatter';
 
+import LimitSelector from './LimitSelector';
+
 const propTypes = {
     onChangePage: PropTypes.func.isRequired,
     totalItems: PropTypes.number.isRequired,
@@ -154,12 +156,18 @@ export default class Pagination extends React.Component {
 
     render() {
         const pager = this.getPager();
-        const { resultsText } = this.props;
+        const { resultsText, limitSelector, changeLimit, pageSize } = this.props;
 
         const description = resultsText ? (
             <div className="pagination__totals">
                 {resultsText}
             </div>
+        ) : null;
+
+        const limitSelect = limitSelector ? (
+            <LimitSelector
+                changeLimit={changeLimit}
+                pageSize={pageSize} />
         ) : null;
 
         if (!pager.pages || pager.pages.length <= 1) {
@@ -195,6 +203,7 @@ export default class Pagination extends React.Component {
                         </button>
                     </li>
                 </ul>
+                {limitSelect}
             </div>
         );
     }

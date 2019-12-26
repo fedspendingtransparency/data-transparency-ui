@@ -59,5 +59,30 @@ export const resultsTextPagination = () => {
   );
 };
 
+export const limitSelectorPagination = () => {
+  const [page, onChangePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("onChangePage handler invoked w/ this parameter: ", page);
+    onChangePage(page);
+  };
+  const [pageSize, changeLimit] = useState(2);
+  const handleChangeLimit = (pageSize) => {
+    console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
+    changeLimit(pageSize);
+  }
+  return (
+    <div className="story__container">
+        <Pagination
+            onChangePage={handlePageChange}
+            currentPage={page}
+            pageSize={pageSize}
+            totalItems={100}
+            limitSelector
+            changeLimit={handleChangeLimit} />
+    </div>
+  );
+};
+
 defaultPagination.story = { name: 'Default Pagination' };
 resultsTextPagination.story = { name: 'Pagination with custom results text' };
+limitSelectorPagination.story = { name: 'Pagination with limit selector' };
