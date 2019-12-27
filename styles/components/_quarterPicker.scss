@@ -45,12 +45,12 @@
                 }
 
                 &:active, &.quarter-picker__quarter_active {
-                    background-color: $br-color-primary;
+                    background-color: $color-primary;
                     color: $color-white;
                 }
 
                 &:hover{
-                    background-color: $br-color-primary-darker;
+                    background-color: $color-primary-darker;
                     color: $color-white;
                 }
 

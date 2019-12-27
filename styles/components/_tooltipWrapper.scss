@@ -12,7 +12,7 @@
     }
     .tooltip__hover-wrapper {
         .tooltip__icon {
-            color: $color-gray-border;
+            color: $color-gray-lighter;
             margin: 0 $global-pad-mrg / 2;
             &:hover {
                 color: $color-gray;

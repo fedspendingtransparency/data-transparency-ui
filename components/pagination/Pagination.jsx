@@ -35,7 +35,7 @@ const defaultProps = {
     goToPage: false
 };
 
-require('../../styles/components/_pagination.scss');
+require('../../styles/components/pagination/_pagination.scss');
 
 export default class Pagination extends React.Component {
     constructor(props) {

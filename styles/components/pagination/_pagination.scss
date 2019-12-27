@@ -1,4 +1,4 @@
-@import "../global/index";
+@import "../../global/index";
 
 .pagination {
     display: flex;
@@ -49,4 +49,6 @@
             margin-right: 5px;
         }
     }
+    @import './limitSelector';
+    @import './goTo';
 }

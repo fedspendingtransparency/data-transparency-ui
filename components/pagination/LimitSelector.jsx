@@ -41,7 +41,7 @@ export default class LimitSelector extends React.Component {
             <select
                 onChange={this.changeLimit}
                 value={pageSize}
-                className="table-limit-selector"
+                className="pagination__limit-selector"
                 aria-label="limit-dropdown">
                 {list}
             </select>
