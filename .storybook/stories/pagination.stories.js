@@ -106,7 +106,26 @@ export const limitSelectorPagination = () => {
   );
 };
 
+export const goToPagePagination = () => {
+  const [page, onChangePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("onChangePage handler invoked w/ this parameter: ", page);
+    onChangePage(page);
+  };
+  return (
+    <div className="story__container">
+        <Pagination
+            onChangePage={handlePageChange}
+            currentPage={page}
+            pageSize={10}
+            totalItems={100}
+            goToPage />
+    </div>
+  );
+};
+
 defaultPagination.story = { name: 'Default Pagination' };
 resultsTextPagination.story = { name: 'Pagination with default results text' };
 customResultsTextPagination.story = { name: 'Pagination with custom results text' };
 limitSelectorPagination.story = { name: 'Pagination with limit selector' };
+goToPagePagination.story = { name: 'Pagination with "go to page"' };

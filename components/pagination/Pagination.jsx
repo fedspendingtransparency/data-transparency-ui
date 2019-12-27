@@ -11,6 +11,7 @@ import { formatNumberWithPrecision } from '../../helpers/moneyFormatter';
 import { calculatePageRange } from '../../helpers/paginationHelper';
 
 import LimitSelector from './LimitSelector';
+import GoToPage from './GoToPage';
 
 const propTypes = {
     onChangePage: PropTypes.func.isRequired,
@@ -20,7 +21,8 @@ const propTypes = {
     resultsText: PropTypes.bool,
     customResultsText: PropTypes.element,
     limitSelector: PropTypes.bool,
-    changeLimit: PropTypes.func
+    changeLimit: PropTypes.func,
+    goToPage: PropTypes.bool
 };
 
 const defaultProps = {
@@ -29,7 +31,8 @@ const defaultProps = {
     resultsText: false,
     customResultsText: null,
     limitSelector: false,
-    changeLimit: () => {}
+    changeLimit: () => {},
+    goToPage: false
 };
 
 require('../../styles/components/_pagination.scss');
@@ -181,6 +184,8 @@ export default class Pagination extends React.Component {
         const pager = this.getPager();
         const {
             limitSelector,
+            goToPage,
+            onChangePage,
             changeLimit,
             pageSize
         } = this.props;
@@ -191,6 +196,12 @@ export default class Pagination extends React.Component {
             <LimitSelector
                 changeLimit={changeLimit}
                 pageSize={pageSize} />
+        ) : null;
+
+        const goTo = goToPage ? (
+            <GoToPage
+                changePage={onChangePage}
+                totalPages={pager.totalPages} />
         ) : null;
 
         if (!pager.pages || pager.pages.length <= 1) {
@@ -227,6 +238,7 @@ export default class Pagination extends React.Component {
                     </li>
                 </ul>
                 {limitSelect}
+                {goTo}
             </div>
         );
     }
