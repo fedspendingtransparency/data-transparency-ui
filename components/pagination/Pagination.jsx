@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { range } from 'lodash';
 
 import { formatNumberWithPrecision } from '../../helpers/moneyFormatter';
+import { calculatePageRange } from '../../helpers/paginationHelper';
 
 import LimitSelector from './LimitSelector';
 
@@ -16,7 +17,8 @@ const propTypes = {
     totalItems: PropTypes.number.isRequired,
     currentPage: PropTypes.number,
     pageSize: PropTypes.number,
-    resultsText: PropTypes.element,
+    resultsText: PropTypes.bool,
+    customResultsText: PropTypes.element,
     limitSelector: PropTypes.bool,
     changeLimit: PropTypes.func
 };
@@ -24,6 +26,8 @@ const propTypes = {
 const defaultProps = {
     currentPage: 1,
     pageSize: 10,
+    resultsText: false,
+    customResultsText: null,
     limitSelector: false,
     changeLimit: () => {}
 };
@@ -133,6 +137,25 @@ export default class Pagination extends React.Component {
         };
     }
 
+    getResultsText(pager) {
+        const { resultsText, customResultsText } = this.props;
+        if (customResultsText) {
+            return customResultsText;
+        }
+        if (resultsText) {
+            const pageRange = calculatePageRange(pager.currentPage, pager.pageSize, pager.totalItems);
+            const start = formatNumberWithPrecision(pageRange.start, 0);
+            const end = formatNumberWithPrecision(pageRange.end, 0);
+            const total = formatNumberWithPrecision(this.props.totalItems, 0);
+            return (
+                <div className="pagination__totals">
+                    {`${start}-${end} of ${total} results`}
+                </div>
+            );
+        }
+        return null;
+    }
+
     setPage(page) {
         this.props.onChangePage(page);
     }
@@ -156,13 +179,13 @@ export default class Pagination extends React.Component {
 
     render() {
         const pager = this.getPager();
-        const { resultsText, limitSelector, changeLimit, pageSize } = this.props;
+        const {
+            limitSelector,
+            changeLimit,
+            pageSize
+        } = this.props;
 
-        const description = resultsText ? (
-            <div className="pagination__totals">
-                {resultsText}
-            </div>
-        ) : null;
+        const description = this.getResultsText(pager);
 
         const limitSelect = limitSelector ? (
             <LimitSelector

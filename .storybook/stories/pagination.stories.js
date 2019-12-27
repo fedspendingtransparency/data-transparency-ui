@@ -42,11 +42,10 @@ export const defaultPagination = () => {
 
 export const resultsTextPagination = () => {
   const [page, onChangePage] = useState(1);
-  const handlePageChange = (pg) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", pg);
-    onChangePage(pg);
+  const handlePageChange = (page) => {
+    console.log("onChangePage handler invoked w/ this parameter: ", page);
+    onChangePage(page);
   };
-  const resultsText = (<span><strong>Custom</strong> results text</span>);
   return (
     <div className="story__container">
         <Pagination
@@ -54,7 +53,30 @@ export const resultsTextPagination = () => {
             currentPage={page}
             pageSize={10}
             totalItems={100}
-            resultsText={resultsText} />
+            resultsText />
+    </div>
+  );
+};
+
+export const customResultsTextPagination = () => {
+  const [page, onChangePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("onChangePage handler invoked w/ this parameter: ", page);
+    onChangePage(page);
+  };
+  const resultsText = (
+    <div className="pagination__totals">
+      <strong>Custom</strong> results text
+    </div>
+  );
+  return (
+    <div className="story__container">
+        <Pagination
+            onChangePage={handlePageChange}
+            currentPage={page}
+            pageSize={10}
+            totalItems={100}
+            customResultsText={resultsText} />
     </div>
   );
 };
@@ -78,11 +100,13 @@ export const limitSelectorPagination = () => {
             pageSize={pageSize}
             totalItems={100}
             limitSelector
+            resultsText
             changeLimit={handleChangeLimit} />
     </div>
   );
 };
 
 defaultPagination.story = { name: 'Default Pagination' };
-resultsTextPagination.story = { name: 'Pagination with custom results text' };
+resultsTextPagination.story = { name: 'Pagination with default results text' };
+customResultsTextPagination.story = { name: 'Pagination with custom results text' };
 limitSelectorPagination.story = { name: 'Pagination with limit selector' };
