@@ -14,7 +14,7 @@ import LimitSelector from './LimitSelector';
 import GoToPage from './GoToPage';
 
 const propTypes = {
-    onChangePage: PropTypes.func.isRequired,
+    changePage: PropTypes.func.isRequired,
     totalItems: PropTypes.number.isRequired,
     currentPage: PropTypes.number,
     pageSize: PropTypes.number,
@@ -160,7 +160,7 @@ export default class Pagination extends React.Component {
     }
 
     setPage(page) {
-        this.props.onChangePage(page);
+        this.props.changePage(page);
     }
 
     generatePageButtons(pages, totalPages) {
@@ -185,7 +185,7 @@ export default class Pagination extends React.Component {
         const {
             limitSelector,
             goToPage,
-            onChangePage,
+            changePage,
             changeLimit,
             pageSize
         } = this.props;
@@ -200,7 +200,7 @@ export default class Pagination extends React.Component {
 
         const goTo = goToPage ? (
             <GoToPage
-                changePage={onChangePage}
+                changePage={changePage}
                 totalPages={pager.totalPages} />
         ) : null;
 
