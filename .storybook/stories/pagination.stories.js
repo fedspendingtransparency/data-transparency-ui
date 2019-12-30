@@ -24,15 +24,15 @@ export default {
  * As of right now, if we use knobs to update a prop the component will only update via knobs
 */  
 export const defaultPagination = () => {
-  const [page, onChangePage] = useState(1);
+  const [page, changePage] = useState(1);
   const handlePageChange = (pg) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", pg);
-    onChangePage(pg);
+    console.log("changePage handler invoked w/ this parameter: ", pg);
+    changePage(pg);
   };
   return (
     <div className="story__container">
         <Pagination
-            onChangePage={handlePageChange}
+            changePage={handlePageChange}
             currentPage={page}
             pageSize={10}
             totalItems={100} />
@@ -41,15 +41,15 @@ export const defaultPagination = () => {
 };
 
 export const resultsTextPagination = () => {
-  const [page, onChangePage] = useState(1);
+  const [page, changePage] = useState(1);
   const handlePageChange = (page) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", page);
-    onChangePage(page);
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
   };
   return (
     <div className="story__container">
         <Pagination
-            onChangePage={handlePageChange}
+            changePage={handlePageChange}
             currentPage={page}
             pageSize={10}
             totalItems={100}
@@ -59,10 +59,10 @@ export const resultsTextPagination = () => {
 };
 
 export const customResultsTextPagination = () => {
-  const [page, onChangePage] = useState(1);
+  const [page, changePage] = useState(1);
   const handlePageChange = (page) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", page);
-    onChangePage(page);
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
   };
   const resultsText = (
     <div className="usa-dt-pagination__totals">
@@ -72,7 +72,7 @@ export const customResultsTextPagination = () => {
   return (
     <div className="story__container">
         <Pagination
-            onChangePage={handlePageChange}
+            changePage={handlePageChange}
             currentPage={page}
             pageSize={10}
             totalItems={100}
@@ -82,10 +82,10 @@ export const customResultsTextPagination = () => {
 };
 
 export const limitSelectorPagination = () => {
-  const [page, onChangePage] = useState(1);
+  const [page, changePage] = useState(1);
   const handlePageChange = (page) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", page);
-    onChangePage(page);
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
   };
   const [pageSize, changeLimit] = useState(2);
   const handleChangeLimit = (pageSize) => {
@@ -95,7 +95,7 @@ export const limitSelectorPagination = () => {
   return (
     <div className="story__container">
         <Pagination
-            onChangePage={handlePageChange}
+            changePage={handlePageChange}
             currentPage={page}
             pageSize={pageSize}
             totalItems={100}
@@ -107,15 +107,15 @@ export const limitSelectorPagination = () => {
 };
 
 export const goToPagePagination = () => {
-  const [page, onChangePage] = useState(1);
+  const [page, changePage] = useState(1);
   const handlePageChange = (page) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", page);
-    onChangePage(page);
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
   };
   return (
     <div className="story__container">
         <Pagination
-            onChangePage={handlePageChange}
+            changePage={handlePageChange}
             currentPage={page}
             pageSize={10}
             totalItems={100}
