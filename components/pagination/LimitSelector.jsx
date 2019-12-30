@@ -37,6 +37,7 @@ export default class LimitSelector extends React.Component {
                 {limit}
             </option>
         ));
+
         return (
             <select
                 onChange={this.changeLimit}

@@ -8,4 +8,12 @@
     @media(max-width: $small-screen) {
         margin-left: 0;
     }
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url(/chevron-down-solid.svg), linear-gradient(transparent,transparent);
+    background-repeat: no-repeat;
+    background-position: right rem(7.5) center;
+    background-size: rem(10);
+    width: rem(60);
 }
