@@ -8,6 +8,9 @@
     justify-content: center;
     align-items: center;
     padding: 100px;
+    @media (max-width: $tablet-screen) {
+        padding: 30px;
+    }
 }
 
 @import "./pagination";

@@ -214,32 +214,34 @@ export default class Pagination extends React.Component {
         return (
             <div className="usa-dt-pagination">
                 {description}
-                <ul className="pager">
-                    <li className="pager__item">
-                        <button
-                            className={`pager__button ${pager.currentPage === 1 ? 'pager__button_disabled' : ''}`}
-                            type="button"
-                            disabled={pager.currentPage === 1}
-                            onClick={() => this.setPage(pager.currentPage - 1)}>{`<`}
-                        </button>
-                    </li>
-                    {pager.firstButton}
-                    {pager.prevEllipses}
-                    {pageButtons}
-                    {pager.nextEllipses}
-                    {pager.lastButton}
-                    <li className="pager__item">
-                        <button
-                            className={`pager__button ${pager.currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
-                            type="button"
-                            disabled={pager.currentPage === pager.totalPages}
-                            onClick={() => this.setPage(pager.currentPage + 1)}>
-                            {`>`}
-                        </button>
-                    </li>
-                </ul>
-                {limitSelect}
-                {goTo}
+                <div className="usa-dt-pagination__wrapper">
+                    <ul className="pager">
+                        <li className="pager__item">
+                            <button
+                                className={`pager__button ${pager.currentPage === 1 ? 'pager__button_disabled' : ''}`}
+                                type="button"
+                                disabled={pager.currentPage === 1}
+                                onClick={() => this.setPage(pager.currentPage - 1)}>{`<`}
+                            </button>
+                        </li>
+                        {pager.firstButton}
+                        {pager.prevEllipses}
+                        {pageButtons}
+                        {pager.nextEllipses}
+                        {pager.lastButton}
+                        <li className="pager__item">
+                            <button
+                                className={`pager__button ${pager.currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
+                                type="button"
+                                disabled={pager.currentPage === pager.totalPages}
+                                onClick={() => this.setPage(pager.currentPage + 1)}>
+                                {`>`}
+                            </button>
+                        </li>
+                    </ul>
+                    {limitSelect}
+                    {goTo}
+                </div>
             </div>
         );
     }

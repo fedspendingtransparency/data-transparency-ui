@@ -5,4 +5,7 @@
     border-radius: 0;
     margin-left: rem(30);
     padding: 0 rem(5);
+    @media(max-width: $small-screen) {
+        margin-left: 0;
+    }
 }
