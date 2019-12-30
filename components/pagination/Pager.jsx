@@ -6,6 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { range } from 'lodash';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { formatNumberWithPrecision } from '../../helpers/moneyFormatter';
 
@@ -126,6 +127,7 @@ export default class Pager extends React.Component {
     }
 
     render() {
+        const { currentPage, changePage } = this.props;
         const pager = this.getPager();
         const pageButtons = this.generatePageButtons(pager.pages, pager.totalPages);
 
@@ -136,7 +138,8 @@ export default class Pager extends React.Component {
                         className={`pager__button ${pager.currentPage === 1 ? 'pager__button_disabled' : ''}`}
                         type="button"
                         disabled={pager.currentPage === 1}
-                        onClick={() => this.props.changePage(pager.currentPage - 1)}>{`<`}
+                        onClick={() => changePage(currentPage - 1)}>
+                        <FontAwesomeIcon icon="angle-left" />
                     </button>
                 </li>
                 {pager.firstButton}
@@ -149,8 +152,8 @@ export default class Pager extends React.Component {
                         className={`pager__button ${pager.currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
                         type="button"
                         disabled={pager.currentPage === pager.totalPages}
-                        onClick={() => this.props.changePage(pager.currentPage + 1)}>
-                        {`>`}
+                        onClick={() => changePage(currentPage + 1)}>
+                        <FontAwesomeIcon icon="angle-right" />
                     </button>
                 </li>
             </ul>
