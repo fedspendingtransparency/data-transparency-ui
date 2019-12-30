@@ -1,12 +1,12 @@
-@import "../global/index";
+@import "../../global/index";
 
-.quarter-picker {
+.usa-dt-quarter-picker {
     .warning-tooltip {
         // space the tooltip to the right of the quarter buttons
         margin-left: rem(230);
         margin-top: rem(-50);
     }
-    ul.quarter-picker__list {
+    ul.usa-dt-quarter-picker__list {
         @include unstyled-list;
         display: flex;
         align-items: center;
@@ -14,7 +14,7 @@
 
         padding: rem(5) 0;
 
-        li.quarter-picker__list-item {
+        li.usa-dt-quarter-picker__list-item {
             margin-right: rem(2);
             margin-left: rem(1);
 
@@ -26,7 +26,7 @@
                 margin-right: 0;
             }
 
-            button.quarter-picker__quarter {
+            button.usa-dt-quarter-picker__quarter {
                 @include button-unstyled;
 
                 color: $color-gray;
@@ -36,15 +36,15 @@
                 background-color: $color-gray-light;
                 padding: rem(3) rem(18);
 
-                &.quarter-picker__quarter_first {
+                &.usa-dt-quarter-picker__quarter_first {
                     border-radius: rem(30) 0 0 rem(30);
                 }
 
-                &.quarter-picker__quarter_last {
+                &.usa-dt-quarter-picker__quarter_last {
                     border-radius: 0 rem(30) rem(30) 0;
                 }
 
-                &:active, &.quarter-picker__quarter_active {
+                &:active, &.usa-dt-quarter-picker__quarter_active {
                     background-color: $color-primary;
                     color: $color-white;
                 }
@@ -54,7 +54,7 @@
                     color: $color-white;
                 }
 
-                &.quarter-picker__quarter_disabled {
+                &.usa-dt-quarter-picker__quarter_disabled {
                     background-color: $color-gray-lightest;
                     cursor: not-allowed;
                     color: $color-gray-light;

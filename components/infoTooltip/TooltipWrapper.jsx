@@ -9,7 +9,7 @@ import { throttle } from "lodash";
 import cx from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-require('../styles/components/_tooltipWrapper.scss');
+require('../../styles/components/infoTooltip/_tooltipWrapper.scss');
 
 const propTypes = {
     className: PropTypes.string,

@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import QuarterButton from './QuarterButton';
 
-import "../styles/components/_quarterPicker.scss";
+import '../../styles/components/quarterPicker/_quarterPicker.scss';
 
 const propTypes = {
     selectedQuarters: PropTypes.array,
@@ -22,7 +22,7 @@ export default class QuarterPicker extends React.Component {
         for (let i = 1; i <= 4; i++) {
             quarters.push(
                 <li
-                    className="quarter-picker__list-item"
+                    className="usa-dt-quarter-picker__list-item"
                     key={i}>
                     <QuarterButton
                         quarter={i}
@@ -38,8 +38,8 @@ export default class QuarterPicker extends React.Component {
 
     render() {
         return (
-            <div className="quarter-picker">
-                <ul className="quarter-picker__list">
+            <div className="usa-dt-quarter-picker">
+                <ul className="usa-dt-quarter-picker__list">
                     {this.generateQuarters()}
                 </ul>
             </div>

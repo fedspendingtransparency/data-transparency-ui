@@ -1,4 +1,4 @@
-@import "../global/index";
+@import "../../global/index";
 
 .tooltip-wrapper {
     font-size: $base-font-size;
@@ -22,7 +22,7 @@
     .tooltip {
         .tooltip__interior {
             position: relative;
-            @import "../shared/arrow";
+            @import "../../shared/arrow";
             $color-tooltip-border: $color-gray-light;
             .tooltip-pointer {
                 // override the coloring
