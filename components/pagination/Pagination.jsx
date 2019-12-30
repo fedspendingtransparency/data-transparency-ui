@@ -204,8 +204,9 @@ export default class Pagination extends React.Component {
                 totalPages={pager.totalPages} />
         ) : null;
 
-        if (!pager.pages || pager.pages.length <= 1) {
+        if (!limitSelector && (!pager.pages || pager.pages.length <= 1)) {
             // don't display pager if there is only 1 page
+            // except when the limit selector is present
             return null;
         }
         const pageButtons = this.generatePageButtons(pager.pages, pager.totalPages);
