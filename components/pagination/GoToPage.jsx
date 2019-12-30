@@ -52,13 +52,13 @@ export default class GoToPage extends React.Component {
         const { totalPages } = this.props;
         const placeholder = totalPages > 1 ? `1-${totalPages}` : '1';
         return (
-            <form className="pagination__go-to">
-                <label htmlFor="pagination-go-to">
+            <form className="usa-dt-pagination__go-to">
+                <label htmlFor="usa-dt-pagination-go-to">
                     Go to page
                 </label>
                 <input
                     type="number"
-                    id="pagination-go-to"
+                    id="usa-dt-pagination-go-to"
                     title={`Enter a number between 1 and ${totalPages}`}
                     min="1"
                     max={totalPages}

@@ -1,10 +1,10 @@
 @import "../../global/index";
 
-.pagination {
+.usa-dt-pagination {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    .pagination__totals {
+    .usa-dt-pagination__totals {
         flex: 1 1 auto;
         text-align: left;
         font-size: $base-font-size;
@@ -25,6 +25,7 @@
                 font-style: normal;
                 font-size: rem(12);
                 margin: rem(5) rem(5) rem(5) 0;
+                line-height: normal;
                 &:hover {
                     background-color: $color-primary-alt-lightest;
                 }

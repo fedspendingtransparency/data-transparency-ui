@@ -151,7 +151,7 @@ export default class Pagination extends React.Component {
             const end = formatNumberWithPrecision(pageRange.end, 0);
             const total = formatNumberWithPrecision(this.props.totalItems, 0);
             return (
-                <div className="pagination__totals">
+                <div className="usa-dt-pagination__totals">
                     {`${start}-${end} of ${total} results`}
                 </div>
             );
@@ -211,7 +211,7 @@ export default class Pagination extends React.Component {
         const pageButtons = this.generatePageButtons(pager.pages, pager.totalPages);
 
         return (
-            <div className="pagination">
+            <div className="usa-dt-pagination">
                 {description}
                 <ul className="pager">
                     <li className="pager__item">

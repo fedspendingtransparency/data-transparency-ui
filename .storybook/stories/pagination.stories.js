@@ -65,7 +65,7 @@ export const customResultsTextPagination = () => {
     onChangePage(page);
   };
   const resultsText = (
-    <div className="pagination__totals">
+    <div className="usa-dt-pagination__totals">
       <strong>Custom</strong> results text
     </div>
   );
