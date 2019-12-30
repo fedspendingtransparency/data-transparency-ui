@@ -124,8 +124,36 @@ export const goToPagePagination = () => {
   );
 };
 
+export const allOptionsPagination = () => {
+  const [page, changePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
+  };
+  const [pageSize, changeLimit] = useState(2);
+  const handleChangeLimit = (pageSize) => {
+    console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
+    changeLimit(pageSize);
+    changePage(1);
+  }
+  return (
+    <div className="story__container">
+        <Pagination
+            changePage={handlePageChange}
+            currentPage={page}
+            pageSize={pageSize}
+            totalItems={100}
+            goToPage
+            limitSelector
+            resultsText
+            changeLimit={handleChangeLimit} />
+    </div>
+  );
+};
+
 defaultPagination.story = { name: 'Default Pagination' };
 resultsTextPagination.story = { name: 'Pagination with default results text' };
 customResultsTextPagination.story = { name: 'Pagination with custom results text' };
 limitSelectorPagination.story = { name: 'Pagination with limit selector' };
 goToPagePagination.story = { name: 'Pagination with "go to page"' };
+allOptionsPagination.story = {name: 'Paginatino with limit selector and "go to page"'}
