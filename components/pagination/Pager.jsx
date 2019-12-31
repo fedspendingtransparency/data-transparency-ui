@@ -19,7 +19,7 @@ const propTypes = {
 
 export default class Pager extends React.Component {
     getPager() {
-        const { totalItems, currentPage, pageSize } = this.props;
+        const { totalItems, currentPage, pageSize, changePage } = this.props;
 
         // calculate total pages
         const totalPages = Math.ceil(totalItems / pageSize);
@@ -33,7 +33,7 @@ export default class Pager extends React.Component {
                 <button
                     className="pager__button"
                     type="button"
-                    onClick={() => this.setPage(1)}>
+                    onClick={() => changePage(1)}>
                     {1}
                 </button>
             </li>
@@ -43,7 +43,7 @@ export default class Pager extends React.Component {
                 <button
                     className="pager__button"
                     type="button"
-                    onClick={() => this.setPage(totalPages)}>
+                    onClick={() => changePage(totalPages)}>
                     {formatNumberWithPrecision(totalPages, 0)}
                 </button>
             </li>
