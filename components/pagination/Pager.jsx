@@ -135,9 +135,9 @@ export default class Pager extends React.Component {
             <ul className="pager">
                 <li className="pager__item">
                     <button
-                        className={`pager__button ${pager.currentPage === 1 ? 'pager__button_disabled' : ''}`}
+                        className={`pager__button ${currentPage === 1 ? 'pager__button_disabled' : ''}`}
                         type="button"
-                        disabled={pager.currentPage === 1}
+                        disabled={currentPage === 1}
                         onClick={() => changePage(currentPage - 1)}>
                         <FontAwesomeIcon icon="angle-left" />
                     </button>
@@ -149,9 +149,9 @@ export default class Pager extends React.Component {
                 {pager.lastButton}
                 <li className="pager__item">
                     <button
-                        className={`pager__button ${pager.currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
+                        className={`pager__button ${currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
                         type="button"
-                        disabled={pager.currentPage === pager.totalPages}
+                        disabled={currentPage === pager.totalPages}
                         onClick={() => changePage(currentPage + 1)}>
                         <FontAwesomeIcon icon="angle-right" />
                     </button>
