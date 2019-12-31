@@ -87,7 +87,7 @@ export const limitSelectorPagination = () => {
     console.log("changePage handler invoked w/ this parameter: ", page);
     changePage(page);
   };
-  const [pageSize, changeLimit] = useState(2);
+  const [pageSize, changeLimit] = useState(10);
   const handleChangeLimit = (pageSize) => {
     console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
     changeLimit(pageSize);
@@ -130,7 +130,7 @@ export const allOptionsPagination = () => {
     console.log("changePage handler invoked w/ this parameter: ", page);
     changePage(page);
   };
-  const [pageSize, changeLimit] = useState(2);
+  const [pageSize, changeLimit] = useState(10);
   const handleChangeLimit = (pageSize) => {
     console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
     changeLimit(pageSize);
