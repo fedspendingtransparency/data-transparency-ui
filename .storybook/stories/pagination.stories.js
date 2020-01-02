@@ -76,7 +76,7 @@ export const customResultsTextPagination = () => {
             currentPage={page}
             pageSize={10}
             totalItems={100}
-            customResultsText={resultsText} />
+            resultsText={resultsText} />
     </div>
   );
 };
@@ -151,9 +151,9 @@ export const allOptionsPagination = () => {
   );
 };
 
-defaultPagination.story = { name: 'Default Pagination' };
-resultsTextPagination.story = { name: 'Pagination with default results text' };
-customResultsTextPagination.story = { name: 'Pagination with custom results text' };
-limitSelectorPagination.story = { name: 'Pagination with limit selector' };
-goToPagePagination.story = { name: 'Pagination with "go to page"' };
-allOptionsPagination.story = {name: 'Paginatino with limit selector and "go to page"'}
+defaultPagination.story = { name: 'Default' };
+resultsTextPagination.story = { name: 'Default results text' };
+customResultsTextPagination.story = { name: 'Custom results text' };
+limitSelectorPagination.story = { name: 'Limit selector' };
+goToPagePagination.story = { name: '"Go to page"' };
+allOptionsPagination.story = {name: 'Limit selector and "Go to page"'}

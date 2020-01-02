@@ -18,8 +18,7 @@ const propTypes = {
     totalItems: PropTypes.number.isRequired,
     currentPage: PropTypes.number,
     pageSize: PropTypes.number,
-    resultsText: PropTypes.bool,
-    customResultsText: PropTypes.element,
+    resultsText: PropTypes.oneOfType([PropTypes.boolean, PropTypes.element]),
     limitSelector: PropTypes.bool,
     changeLimit: PropTypes.func,
     goToPage: PropTypes.bool
@@ -41,15 +40,15 @@ export default class Pagination extends React.Component {
     getResultsText() {
         const {
             resultsText,
-            customResultsText,
             totalItems,
             currentPage,
             pageSize
         } = this.props;
-        if (customResultsText) {
-            return customResultsText;
+
+        if (React.isValidElement(resultsText)) {
+            return resultsText;
         }
-        if (resultsText) {
+        else if (resultsText) {
             const pageRange = calculatePageRange(currentPage, pageSize, totalItems);
             const start = formatNumberWithPrecision(pageRange.start, 0);
             const end = formatNumberWithPrecision(pageRange.end, 0);
