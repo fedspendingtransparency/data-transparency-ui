@@ -1,16 +1,31 @@
 // Colors:
-$button-color:               orange !default;
-$color-white:                #ffffff !default;
-$color-gray:                 #5b616b !default; // lighten($color-gray-dark, 20%)
-$color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
-$color-primary-alt-lightest: #e1f3f8 !default; // lighten($color-primary-alt, 90%)
-$color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
-$color-primary-alt-dark:     #00a6d2 !default;
-$color-gray-lightest:        #f1f1f1; // lighten($color-gray-dark, 91%)
-$color-gray-border:          #D8D8D8;
+$color-primary:              #0071bc;
+$color-primary-darker:       #205493;
+$color-primary-darkest:      #112e51;
 
-$br-color-primary:              #0071bc;
-$br-color-primary-darker:       #205493;
+$color-primary-alt:          #02bfe7;
+$color-primary-alt-dark:     #00a6d2;
+$color-primary-alt-darkest:  #046b99;
+$color-primary-alt-light:    #9bdaf1; // lighten($color-primary-alt, 60%)
+$color-primary-alt-lightest: #e1f3f8; // lighten($color-primary-alt, 90%)
+
+$color-secondary:            #e31c3d;
+$color-secondary-dark:       #cd2026;
+$color-secondary-darkest:    #981b1e;
+$color-secondary-light:      #e59393; // lighten($color-secondary, 60%)
+$color-secondary-lightest:   #f9dede; // lighten($color-secondary, 90%)
+
+$color-white:                #fff;
+$color-black:                #000;
+$color-base:                 #555;
+$color-link:                 #0071bc;
+
+$color-gray-dark:            #323a45;
+$color-gray:                 #5b616b; // lighten($color-gray-dark, 20%)
+$color-gray-medium:          #757575; // lightest gray that passes color contrast
+$color-gray-light:           #aeb0b5; // lighten($color-gray-dark, 60%)
+$color-gray-lighter:         #d6d7d9; // lighten($color-gray-dark, 80%)
+$color-gray-lightest:        #f1f1f1; // lighten($color-gray-dark, 91%)
 
 // Font Sizes
 $em-base:             10px;

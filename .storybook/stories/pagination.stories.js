@@ -3,7 +3,7 @@ import { withKnobs, number, object } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
-import Pagination from '../../components/Pagination';
+import Pagination from '../../components/pagination/Pagination';
 
 export default {
   title: 'Pagination',
@@ -24,20 +24,136 @@ export default {
  * As of right now, if we use knobs to update a prop the component will only update via knobs
 */  
 export const defaultPagination = () => {
-  const [page, onChangePage] = useState(1);
+  const [page, changePage] = useState(1);
   const handlePageChange = (pg) => {
-    console.log("onChangePage handler invoked w/ this parameter: ", pg);
-    onChangePage(pg);
+    console.log("changePage handler invoked w/ this parameter: ", pg);
+    changePage(pg);
   };
   return (
     <div className="story__container">
         <Pagination
-            onChangePage={handlePageChange}
-            pageNumber={page}
+            changePage={handlePageChange}
+            currentPage={page}
             pageSize={10}
             totalItems={100} />
     </div>
   );
 };
 
-defaultPagination.story = { name: 'Default Pagination' };
+export const resultsTextPagination = () => {
+  const [page, changePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
+  };
+  return (
+    <div className="story__container">
+        <Pagination
+            changePage={handlePageChange}
+            currentPage={page}
+            pageSize={10}
+            totalItems={100}
+            resultsText />
+    </div>
+  );
+};
+
+export const customResultsTextPagination = () => {
+  const [page, changePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
+  };
+  const resultsText = (
+    <div className="usa-dt-pagination__totals">
+      <strong>Custom</strong> results text
+    </div>
+  );
+  return (
+    <div className="story__container">
+        <Pagination
+            changePage={handlePageChange}
+            currentPage={page}
+            pageSize={10}
+            totalItems={100}
+            resultsText={resultsText} />
+    </div>
+  );
+};
+
+export const limitSelectorPagination = () => {
+  const [page, changePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
+  };
+  const [pageSize, changeLimit] = useState(10);
+  const handleChangeLimit = (pageSize) => {
+    console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
+    changeLimit(pageSize);
+  }
+  return (
+    <div className="story__container">
+        <Pagination
+            changePage={handlePageChange}
+            currentPage={page}
+            pageSize={pageSize}
+            totalItems={100}
+            limitSelector
+            resultsText
+            changeLimit={handleChangeLimit} />
+    </div>
+  );
+};
+
+export const goToPagePagination = () => {
+  const [page, changePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
+  };
+  return (
+    <div className="story__container">
+        <Pagination
+            changePage={handlePageChange}
+            currentPage={page}
+            pageSize={10}
+            totalItems={100}
+            goToPage />
+    </div>
+  );
+};
+
+export const allOptionsPagination = () => {
+  const [page, changePage] = useState(1);
+  const handlePageChange = (page) => {
+    console.log("changePage handler invoked w/ this parameter: ", page);
+    changePage(page);
+  };
+  const [pageSize, changeLimit] = useState(10);
+  const handleChangeLimit = (pageSize) => {
+    console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
+    changeLimit(pageSize);
+    changePage(1);
+  }
+  return (
+    <div className="story__container">
+        <Pagination
+            changePage={handlePageChange}
+            currentPage={page}
+            pageSize={pageSize}
+            totalItems={100}
+            goToPage
+            limitSelector
+            resultsText
+            changeLimit={handleChangeLimit} />
+    </div>
+  );
+};
+
+defaultPagination.story = { name: 'Default' };
+resultsTextPagination.story = { name: 'Default results text' };
+customResultsTextPagination.story = { name: 'Custom results text' };
+limitSelectorPagination.story = { name: 'Limit selector' };
+goToPagePagination.story = { name: '"Go to page"' };
+allOptionsPagination.story = {name: 'Limit selector and "Go to page"'}
