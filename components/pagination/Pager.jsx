@@ -26,8 +26,8 @@ export default class Pager extends React.Component {
 
         let startPage;
         let endPage;
-        let prevEllipses = (<span className="pager__ellipsis">...</span>);
-        let nextEllipses = (<span className="pager__ellipsis">...</span>);
+        let prevEllipses = (<li className="pager__ellipsis">...</li>);
+        let nextEllipses = (<li className="pager__ellipsis">...</li>);
         let firstButton = (
             <li className="pager__item">
                 <button
@@ -138,7 +138,8 @@ export default class Pager extends React.Component {
                         className={`pager__button ${currentPage === 1 ? 'pager__button_disabled' : ''}`}
                         type="button"
                         disabled={currentPage === 1}
-                        onClick={() => changePage(currentPage - 1)}>
+                        onClick={() => changePage(currentPage - 1)}
+                        title="Previous page">
                         <FontAwesomeIcon icon="angle-left" />
                     </button>
                 </li>
@@ -152,7 +153,8 @@ export default class Pager extends React.Component {
                         className={`pager__button ${currentPage === pager.totalPages ? 'pager__button_disabled' : ''}`}
                         type="button"
                         disabled={currentPage === pager.totalPages}
-                        onClick={() => changePage(currentPage + 1)}>
+                        onClick={() => changePage(currentPage + 1)}
+                        title="Next page">
                         <FontAwesomeIcon icon="angle-right" />
                     </button>
                 </li>

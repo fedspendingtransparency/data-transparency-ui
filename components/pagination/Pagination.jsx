@@ -18,7 +18,7 @@ const propTypes = {
     totalItems: PropTypes.number.isRequired,
     currentPage: PropTypes.number,
     pageSize: PropTypes.number,
-    resultsText: PropTypes.oneOfType([PropTypes.boolean, PropTypes.element]),
+    resultsText: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
     limitSelector: PropTypes.bool,
     changeLimit: PropTypes.func,
     goToPage: PropTypes.bool
