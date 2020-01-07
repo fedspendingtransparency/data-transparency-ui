@@ -41,16 +41,16 @@ export default class QuarterButton extends React.Component {
     }
 
     render() {
-        let additionalClasses = this.props.disabled ? 'quarter-picker__quarter_disabled ' : '';
+        let additionalClasses = this.props.disabled ? 'usa-dt-quarter-picker__quarter_disabled ' : '';
         if (this.props.quarter === 1) {
-            additionalClasses += 'quarter-picker__quarter_first';
+            additionalClasses += 'usa-dt-quarter-picker__quarter_first';
         }
         else if (this.props.quarter === 4) {
-            additionalClasses += 'quarter-picker__quarter_last';
+            additionalClasses += 'usa-dt-quarter-picker__quarter_last';
         }
 
         if (!this.props.disabled && this.props.active) {
-            additionalClasses += ' quarter-picker__quarter_active';
+            additionalClasses += ' usa-dt-quarter-picker__quarter_active';
         }
 
         return (
@@ -58,7 +58,7 @@ export default class QuarterButton extends React.Component {
             // so that the disabled buttons are still focusable to display
             // the warning tooltip
             <button
-                className={`quarter-picker__quarter ${additionalClasses}`}
+                className={`usa-dt-quarter-picker__quarter ${additionalClasses}`}
                 onClick={this.clickedQuarter}
                 onMouseEnter={this.onMouseEnter}
                 onFocus={this.onMouseEnter}

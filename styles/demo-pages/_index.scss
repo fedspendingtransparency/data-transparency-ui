@@ -8,6 +8,10 @@
     justify-content: center;
     align-items: center;
     font-family: $font-sans;
+    padding: 100px;
+    @media (max-width: $tablet-screen) {
+        padding: 30px;
+    }
 }
 
 #docs-root {

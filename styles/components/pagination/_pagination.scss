@@ -1,0 +1,29 @@
+@import "../../global/index";
+
+.usa-dt-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .usa-dt-pagination__totals {
+        flex: 1 1 auto;
+        text-align: left;
+        font-size: $base-font-size;
+    }
+    .usa-dt-pagination__wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        &:first-child {
+            // if there is no description / results text
+            justify-content: flex-start;
+        }
+        @media(max-width: $small-screen) {
+            justify-content: flex-start;
+        }
+        @import './pager';
+        @import './limitSelector';
+        @import './goTo';
+    }
+}

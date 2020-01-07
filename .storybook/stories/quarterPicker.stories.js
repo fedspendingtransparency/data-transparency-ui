@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { withKnobs, array } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 
-import QuarterPicker from '../../components/QuarterPicker';
+import QuarterPicker from '../../components/quarterPicker/QuarterPicker';
 
 export default {
   title: 'QuarterPicker',
