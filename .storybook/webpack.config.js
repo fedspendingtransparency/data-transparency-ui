@@ -18,9 +18,9 @@ module.exports = async ({ config, mode }) => {
   }
   config.module.rules.push(
     ...[
-    {
-      test: /\.scss$/,
-      use: [
+      {
+        test: /\.scss$/,
+        use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: "css-loader", options: { url: false, sourceMap: true } },
           { loader: 'resolve-url-loader' },
@@ -70,32 +70,34 @@ module.exports = async ({ config, mode }) => {
             options: {
               plugins: ['@babel/plugin-transform-react-jsx'],
             },
-            {
-                test: /\.(stories|story)\.mdx$/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        // may or may not need this line depending on your app's setup
-                        options: {
-                            plugins: ['@babel/plugin-transform-react-jsx']
-                        }
-                    },
-                    {
-                        loader: '@mdx-js/loader',
-                        options: {
-                            compilers: [createCompiler({})]
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.(stories|story)\.js?$/,
-                loader: require.resolve('@storybook/source-loader'),
-                exclude: [/node_modules/],
-                enforce: 'pre'
-            }
+          }],
+      },
+      {
+        test: /\.(stories|story)\.mdx$/,
+        use: [
+          {
+              loader: 'babel-loader',
+              // may or may not need this line depending on your app's setup
+              options: {
+                  plugins: ['@babel/plugin-transform-react-jsx']
+              }
+          },
+          {
+              loader: '@mdx-js/loader',
+              options: {
+                  compilers: [createCompiler({})]
+              }
+          }
         ]
-    );
+      },
+      {
+          test: /\.(stories|story)\.js?$/,
+          loader: require.resolve('@storybook/source-loader'),
+          exclude: [/node_modules/],
+          enforce: 'pre'
+      }
+    ]);
+
     config.plugins.push(
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
