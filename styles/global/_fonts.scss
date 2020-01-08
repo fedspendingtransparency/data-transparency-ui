@@ -1,0 +1,151 @@
+// font vars
+$font-path: '/fonts' !default;
+
+// old bourbon font fns
+@function font-source-declaration(
+    $font-family,
+    $file-path,
+    $asset-pipeline,
+    $file-formats,
+    $font-url
+) {
+
+    $src: ();
+
+    $formats-map: (
+        eot:   "#{$file-path}.eot?#iefix" format("embedded-opentype"),
+        woff2: "#{$file-path}.woff2" format("woff2"),
+        woff:  "#{$file-path}.woff" format("woff"),
+        ttf:   "#{$file-path}.ttf" format("truetype"),
+        svg:   "#{$file-path}.svg##{$font-family}" format("svg")
+    );
+
+    @each $key, $values in $formats-map {
+        @if contains($file-formats, $key) {
+            $file-path: nth($values, 1);
+            $font-format: nth($values, 2);
+
+            @if $asset-pipeline == true {
+                $src: append($src, font-url($file-path) $font-format, comma);
+            } @else {
+                $src: append($src, url($file-path) $font-format, comma);
+            }
+        }
+    }
+
+    @return $src;
+}
+
+@function font-url-prefixer($asset-pipeline) {
+    @if $asset-pipeline == true {
+        @return font-url;
+    } @else {
+        @return url;
+    }
+}
+
+@mixin font-face(
+    $font-family,
+    $file-path,
+    $weight: normal,
+    $style: normal,
+    $asset-pipeline: $asset-pipeline,
+    $file-formats: eot woff2 woff ttf svg) {
+
+        $font-url-prefix: font-url-prefixer($asset-pipeline);
+
+        @font-face {
+            font-family: $font-family;
+            font-style: $style;
+            font-weight: $weight;
+
+            src: font-source-declaration(
+            $font-family,
+            $file-path,
+            $asset-pipeline,
+            $file-formats,
+            $font-url-prefix
+            );
+        }
+}
+
+@include font-face(
+    'Source Sans Pro',
+    '#{$font-path}/sourcesanspro-light-webfont',
+    300,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Source Sans Pro',
+    '#{$font-path}/sourcesanspro-regular-webfont',
+    400,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Source Sans Pro',
+    '#{$font-path}/sourcesanspro-italic-webfont',
+    400,
+    italic,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Source Sans Pro',
+    '#{$font-path}/sourcesanspro-semibold-webfont',
+    600,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Source Sans Pro',
+    '#{$font-path}/sourcesanspro-bold-webfont',
+    700,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Merriweather',
+    '#{$font-path}/merriweather-light-webfont',
+    300,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Merriweather',
+    '#{$font-path}/merriweather-regular-webfont',
+    400,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Merriweather',
+    '#{$font-path}/merriweather-italic-webfont',
+    400,
+    italic,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);
+
+@include font-face(
+    'Merriweather',
+    '#{$font-path}/merriweather-bold-webfont',
+    700,
+    normal,
+    $asset-pipeline: false,
+    $file-formats: eot woff2 woff ttf
+);

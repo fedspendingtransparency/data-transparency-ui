@@ -7,10 +7,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: $font-sans;
     padding: 100px;
     @media (max-width: $tablet-screen) {
         padding: 30px;
     }
 }
 
+#docs-root {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    ul li {
+        font-family: $font-sans;
+    }
+}
+
 @import "./pagination";
+@import "./tooltip";

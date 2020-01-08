@@ -10,12 +10,13 @@
         box-shadow: $box-shadow;
         background-color: $color-white;
         border: solid rem(1) $color-gray-light;
+        color: $color-base;
         .tooltip__message {
             width: 100%;
             font-size: $small-font-size;
             text-align: left;
             .tooltip__title {
-                font-size: $small-font-size;
+                font-size: $base-font-size;
                 background-color: $color-gray-lightest;
                 padding: rem(10) rem(20);
                 font-weight: $font-bold;
