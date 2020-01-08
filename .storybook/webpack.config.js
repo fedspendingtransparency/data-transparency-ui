@@ -3,7 +3,6 @@ const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = async ({ config, mode }) => {
-  console.log("working dir", path.resolve(__dirname));
   config.resolve = {
     ...config.resolve,
     extensions: [
