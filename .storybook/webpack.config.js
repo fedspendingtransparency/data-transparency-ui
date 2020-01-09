@@ -43,8 +43,8 @@ module.exports = async ({ config, mode }) => {
         ],
         include: [
           path.resolve(__dirname, "../styles"),
-          path.resolve(__dirname, "../img"),
-          path.resolve(__dirname, "../fonts")
+          path.resolve(__dirname, "../assets/img"),
+          path.resolve(__dirname, "../assets/fonts")
         ]
       },
       {
@@ -56,8 +56,8 @@ module.exports = async ({ config, mode }) => {
           },
         }],
         include: [
-          path.resolve(__dirname, '../img'),
-          path.resolve(__dirname, '../fonts')
+          path.resolve(__dirname, '../assets/img'),
+          path.resolve(__dirname, '../assets/fonts')
         ],
       },
       {
