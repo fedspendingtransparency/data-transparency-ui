@@ -7,8 +7,8 @@
   "scripts": {
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
-    "build-sb": "build-storybook -c .storybook -o docs -s assets",
-    "start": "start-storybook --port 3001 -s assets",
+    "build-sb": "build-storybook -c .storybook -o docs -s assets/img,assets/fonts",
+    "start": "start-storybook --port 3001 -s assets/img,assets/fonts",
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
     "test": "./node_modules/.bin/jest; exit 0;",
     "build": "npm run build-cl && npm run build-sb"

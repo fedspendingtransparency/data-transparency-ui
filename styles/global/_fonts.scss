@@ -1,6 +1,6 @@
 // font vars
 // font path corresponds to value of -s param in build/start-sb package.json script
-$font-path: '../fonts' !default;
+$font-path: '../' !default;
 
 // old bourbon font fns
 @function font-source-declaration(
