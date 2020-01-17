@@ -4,6 +4,7 @@ Thank you for taking the time to contribute to this library.
 - [ ] Story Book has been rebuilt (new build artifacts in `/docs`)
 - [ ] Components have been rebuilt (new build artifacts in `/dist`)
 - [ ] All new components have been exported in `/index.js`
-- [ ] Draft release notes have been updated describing these changes ([use this template](https://github.com/fedspendingtransparency/data-transparency-ui/blob/master/draft_release_notes.md) to document your changes)
+- [ ] Design Review Complete
+- [ ] Relevant Draft release notes have been updated describing these changes ([use this template](https://github.com/fedspendingtransparency/data-transparency-ui/blob/master/draft_release_notes.md) to document your changes)
 - [ ] [Component Library Integration Status Report](https://github.com/fedspendingtransparency/data-act-documentation/blob/data-transparency-ui/frontend_apps/component-library-integration-status.md) updated with new component and all instances of that component in USASpending. Refer to inventory documentation [here](https://airtable.com/tblHeQOwctk5z5FOj/viw2T0ewpuDPOhHtL?blocks=show) for help with identifying instances of components. `if applicable`
 
