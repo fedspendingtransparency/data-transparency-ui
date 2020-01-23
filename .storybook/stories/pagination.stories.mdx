@@ -1,0 +1,133 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { withActions, actions } from '@storybook/addon-actions';
+
+import Pagination from '../../components/pagination/Pagination';
+import { PaginationWrapper } from "../misc";
+
+<Meta
+    title="Pagination MDX"
+    component={Pagination}
+    decorators={[withA11y, withActions('onClick')]}
+    parameters={{
+        a11y: {
+            // ... axe options
+            element: '.story__container', // optional selector which element to inspect
+            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+        }
+    }}
+/>
+
+<!--
+ * If this PR Gets merged (https://github.com/storybookjs/storybook/pull/3909)...
+ * We can use knobs for controlled components.
+ * As of right now, if we use knobs to update a prop the component will only update via knobs
+ -->
+
+## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
+This means the component relies on its parent to pass the following props:
+ -  `currentPage` & `changePage` (_required_)
+ - `changeLimit` & `pageSize`
+
+In this example, our parent -- `PaginationWrapper` -- looks like this before the render:
+
+```javascript
+const [page, changePage] = useState(1);
+const [pageSize, changeLimit] = useState(10);
+
+const handlePageChange = (pg) => {
+console.log("changePage handler invoked w/ this parameter: ", pg);
+changePage(pg);
+};
+
+const handleChangeLimit = (pageSize) => {
+console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
+changeLimit(pageSize);
+}
+```
+<Preview>
+    <Story name='Limit selector and "Go to page"'>
+        <PaginationWrapper>
+            <Pagination
+                goToPage
+                limitSelector
+                resultsText
+                pageSize={10}
+                totalItems={100} />
+        </PaginationWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='"Go to Page"'>
+        <PaginationWrapper>
+            <Pagination
+                goToPage
+                pageSize={10}
+                totalItems={100} />
+        </PaginationWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="Limit Selector">
+        <PaginationWrapper>
+            <Pagination
+                limitSelector
+                resultsText
+                pageSize={10}
+                totalItems={100} />
+        </PaginationWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="Custom Results Text">
+        <PaginationWrapper>
+            <Pagination
+                pageSize={10}
+                resultsText={
+                    <div className="usa-dt-pagination__totals">
+                        <strong>Custom</strong> results text
+                    </div>
+                }
+                totalItems={100} />
+        </PaginationWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="Default Results Text">
+        <PaginationWrapper>
+            <Pagination
+                resultsText
+                pageSize={10}
+                totalItems={100} />
+        </PaginationWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name="Default">
+        <PaginationWrapper>
+            {/* /* handler Funcs Passed from PaginationWrapper */}
+            <Pagination
+                pageSize={10}
+                totalItems={100} />
+        </PaginationWrapper>
+    </Story>
+</Preview>
+
+
+<Props of={Pagination} />
+
+## Integration Status
+## USASpending
+- [x] Recipient Profile
+- [x] Federal Account Landing Page
+- [x] Award Summary Page (IDV); IDV Activity Section
+- [x] Spending Explorer
+
+## Broker Integration Status
