@@ -26,6 +26,13 @@
     ul li {
         font-family: $font-sans;
     }
+    h2 a {
+        // color: $color-black;
+        font-size: 24px;
+        margin: none;
+        padding: none;
+        font-family: $font-sans;
+    }
 }
 
 @import "./pagination";
