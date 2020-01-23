@@ -74,7 +74,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "resolve-url-loader": "^3.1.1"
+    "resolve-url-loader": "^3.1.1",
+    "storybook": "^5.3.8"
   },
   "browserslist": [
     "last 2 versions",
