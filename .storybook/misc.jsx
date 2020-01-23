@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TooltipComponent from "../components/infoTooltip/TooltipComponent";
 
@@ -25,3 +25,53 @@ export const Tooltip = () => (
       </React.Fragment>
     </TooltipComponent>
   );
+
+export const PaginationWrapper = (props) => {
+  const [page, changePage] = useState(1);
+  const [pageSize, changeLimit] = useState(10);
+
+  const handlePageChange = (pg) => {
+    console.log("changePage handler invoked w/ this parameter: ", pg);
+    changePage(pg);
+  };
+
+  const handleChangeLimit = (pageSize) => {
+    console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
+    changeLimit(pageSize);
+  }
+
+  return (
+    <div className="story__container">
+      {React.cloneElement(props.children, {
+        changePage: handlePageChange,
+        currentPage: page,
+        changeLimit: handleChangeLimit,
+        pageSize,
+        ...props
+      })}
+    </div>
+  );
+};
+
+export const QuarterPickerWrapper = (props) => {
+  const [selectedQuarters, setSelectedQuarters] = useState([]); 
+
+  const handlePickQuarter = (newlySelectedQuarter) => {
+    if (selectedQuarters.includes(newlySelectedQuarter)) {
+      setSelectedQuarters(selectedQuarters.filter((quarter) => quarter !== newlySelectedQuarter))
+    }
+    else {
+      setSelectedQuarters([...new Set([...selectedQuarters, newlySelectedQuarter])])
+    }
+  }
+
+  return (
+      <div className="story__container quarter-picker-story">
+          {React.cloneElement(props.children, {
+            pickedQuarter: handlePickQuarter,
+            selectedQuarters,
+            ...props
+          })}
+      </div>
+  );
+};
