@@ -75,3 +75,17 @@ export const QuarterPickerWrapper = (props) => {
       </div>
   );
 };
+
+export const PickerWrapper = (props) => {
+  const [selectedOption, onClick] = useState(props.children.props.options[0]);
+  
+  return (
+    <div className="story__container picker-story">
+        {React.cloneElement(props.children, {
+          selectedOption,
+          onClick,
+          ...props.children.props
+        })}
+    </div>
+);
+}
