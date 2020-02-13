@@ -1,0 +1,103 @@
+@import "../global/index";
+
+.usa-dt-picker {
+    position: relative;
+
+    .hide {
+        display: none;
+    }
+
+    .usa-dt-picker__header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .usa-dt-picker__icon {
+            flex: 0 0 rem(30);
+            margin-right: rem(25);
+
+            svg {
+                width: rem(30);
+                height: rem(30);
+                fill: $color-white;
+            }
+        }
+
+        .usa-dt-picker__dropdown-container {
+            display: flex;
+            flex: 0 1 auto;
+            align-self: stretch;
+            position: relative;
+        }
+
+        .usa-dt-picker__button {
+            @include button-unstyled;
+            display: flex;
+            justify-content: center;
+            outline: none;
+            align-items: center;
+            border-bottom: 1px solid $color-white;
+        }
+
+        .usa-dt-picker__button-text {
+            flex: 1 1 auto;
+            margin-right: rem(15);
+            color: $color-white;
+            font-weight: $font-semibold;
+            font-size: rem(20);
+            line-height: rem(25);
+            background: white;
+            color: black;
+        }
+
+        .usa-dt-picker__button-icon {
+            flex: 0 0 rem(20);
+            svg {
+                width: rem(20);
+                height: rem(20);
+                fill: $color-primary-alt;
+            }
+        }
+    }
+
+    .usa-dt-picker__list {
+        @include unstyled-list;
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        border: 1px solid #464B53;
+        background-color: #272F38;
+
+        &.usa-dt-picker__list_hidden {
+            display: none;
+        }
+
+        .usa-dt-picker__list-item {
+            border-top: 1px solid #464B53;
+
+            &:first-child {
+                border-top: none;
+            }
+        }
+
+        .usa-dt-picker__item {
+            @include button-unstyled;
+            color: $color-white;
+            font-size: rem(18);
+            text-align: center;
+
+            padding: rem(10) rem(15);
+            width: 100%;
+
+            &:hover {
+                background-color: white;
+                color: #272F38;
+            }
+            &.active {
+                background-color: white;
+                color: #272F38;
+            }
+        }
+    }
+}
