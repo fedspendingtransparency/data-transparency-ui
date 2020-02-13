@@ -72,31 +72,31 @@ const Picker = ({
                 <div className="usa-dt-picker__icon">
                     <FontAwesomeIcon icon={icon} alt={altText} color={iconColor} size={iconSize} />
                 </div>
-                <div className="usa-dt-picker__dropdown-container">
-                    <button className="usa-dt-picker__button" onClick={toggleMenu}>
-                        <span className="usa-dt-picker__button-text">
-                            {optionPrefix ? `${optionPrefix} ${selectedOption}` : selectedOption}
-                        </span>
-                        <div className="usa-dt-picker__button-icon">
-                            <FontAwesomeIcon icon="chevron-down" alt="Toggle menu" />
-                        </div>
-                    </button>
-                    <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`}>
-                        {options
-                            .sort(handleSort)
-                            .map((option) => (
-                                <li key={option} className="usa-dt-picker__list-item">
-                                    <button
-                                        className={`usa-dt-picker__item ${option === selectedOption ? 'active' : ''}`}
-                                        value={`${option}`}
-                                        onClick={handleClick}>
-                                        {optionPrefix ? `${optionPrefix} ${option}` : option}
-                                    </button>
-                                </li>
-                            ))
-                        }
-                    </ul>
-                </div>
+                <button className="usa-dt-picker__button" onClick={toggleMenu}>
+                    <span className="usa-dt-picker__button-text">
+                        {optionPrefix ? `${optionPrefix} ${selectedOption}` : selectedOption}
+                    </span>
+                    <div className="usa-dt-picker__button-icon">
+                        <FontAwesomeIcon icon="chevron-down" alt="Toggle menu" />
+                    </div>
+                </button>
+            </div>
+            <div className="usa-dt-picker__dropdown-container">
+                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`}>
+                    {options
+                        .sort(handleSort)
+                        .map((option) => (
+                            <li key={option} className="usa-dt-picker__list-item">
+                                <button
+                                    className={`usa-dt-picker__item ${option === selectedOption ? 'active' : ''}`}
+                                    value={`${option}`}
+                                    onClick={handleClick}>
+                                    {optionPrefix ? `${optionPrefix} ${option}` : option}
+                                </button>
+                            </li>
+                        ))
+                    }
+                </ul>
             </div>
         </div>
     );
