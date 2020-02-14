@@ -12,19 +12,23 @@ require('../styles/components/_picker.scss');
 const fontAwesomeIconId = "usa-dt-picker__button-icon--svg";
 
 const propTypes = {
-    onClick: PropTypes.func,
     sortFn: PropTypes.func,
     icon: PropTypes.string,
     altText: PropTypes.string,
     iconColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
     iconSize: PropTypes.string,
     selectedOption: PropTypes.string,
     optionPrefix: PropTypes.string,
     className: PropTypes.string,
     id: PropTypes.string,
-    options: PropTypes.arrayOf(PropTypes.string),
+    options: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        onClick: PropTypes.func
+    })),
     borderType: PropTypes.oneOf(['none', 'bottom', 'full']),
-    borderColor: PropTypes.string
+    borderColor: PropTypes.string,
+    isFixedWidth: PropTypes.bool
 };
 
 const getBorderType = (borderType, borderColor) => {
@@ -39,7 +43,6 @@ const buttonRef = createRef();
 
 const Picker = ({
     sortFn = () => 'default',
-    onClick,
     selectedOption,
     options,
     optionPrefix = '',
@@ -50,10 +53,12 @@ const Picker = ({
     borderType = 'bottom',
     borderColor = 'white',
     className = '',
-    id = ''
+    id = '',
+    backgroundColor = 'white',
+    isFixedWidth = false
 }) => {
     const [expanded, setExpanded] = useState(false);
-    const [dimensions, setDimensions] = useState({ top: 0, width: 0 });
+    const [dimensions, setDimensions] = useState({ top: 0, width: 0, left: 0 });
 
     const toggleMenu = (e) => {
         e.preventDefault();
@@ -64,6 +69,9 @@ const Picker = ({
         // if no sort fn is provided, sort active element to lowest index
         if (a === selectedOption) return -1;
         if (b === selectedOption) return 1;
+        // then, sort alphabetically
+        if (a < b) return -1;
+        if (a > b) return 1;
         return 0;
     };
 
@@ -76,13 +84,14 @@ const Picker = ({
         if (buttonRef.current) {
             setDimensions({
                 top: buttonRef.current.offsetHeight,
-                width: buttonRef.current.offsetWidth
+                width: buttonRef.current.offsetWidth,
+                left: buttonRef.current.offsetLeft
             });
         }
     };
 
     useEffect(() => {
-        if (dimensions.width !== 0) {
+        if (dimensions.width !== 0 && isFixedWidth) {
             if (buttonRef.current && buttonRef.current.offsetWidth !== dimensions.width) {
                 handleSetDimensions();
             }
@@ -110,14 +119,30 @@ const Picker = ({
         };
     }, [expanded]);
 
-    const handleClick = (e) => {
+    const handleOptionClick = (cb) => (e) => {
+        console.log("e", e.target);
         e.preventDefault();
-        onClick(e.target.value);
+        cb(e.target.value);
         setExpanded(false);
     };
 
+    const getDropdownListStyles = () => {
+        const styles = {
+            top: `${dimensions.top}px`,
+            left: `${dimensions.left}px`
+        };
+
+        if (isFixedWidth) {
+            return {
+                ...styles,
+                width: `${dimensions.width}px`
+            };
+        }
+        return styles;
+    };
+
     return (
-        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
+        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{ backgroundColor }}>
             {icon !== 'none' && (
                 <div className="usa-dt-picker__icon">
                     <FontAwesomeIcon icon={icon} alt={altText} color={iconColor} size={iconSize} />
@@ -137,16 +162,20 @@ const Picker = ({
                         )}
                     </span>
                 </button>
-                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={{ width: `${dimensions.width}px`, top: `${dimensions.top}px` }}>
+                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
                     {options
                         .sort(handleSort)
+                        .map((option) => ({
+                            ...option,
+                            onClick: handleOptionClick(option.onClick)
+                        }))
                         .map((option) => (
-                            <li key={option} className="usa-dt-picker__list-item">
+                            <li key={option.name} className="usa-dt-picker__list-item">
                                 <button
-                                    className={`usa-dt-picker__item ${option === selectedOption ? 'active' : ''}`}
-                                    value={`${option}`}
-                                    onClick={handleClick}>
-                                    {optionPrefix ? `${optionPrefix} ${option}` : option}
+                                    className={`usa-dt-picker__item ${option.name === selectedOption ? 'active' : ''}`}
+                                    value={`${option.name}`}
+                                    onClick={option.onClick}>
+                                    {optionPrefix ? `${optionPrefix} ${option.name}` : option.name}
                                 </button>
                             </li>
                         ))

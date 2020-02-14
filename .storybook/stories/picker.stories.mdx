@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, array, object, text, select } from "@storybook/addon-knobs";
+import { withKnobs, array, object, text, select, boolean } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
@@ -24,14 +24,16 @@ import { PickerWrapper } from '../misc';
     <Story name='Default'>
         <PickerWrapper>
             <Picker
+                isFixedWidth={boolean('isFixedWidth', false)}
+                backgroundColor={text('backgroundColor', 'white')}
+                className={select('className', ['fy', 'form-component'], '')}
                 icon={text('icon', 'calendar-alt')}
                 altText={text('altText', 'This is for accessibility purposes')}
                 iconColor={text('iconColor', 'black')}
-                borderColor={text('borderColor', 'black')}
+                borderColor={text('borderColor', '#5b616b')}
                 borderType={select('borderType', ['bottom', 'none', 'full'], 'bottom', '')}
                 iconSize={select('iconSize', ['xs', 'lg', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'], 'lg', '')}
-                optionPrefix={text('optionPrefix', 'Prefix Applied to Each Option')}
-                options={array('options', ['number 1', 'number 2', 'some longer text', 'number 4'])} />
+                optionPrefix={text('optionPrefix', '')} />
         </PickerWrapper>
     </Story>
 </Preview>
