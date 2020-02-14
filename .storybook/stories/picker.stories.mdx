@@ -24,11 +24,14 @@ import { PickerWrapper } from '../misc';
     <Story name='Default'>
         <PickerWrapper>
             <Picker
+                icon={text('icon', 'calendar-alt')}
                 altText={text('altText', 'This is for accessibility purposes')}
                 iconColor={text('iconColor', 'black')}
+                borderColor={text('borderColor', 'black')}
+                borderType={select('borderType', ['bottom', 'none', 'full'], 'bottom', '')}
                 iconSize={select('iconSize', ['xs', 'lg', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'], 'lg', '')}
-                optionPrefix={text('optionPrefix', 'DT-UI')}
-                options={array('options', ['test', 'test2', 'test3', 'test4'])} />
+                optionPrefix={text('optionPrefix', 'Prefix Applied to Each Option')}
+                options={array('options', ['number 1', 'number 2', 'some longer text', 'number 4'])} />
         </PickerWrapper>
     </Story>
 </Preview>
