@@ -120,7 +120,6 @@ const Picker = ({
     }, [expanded]);
 
     const handleOptionClick = (cb) => (e) => {
-        console.log("e", e.target);
         e.preventDefault();
         cb(e.target.value);
         setExpanded(false);
