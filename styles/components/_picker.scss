@@ -2,28 +2,29 @@
 
 .usa-dt-picker {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    position: relative;
+
     .hide {
-        display: none;
+        visibility: hidden;
     }
 
-    .usa-dt-picker__header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
+    .usa-dt-picker__icon {
+        margin-right: rem(5);
 
-        .usa-dt-picker__icon {
-            flex: 0 0 rem(30);
-            margin-right: rem(25);
-
-            svg {
-                width: rem(30);
-                height: rem(30);
-                fill: $color-white;
-            }
+        svg {
+            width: rem(30);
+            height: rem(30);
+            fill: $color-white;
         }
+    }
 
+    .usa-dt-picker__dropdown-container {
+        display: flex;
+        flex: 0 1 auto;
+        align-self: flex-end;
+        width: 100%;
+        flex-wrap: wrap;
         .usa-dt-picker__button {
             @include button-unstyled;
             display: flex;
@@ -31,7 +32,8 @@
             outline: none;
             align-items: flex-end;
             border-bottom: 1px solid $color-white;
-            width: 75%;
+            padding: rem(10) rem(15);
+            width: 100%;
             .usa-dt-picker__button-text {
                 flex: 1 1 auto;
                 margin-right: rem(15);
@@ -44,6 +46,9 @@
             }
         
             .usa-dt-picker__button-icon {
+                button {
+                    @include button-unstyled;
+                }
                 flex: 0 0 rem(20);
                 svg {
                     width: rem(20);
@@ -52,26 +57,14 @@
                 }
             }
         }
-    }
-
-    .usa-dt-picker__dropdown-container {
-        display: flex;
-        flex: 0 1 auto;
-        align-self: flex-end;
-        position: relative;
-        width: 100%;
         .usa-dt-picker__list {
             @include unstyled-list;
             position: absolute;
-            left: 0;
-            right: 0;
+            // left: 0;
+            // right: 0;
             border: 1px solid #464B53;
             background-color: #272F38;
-            margin-left: 25%;
-    
-            &.usa-dt-picker__list_hidden {
-                display: none;
-            }
+            display: block;
     
             .usa-dt-picker__list-item {
                 border-top: 1px solid #464B53;
