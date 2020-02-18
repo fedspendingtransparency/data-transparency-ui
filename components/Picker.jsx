@@ -28,7 +28,8 @@ const propTypes = {
     })),
     borderType: PropTypes.oneOf(['none', 'bottom', 'full']),
     borderColor: PropTypes.string,
-    isFixedWidth: PropTypes.bool
+    isFixedWidth: PropTypes.bool,
+    children: PropTypes.node
 };
 
 const getBorderType = (borderType, borderColor) => {
@@ -55,7 +56,8 @@ const Picker = ({
     className = '',
     id = '',
     backgroundColor = 'white',
-    isFixedWidth = false
+    isFixedWidth = false,
+    children
 }) => {
     const [expanded, setExpanded] = useState(false);
     const [dimensions, setDimensions] = useState({ top: 0, width: 0, left: 0 });
@@ -148,19 +150,27 @@ const Picker = ({
                 </div>
             )}
             <div className="usa-dt-picker__dropdown-container">
-                <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu} style={{ ...getBorderType(borderType, borderColor) }}>
-                    <span className="usa-dt-picker__button-text">
-                        {optionPrefix ? `${optionPrefix} ${selectedOption}` : selectedOption}
-                    </span>
-                    <span className="usa-dt-picker__button-icon">
-                        {!expanded && (
-                            <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-down" alt="Toggle menu" color={iconColor} />
-                        )}
-                        {expanded && (
-                            <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-up" alt="Toggle menu" color={iconColor} />
-                        )}
-                    </span>
-                </button>
+                {children
+                    ? (
+                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu} style={{ ...getBorderType(borderType, borderColor) }}>
+                            {children}
+                        </button>
+                    )
+                    : (
+                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu} style={{ ...getBorderType(borderType, borderColor) }}>
+                            <span className="usa-dt-picker__button-text">
+                                {optionPrefix ? `${optionPrefix} ${selectedOption}` : selectedOption}
+                            </span>
+                            <span className="usa-dt-picker__button-icon">
+                                {!expanded && (
+                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-down" alt="Toggle menu" color={iconColor} />
+                                )}
+                                {expanded && (
+                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-up" alt="Toggle menu" color={iconColor} />
+                                )}
+                            </span>
+                        </button>
+                    )}
                 <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
                     {options
                         .sort(handleSort)

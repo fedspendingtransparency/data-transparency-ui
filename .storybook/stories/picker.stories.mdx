@@ -2,7 +2,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, array, object, text, select, boolean } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Picker from '../../components/Picker';
 import { PickerWrapper } from '../misc';
 
@@ -34,6 +34,26 @@ import { PickerWrapper } from '../misc';
                 borderType={select('borderType', ['bottom', 'none', 'full'], 'bottom', '')}
                 iconSize={select('iconSize', ['xs', 'lg', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'], 'lg', '')}
                 optionPrefix={text('optionPrefix', '')} />
+        </PickerWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='w/ Children'>
+        <PickerWrapper>
+            <Picker
+                isFixedWidth={boolean('isFixedWidth', false)}
+                backgroundColor={text('backgroundColor', 'white')}
+                className={select('className', ['fy', 'form-component'], '')}
+                icon={'none'}
+                altText={text('altText', 'This is for accessibility purposes')}
+                iconColor={text('iconColor', 'black')}
+                borderColor={text('borderColor', '#5b616b')}
+                borderType={select('borderType', ['bottom', 'none', 'full'], 'none', '')}
+                iconSize={select('iconSize', ['xs', 'lg', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'], 'lg', '')}
+                optionPrefix={''}>
+                <FontAwesomeIcon icon="share-alt" size="lg" color="black" />
+            </Picker>
         </PickerWrapper>
     </Story>
 </Preview>
