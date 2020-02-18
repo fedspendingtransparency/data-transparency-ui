@@ -27,6 +27,7 @@ const propTypes = {
         onClick: PropTypes.func
     })),
     borderType: PropTypes.oneOf(['none', 'bottom', 'full']),
+    dropdownDirection: PropTypes.oneOf(['left', 'right']),
     borderColor: PropTypes.string,
     isFixedWidth: PropTypes.bool,
     children: PropTypes.node
@@ -57,10 +58,16 @@ const Picker = ({
     id = '',
     backgroundColor = 'white',
     isFixedWidth = false,
-    children
+    children,
+    dropdownDirection = 'right'
 }) => {
     const [expanded, setExpanded] = useState(false);
-    const [dimensions, setDimensions] = useState({ top: 0, width: 0, left: 0 });
+    const [dimensions, setDimensions] = useState({
+        top: 0,
+        width: 0,
+        left: 0,
+        right: 0
+    });
 
     const toggleMenu = (e) => {
         e.preventDefault();
@@ -83,17 +90,20 @@ const Picker = ({
     };
 
     const handleSetDimensions = () => {
-        if (buttonRef.current) {
+        if (buttonRef.current && pickerRef.current) {
             setDimensions({
                 top: buttonRef.current.offsetHeight,
                 width: buttonRef.current.offsetWidth,
-                left: buttonRef.current.offsetLeft
+                left: buttonRef.current.offsetLeft,
+                // offsetLeft + offsetWidth to account for the horizontal margin / padding ✅
+                right: pickerRef.current.offsetWidth - (buttonRef.current.offsetWidth + buttonRef.current.offsetLeft)
             });
         }
     };
 
     useEffect(() => {
         if (dimensions.width !== 0 && isFixedWidth) {
+            // only reset the dimensions when we're setting the width dimension
             if (buttonRef.current && buttonRef.current.offsetWidth !== dimensions.width) {
                 handleSetDimensions();
             }
@@ -133,10 +143,23 @@ const Picker = ({
             left: `${dimensions.left}px`
         };
 
-        if (isFixedWidth) {
+        if (isFixedWidth && dropdownDirection === 'right') {
             return {
                 ...styles,
                 width: `${dimensions.width}px`
+            };
+        }
+        if (isFixedWidth && dropdownDirection === 'left') {
+            return {
+                top: styles.top,
+                right: `${dimensions.right}`,
+                width: `${dimensions.width}px`
+            };
+        }
+        if (dropdownDirection === 'left') {
+            return {
+                top: styles.top,
+                right: `${dimensions.right}px`
             };
         }
         return styles;
