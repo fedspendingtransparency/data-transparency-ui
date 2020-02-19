@@ -18,14 +18,13 @@ const propTypes = {
     iconColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     iconSize: PropTypes.string,
-    selectedOption: PropTypes.string.isRequired,
-    optionPrefix: PropTypes.string,
+    selectedOption: PropTypes.string,
     className: PropTypes.string,
     id: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         onClick: PropTypes.func
-    })).isRequired,
+    })),
     borderType: PropTypes.oneOf(['none', 'bottom', 'full']),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
     borderColor: PropTypes.string,
@@ -47,7 +46,6 @@ const Picker = ({
     sortFn = () => 'default',
     selectedOption,
     options,
-    optionPrefix = '',
     icon = 'calendar-alt',
     altText = 'Fiscal Year',
     iconColor = 'white',
@@ -182,7 +180,7 @@ const Picker = ({
                     : (
                         <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu} style={{ ...getBorderType(borderType, borderColor) }}>
                             <span className="usa-dt-picker__button-text">
-                                {optionPrefix ? `${optionPrefix} ${selectedOption}` : selectedOption}
+                                {selectedOption}
                             </span>
                             <span className="usa-dt-picker__button-icon">
                                 {!expanded && (
@@ -207,7 +205,7 @@ const Picker = ({
                                     className={`usa-dt-picker__item ${option.name === selectedOption ? 'active' : ''}`}
                                     value={`${option.name}`}
                                     onClick={option.onClick}>
-                                    {optionPrefix ? `${optionPrefix} ${option.name}` : option.name}
+                                    {option.component ? option.component : option.name}
                                 </button>
                             </li>
                         ))
