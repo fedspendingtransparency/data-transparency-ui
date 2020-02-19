@@ -18,14 +18,14 @@ const propTypes = {
     iconColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     iconSize: PropTypes.string,
-    selectedOption: PropTypes.string,
+    selectedOption: PropTypes.string.isRequired,
     optionPrefix: PropTypes.string,
     className: PropTypes.string,
     id: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
         onClick: PropTypes.func
-    })),
+    })).isRequired,
     borderType: PropTypes.oneOf(['none', 'bottom', 'full']),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
     borderColor: PropTypes.string,
