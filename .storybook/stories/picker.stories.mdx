@@ -26,13 +26,10 @@ import { PickerWrapper } from '../misc';
             <Picker
                 isFixedWidth={boolean('isFixedWidth', false)}
                 backgroundColor={text('backgroundColor', 'white')}
-                className={select('className', ['fy', 'form-component'], '')}
-                icon={text('icon', 'calendar-alt')}
-                altText={text('altText', 'This is for accessibility purposes')}
+                icon={<FontAwesomeIcon icon="calendar-alt" size="lg" color="black" />}
                 iconColor={text('iconColor', 'black')}
                 borderColor={text('borderColor', '#5b616b')}
                 borderType={select('borderType', ['bottom', 'none', 'full'], 'bottom', '')}
-                iconSize={select('iconSize', ['xs', 'lg', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'], 'lg', '')}
                 dropdownDirection={select('dropdownDirection', ['right', 'left'], 'right', '')} />
         </PickerWrapper>
     </Story>
@@ -42,15 +39,12 @@ import { PickerWrapper } from '../misc';
     <Story name='w/ Children'>
         <PickerWrapper>
             <Picker
+                className={select('className', ['fy', 'form-component'], '')}
                 isFixedWidth={boolean('isFixedWidth', false)}
                 backgroundColor={text('backgroundColor', 'white')}
-                className={select('className', ['fy', 'form-component'], '')}
-                icon={'none'}
-                altText={text('altText', 'This is for accessibility purposes')}
                 iconColor={text('iconColor', 'black')}
                 borderColor={text('borderColor', '#5b616b')}
                 borderType={select('borderType', ['bottom', 'none', 'full'], 'none', '')}
-                iconSize={select('iconSize', ['xs', 'lg', 'sm', '1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'], 'lg', '')}
                 dropdownDirection={select('dropdownDirection', ['right', 'left'], 'right', '')}>
                 <FontAwesomeIcon icon="share-alt" size="lg" color="black" />
             </Picker>

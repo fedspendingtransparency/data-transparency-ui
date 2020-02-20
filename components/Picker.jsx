@@ -13,11 +13,9 @@ const fontAwesomeIconId = "usa-dt-picker__button-icon--svg";
 
 const propTypes = {
     sortFn: PropTypes.func,
-    icon: PropTypes.string,
-    altText: PropTypes.string,
-    iconColor: PropTypes.string,
+    icon: PropTypes.node,
     backgroundColor: PropTypes.string,
-    iconSize: PropTypes.string,
+    iconColor: PropTypes.string,
     selectedOption: PropTypes.string,
     className: PropTypes.string,
     id: PropTypes.string,
@@ -43,18 +41,16 @@ const pickerRef = createRef();
 const buttonRef = createRef();
 
 const Picker = ({
-    sortFn = () => 'default',
-    selectedOption,
-    options,
-    icon = 'calendar-alt',
-    altText = 'Fiscal Year',
-    iconColor = 'white',
-    iconSize = 'lg',
-    borderType = 'bottom',
-    borderColor = 'white',
     className = '',
     id = '',
+    options,
+    selectedOption,
+    icon = null,
+    iconColor,
+    borderType = 'bottom',
+    borderColor = 'white',
     backgroundColor = 'white',
+    sortFn = () => 'default',
     isFixedWidth = false,
     children,
     dropdownDirection = 'right'
@@ -165,9 +161,9 @@ const Picker = ({
 
     return (
         <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{ backgroundColor }}>
-            {icon !== 'none' && (
+            {icon && (
                 <div className="usa-dt-picker__icon">
-                    <FontAwesomeIcon icon={icon} alt={altText} color={iconColor} size={iconSize} />
+                    {icon}
                 </div>
             )}
             <div className="usa-dt-picker__dropdown-container">
