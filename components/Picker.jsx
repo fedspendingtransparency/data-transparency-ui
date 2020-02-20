@@ -129,7 +129,7 @@ const Picker = ({
         };
     }, [expanded]);
 
-    const handleOptionClick = (cb) => (e) => {
+    const createOnClickFn = (cb) => (e) => {
         e.preventDefault();
         cb(e.target.value);
         setExpanded(false);
@@ -197,7 +197,7 @@ const Picker = ({
                         .sort(handleSort)
                         .map((option) => ({
                             ...option,
-                            onClick: handleOptionClick(option.onClick)
+                            onClick: createOnClickFn(option.onClick)
                         }))
                         .map((option) => (
                             <li key={option.name} className="usa-dt-picker__list-item">
