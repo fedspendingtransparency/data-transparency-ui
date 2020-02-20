@@ -40,6 +40,16 @@ const getBorderType = (borderType, borderColor) => {
 const pickerRef = createRef();
 const buttonRef = createRef();
 
+const defaultSort = (a, b, selectedOption) => {
+    // if no sort fn is provided, sort active element to lowest index
+    if (a === selectedOption) return -1;
+    if (b === selectedOption) return 1;
+    // then, sort alphabetically
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+};
+
 const Picker = ({
     className = '',
     id = '',
@@ -50,7 +60,7 @@ const Picker = ({
     borderType = 'bottom',
     borderColor = 'white',
     backgroundColor = 'white',
-    sortFn = () => 'default',
+    sortFn = defaultSort,
     isFixedWidth = false,
     children,
     dropdownDirection = 'right'
@@ -68,20 +78,7 @@ const Picker = ({
         setExpanded(!expanded);
     };
 
-    const defaultSort = (a, b) => {
-        // if no sort fn is provided, sort active element to lowest index
-        if (a === selectedOption) return -1;
-        if (b === selectedOption) return 1;
-        // then, sort alphabetically
-        if (a < b) return -1;
-        if (a > b) return 1;
-        return 0;
-    };
-
-    const handleSort = (a, b) => {
-        if (sortFn(a, b) === 'default') return defaultSort(a, b);
-        return sortFn(a, b);
-    };
+    const handleSort = (a, b) => sortFn(a, b, selectedOption);
 
     const handleSetDimensions = () => {
         if (buttonRef.current && pickerRef.current) {
