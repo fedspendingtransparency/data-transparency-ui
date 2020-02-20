@@ -42,11 +42,11 @@ const buttonRef = createRef();
 
 const defaultSort = (a, b, selectedOption) => {
     // if no sort fn is provided, sort active element to lowest index
-    if (a === selectedOption) return -1;
-    if (b === selectedOption) return 1;
+    if (a.name === selectedOption) return -1;
+    if (b.name === selectedOption) return 1;
     // then, sort alphabetically
-    if (a < b) return -1;
-    if (a > b) return 1;
+    if (a.name < b.name) return -1;
+    if (a.name > b.name) return 1;
     return 0;
 };
 
