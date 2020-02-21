@@ -25,11 +25,7 @@ import { PickerWrapper } from '../misc';
         <PickerWrapper>
             <Picker
                 isFixedWidth={boolean('isFixedWidth', false)}
-                backgroundColor={text('backgroundColor', 'white')}
                 icon={<FontAwesomeIcon icon="calendar-alt" size="lg" color="black" />}
-                iconColor={text('iconColor', 'black')}
-                borderColor={text('borderColor', '#5b616b')}
-                borderType={select('borderType', ['bottom', 'none', 'full'], 'bottom', '')}
                 dropdownDirection={select('dropdownDirection', ['right', 'left'], 'right', '')} />
         </PickerWrapper>
     </Story>
@@ -39,12 +35,7 @@ import { PickerWrapper } from '../misc';
     <Story name='w/ Children'>
         <PickerWrapper>
             <Picker
-                className={select('className', ['fy', 'form-component'], '')}
                 isFixedWidth={boolean('isFixedWidth', false)}
-                backgroundColor={text('backgroundColor', 'white')}
-                iconColor={text('iconColor', 'black')}
-                borderColor={text('borderColor', '#5b616b')}
-                borderType={select('borderType', ['bottom', 'none', 'full'], 'none', '')}
                 dropdownDirection={select('dropdownDirection', ['right', 'left'], 'right', '')}>
                 <FontAwesomeIcon icon="share-alt" size="lg" color="black" />
             </Picker>
@@ -65,5 +56,6 @@ Answers the question, where is this component used?
 - [ ] Recipient Page
 - [ ] State Page
 - [ ] Agency Page
+- [x] Glossary Sidebar, Glossary Definition
 
 ## Broker Integration Status
