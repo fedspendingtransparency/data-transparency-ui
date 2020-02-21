@@ -1,6 +1,6 @@
 // font vars
 // font path corresponds to value of -s param in build/start-sb package.json script
-$font-path: '../' !default;
+$usa-dt-font-path: '../' !default;
 
 // old bourbon font fns
 @function font-source-declaration(
@@ -72,7 +72,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Source Sans Pro',
-    '#{$font-path}/sourcesanspro-light-webfont',
+    '#{$usa-dt-font-path}/sourcesanspro-light-webfont',
     300,
     normal,
     $asset-pipeline: false,
@@ -81,7 +81,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Source Sans Pro',
-    '#{$font-path}/sourcesanspro-regular-webfont',
+    '#{$usa-dt-font-path}/sourcesanspro-regular-webfont',
     400,
     normal,
     $asset-pipeline: false,
@@ -90,7 +90,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Source Sans Pro',
-    '#{$font-path}/sourcesanspro-italic-webfont',
+    '#{$usa-dt-font-path}/sourcesanspro-italic-webfont',
     400,
     italic,
     $asset-pipeline: false,
@@ -99,7 +99,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Source Sans Pro',
-    '#{$font-path}/sourcesanspro-semibold-webfont',
+    '#{$usa-dt-font-path}/sourcesanspro-semibold-webfont',
     600,
     normal,
     $asset-pipeline: false,
@@ -108,7 +108,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Source Sans Pro',
-    '#{$font-path}/sourcesanspro-bold-webfont',
+    '#{$usa-dt-font-path}/sourcesanspro-bold-webfont',
     700,
     normal,
     $asset-pipeline: false,
@@ -117,7 +117,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Merriweather',
-    '#{$font-path}/merriweather-light-webfont',
+    '#{$usa-dt-font-path}/merriweather-light-webfont',
     300,
     normal,
     $asset-pipeline: false,
@@ -126,7 +126,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Merriweather',
-    '#{$font-path}/merriweather-regular-webfont',
+    '#{$usa-dt-font-path}/merriweather-regular-webfont',
     400,
     normal,
     $asset-pipeline: false,
@@ -135,7 +135,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Merriweather',
-    '#{$font-path}/merriweather-italic-webfont',
+    '#{$usa-dt-font-path}/merriweather-italic-webfont',
     400,
     italic,
     $asset-pipeline: false,
@@ -144,7 +144,7 @@ $font-path: '../' !default;
 
 @include font-face(
     'Merriweather',
-    '#{$font-path}/merriweather-bold-webfont',
+    '#{$usa-dt-font-path}/merriweather-bold-webfont',
     700,
     normal,
     $asset-pipeline: false,

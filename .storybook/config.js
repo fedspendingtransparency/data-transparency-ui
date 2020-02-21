@@ -37,7 +37,8 @@ import {
   faTag,
   faThLarge,
   faTimes,
-  faUserTie
+  faUserTie,
+  faShareAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -71,7 +72,8 @@ library.add(
   faTag,
   faThLarge,
   faTimes,
-  faUserTie
+  faUserTie,
+  faShareAlt
 );
 import dataTransparencyUiTheme from './theme';
 

@@ -75,3 +75,29 @@ export const QuarterPickerWrapper = (props) => {
       </div>
   );
 };
+
+export const PickerWrapper = (props) => {
+  const [selectedOption, onClick] = useState('All');
+
+  const options = [
+    { name: 'All', onClick },
+    { name: 'Department of Transportation', onClick },
+    { name: 'Department of State', onClick },
+    { name: 'Department of International Affairs', onClick },
+    { name: 'National Credit Union Administration', onClick },
+    { name: 'Federal Breau of Invesitgation', onClick },
+    { name: 'Department of Health and Human Services', onClick }
+  ];
+
+
+  return (
+    <div className="story__container picker-story">
+        {React.cloneElement(props.children, {
+          selectedOption,
+          onClick,
+          options,
+          ...props.children.props
+        })}
+    </div>
+  );
+}

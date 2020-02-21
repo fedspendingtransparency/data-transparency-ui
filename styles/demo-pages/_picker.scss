@@ -1,0 +1,19 @@
+.story__container.picker-story {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include for-phone-only {
+        justify-content: flex-start;
+        padding: rem(5);   
+    }
+    .usa-dt-picker {
+        width: 400px;
+        @include for-phone-only {
+            width: 310px;
+        }
+        .usa-dt-picker__list {
+            max-height: 210px;
+        }
+    }
+}

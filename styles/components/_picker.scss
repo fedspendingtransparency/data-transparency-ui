@@ -1,0 +1,95 @@
+@import "../global/index";
+
+.usa-dt-picker {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: white;
+
+    .hide {
+        visibility: hidden;
+    }
+
+    .usa-dt-picker__icon {
+        margin-right: rem(5);
+
+        svg {
+            width: rem(30);
+            height: rem(30);
+            fill: $color-white;
+        }
+    }
+
+    .usa-dt-picker__dropdown-container {
+        display: flex;
+        flex: 0 1 auto;
+        align-self: flex-end;
+        width: auto;
+        flex-wrap: wrap;
+        .usa-dt-picker__button {
+            @include button-unstyled;
+            display: flex;
+            justify-content: center;
+            outline: none;
+            align-items: flex-end;
+            margin: 0 rem(15);
+            padding: rem(10) 0;
+            width: 100%;
+            .usa-dt-picker__button-text {
+                flex: 1 1 auto;
+                margin-right: rem(15);
+                font-weight: $font-light;
+                font-size: rem(20);
+                line-height: rem(25);
+                color: $color-gray;
+            }
+        
+            .usa-dt-picker__button-icon {
+                button {
+                    @include button-unstyled;
+                }
+                flex: 0 0 rem(20);
+                svg {
+                    width: rem(20);
+                    height: rem(20);
+                    fill: $color-primary-alt;
+                }
+            }
+        }
+        .usa-dt-picker__list {
+            @include unstyled-list;
+            position: absolute;
+            border: 1px solid $color-gray-light;
+            background-color: #fff;
+            display: block;
+            width: 100%;
+            overflow-y: scroll;
+            .usa-dt-picker__list-item {
+                border-top: 1px solid $color-gray-light;
+    
+                &:first-child {
+                    border-top: none;
+                }
+            }
+    
+            .usa-dt-picker__item {
+                @include button-unstyled;
+                color: $color-gray;
+                font-size: rem(18);
+                text-align: left;
+                
+                padding: rem(10) rem(15);
+                width: 100%;
+    
+                &:hover {
+                    color: $color-link;
+                    background-color: $color-gray-lightest;
+                    cursor: pointer;
+                }
+                &.active {
+                    color: $color-link;
+                }
+            }
+        }
+    }
+}

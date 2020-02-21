@@ -1,3 +1,12 @@
+@import "./fonts";
+
+$font-sans:           'Source Sans Pro';
+$font-serif:          'Merriweather', $georgia;
+
+html {
+    font-family: $font-sans;
+}
+
 .sbdocs-content .sbdocs-img {
     margin: 1.5rem 0;
 }
@@ -37,3 +46,5 @@
 
 @import "./pagination";
 @import "./tooltip";
+@import "./picker";
+
