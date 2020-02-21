@@ -47,7 +47,50 @@ import { PickerWrapper } from '../misc';
 
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
-Which means the `selectedOption` and `onClick` are defined inside a parent component; in this case, `PickerWrapper`.
+The props `selectedOption` and `onClick` are defined inside a parent component; in this case, `PickerWrapper`.
+
+## Invoking the Component w/ Children
+The children passed to this component are intended for use when you need customized markup for the collapsed state of the picier component. The main thing you lose when passing children is **the dynamic toggle icon** (`chevron-down` when collapsed, `chevron-up` when expanded).
+
+This would be fine if the parent could see the local state of the component `expanded`. Perhaps this could be achieved by engineering a new function prop which expects `expanded` as a parameter and is called every time the `expanded` changes. That way, the parent can:
+
+- (a) see the value of `epxanded` and
+- (b) then decide what to do with it on when it's `true` vs when it's `false`.
+
+Here is the conditional logic in the markup for your reference:
+
+```html
+ <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
+            {icon && (
+                <div className="usa-dt-picker__icon">
+                    {icon}
+                </div>
+            )}
+            <div className="usa-dt-picker__dropdown-container">
+                {children
+                    ? (
+                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu}>
+                            {children}
+                        </button>
+                    )
+                    : (
+                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu}>
+                            <span className="usa-dt-picker__button-text">
+                                {selectedOption}
+                            </span>
+                            <span className="usa-dt-picker__button-icon">
+                                {!expanded && (
+                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-down" alt="Toggle menu" color="#555" />
+                                )}
+                                {expanded && (
+                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-up" alt="Toggle menu" color="#555" />
+                                )}
+                            </span>
+                        </button>
+                    )}
+                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
+
+```
 
 ## Integration Status
 Answers the question, where is this component used?
