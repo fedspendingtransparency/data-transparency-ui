@@ -14,8 +14,6 @@ const fontAwesomeIconId = "usa-dt-picker__button-icon--svg";
 const propTypes = {
     sortFn: PropTypes.func,
     icon: PropTypes.node,
-    backgroundColor: PropTypes.string,
-    iconColor: PropTypes.string,
     selectedOption: PropTypes.string,
     className: PropTypes.string,
     id: PropTypes.string,
@@ -23,18 +21,9 @@ const propTypes = {
         name: PropTypes.string,
         onClick: PropTypes.func
     })),
-    borderType: PropTypes.oneOf(['none', 'bottom', 'full']),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
-    borderColor: PropTypes.string,
     isFixedWidth: PropTypes.bool,
     children: PropTypes.node
-};
-
-const getBorderType = (borderType, borderColor) => {
-    if (borderType === 'bottom') return { borderBottom: `1px solid ${borderColor}` };
-    if (borderType === 'full') return { border: `1px solid ${borderColor}` };
-    // for custom border styles, pass 'none' and use an id/class to override styles
-    return {};
 };
 
 const pickerRef = createRef();
@@ -56,10 +45,6 @@ const Picker = ({
     options,
     selectedOption,
     icon = null,
-    iconColor,
-    borderType = 'bottom',
-    borderColor = 'white',
-    backgroundColor = 'white',
     sortFn = defaultSort,
     isFixedWidth = false,
     children,
@@ -157,7 +142,7 @@ const Picker = ({
     };
 
     return (
-        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{ backgroundColor }}>
+        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
             {icon && (
                 <div className="usa-dt-picker__icon">
                     {icon}
@@ -166,21 +151,21 @@ const Picker = ({
             <div className="usa-dt-picker__dropdown-container">
                 {children
                     ? (
-                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu} style={{ ...getBorderType(borderType, borderColor) }}>
+                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu}>
                             {children}
                         </button>
                     )
                     : (
-                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu} style={{ ...getBorderType(borderType, borderColor) }}>
+                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu}>
                             <span className="usa-dt-picker__button-text">
                                 {selectedOption}
                             </span>
                             <span className="usa-dt-picker__button-icon">
                                 {!expanded && (
-                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-down" alt="Toggle menu" color={iconColor} />
+                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-down" alt="Toggle menu" color="#555" />
                                 )}
                                 {expanded && (
-                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-up" alt="Toggle menu" color={iconColor} />
+                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-up" alt="Toggle menu" color="#555" />
                                 )}
                             </span>
                         </button>
