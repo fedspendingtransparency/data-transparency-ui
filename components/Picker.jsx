@@ -19,6 +19,7 @@ const propTypes = {
     id: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.string,
+        value: PropTypes.any,
         onClick: PropTypes.func
     })),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
@@ -181,7 +182,7 @@ const Picker = ({
                             <li key={option.name} className="usa-dt-picker__list-item">
                                 <button
                                     className={`usa-dt-picker__item ${option.name === selectedOption ? 'active' : ''}`}
-                                    value={`${option.name}`}
+                                    value={`${option.value || option.name}`}
                                     onClick={option.onClick}>
                                     {option.component ? option.component : option.name}
                                 </button>
