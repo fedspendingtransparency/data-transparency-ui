@@ -30,8 +30,7 @@ const propTypes = {
         right: PropTypes.number,
         left: PropTypes.number
     }),
-    styles: PropTypes.object,
-    data: PropTypes.object
+    styles: PropTypes.object
 };
 
 const defaultProps = {
