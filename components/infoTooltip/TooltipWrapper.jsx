@@ -89,8 +89,7 @@ export default class TooltipWrapper extends React.Component {
     componentDidUpdate(prevProps) {
         if (
             prevProps.wide !== this.props.wide ||
-            prevProps.tooltipPosition !== this.props.tooltipPosition ||
-            prevProps.data !== this.props.data
+            prevProps.tooltipPosition !== this.props.tooltipPosition
         ) {
             this.measureOffset();
         }
