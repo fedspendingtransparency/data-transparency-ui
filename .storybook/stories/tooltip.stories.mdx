@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, object } from "@storybook/addon-knobs";
+import { withKnobs, boolean, object, text } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 
 import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
@@ -27,7 +27,7 @@ import { Tooltip } from "../misc";
                 icon="info"
                 tooltipComponent={<Tooltip />}
                 wide={boolean("wide", true)}
-                left={boolean("left", true)}
+                tooltipPosition={text("tooltipPosition")}
                 controlledProps={object("controlledTooltip", {
                     isControlled: false,
                     isVisible: false
