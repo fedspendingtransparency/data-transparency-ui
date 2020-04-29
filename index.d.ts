@@ -76,9 +76,9 @@ export interface TooltipComponent {
 
 /*~ If this module has methods, declare them as functions like so.
  */
-export function Pagination(props: PaginationProps): JSX.Element;
-export function TooltipWrapper(props: TooltipWrapperProps): JSX.Element;
-export function QuarterPicker(props: QuarterPickerProps): JSX.Element;
+export class Pagination extends React.Component<PaginationProps>{}
+export class TooltipWrapper extends React.Component<TooltipWrapperProps>{}
+export class QuarterPicker extends React.Component<QuarterPickerProps>{}
 export function Picker(props: PickerProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
 
