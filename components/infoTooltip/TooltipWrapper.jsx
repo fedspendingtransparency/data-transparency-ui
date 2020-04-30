@@ -127,6 +127,7 @@ export default class TooltipWrapper extends React.Component {
 
     measureOffset() {
         let tooltipWidth = baseTooltipWidth;
+        let spacerStyle = {};
         const tooltipContainer = this.tooltipContainer;
         const ttContainerWidth = tooltipContainer.clientWidth;
 
@@ -149,22 +150,29 @@ export default class TooltipWrapper extends React.Component {
 
         if (this.props.tooltipPosition === 'left') {
             const startingPositionLeft = spaceToLeft - tooltipWidth; // minus tooltipWidth b/c right corner of toolTip is flush w/ left edge of toolTip container
-            const spacerStyle = {
+            spacerStyle = {
                 top: offsetTop,
                 left: startingPositionLeft - horizontalPadding,
                 width: tooltipWidth
             };
-            this.setState({ spacerStyle });
         }
         else {
             const startingPositionLeft = spaceToLeft + ttContainerWidth; // plus ttContainerWidth b/c left corner of toolTip is flush w/ right edge of toolTip container
-            const spacerStyle = {
+            spacerStyle = {
                 top: offsetTop,
                 left: startingPositionLeft + horizontalPadding,
                 width: tooltipWidth
             };
-            this.setState({ spacerStyle });
         }
+        /**
+         * Given a user wants to override the default positioning,
+         * do not use top
+         */
+        if (this.props?.styles?.transform) {
+            delete spacerStyle.top;
+            delete spacerStyle.left;
+        }
+        this.setState({ spacerStyle });
     }
 
     positionPointerTop = () => {
