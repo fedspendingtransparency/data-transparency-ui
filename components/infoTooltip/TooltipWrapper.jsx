@@ -30,7 +30,9 @@ const propTypes = {
         right: PropTypes.number,
         left: PropTypes.number
     }),
-    styles: PropTypes.object
+    styles: PropTypes.object,
+    onMouseMoveTooltip: PropTypes.func,
+    onMouseLeaveTooltip: PropTypes.func
 };
 
 const defaultProps = {
@@ -82,8 +84,8 @@ export default class TooltipWrapper extends React.Component {
         if (this.props.tooltipPosition === 'bottom') {
             this.positionPointerTop();
         }
-        window.addEventListener("scroll", this.measureOffset);
-        window.addEventListener("resize", this.measureOffset);
+        window.addEventListener("scroll", throttle(this.measureOffset, 500));
+        window.addEventListener("resize", throttle(this.measureOffset, 100));
     }
 
     componentDidUpdate(prevProps) {
@@ -101,6 +103,15 @@ export default class TooltipWrapper extends React.Component {
     componentWillUnmount() {
         window.removeEventListener("scroll", this.measureOffset);
         window.removeEventListener("resize", this.measureOffset);
+    }
+
+    onMouseMoveTooltip = () => {
+        const { onMouseMoveTooltip } = this.props;
+        if (onMouseMoveTooltip) onMouseMoveTooltip();
+    }
+    onMouseLeaveTooltip = () => {
+        const { onMouseLeaveTooltip } = this.props;
+        if (onMouseLeaveTooltip) onMouseLeaveTooltip();
     }
 
     showTooltip() {
@@ -202,10 +213,13 @@ export default class TooltipWrapper extends React.Component {
                         className="tooltip"
                         id="tooltip"
                         role="tooltip"
+                        onMouseMove={this.onMouseMoveTooltip}
+                        onMouseLeave={this.onMouseLeaveTooltip}
                         ref={(div) => {
                             this.tooltipReference = div;
                         }}>
-                        <div className="tooltip__interior">
+                        <div
+                            className="tooltip__interior">
                             <div
                                 className={`tooltip-pointer ${this.arrowClassName()}`}
                                 style={this.state.arrowStyles} />
