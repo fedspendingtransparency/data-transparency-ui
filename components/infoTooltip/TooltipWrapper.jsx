@@ -139,6 +139,7 @@ export default class TooltipWrapper extends React.Component {
     measureOffset() {
         let tooltipWidth = baseTooltipWidth;
         let spacerStyle = {};
+        if (!this.tooltipContainer) return;
         const tooltipContainer = this.tooltipContainer;
         const ttContainerWidth = tooltipContainer.clientWidth;
 
