@@ -8,11 +8,13 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     changePage: PropTypes.func.isRequired,
-    totalPages: PropTypes.number
+    totalPages: PropTypes.number,
+    id: PropTypes.string
 };
 
 const defaultProps = {
-    totalPages: 1
+    totalPages: 1,
+    id: 'usa-dt-pagination-go-to'
 };
 
 export default class GoToPage extends React.Component {
@@ -53,12 +55,12 @@ export default class GoToPage extends React.Component {
         const placeholder = totalPages > 1 ? `1-${totalPages}` : '1';
         return (
             <form className="usa-dt-pagination__go-to">
-                <label htmlFor="usa-dt-pagination-go-to">
+                <label htmlFor={this.props.id}>
                     Go to page
                 </label>
                 <input
                     type="number"
-                    id="usa-dt-pagination-go-to"
+                    id={this.props.id}
                     title={`Enter a number between 1 and ${totalPages}`}
                     min="1"
                     max={totalPages}
