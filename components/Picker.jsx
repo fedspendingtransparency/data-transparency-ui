@@ -93,8 +93,8 @@ const Picker = ({
                 expanded &&
                 pickerRef.current &&
                 !pickerRef.current.contains(e.target) &&
-                e.target.id !== fontAwesomeIconId &&
-                e.target.parentNode.id !== fontAwesomeIconId
+                e.target.id !== `${id}-${fontAwesomeIconId}` &&
+                e.target.parentNode.id !== `${id}-${fontAwesomeIconId}`
             )) {
                 setExpanded(false);
             }
@@ -163,10 +163,10 @@ const Picker = ({
                             </span>
                             <span className="usa-dt-picker__button-icon">
                                 {!expanded && (
-                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-down" alt="Toggle menu" color="#555" />
+                                    <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-down" alt="Toggle menu" color="#555" />
                                 )}
                                 {expanded && (
-                                    <FontAwesomeIcon id={fontAwesomeIconId} icon="chevron-up" alt="Toggle menu" color="#555" />
+                                    <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-up" alt="Toggle menu" color="#555" />
                                 )}
                             </span>
                         </button>
