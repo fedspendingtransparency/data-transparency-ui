@@ -10,7 +10,7 @@ import ExpandableRow from './ExpandableRow';
 
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object),
-    rows: oneOfType([PropTypes.array, PropTypes.object]),
+    rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])),
     currentSort: shape({
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string

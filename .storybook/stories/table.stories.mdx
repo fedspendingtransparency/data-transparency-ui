@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
 import Table from '../../components/table/Table';
-import { PaginationWrapper } from "../misc";
+import { TableWrapper } from "../misc";
 
 <Meta
     title="Table"
@@ -30,21 +30,21 @@ In this example, our parent -- `TableWrapper` -- looks like this before the rend
 ```javascript
 
 }
+```
 
-Other props:
+### Other props:
  - `expandable`: a boolean indicating whether this table will have nested rows that can be expanded and collapsed
  - `columns`: an array of objects each with a `title` and a `displayName`
  - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
-```
+
 <Preview>
     <Story name='Table'>
         <TableWrapper>
             <Table
-                rows=[
+                rows={[
                     [<a href="/">Link</a>, 'mock data', '25%'],
-                    [<><strong>markup</strong> content</>, 1234, 'mock data']
-                ]
-                 />
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                ]} />
         </TableWrapper>
     </Story>
 </Preview>
@@ -53,7 +53,7 @@ Other props:
     <Story name='Expandable Table'>
         <TableWrapper>
             <Table
-                rows=[
+                rows={[
                     {
                         name: 'Transportation',
                         amount: '$100',
@@ -88,7 +88,7 @@ Other props:
                             }
                         ]
                     }
-                ]
+                ]}
                 expandable />
         </TableWrapper>
     </Story>
