@@ -16,10 +16,11 @@ const propTypes = {
 const ExpandableRow = ({ data, columns, oddClass }) => {
     const [expanded, setExpanded] = useState(false);
     const icon = expanded ? 'chevron-down' : 'chevron-right';
+    const columnTitles = columns.map(({ title }) => title);
     return (
         <>
             <tr className={`usda-table__row${oddClass} usda-table__row_expandable`}>
-                {columns.map((col, i) => {
+                {columnTitles.map((col, i) => {
                     if (col === 'name' && data.children) {
                         return (
                             <td
@@ -37,7 +38,7 @@ const ExpandableRow = ({ data, columns, oddClass }) => {
                     return (
                         <td
                             key={`${col}-${i}`}
-                            className={`usda-table__cell${col === 'name' ? ' usda-table__cell_name' : ''}`}>
+                            className={`usda-table__cell${col === 'name' ? ' usda-table__cell_name' : ''}${columns[i].right ? ' usda-table__cell_right' : ''}`}>
                             {data[col]}
                         </td>
                     );
@@ -50,10 +51,10 @@ const ExpandableRow = ({ data, columns, oddClass }) => {
                         <tr
                             key={`${data.name}-child-${j}`}
                             className={`usda-table__child-row${lastClass}${oddClass}`}>
-                            {columns.map((col, k) => (
+                            {columnTitles.map((col, k) => (
                                 <td
                                     key={`${data.name}-row-${j}-col${k}`}
-                                    className="usda-table__cell usda-table__cell_child">
+                                    className={`usda-table__cell ${columns[k].right ? ' usda-table__cell_right' : ''} usda-table__cell_child`}>
                                     <div className="usda-table__child-cell-content">
                                         {childRow[col]}
                                     </div>

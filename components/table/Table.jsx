@@ -8,6 +8,8 @@ import PropTypes, { shape, oneOf, oneOfType } from 'prop-types';
 import TableHeader from './TableHeader';
 import ExpandableRow from './ExpandableRow';
 
+require('../../styles/components/table/_table.scss');
+
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object),
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])),
@@ -44,7 +46,7 @@ const Table = (props) => (
                             key={row.name}
                             data={row}
                             oddClass={oddClass}
-                            columns={props.columns.map(({ title }) => title)} />
+                            columns={props.columns} />
                     );
                 }
                 return (
@@ -54,7 +56,7 @@ const Table = (props) => (
                         {row.map((data, j) => (
                             <td
                                 key={`${props.columns[j].title}-${j}`}
-                                className="usda-table__cell">
+                                className={`usda-table__cell${props.columns[j].right ? ' usda-table__cell_right' : ''}`}>
                                 {data}
                             </td>
                         ))}

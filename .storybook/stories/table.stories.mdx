@@ -28,8 +28,17 @@ This means the component relies on its parent to pass the following props:
 In this example, our parent -- `TableWrapper` -- looks like this before the render:
 
 ```javascript
-
-}
+const [field, updateField] = useState('amount');
+const [direction, updateDirection] = useState('desc');
+const updateSort = (field, direction) => {
+console.log(`update sort invoked with ${field}, ${direction}`);
+updateField(field);
+updateDirection(direction)
+};
+const currentSort = {
+field,
+direction
+};
 ```
 
 ### Other props:
