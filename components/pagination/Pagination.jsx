@@ -21,7 +21,8 @@ const propTypes = {
     resultsText: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
     limitSelector: PropTypes.bool,
     changeLimit: PropTypes.func,
-    goToPage: PropTypes.bool
+    goToPage: PropTypes.bool,
+    id: PropTypes.string
 };
 
 const defaultProps = {
@@ -70,7 +71,8 @@ export default class Pagination extends React.Component {
             changeLimit,
             currentPage,
             pageSize,
-            totalItems
+            totalItems,
+            id
         } = this.props;
 
         const totalPages = Math.ceil(totalItems / pageSize);
@@ -86,7 +88,8 @@ export default class Pagination extends React.Component {
         const goTo = goToPage ? (
             <GoToPage
                 changePage={changePage}
-                totalPages={totalPages} />
+                totalPages={totalPages}
+                id={id} />
         ) : null;
 
         if (!limitSelector && totalPages <= 1) {
