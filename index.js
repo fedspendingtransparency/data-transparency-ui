@@ -3,6 +3,7 @@ import TooltipWrapper from "./components/infoTooltip/TooltipWrapper";
 import TooltipComponent from "./components/infoTooltip/TooltipComponent";
 import QuarterPicker from "./components/quarterPicker/QuarterPicker";
 import Picker from "./components/Picker";
+import Table from "./components/table/Table";
 
 import "./styles/dist.scss";
 
@@ -11,5 +12,6 @@ export {
     TooltipWrapper,
     QuarterPicker,
     TooltipComponent,
-    Picker
+    Picker,
+    Table
 };

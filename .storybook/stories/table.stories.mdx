@@ -1,0 +1,104 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { withActions, actions } from '@storybook/addon-actions';
+
+import Table from '../../components/table/Table';
+import { PaginationWrapper } from "../misc";
+
+<Meta
+    title="Table"
+    component={Table}
+    decorators={[withA11y, withActions('onClick')]}
+    parameters={{
+        a11y: {
+            // ... axe options
+            element: '.story__container', // optional selector which element to inspect
+            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+        }
+    }}
+/>
+
+## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
+This means the component relies on its parent to pass the following props:
+ - `updateSort`: a function that will change the order of the `rows`
+ - `currentSort`: an object with a `field` (matching one of the column's `title` property), and a direction (either `asc` or `desc`)
+
+In this example, our parent -- `TableWrapper` -- looks like this before the render:
+
+```javascript
+
+}
+
+Other props:
+ - `expandable`: a boolean indicating whether this table will have nested rows that can be expanded and collapsed
+ - `columns`: an array of objects each with a `title` and a `displayName`
+ - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
+```
+<Preview>
+    <Story name='Table'>
+        <TableWrapper>
+            <Table
+                rows=[
+                    [<a href="/">Link</a>, 'mock data', '25%'],
+                    [<><strong>markup</strong> content</>, 1234, 'mock data']
+                ]
+                 />
+        </TableWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='Expandable Table'>
+        <TableWrapper>
+            <Table
+                rows=[
+                    {
+                        name: 'Transportation',
+                        amount: '$100',
+                        percent: '20%'
+                    },
+                    {
+                        name: 'Health',
+                        amount: '$150',
+                        percent: '30%',
+                        children: [
+                            {
+                                name: 'Health care services',
+                                amount: '$150',
+                                percent: '30%'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'General Science',
+                        amount: '$250',
+                        percent: '50%',
+                        children: [
+                            {
+                                name: 'Space flight',
+                                amount: '$200',
+                                percent: '40%'
+                            },
+                            {
+                                name: 'Basic research',
+                                amount: '$50',
+                                percent: '10%'
+                            }
+                        ]
+                    }
+                ]
+                expandable />
+        </TableWrapper>
+    </Story>
+</Preview>
+
+<Props of={Table} />
+
+## Integration Status
+Answers the question, where is this component used?
+
+### USASpending
+- [ ] Agency Profile v2
+

@@ -101,3 +101,36 @@ export const PickerWrapper = (props) => {
     </div>
   );
 }
+
+export const TableWrapper = (props) => {
+  const updateSort = (field, direction) => console.log(`update sort invoked with ${field}, ${direction}`);
+  const currentSort = {
+    field: 'amount',
+    direction: 'desc'
+  };
+  const columns = [
+    {
+        title: 'name',
+        displayName: 'Budget Function'
+    },
+    {
+        title: 'amount',
+        displayName: 'Amount'
+    },
+    {
+        title: 'percent',
+        displayName: '% of Total Amount'
+    }
+  ];
+
+  return (
+    <div className="story__container table-story">
+        {React.cloneElement(props.children, {
+          updateSort,
+          currentSort,
+          columns,
+          ...props.children.props
+        })}
+    </div>
+  );
+}
