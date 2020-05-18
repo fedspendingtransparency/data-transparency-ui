@@ -1,5 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     mode: "production",
@@ -9,9 +10,7 @@ module.exports = {
         path: path.resolve(__dirname, "./dist"),
         filename: "index.js",
         library: "data-transparency-ui",
-        libraryTarget: "commonjs",
-        publicPath: "/dist/",
-        umdNamedDefine: true
+        libraryTarget: "umd"
     },
     resolve: {
         extensions: [".js", ".jsx"],
@@ -82,6 +81,7 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: "data-transparency-ui.css"
-        })
+        }),
+        new BundleAnalyzerPlugin()
     ]
 };
