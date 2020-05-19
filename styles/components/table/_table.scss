@@ -38,6 +38,9 @@ table.usda-table {
         }
         tr.usda-table__child-row {
             background-color: $color-white;
+            &.usda-table__child-row_divider {
+                font-weight: $font-semibold;
+            }
             td.usda-table__cell {
                 &.usda-table__cell_child {
                     padding: 0;

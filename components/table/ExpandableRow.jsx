@@ -10,10 +10,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const propTypes = {
     data: PropTypes.object,
     columns: PropTypes.array,
-    oddClass: PropTypes.string
+    oddClass: PropTypes.string,
+    divider: PropTypes.string
 };
 
-const ExpandableRow = ({ data, columns, oddClass }) => {
+const ExpandableRow = ({
+    data,
+    columns,
+    oddClass,
+    divider
+}) => {
     const [expanded, setExpanded] = useState(false);
     const icon = expanded ? 'chevron-down' : 'chevron-right';
     const columnTitles = columns.map(({ title }) => title);
@@ -45,24 +51,33 @@ const ExpandableRow = ({ data, columns, oddClass }) => {
                 })}
             </tr>
             {data.children && expanded ? (
-                data.children.map((childRow, j) => {
-                    const lastClass = j === data.children.length - 1 ? ' usda-table__child-row_last' : '';
-                    return (
-                        <tr
-                            key={`${data.name}-child-${j}`}
-                            className={`usda-table__child-row${lastClass}${oddClass}`}>
-                            {columnTitles.map((col, k) => (
-                                <td
-                                    key={`${data.name}-row-${j}-col${k}`}
-                                    className={`usda-table__cell ${columns[k].right ? ' usda-table__cell_right' : ''} usda-table__cell_child`}>
-                                    <div className="usda-table__child-cell-content">
-                                        {childRow[col]}
-                                    </div>
-                                </td>
-                            ))}
-                        </tr>
-                    );
-                })
+                <>
+                    <tr className={`usda-table__child-row usda-table__child-row_divider${oddClass}`}>
+                        <td colSpan={columns.length} className="usda-table__cell usda-table__cell_child">
+                            <div className="usda-table__child-cell-content">
+                                {divider}
+                            </div>
+                        </td>
+                    </tr>
+                    {data.children.map((childRow, j) => {
+                        const lastClass = j === data.children.length - 1 ? ' usda-table__child-row_last' : '';
+                        return (
+                            <tr
+                                key={`${data.name}-child-${j}`}
+                                className={`usda-table__child-row${lastClass}${oddClass}`}>
+                                {columnTitles.map((col, k) => (
+                                    <td
+                                        key={`${data.name}-row-${j}-col${k}`}
+                                        className={`usda-table__cell ${columns[k].right ? ' usda-table__cell_right' : ''} usda-table__cell_child`}>
+                                        <div className="usda-table__child-cell-content">
+                                            {childRow[col]}
+                                        </div>
+                                    </td>
+                                ))}
+                            </tr>
+                        );
+                    })}
+                </>
             ) : null}
         </>
     );

@@ -18,7 +18,8 @@ const propTypes = {
         field: PropTypes.string
     }),
     updateSort: PropTypes.func.isRequired,
-    expandable: PropTypes.bool
+    expandable: PropTypes.bool,
+    divider: PropTypes.string
 };
 
 const Table = (props) => (
@@ -46,7 +47,8 @@ const Table = (props) => (
                             key={row.name}
                             data={row}
                             oddClass={oddClass}
-                            columns={props.columns} />
+                            columns={props.columns}
+                            divider={props.divider} />
                     );
                 }
                 return (
