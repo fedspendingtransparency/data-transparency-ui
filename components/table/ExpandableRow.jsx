@@ -38,7 +38,7 @@ const ExpandableRow = ({
                                 <button
                                     className="usda-table__expand-button"
                                     onClick={toggleExpand}>
-                                    <FontAwesomeIcon icon={icon} />
+                                    <FontAwesomeIcon icon={icon} size="2x" />
                                 </button>
                                 {data.name}
                             </td>
