@@ -1,0 +1,32 @@
+th.table-header {
+    border: 0;
+    background-color: $color-white;
+    padding: rem(15);
+    .table-header__content {
+        display: flex;
+        .table-header__label {
+            flex: (0 0 auto);
+            font-size: rem(20);
+            font-weight: $font-semibold;
+            line-height: rem(25);
+        }
+        .table-header__sort {
+            display: block;
+            margin-left: rem(8);
+            button.table-header__icon {
+                @include button-unstyled;
+                color: $color-gray-light;
+                display: block;
+                height: rem(13);
+                svg {
+                    vertical-align: 0;
+                    margin-top: -9px;
+                    pointer-events: none;
+                }
+                &.table-header__icon_active {
+                    color: $color-gold;
+                }
+            }
+        }
+    }
+}
