@@ -23,6 +23,9 @@ const ExpandableRow = ({
     const [expanded, setExpanded] = useState(false);
     const icon = expanded ? 'chevron-down' : 'chevron-right';
     const columnTitles = columns.map(({ title }) => title);
+    const toggleExpand = () => {
+        setExpanded(!expanded);
+    };
     return (
         <>
             <tr className={`usda-table__row${oddClass} usda-table__row_expandable`}>
@@ -34,7 +37,7 @@ const ExpandableRow = ({
                                 className="usda-table__cell">
                                 <button
                                     className="usda-table__expand-button"
-                                    onClick={() => setExpanded(!expanded)}>
+                                    onClick={toggleExpand}>
                                     <FontAwesomeIcon icon={icon} />
                                 </button>
                                 {data.name}
