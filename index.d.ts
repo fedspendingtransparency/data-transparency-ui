@@ -74,6 +74,19 @@ export interface TooltipComponentProps {
     className: string,
     textAlign: TooltipComponentTextAlign
 }
+interface tableCurrentSortProps {
+    direction: string,
+    field: string
+}
+
+export interface TableProps {
+    columns: Array<Object>,
+    rows: Array<Object|Array>,
+    currentSort: stableCurrentSortProps,
+    updateSort: (title: string, direction: string) => void,
+    expandable: boolean,
+    divider: string
+}
 
 /*~ If this module has methods, declare them as functions like so.
  */
@@ -82,6 +95,7 @@ export class TooltipWrapper extends React.Component<TooltipWrapperProps>{}
 export class QuarterPicker extends React.Component<QuarterPickerProps>{}
 export function Picker(props: PickerProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
+export function Table(props: TableProps): JSX.Element;
 
 /*~ If there are types, properties, or methods inside dotted names
  *~ of the module, declare them inside a 'namespace'.
