@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import TooltipComponent from "../components/infoTooltip/TooltipComponent";
 
-export const Tooltip = () => ( 
+export const Tooltip = () => (
     <TooltipComponent title="An Example Tooltip" textAlign={{ title: 'left', text: 'left'}}>
       <React.Fragment>
         <p>Here are some random words serving the purpose of illustrating how the tooltip component works</p>
@@ -17,7 +17,7 @@ export const Tooltip = () => (
           <li>Some List Item</li>
           <li>Some List Item</li>
           <li>
-            <strong>Some Bold Text That is like a Header</strong> -- 
+            <strong>Some Bold Text That is like a Header</strong> --
               Some List Item
         </li>
         </ul>
@@ -54,7 +54,7 @@ export const PaginationWrapper = (props) => {
 };
 
 export const QuarterPickerWrapper = (props) => {
-  const [selectedQuarters, setSelectedQuarters] = useState([]); 
+  const [selectedQuarters, setSelectedQuarters] = useState([]);
 
   const handlePickQuarter = (newlySelectedQuarter) => {
     if (selectedQuarters.includes(newlySelectedQuarter)) {
@@ -96,6 +96,46 @@ export const PickerWrapper = (props) => {
           selectedOption,
           onClick,
           options,
+          ...props.children.props
+        })}
+    </div>
+  );
+}
+
+export const TableWrapper = (props) => {
+  const [field, updateField] = useState('amount');
+  const [direction, updateDirection] = useState('desc');
+  const updateSort = (field, direction) => {
+    console.log(`update sort invoked with ${field}, ${direction}`);
+    updateField(field);
+    updateDirection(direction)
+  };
+  const currentSort = {
+    field,
+    direction
+  };
+  const columns = [
+    {
+        title: 'name',
+        displayName: 'Budget Function'
+    },
+    {
+        title: 'amount',
+        displayName: 'Amount'
+    },
+    {
+        title: 'percent',
+        displayName: '% of Total Amount',
+        right: true
+    }
+  ];
+
+  return (
+    <div className="story__container table-story">
+        {React.cloneElement(props.children, {
+          updateSort,
+          currentSort,
+          columns,
           ...props.children.props
         })}
     </div>
