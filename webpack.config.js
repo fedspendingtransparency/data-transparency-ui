@@ -9,9 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, "./dist"),
         filename: "index.js",
         library: "data-transparency-ui",
-        libraryTarget: "commonjs",
-        publicPath: "/dist/",
-        umdNamedDefine: true
+        libraryTarget: "umd"
     },
     resolve: {
         extensions: [".js", ".jsx"],

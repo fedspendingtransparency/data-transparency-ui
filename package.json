@@ -2,8 +2,9 @@
   "name": "data-transparency-ui",
   "version": "1.0.0",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "index.js",
+  "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
+  "types": "index.d.ts",
   "scripts": {
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
@@ -62,6 +63,7 @@
     "react-is": "^16.11.0",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.7.0",
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
