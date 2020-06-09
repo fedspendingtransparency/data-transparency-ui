@@ -26,6 +26,15 @@ const ExpandableRow = ({
     const toggleExpand = () => {
         setExpanded(!expanded);
     };
+    const dividerRow = (
+        <tr className={`usda-table__child-row usda-table__child-row_divider${oddClass}`}>
+            <td colSpan={columns.length} className="usda-table__cell usda-table__cell_child">
+                <div className="usda-table__child-cell-content">
+                    {divider}
+                </div>
+            </td>
+        </tr>
+    );
     return (
         <>
             <tr className={`usda-table__row${oddClass} usda-table__row_expandable`}>
@@ -55,13 +64,7 @@ const ExpandableRow = ({
             </tr>
             {data.children && expanded ? (
                 <>
-                    <tr className={`usda-table__child-row usda-table__child-row_divider${oddClass}`}>
-                        <td colSpan={columns.length} className="usda-table__cell usda-table__cell_child">
-                            <div className="usda-table__child-cell-content">
-                                {divider}
-                            </div>
-                        </td>
-                    </tr>
+                    {divider && dividerRow}
                     {data.children.map((childRow, j) => {
                         const lastClass = j === data.children.length - 1 ? ' usda-table__child-row_last' : '';
                         return (

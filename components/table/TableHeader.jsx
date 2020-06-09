@@ -16,7 +16,7 @@ const propTypes = {
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
     }),
-    updateSort: PropTypes.func.isRequired
+    updateSort: PropTypes.func
 };
 
 const TableHeaderCell = (props) => {
@@ -30,30 +30,34 @@ const TableHeaderCell = (props) => {
     const activeDesc = (props.isActive && props.currentSort.direction === 'desc')
         ? ' table-header__icon_active' : '';
 
+    const sort = (
+        <div className="table-header__sort">
+            <button
+                onClick={clickedSort}
+                className={`table-header__icon${activeAsc}`}
+                value="asc"
+                title={`Sort table by ascending ${props.displayName}`}
+                aria-label={`Sort table by ascending ${props.displayName}`}>
+                <FontAwesomeIcon size="2x" icon="caret-up" />
+            </button>
+            <button
+                onClick={clickedSort}
+                className={`table-header__icon${activeDesc}`}
+                value="desc"
+                title={`Sort table by descending ${props.displayName}`}
+                aria-label={`Sort table by descending ${props.displayName}`}>
+                <FontAwesomeIcon size="2x" icon="caret-down" />
+            </button>
+        </div>
+    );
+
     return (
         <th className="table-header">
             <div className="table-header__content">
                 <div className="table-header__label">
                     {props.displayName}
                 </div>
-                <div className="table-header__sort">
-                    <button
-                        onClick={clickedSort}
-                        className={`table-header__icon${activeAsc}`}
-                        value="asc"
-                        title={`Sort table by ascending ${props.displayName}`}
-                        aria-label={`Sort table by ascending ${props.displayName}`}>
-                        <FontAwesomeIcon size="2x" icon="caret-up" />
-                    </button>
-                    <button
-                        onClick={clickedSort}
-                        className={`table-header__icon${activeDesc}`}
-                        value="desc"
-                        title={`Sort table by descending ${props.displayName}`}
-                        aria-label={`Sort table by descending ${props.displayName}`}>
-                        <FontAwesomeIcon size="2x" icon="caret-down" />
-                    </button>
-                </div>
+                {props.updateSort && sort}
             </div>
         </th>
     );

@@ -65,7 +65,7 @@ export interface PickerProps {
 
 interface TooltipComponentTextAlign {
     title?: string,
-    text?: string 
+    text?: string
 }
 
 export interface TooltipComponentProps {
@@ -74,6 +74,7 @@ export interface TooltipComponentProps {
     className: string,
     textAlign: TooltipComponentTextAlign
 }
+
 interface tableCurrentSortProps {
     direction: string,
     field: string
@@ -82,7 +83,7 @@ interface tableCurrentSortProps {
 export interface TableProps {
     columns: Array<Object>,
     rows: Array<Object|Array>,
-    currentSort: stableCurrentSortProps,
+    currentSort: tableCurrentSortProps,
     updateSort: (title: string, direction: string) => void,
     expandable: boolean,
     divider: string
