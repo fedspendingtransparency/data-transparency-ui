@@ -7,7 +7,6 @@ import React from 'react';
 import PropTypes, { shape, oneOf } from 'prop-types';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 const propTypes = {
     isActive: PropTypes.bool,
     title: PropTypes.string.isRequired,
@@ -25,9 +24,9 @@ const TableHeaderCell = (props) => {
     };
 
     // highlight the active arrow
-    const activeAsc = (props.isActive && props.currentSort.direction === 'asc')
+    const activeAsc = (props.isActive && props.currentSort?.direction === 'asc')
         ? ' table-header__icon_active' : '';
-    const activeDesc = (props.isActive && props.currentSort.direction === 'desc')
+    const activeDesc = (props.isActive && props.currentSort?.direction === 'desc')
         ? ' table-header__icon_active' : '';
 
     const sort = (
