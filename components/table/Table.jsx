@@ -31,7 +31,7 @@ const Table = (props) => (
                         key={col.title}
                         currentSort={props.currentSort}
                         updateSort={props.updateSort}
-                        isActive={props.currentSort && props.currentSort.field === col.title}
+                        isActive={props.currentSort?.field === col.title}
                         {...col} />
                 ))}
             </tr>
