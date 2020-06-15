@@ -141,3 +141,31 @@ export const TableWrapper = (props) => {
     </div>
   );
 }
+
+// For the table without sorting
+export const BasicTableWrapper = (props) => {
+  const columns = [
+    {
+        title: 'name',
+        displayName: 'Budget Function'
+    },
+    {
+        title: 'amount',
+        displayName: 'Amount'
+    },
+    {
+        title: 'percent',
+        displayName: '% of Total Amount',
+        right: true
+    }
+  ];
+
+  return (
+    <div className="story__container table-story">
+        {React.cloneElement(props.children, {
+          columns,
+          ...props.children.props
+        })}
+    </div>
+  );
+}

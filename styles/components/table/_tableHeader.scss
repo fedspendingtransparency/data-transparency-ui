@@ -9,6 +9,7 @@ th.table-header {
             font-size: rem(20);
             font-weight: $font-semibold;
             line-height: rem(25);
+            max-width: 100%;
         }
         .table-header__sort {
             display: block;

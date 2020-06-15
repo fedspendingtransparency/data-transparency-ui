@@ -11,13 +11,13 @@ import ExpandableRow from './ExpandableRow';
 require('../../styles/components/table/_table.scss');
 
 const propTypes = {
-    columns: PropTypes.arrayOf(PropTypes.object),
-    rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])),
+    columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+    rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
     currentSort: shape({
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
     }),
-    updateSort: PropTypes.func.isRequired,
+    updateSort: PropTypes.func,
     expandable: PropTypes.bool,
     divider: PropTypes.string
 };
@@ -31,7 +31,7 @@ const Table = (props) => (
                         key={col.title}
                         currentSort={props.currentSort}
                         updateSort={props.updateSort}
-                        isActive={props.currentSort.field === col.title}
+                        isActive={props.currentSort?.field === col.title}
                         {...col} />
                 ))}
             </tr>

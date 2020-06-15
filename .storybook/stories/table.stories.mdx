@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
 import Table from '../../components/table/Table';
-import { TableWrapper } from "../misc";
+import { TableWrapper, BasicTableWrapper } from "../misc";
 
 <Meta
     title="Table"
@@ -59,7 +59,64 @@ direction
 </Preview>
 
 <Preview>
-    <Story name='Expandable Table'>
+    <Story name='Table without Sorting'>
+        <BasicTableWrapper>
+            <Table
+                rows={[
+                    [<a href="/">Link</a>, 'mock data', '25%'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                ]} />
+        </BasicTableWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='Expandable Table without Divider'>
+        <TableWrapper>
+            <Table
+                rows={[
+                    {
+                        name: 'Transportation',
+                        amount: '$100',
+                        percent: '20%'
+                    },
+                    {
+                        name: 'Health',
+                        amount: '$150',
+                        percent: '30%',
+                        children: [
+                            {
+                                name: 'Health care services',
+                                amount: '$150',
+                                percent: '30%'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'General Science',
+                        amount: '$250',
+                        percent: '50%',
+                        children: [
+                            {
+                                name: 'Space flight',
+                                amount: '$200',
+                                percent: '40%'
+                            },
+                            {
+                                name: 'Basic research',
+                                amount: '$50',
+                                percent: '10%'
+                            }
+                        ]
+                    }
+                ]}
+                expandable />
+        </TableWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='Expandable Table with Divider'>
         <TableWrapper>
             <Table
                 rows={[
@@ -112,4 +169,3 @@ Answers the question, where is this component used?
 ### USASpending
 - [x] Agency Profile v2
 - [x] COVID-19 Page
-
