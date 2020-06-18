@@ -11,65 +11,66 @@ const propTypes = {
     active: PropTypes.bool,
     quarter: PropTypes.number,
     pickedQuarter: PropTypes.func,
-    toggleTooltip: PropTypes.func
+    toggleTooltip: PropTypes.func,
+    title: PropTypes.string
 };
 
-export default class QuarterButton extends React.Component {
-    constructor(props) {
-        super(props);
+const QuarterButton = ({
+    disabled,
+    active,
+    quarter,
+    pickedQuarter,
+    toggleTooltip,
+    title = ''
+}) => {
+    const quarterTitle = title || `Q ${quarter}`;
 
-        this.onMouseLeave = this.onMouseLeave.bind(this);
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.clickedQuarter = this.clickedQuarter.bind(this);
-    }
-
-    onMouseEnter() {
-        if (this.props.disabled) {
-            this.props.toggleTooltip(this.props.quarter);
+    const onMouseEnter = () => {
+        if (disabled) {
+            toggleTooltip(quarter);
         }
-    }
+    };
 
-    onMouseLeave() {
-        this.props.toggleTooltip(0);
-    }
+    const onMouseLeave = () => {
+        toggleTooltip(0);
+    };
 
-    clickedQuarter(e) {
+    const clickedQuarter = (e) => {
         e.preventDefault();
-        if (!this.props.disabled) {
-            this.props.pickedQuarter(this.props.quarter);
+        if (!disabled) {
+            pickedQuarter(quarter);
         }
+    };
+
+    let additionalClasses = disabled ? 'usa-dt-quarter-picker__quarter_disabled ' : '';
+    if (quarter === 1) {
+        additionalClasses += 'usa-dt-quarter-picker__quarter_first';
+    }
+    else if (quarter === 4) {
+        additionalClasses += 'usa-dt-quarter-picker__quarter_last';
     }
 
-    render() {
-        let additionalClasses = this.props.disabled ? 'usa-dt-quarter-picker__quarter_disabled ' : '';
-        if (this.props.quarter === 1) {
-            additionalClasses += 'usa-dt-quarter-picker__quarter_first';
-        }
-        else if (this.props.quarter === 4) {
-            additionalClasses += 'usa-dt-quarter-picker__quarter_last';
-        }
-
-        if (!this.props.disabled && this.props.active) {
-            additionalClasses += ' usa-dt-quarter-picker__quarter_active';
-        }
-
-        return (
-            // Use CSS class and aria-disabled rather than disabled html property
-            // so that the disabled buttons are still focusable to display
-            // the warning tooltip
-            <button
-                className={`usa-dt-quarter-picker__quarter ${additionalClasses}`}
-                onClick={this.clickedQuarter}
-                onMouseEnter={this.onMouseEnter}
-                onFocus={this.onMouseEnter}
-                onMouseLeave={this.onMouseLeave}
-                onBlur={this.onMouseLeave}
-                aria-disabled={this.props.disabled}>
-                Q{this.props.quarter}
-            </button>
-        );
+    if (!disabled && active) {
+        additionalClasses += ' usa-dt-quarter-picker__quarter_active';
     }
-}
 
+    return (
+        // Use CSS class and aria-disabled rather than disabled html property
+        // so that the disabled buttons are still focusable to display
+        // the warning tooltip
+        <button
+            className={`usa-dt-quarter-picker__quarter ${additionalClasses}`}
+            onClick={clickedQuarter}
+            onMouseEnter={onMouseEnter}
+            onFocus={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            onBlur={onMouseLeave}
+            aria-disabled={disabled}>
+            {quarterTitle}
+        </button>
+    );
+};
 
 QuarterButton.propTypes = propTypes;
+
+export default QuarterButton;
