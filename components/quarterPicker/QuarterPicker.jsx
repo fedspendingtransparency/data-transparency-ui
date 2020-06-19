@@ -33,26 +33,25 @@ const defaultPeriodsPerQuarter = [
     ]
 ];
 
-const isPeriodActive = (id, selectedPeriods) => selectedPeriods
-    .some((period) => parseInt(period, 10) >= parseInt(id, 10));
-
-const isPeriodDisabled = (id, disabledPeriods) => disabledPeriods
-    .some((period) => parseInt(period, 10) >= parseInt(id, 10));
+const isIdOrGreaterInArray = (idStr, arr) => arr
+    .some((periodOrQuarter) => parseInt(periodOrQuarter, 10) >= parseInt(idStr, 10));
 
 const propTypes = {
-    selectedQuarters: PropTypes.array,
     handleSelection: PropTypes.func,
+    selectedQuarters: PropTypes.arrayOf(PropTypes.string),
     disabledQuarters: PropTypes.arrayOf(PropTypes.string),
     disabledPeriods: PropTypes.arrayOf(PropTypes.string),
     selectedPeriods: PropTypes.arrayOf(PropTypes.string),
-    showPeriods: PropTypes.bool,
     periodsPerQuarter: PropTypes.arrayOf(
         PropTypes.arrayOf(
             PropTypes.shape({
                 title: PropTypes.string,
                 id: PropTypes.string
             })
-        ))
+        )
+    ),
+    showPeriods: PropTypes.bool,
+    isCumulative: PropTypes.bool
 };
 
 const QuarterPicker = ({
@@ -62,7 +61,8 @@ const QuarterPicker = ({
     periodsPerQuarter = defaultPeriodsPerQuarter,
     selectedQuarters = [],
     selectedPeriods = [],
-    showPeriods = false
+    showPeriods = false,
+    isCumulative = false
 }) => {
     const generateButtons = () => new Array(4)
         .fill(0)
@@ -80,11 +80,8 @@ const QuarterPicker = ({
                                     <QuarterButton
                                         quarter={period.id}
                                         title={period.title}
-                                        disabled={(
-                                            isPeriodDisabled(period.id, disabledPeriods) ||
-                                            disabledQuarters.includes(quarterNumber)
-                                        )}
-                                        active={isPeriodActive(period.id, selectedPeriods)}
+                                        disabled={isIdOrGreaterInArray(period.id, disabledPeriods)}
+                                        active={isIdOrGreaterInArray(period.id, selectedPeriods)}
                                         handleSelection={handleSelection}
                                         toggleTooltip={() => {}} />
                                 </li>
@@ -100,8 +97,8 @@ const QuarterPicker = ({
                     <QuarterButton
                         showPeriods={showPeriods}
                         quarter={quarterNumber}
-                        disabled={disabledQuarters.includes(quarterNumber)}
-                        active={selectedQuarters.includes(quarterNumber)}
+                        disabled={isCumulative ? isIdOrGreaterInArray(quarterNumber, disabledQuarters) : disabledQuarters.includes(quarterNumber)}
+                        active={isCumulative ? isIdOrGreaterInArray(quarterNumber, selectedQuarters) : selectedQuarters.includes(quarterNumber)}
                         handleSelection={handleSelection}
                         toggleTooltip={() => {}} />
                 </li>

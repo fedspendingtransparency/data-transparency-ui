@@ -69,7 +69,52 @@ export const QuarterPickerWrapper = (props) => {
   return (
       <div className="story__container quarter-picker-story">
           {React.cloneElement(props.children, {
-            pickedQuarter: handlePickQuarter,
+            handleSelection: handlePickQuarter,
+            selectedQuarters,
+            ...props
+          })}
+      </div>
+  );
+};
+
+export const QuarterPickerCumulative = (props) => {
+  const [selectedQuarters, setSelectedQuarters] = useState([]);
+
+  const handleSelection = (selectedQuarter) => {
+    const selectedQuarterAsInt = parseInt(selectedQuarter, 10);
+    const previousPeriodToNew = `${selectedQuarterAsInt - 1}`;
+    const isSelectedPeriodActive = selectedQuarters.some((period) => parseInt(period, 10) >= selectedQuarterAsInt)
+    const newPeriods = selectedQuarters
+      .map((period) => parseInt(period, 10))
+      .filter((period) => period < selectedQuarterAsInt)
+      .map((period) => `${period}`)
+    
+    const shouldAddPreviousPeriod = (
+      isSelectedPeriodActive &&
+      !newPeriods.includes(previousPeriodToNew)
+    );
+    
+    if (shouldAddPreviousPeriod) {
+      // b/c this is cumulative, the selected period was previously treated as selected
+      // so we should toggle the selection off rather than periods was previously selected,
+      setSelectedQuarters(
+        newPeriods
+        .concat([previousPeriodToNew])
+        .filter((period) => parseInt(period, 10) > 0)
+      )
+    }
+    else if (isSelectedPeriodActive) {
+      setSelectedQuarters(newPeriods);
+    }
+    else {
+      setSelectedQuarters(newPeriods.concat([selectedQuarter]));
+    }
+  }
+
+  return (
+      <div className="story__container quarter-picker-story">
+          {React.cloneElement(props.children, {
+            handleSelection,
             selectedQuarters,
             ...props
           })}
@@ -82,20 +127,29 @@ export const QuarterPickerWithPeriods = (props) => {
 
   const handleSelection = (selectedPeriod) => {
     const selectedPeriodAsInt = parseInt(selectedPeriod, 10);
+    const previousPeriodToNew = `${selectedPeriodAsInt - 1}`;
+    const isSelectedPeriodActive = selectedPeriods.some((period) => parseInt(period, 10) >= selectedPeriodAsInt)
     const newPeriods = selectedPeriods
       .map((period) => parseInt(period, 10))
       .filter((period) => period < selectedPeriodAsInt)
       .map((period) => `${period}`)
     
-    if (selectedPeriods.includes(selectedPeriod)) {
+    const shouldAddPreviousPeriod = (
+      isSelectedPeriodActive &&
+      !newPeriods.includes(previousPeriodToNew)
+    );
+    
+    if (shouldAddPreviousPeriod) {
+      // b/c this is cumulative, the selected period was previously treated as selected
+      // so we should toggle the selection off rather thanperiods was previously selected,
+      setSelectedPeriods(
+        newPeriods
+        .concat([previousPeriodToNew])
+        .filter((period) => parseInt(period, 10) > 0)
+      )
+    }
+    else if (isSelectedPeriodActive) {
       setSelectedPeriods(newPeriods);
-      const previousPeriodToNew = `${selectedPeriodAsInt - 1}`;
-      if (!newPeriods.includes(previousPeriodToNew)) {
-        // w/ one item '5' in the array, b/c it's cumulative
-        // 5 periods are counted as selected
-        // so we trigger a new selection of '4' -- if it's not in the array -- otherwise, we'd have no items in the array.
-        handleSelection(previousPeriodToNew);
-      }
     }
     else {
       setSelectedPeriods(newPeriods.concat([selectedPeriod]));

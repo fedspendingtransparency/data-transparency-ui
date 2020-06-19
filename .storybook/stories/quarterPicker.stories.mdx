@@ -3,7 +3,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 
 import QuarterPicker from '../../components/quarterPicker/QuarterPicker';
-import { QuarterPickerWrapper, QuarterPickerWithPeriods } from "../misc";
+import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative } from "../misc";
 
 <Meta
     title="Quarter Picker"
@@ -24,6 +24,11 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods } from "../misc";
         <QuarterPickerWrapper>
             <QuarterPicker disabledQuarters={[]} />
         </QuarterPickerWrapper>
+    </Story>
+    <Story name="Cumulative Picker">
+        <QuarterPickerCumulative>
+            <QuarterPicker disabledQuarters={[]} isCumulative />
+        </QuarterPickerCumulative>
     </Story>
     <Story name="w/ Periods">
         <QuarterPickerWithPeriods>
