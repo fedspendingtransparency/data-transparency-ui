@@ -22,7 +22,12 @@ import { QuarterPickerWrapper } from "../misc";
 <Preview>
     <Story name="Default">
         <QuarterPickerWrapper>
-            <QuarterPicker disabledQuarters={[false, false, false, false]} />
+            <QuarterPicker disabledQuarters={[]} />
+        </QuarterPickerWrapper>
+    </Story>
+    <Story name="w/ Periods">
+        <QuarterPickerWrapper>
+            <QuarterPicker disabledQuarters={[]} showPeriods />
         </QuarterPickerWrapper>
     </Story>
 </Preview>

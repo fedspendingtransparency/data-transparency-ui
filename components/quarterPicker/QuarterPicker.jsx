@@ -59,7 +59,7 @@ const QuarterPicker = ({
     periodsPerQuarter = defaultPeriodsPerQuarter,
     selectedQuarters,
     pickedQuarter,
-    disabledQuarters,
+    disabledQuarters = [],
     disabledPeriods = [],
     showPeriods = false,
     selectedPeriods = []
@@ -70,7 +70,7 @@ const QuarterPicker = ({
             const quarterNumber = quarterIndex + 1;
             if (showPeriods) {
                 return (
-                    <li>
+                    <li className="usa-dt-quarter-picker__list-item usa-dt-quarter-picker__period-list-container">
                         <p>{`Q${quarterNumber}`}</p>
                         <ul className="usa-dt-quarter-picker__period-list">
                             {periodsPerQuarter[quarterIndex].map((period) => (
