@@ -49,6 +49,9 @@ const QuarterButton = ({
     else if (quarter === 4) {
         additionalClasses += 'usa-dt-quarter-picker__quarter_last';
     }
+    else if (title.includes('-')) {
+        additionalClasses += 'usa-dt-quarter-picker__quarter_double';
+    }
 
     if (!disabled && active) {
         additionalClasses += ' usa-dt-quarter-picker__quarter_active';

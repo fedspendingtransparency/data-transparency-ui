@@ -41,7 +41,13 @@ $button-text-disabled: #9B9B9B;
                 background-color: $button-color;
                 padding: rem(3) rem(18);
                 font-family: 'Source Sans Pro';
+                width: rem(36);
+                display: flex;
+                justify-content: center;
 
+                &.usa-dt-quarter-picker__quarter_double {
+                    width: rem(72);
+                }
                 &.usa-dt-quarter-picker__quarter_first {
                     border-radius: rem(30) 0 0 rem(30);
                 }
@@ -79,7 +85,7 @@ $button-text-disabled: #9B9B9B;
                     font-size: rem(14);
                     line-height: rem(18);
                     text-align: center;
-                    font-weight: $font-bold;
+                    font-weight: $font-normal;
                     margin: rem(6);
                     &.disabled {
                         color: $button-text-disabled;
