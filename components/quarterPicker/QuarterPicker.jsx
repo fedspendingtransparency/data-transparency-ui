@@ -13,7 +13,7 @@ import '../../styles/components/quarterPicker/_quarterPicker.scss';
 
 const defaultPeriodsPerQuarter = [
     [
-        { title: '1-2', id: '1-2' },
+        { title: '1-2', id: '2' },
         { title: '3', id: '3' }
     ],
     [
@@ -41,7 +41,7 @@ const isPeriodDisabled = (id, disabledPeriods) => disabledPeriods
 
 const propTypes = {
     selectedQuarters: PropTypes.array,
-    pickedQuarter: PropTypes.func,
+    handleSelection: PropTypes.func,
     disabledQuarters: PropTypes.arrayOf(PropTypes.string),
     disabledPeriods: PropTypes.arrayOf(PropTypes.string),
     selectedPeriods: PropTypes.arrayOf(PropTypes.string),
@@ -56,13 +56,13 @@ const propTypes = {
 };
 
 const QuarterPicker = ({
-    periodsPerQuarter = defaultPeriodsPerQuarter,
-    selectedQuarters,
-    pickedQuarter,
+    handleSelection,
     disabledQuarters = [],
     disabledPeriods = [],
-    showPeriods = false,
-    selectedPeriods = []
+    periodsPerQuarter = defaultPeriodsPerQuarter,
+    selectedQuarters = [],
+    selectedPeriods = [],
+    showPeriods = false
 }) => {
     const generateButtons = () => new Array(4)
         .fill(0)
@@ -78,14 +78,14 @@ const QuarterPicker = ({
                                     className="usa-dt-quarter-picker__list-item"
                                     key={uniqueId()}>
                                     <QuarterButton
-                                        quarter={quarterNumber}
+                                        quarter={period.id}
                                         title={period.title}
                                         disabled={(
                                             isPeriodDisabled(period.id, disabledPeriods) ||
                                             disabledQuarters.includes(quarterNumber)
                                         )}
                                         active={isPeriodActive(period.id, selectedPeriods)}
-                                        pickedQuarter={pickedQuarter}
+                                        handleSelection={handleSelection}
                                         toggleTooltip={() => {}} />
                                 </li>
                             ))}
@@ -102,7 +102,7 @@ const QuarterPicker = ({
                         quarter={quarterNumber}
                         disabled={disabledQuarters.includes(quarterNumber)}
                         active={selectedQuarters.includes(quarterNumber)}
-                        pickedQuarter={pickedQuarter}
+                        handleSelection={handleSelection}
                         toggleTooltip={() => {}} />
                 </li>
             );

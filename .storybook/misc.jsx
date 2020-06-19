@@ -55,13 +55,14 @@ export const PaginationWrapper = (props) => {
 
 export const QuarterPickerWrapper = (props) => {
   const [selectedQuarters, setSelectedQuarters] = useState([]);
+  const [selectedPeriods, setSelectedPeriods] = useState([]);
 
-  const handlePickQuarter = (newlySelectedQuarter) => {
-    if (selectedQuarters.includes(newlySelectedQuarter)) {
-      setSelectedQuarters(selectedQuarters.filter((quarter) => quarter !== newlySelectedQuarter))
+  const handlePickQuarter = (newlySelected) => {
+    if (selectedQuarters.includes(newlySelected)) {
+      setSelectedQuarters(selectedQuarters.filter((quarter) => quarter !== newlySelected))
     }
     else {
-      setSelectedQuarters([...new Set([...selectedQuarters, newlySelectedQuarter])])
+      setSelectedQuarters([...new Set([...selectedQuarters, newlySelected])])
     }
   }
 
@@ -70,6 +71,42 @@ export const QuarterPickerWrapper = (props) => {
           {React.cloneElement(props.children, {
             pickedQuarter: handlePickQuarter,
             selectedQuarters,
+            ...props
+          })}
+      </div>
+  );
+};
+
+export const QuarterPickerWithPeriods = (props) => {
+  const [selectedPeriods, setSelectedPeriods] = useState([]);
+
+  const handleSelection = (selectedPeriod) => {
+    const selectedPeriodAsInt = parseInt(selectedPeriod, 10);
+    const newPeriods = selectedPeriods
+      .map((period) => parseInt(period, 10))
+      .filter((period) => period < selectedPeriodAsInt)
+      .map((period) => `${period}`)
+    
+    if (selectedPeriods.includes(selectedPeriod)) {
+      setSelectedPeriods(newPeriods);
+      const previousPeriodToNew = `${selectedPeriodAsInt - 1}`;
+      if (!newPeriods.includes(previousPeriodToNew)) {
+        // w/ one item '5' in the array, b/c it's cumulative
+        // 5 periods are counted as selected
+        // so we trigger a new selection of '4' -- if it's not in the array -- otherwise, we'd have no items in the array.
+        handleSelection(previousPeriodToNew);
+      }
+    }
+    else {
+      setSelectedPeriods(newPeriods.concat([selectedPeriod]));
+    }
+  }
+
+  return (
+      <div className="story__container quarter-picker-story">
+          {React.cloneElement(props.children, {
+            handleSelection,
+            selectedPeriods,
             ...props
           })}
       </div>

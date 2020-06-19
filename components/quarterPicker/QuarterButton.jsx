@@ -10,7 +10,7 @@ const propTypes = {
     disabled: PropTypes.bool,
     active: PropTypes.bool,
     quarter: PropTypes.number,
-    pickedQuarter: PropTypes.func,
+    handleSelection: PropTypes.func,
     toggleTooltip: PropTypes.func,
     title: PropTypes.string
 };
@@ -19,7 +19,7 @@ const QuarterButton = ({
     disabled,
     active,
     quarter,
-    pickedQuarter,
+    handleSelection,
     toggleTooltip,
     title = ''
 }) => {
@@ -35,10 +35,10 @@ const QuarterButton = ({
         toggleTooltip(0);
     };
 
-    const clickedQuarter = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
         if (!disabled) {
-            pickedQuarter(quarter);
+            handleSelection(quarter);
         }
     };
 
@@ -60,7 +60,7 @@ const QuarterButton = ({
         // the warning tooltip
         <button
             className={`usa-dt-quarter-picker__quarter ${additionalClasses}`}
-            onClick={clickedQuarter}
+            onClick={handleClick}
             onMouseEnter={onMouseEnter}
             onFocus={onMouseEnter}
             onMouseLeave={onMouseLeave}
