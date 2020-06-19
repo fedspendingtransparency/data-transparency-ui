@@ -13,7 +13,7 @@ import '../../styles/components/quarterPicker/_quarterPicker.scss';
 
 const defaultPeriodsPerQuarter = [
     [
-        { title: '1-2', id: '2' },
+        { title: '1 - 2', id: '2' },
         { title: '3', id: '3' }
     ],
     [
@@ -69,18 +69,20 @@ const QuarterPicker = ({
         .map((_, quarterIndex) => {
             const quarterNumber = quarterIndex + 1;
             if (showPeriods) {
+                const periodsForQuarter = periodsPerQuarter[quarterIndex];
+                const isQuarterDisabled = periodsForQuarter.every((period) => disabledPeriods.includes(period.id));
                 return (
                     <li className="usa-dt-quarter-picker__list-item usa-dt-quarter-picker__period-list-container">
-                        <p>{`Q${quarterNumber}`}</p>
+                        <p className={isQuarterDisabled ? 'disabled' : ''}>{`Q${quarterNumber}`}</p>
                         <ul className="usa-dt-quarter-picker__period-list">
-                            {periodsPerQuarter[quarterIndex].map((period) => (
+                            {periodsForQuarter.map((period) => (
                                 <li
                                     className="usa-dt-quarter-picker__list-item"
                                     key={uniqueId()}>
                                     <QuarterButton
                                         quarter={period.id}
                                         title={period.title}
-                                        disabled={isIdOrGreaterInArray(period.id, disabledPeriods)}
+                                        disabled={disabledPeriods.includes(period.id)}
                                         active={isIdOrGreaterInArray(period.id, selectedPeriods)}
                                         handleSelection={handleSelection}
                                         toggleTooltip={() => {}} />
@@ -97,7 +99,7 @@ const QuarterPicker = ({
                     <QuarterButton
                         showPeriods={showPeriods}
                         quarter={quarterNumber}
-                        disabled={isCumulative ? isIdOrGreaterInArray(quarterNumber, disabledQuarters) : disabledQuarters.includes(quarterNumber)}
+                        disabled={disabledQuarters.includes(quarterNumber)}
                         active={isCumulative ? isIdOrGreaterInArray(quarterNumber, selectedQuarters) : selectedQuarters.includes(quarterNumber)}
                         handleSelection={handleSelection}
                         toggleTooltip={() => {}} />
