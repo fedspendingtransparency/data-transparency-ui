@@ -23,6 +23,15 @@ table.usda-table {
                     margin-right: rem(8);
                     font-size: rem(10);
                 }
+                td.usda-table__cell {
+                    &:first-of-type {
+                        display: flex;
+                        p {
+                            display: flex;
+                            margin: 0;
+                        }
+                    }
+                }
                 td.usda-table__cell_name {
                     // add extra padding when no arrow is present because there are no children
                     padding-left: rem(30);
