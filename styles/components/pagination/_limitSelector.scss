@@ -1,10 +1,18 @@
-.usa-dt-pagination__limit-selector {
-    background-color: $color-white;
-    height: rem(32);
-    border: solid rem(1) $color-gray-lighter;
-    margin-left: rem(30);
-    padding: 0 rem(5);
-    @media(max-width: $small-screen) {
-        margin-left: 0;
+
+.usa-dt-pagination__limit-selector__wrapper {
+    .usa-dt-pagination__limit-selector {
+        background-color: $color-white;
+        height: rem(32);
+        border: solid rem(1) $color-gray-lighter;
+        margin-right: rem(30);
+        padding: 0 rem(5);
+        @media(max-width: $small-screen) {
+            margin-left: 0;
+        }
+    }
+    
+    label {
+        font-size: rem(16);
+        font-weight: normal;
     }
 }

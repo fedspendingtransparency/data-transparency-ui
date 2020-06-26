@@ -102,12 +102,12 @@ export default class Pagination extends React.Component {
             <div className="usa-dt-pagination">
                 {description}
                 <div className="usa-dt-pagination__wrapper">
+                    {limitSelect}
                     <Pager
                         changePage={changePage}
                         totalItems={totalItems}
                         currentPage={currentPage}
                         pageSize={pageSize} />
-                    {limitSelect}
                     {goTo}
                 </div>
             </div>
