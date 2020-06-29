@@ -27,7 +27,7 @@ const QuarterButton = ({
     title = '',
     handleHover,
     handleBlur,
-    showPeriods
+    showPeriods = false
 }) => {
     const quarterTitle = title || `Q ${quarter}`;
 
@@ -40,11 +40,10 @@ const QuarterButton = ({
 
     const onMouseLeave = () => {
         toggleTooltip(0);
-        handleBlur(quarter, showPeriods ? 'period' : 'quarter');
+        handleBlur(showPeriods ? 'period' : 'quarter');
     };
 
-    const handleClick = (e) => {
-        e.stopPropagation();
+    const handleClick = () => {
         if (!disabled) {
             handleSelection(quarter);
         }

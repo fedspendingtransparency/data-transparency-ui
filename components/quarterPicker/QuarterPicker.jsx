@@ -168,7 +168,10 @@ const QuarterPicker = ({
                                 isIdOrGreaterInArray(quarterNumberAsString, selectedQuarters) ||
                                 parseInt(quarterHoverState, 10) >= quarterNumber
                             )
-                            : selectedQuarters.includes(quarterNumberAsString)}
+                            : (
+                                selectedQuarters.includes(quarterNumberAsString) ||
+                                quarterHoverState === quarterNumberAsString
+                            )}
                         handleSelection={handleSelection}
                         handleHover={handleHover}
                         handleBlur={handleBlur}
