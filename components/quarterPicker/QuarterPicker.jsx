@@ -130,7 +130,7 @@ const QuarterPicker = ({
                 const periodsForQuarter = periodsPerQuarter[quarterIndex];
                 const isQuarterDisabled = periodsForQuarter.every((period) => disabledPeriods.includes(period.id));
                 return (
-                    <li className="usa-dt-quarter-picker__list-item usa-dt-quarter-picker__period-list-container">
+                    <li className="usa-dt-quarter-picker__list-item usa-dt-quarter-picker__period-list-container" key={uniqueId()}>
                         <p className={isQuarterDisabled ? 'disabled' : ''}>{`Q${quarterNumber}`}</p>
                         <ul className="usa-dt-quarter-picker__period-list">
                             {periodsForQuarter.map((period) => (

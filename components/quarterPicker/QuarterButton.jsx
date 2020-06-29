@@ -10,7 +10,7 @@ const propTypes = {
     disabled: PropTypes.bool,
     active: PropTypes.bool,
     showPeriods: PropTypes.bool,
-    quarter: PropTypes.number,
+    quarter: PropTypes.string,
     handleSelection: PropTypes.func,
     handleHover: PropTypes.func,
     handleBlur: PropTypes.func,
