@@ -9,8 +9,11 @@ import PropTypes from 'prop-types';
 const propTypes = {
     disabled: PropTypes.bool,
     active: PropTypes.bool,
+    showPeriods: PropTypes.bool,
     quarter: PropTypes.number,
     handleSelection: PropTypes.func,
+    handleHover: PropTypes.func,
+    handleBlur: PropTypes.func,
     toggleTooltip: PropTypes.func,
     title: PropTypes.string
 };
@@ -21,7 +24,10 @@ const QuarterButton = ({
     quarter,
     handleSelection,
     toggleTooltip,
-    title = ''
+    title = '',
+    handleHover,
+    handleBlur,
+    showPeriods
 }) => {
     const quarterTitle = title || `Q ${quarter}`;
 
@@ -29,24 +35,26 @@ const QuarterButton = ({
         if (disabled) {
             toggleTooltip(quarter);
         }
+        handleHover(quarter, showPeriods ? 'period' : 'quarter');
     };
 
     const onMouseLeave = () => {
         toggleTooltip(0);
+        handleBlur(quarter, showPeriods ? 'period' : 'quarter');
     };
 
     const handleClick = (e) => {
-        e.preventDefault();
+        e.stopPropagation();
         if (!disabled) {
             handleSelection(quarter);
         }
     };
 
     let additionalClasses = disabled ? 'usa-dt-quarter-picker__quarter_disabled ' : '';
-    if (quarter === 1) {
+    if (quarter === '1') {
         additionalClasses += 'usa-dt-quarter-picker__quarter_first';
     }
-    else if (quarter === 4) {
+    else if (quarter === '4') {
         additionalClasses += 'usa-dt-quarter-picker__quarter_last';
     }
     else if (title.includes('-')) {
@@ -63,6 +71,7 @@ const QuarterButton = ({
         // the warning tooltip
         <button
             className={`usa-dt-quarter-picker__quarter ${additionalClasses}`}
+            onMouseDown={handleClick}
             onClick={handleClick}
             onMouseEnter={onMouseEnter}
             onFocus={onMouseEnter}

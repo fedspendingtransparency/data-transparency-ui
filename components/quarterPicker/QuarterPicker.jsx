@@ -13,15 +13,14 @@ import '../../styles/components/quarterPicker/_quarterPicker.scss';
 
 export const useCumulativeQuarterPicker = (initialState = []) => {
     const [selectedPeriods, setSelectedPeriods] = useState(initialState);
-
     const handleSelection = (selectedPeriod) => {
         const selectedPeriodAsInt = parseInt(selectedPeriod, 10);
         const previousPeriodToNew = `${selectedPeriodAsInt - 1}`;
-        const isSelectedPeriodActive = selectedPeriods.some((period) => parseInt(period, 10) >= selectedPeriodAsInt)
+        const isSelectedPeriodActive = selectedPeriods.some((period) => parseInt(period, 10) >= selectedPeriodAsInt);
         const newPeriods = selectedPeriods
             .map((period) => parseInt(period, 10))
             .filter((period) => period < selectedPeriodAsInt)
-            .map((period) => `${period}`)
+            .map((period) => `${period}`);
 
         const shouldAddPreviousPeriod = (
             isSelectedPeriodActive &&
@@ -50,7 +49,7 @@ export const useCumulativeQuarterPicker = (initialState = []) => {
 
 const defaultPeriodsPerQuarter = [
     [
-        { title: '1 - 2', id: '2' },
+        { title: '1 - 2', id: '2', className: 'double-period' },
         { title: '3', id: '3' }
     ],
     [
@@ -101,10 +100,32 @@ const QuarterPicker = ({
     showPeriods = false,
     isCumulative = false
 }) => {
+    const [periodHoverState, setPeriodHoverState] = useState('');
+    const [quarterHoverState, setQuarterHoverState] = useState('');
+
+    const handleHover = (str, type = 'quarter') => {
+        if (type === 'quarter') {
+            setQuarterHoverState(str);
+        }
+        else {
+            setPeriodHoverState(str);
+        }
+    };
+
+    const handleBlur = (type = 'quarter') => {
+        if (type === 'quarter') {
+            setQuarterHoverState('');
+        }
+        else {
+            setPeriodHoverState('');
+        }
+    };
+
     const generateButtons = () => new Array(4)
         .fill(0)
         .map((_, quarterIndex) => {
             const quarterNumber = quarterIndex + 1;
+            const quarterNumberAsString = `${quarterNumber}`;
             if (showPeriods) {
                 const periodsForQuarter = periodsPerQuarter[quarterIndex];
                 const isQuarterDisabled = periodsForQuarter.every((period) => disabledPeriods.includes(period.id));
@@ -114,13 +135,19 @@ const QuarterPicker = ({
                         <ul className="usa-dt-quarter-picker__period-list">
                             {periodsForQuarter.map((period) => (
                                 <li
-                                    className="usa-dt-quarter-picker__list-item"
+                                    className={Object.keys(period).includes('className') ? `${period.className} usa-dt-quarter-picker__list-item` : 'usa-dt-quarter-picker__list-item'}
                                     key={uniqueId()}>
                                     <QuarterButton
+                                        showPeriods={showPeriods}
                                         quarter={period.id}
                                         title={period.title}
                                         disabled={disabledPeriods.includes(period.id)}
-                                        active={isIdOrGreaterInArray(period.id, selectedPeriods)}
+                                        active={(
+                                            isIdOrGreaterInArray(period.id, selectedPeriods) ||
+                                            parseInt(periodHoverState, 10) >= parseInt(period.id, 10)
+                                        )}
+                                        handleHover={handleHover}
+                                        handleBlur={handleBlur}
                                         handleSelection={handleSelection}
                                         toggleTooltip={() => {}} />
                                 </li>
@@ -134,11 +161,17 @@ const QuarterPicker = ({
                     className="usa-dt-quarter-picker__list-item"
                     key={uniqueId()}>
                     <QuarterButton
-                        showPeriods={showPeriods}
-                        quarter={quarterNumber}
-                        disabled={disabledQuarters.includes(quarterNumber)}
-                        active={isCumulative ? isIdOrGreaterInArray(quarterNumber, selectedQuarters) : selectedQuarters.includes(quarterNumber)}
+                        quarter={quarterNumberAsString}
+                        disabled={disabledQuarters.includes(quarterNumberAsString)}
+                        active={isCumulative ?
+                            (
+                                isIdOrGreaterInArray(quarterNumberAsString, selectedQuarters) ||
+                                parseInt(quarterHoverState, 10) >= quarterNumber
+                            )
+                            : selectedQuarters.includes(quarterNumberAsString)}
                         handleSelection={handleSelection}
+                        handleHover={handleHover}
+                        handleBlur={handleBlur}
                         toggleTooltip={() => {}} />
                 </li>
             );

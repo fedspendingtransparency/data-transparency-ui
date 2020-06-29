@@ -41,7 +41,6 @@ $button-text-disabled: #9B9B9B;
                 background-color: $button-color;
                 padding: rem(3) rem(18);
                 font-family: 'Source Sans Pro';
-                width: rem(36);
                 display: flex;
                 justify-content: center;
 
@@ -101,7 +100,14 @@ $button-text-disabled: #9B9B9B;
                         .usa-dt-quarter-picker__quarter_last {
                             border-radius: 0;
                         }
-
+                        button.usa-dt-quarter-picker__quarter {
+                            width: rem(36);
+                        }
+                        &.double-period {
+                            button.usa-dt-quarter-picker__quarter {
+                                width: rem(72);
+                            }
+                        }
                     }
                 }
                 &:first-of-type {
