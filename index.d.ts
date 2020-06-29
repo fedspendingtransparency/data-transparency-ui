@@ -45,7 +45,7 @@ export interface QuarterPickerProps {
     disabledQuarters: Array<string>,
     selectedPeriods: Array<string>,
     disabledPeriods: Array<string>,
-    periodsPerQuarter: Array<Array>,
+    periodsPerQuarter: Array<[object]>,
     isCumulative: boolean,
     showPeriods: boolean
 }
@@ -87,7 +87,7 @@ interface tableCurrentSortProps {
 
 export interface TableProps {
     columns: Array<Object>,
-    rows: Array<Object|Array>,
+    rows: Array<Object|[]>,
     currentSort: tableCurrentSortProps,
     updateSort: (title: string, direction: string) => void,
     expandable: boolean,
@@ -102,7 +102,7 @@ export class QuarterPicker extends React.Component<QuarterPickerProps>{}
 export function Picker(props: PickerProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
 export function Table(props: TableProps): JSX.Element;
-export function useCumulativeQuarterPicker(initialState: Array): Array<Array<string>,func>
+export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
 /*~ If there are types, properties, or methods inside dotted names
  *~ of the module, declare them inside a 'namespace'.
  */
