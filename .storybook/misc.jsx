@@ -56,7 +56,6 @@ export const PaginationWrapper = (props) => {
 
 export const QuarterPickerWrapper = (props) => {
   const [selectedQuarters, setSelectedQuarters] = useState([]);
-  const [selectedPeriods, setSelectedPeriods] = useState([]);
 
   const handlePickQuarter = (newlySelected) => {
     if (selectedQuarters.includes(newlySelected)) {
