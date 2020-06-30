@@ -1,5 +1,10 @@
 @import "../../global/index";
 
+$button-color:rgba(0, 113, 187, 0.5);
+$active-button-color: #0071BC;
+$button-text-color: $color-white;
+$button-text-disabled: #9B9B9B;
+
 .usa-dt-quarter-picker {
     .warning-tooltip {
         // space the tooltip to the right of the quarter buttons
@@ -28,14 +33,19 @@
 
             button.usa-dt-quarter-picker__quarter {
                 @include button-unstyled;
-
-                color: $color-gray;
+                color: $color-white;
                 text-align: center;
                 line-height: rem(22);
                 font-weight: $font-bold;
-                background-color: $color-gray-light;
+                background-color: $button-color;
                 padding: rem(3) rem(18);
-
+                font-family: 'Source Sans Pro';
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+                &.usa-dt-quarter-picker__quarter_double {
+                    width: rem(72);
+                }
                 &.usa-dt-quarter-picker__quarter_first {
                     border-radius: rem(30) 0 0 rem(30);
                 }
@@ -45,20 +55,69 @@
                 }
 
                 &:active, &.usa-dt-quarter-picker__quarter_active {
-                    background-color: $color-primary;
+                    background-color: $active-button-color;
                     color: $color-white;
                 }
 
-                &:hover{
-                    background-color: $color-primary-darker;
+                &:hover {
+                    background-color: $active-button-color;
                     color: $color-white;
                 }
 
                 &.usa-dt-quarter-picker__quarter_disabled {
                     background-color: $color-gray-lightest;
                     cursor: not-allowed;
-                    color: $color-gray-light;
+                    color: $button-text-disabled;
                     opacity: 0.90;
+                }
+            }
+
+            // when the list item is the container for a list
+            &.usa-dt-quarter-picker__period-list-container {
+                display: flex;
+                flex-direction: column;
+                list-style: none;
+                height: auto;
+                // the nested list
+                p {
+                    font-size: rem(14);
+                    line-height: rem(18);
+                    text-align: center;
+                    font-weight: $font-normal;
+                    margin: rem(6);
+                    &.disabled {
+                        color: $button-text-disabled;
+                    }
+                }
+                .usa-dt-quarter-picker__period-list {
+                    display: flex;
+                    flex-direction: row;
+                    padding: 0;
+                    li {
+                        list-style: none;
+                        .usa-dt-quarter-picker__quarter_first,
+                        .usa-dt-quarter-picker__quarter_last {
+                            border-radius: 0;
+                        }
+                        button.usa-dt-quarter-picker__quarter {
+                            width: rem(36);
+                        }
+                        &.double-period {
+                            button.usa-dt-quarter-picker__quarter {
+                                width: rem(72);
+                            }
+                        }
+                    }
+                }
+                &:first-of-type {
+                    .usa-dt-quarter-picker__list-item:first-of-type .usa-dt-quarter-picker__quarter:first-of-type {
+                        border-radius: rem(30) 0 0 rem(30);
+                    }
+                }
+                &:last-of-type {
+                    .usa-dt-quarter-picker__list-item:last-of-type .usa-dt-quarter-picker__quarter:last-of-type {
+                        border-radius: 0 rem(30) rem(30) 0;
+                    }
                 }
             }
         }
