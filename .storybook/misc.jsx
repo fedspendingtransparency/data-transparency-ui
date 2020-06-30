@@ -55,7 +55,7 @@ export const PaginationWrapper = (props) => {
 };
 
 export const QuarterPickerWrapper = (props) => {
-  const [selectedQuarters, setSelectedQuarters] = useState([]);
+  const [selectedQuarters, setSelectedQuarters] = useState(['1']);
 
   const handlePickQuarter = (newlySelected) => {
     if (selectedQuarters.includes(newlySelected)) {
@@ -78,7 +78,7 @@ export const QuarterPickerWrapper = (props) => {
 };
 
 export const QuarterPickerCumulative = (props) => {
-  const [selectedQuarters, handleSelection] = useCumulativeQuarterPicker([]);
+  const [selectedQuarters, handleSelection] = useCumulativeQuarterPicker(['1']);
 
   return (
       <div className="story__container quarter-picker-story">
@@ -92,7 +92,7 @@ export const QuarterPickerCumulative = (props) => {
 };
 
 export const QuarterPickerWithPeriods = (props) => {
-  const [selectedPeriods, handleSelection] = useCumulativeQuarterPicker([]);
+  const [selectedPeriods, handleSelection] = useCumulativeQuarterPicker(['2']);
 
   return (
       <div className="story__container quarter-picker-story">
