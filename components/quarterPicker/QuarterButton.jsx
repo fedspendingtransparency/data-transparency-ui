@@ -35,7 +35,9 @@ const QuarterButton = ({
         if (disabled) {
             toggleTooltip(quarter);
         }
-        handleHover(quarter, showPeriods ? 'period' : 'quarter');
+        else {
+            handleHover(quarter, showPeriods ? 'period' : 'quarter');
+        }
     };
 
     const onMouseLeave = () => {
