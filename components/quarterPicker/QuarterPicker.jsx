@@ -15,33 +15,11 @@ export const useCumulativeQuarterPicker = (initialState = []) => {
     const [selectedPeriods, setSelectedPeriods] = useState(initialState);
     const handleSelection = (selectedPeriod) => {
         const selectedPeriodAsInt = parseInt(selectedPeriod, 10);
-        const previousPeriodToNew = `${selectedPeriodAsInt - 1}`;
-        const isSelectedPeriodActive = selectedPeriods.some((period) => parseInt(period, 10) >= selectedPeriodAsInt);
         const newPeriods = selectedPeriods
             .map((period) => parseInt(period, 10))
-            .filter((period) => period < selectedPeriodAsInt)
+            .filter((period) => period <= selectedPeriodAsInt)
             .map((period) => `${period}`);
-
-        const shouldAddPreviousPeriod = (
-            isSelectedPeriodActive &&
-            !newPeriods.includes(previousPeriodToNew)
-        );
-
-        if (shouldAddPreviousPeriod) {
-            // b/c this is cumulative, the selected period was previously treated as selected
-            // so we should toggle the selection off rather thanperiods was previously selected,
-            setSelectedPeriods(
-                newPeriods
-                    .concat([previousPeriodToNew])
-                    .filter((period) => parseInt(period, 10) > 0)
-            );
-        }
-        else if (isSelectedPeriodActive) {
-            setSelectedPeriods(newPeriods);
-        }
-        else {
-            setSelectedPeriods(newPeriods.concat([selectedPeriod]));
-        }
+        setSelectedPeriods(newPeriods.concat([selectedPeriod]));
     };
 
     return [selectedPeriods, handleSelection];
