@@ -31,9 +31,11 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative
         </QuarterPickerCumulative>
     </Story>
     <Story name="w/ Periods">
-        <QuarterPickerWithPeriods>
-            <QuarterPicker disabledPeriods={['10', '11', '12']} showPeriods />
-        </QuarterPickerWithPeriods>
+        <div className="story__container quarter-picker-story">
+            <QuarterPickerWithPeriods>
+                <QuarterPicker disabledPeriods={['10', '11', '12']} showPeriods />
+            </QuarterPickerWithPeriods>
+        </div>
     </Story>
 </Preview>
 

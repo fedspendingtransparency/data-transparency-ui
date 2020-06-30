@@ -33,17 +33,16 @@ $button-text-disabled: #9B9B9B;
 
             button.usa-dt-quarter-picker__quarter {
                 @include button-unstyled;
-
                 color: $color-white;
                 text-align: center;
                 line-height: rem(22);
-                font-weight: $font-normal;
+                font-weight: $font-bold;
                 background-color: $button-color;
                 padding: rem(3) rem(18);
                 font-family: 'Source Sans Pro';
                 display: flex;
                 justify-content: center;
-
+                cursor: pointer;
                 &.usa-dt-quarter-picker__quarter_double {
                     width: rem(72);
                 }
@@ -78,7 +77,7 @@ $button-text-disabled: #9B9B9B;
                 display: flex;
                 flex-direction: column;
                 list-style: none;
-                height: rem(50);
+                height: auto;
                 // the nested list
                 p {
                     font-size: rem(14);
@@ -93,7 +92,7 @@ $button-text-disabled: #9B9B9B;
                 .usa-dt-quarter-picker__period-list {
                     display: flex;
                     flex-direction: row;
-                    padding: 0 rem(5);
+                    padding: 0;
                     li {
                         list-style: none;
                         .usa-dt-quarter-picker__quarter_first,
