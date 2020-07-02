@@ -49,7 +49,9 @@ const ExpandableRow = ({
                                     onClick={toggleExpand}>
                                     <FontAwesomeIcon icon={icon} size="2x" />
                                 </button>
-                                {data.name}
+                                <p>
+                                    {data.name}
+                                </p>
                             </td>
                         );
                     }
