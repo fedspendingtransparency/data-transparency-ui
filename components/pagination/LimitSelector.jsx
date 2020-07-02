@@ -9,7 +9,8 @@ import PropTypes from 'prop-types';
 const propTypes = {
     changeLimit: PropTypes.func.isRequired,
     pageSize: PropTypes.number,
-    limitList: PropTypes.array
+    limitList: PropTypes.arrayOf(PropTypes.number),
+    label: PropTypes.string
 };
 
 const defaultProps = {
@@ -30,7 +31,9 @@ export default class LimitSelector extends React.Component {
         this.props.changeLimit(targetId);
     }
 
+
     render() {
+        const label = this.props.label ? this.props.label : 'Rows Per Page: ';
         const { limitList, pageSize } = this.props;
         const list = limitList.map((limit) => (
             <option key={`limit-${limit}`} value={limit}>
@@ -39,13 +42,18 @@ export default class LimitSelector extends React.Component {
         ));
 
         return (
-            <select
-                onChange={this.changeLimit}
-                value={pageSize}
-                className="usa-dt-pagination__limit-selector"
-                aria-label="limit-dropdown">
-                {list}
-            </select>
+            <div className="usa-dt-pagination__limit-selector__wrapper">
+                <label>
+                    {label}
+                </label>
+                <select
+                    onChange={this.changeLimit}
+                    value={pageSize}
+                    className="usa-dt-pagination__limit-selector"
+                    aria-label="limit-dropdown">
+                    {list}
+                </select>
+            </div>
         );
     }
 }
