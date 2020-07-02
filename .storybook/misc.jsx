@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import TooltipComponent from "../components/infoTooltip/TooltipComponent";
+import { useCumulativeQuarterPicker } from "../components/quarterPicker/QuarterPicker";
 
 export const Tooltip = () => (
     <TooltipComponent title="An Example Tooltip" textAlign={{ title: 'left', text: 'left'}}>
@@ -54,22 +55,50 @@ export const PaginationWrapper = (props) => {
 };
 
 export const QuarterPickerWrapper = (props) => {
-  const [selectedQuarters, setSelectedQuarters] = useState([]);
+  const [selectedQuarters, setSelectedQuarters] = useState(['1']);
 
-  const handlePickQuarter = (newlySelectedQuarter) => {
-    if (selectedQuarters.includes(newlySelectedQuarter)) {
-      setSelectedQuarters(selectedQuarters.filter((quarter) => quarter !== newlySelectedQuarter))
+  const handlePickQuarter = (newlySelected) => {
+    if (selectedQuarters.includes(newlySelected)) {
+      setSelectedQuarters(selectedQuarters.filter((quarter) => quarter !== newlySelected))
     }
     else {
-      setSelectedQuarters([...new Set([...selectedQuarters, newlySelectedQuarter])])
+      setSelectedQuarters([...new Set([...selectedQuarters, newlySelected])])
     }
   }
 
   return (
       <div className="story__container quarter-picker-story">
           {React.cloneElement(props.children, {
-            pickedQuarter: handlePickQuarter,
+            handleSelection: handlePickQuarter,
             selectedQuarters,
+            ...props
+          })}
+      </div>
+  );
+};
+
+export const QuarterPickerCumulative = (props) => {
+  const [selectedQuarters, handleSelection] = useCumulativeQuarterPicker(['1']);
+
+  return (
+      <div className="story__container quarter-picker-story">
+          {React.cloneElement(props.children, {
+            handleSelection,
+            selectedQuarters,
+            ...props
+          })}
+      </div>
+  );
+};
+
+export const QuarterPickerWithPeriods = (props) => {
+  const [selectedPeriods, handleSelection] = useCumulativeQuarterPicker(['2']);
+
+  return (
+      <div className="story__container quarter-picker-story">
+          {React.cloneElement(props.children, {
+            handleSelection,
+            selectedPeriods,
             ...props
           })}
       </div>
