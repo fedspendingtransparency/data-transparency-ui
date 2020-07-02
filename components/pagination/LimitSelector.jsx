@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 const propTypes = {
     changeLimit: PropTypes.func.isRequired,
     pageSize: PropTypes.number,
-    limitList: PropTypes.array,
-    label: PropTypes.string,
+    limitList: PropTypes.arrayOf(PropTypes.number),
+    label: PropTypes.string
 };
 
 const defaultProps = {
