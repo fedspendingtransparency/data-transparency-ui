@@ -57,7 +57,7 @@ const Table = (props) => (
                         className={`usda-table__row${oddClass}`}>
                         {row.map((data, j) => (
                             <td
-                                key={`${props.columns[j].title}-${j}`}
+                                key={`${props.columns[j].title}-${i}`}
                                 className={`usda-table__cell${props.columns[j].right ? ' usda-table__cell_right' : ''}`}>
                                 {data}
                             </td>
