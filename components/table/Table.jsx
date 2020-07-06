@@ -44,7 +44,7 @@ const Table = (props) => (
                 if (props.expandable) {
                     return (
                         <ExpandableRow
-                            key={row.name}
+                            key={`${row.name}-${i}`}
                             data={row}
                             oddClass={oddClass}
                             columns={props.columns}
@@ -56,6 +56,7 @@ const Table = (props) => (
                         key={`row-${i}`}
                         className={`usda-table__row${oddClass}`}>
                         {row.map((data, j) => (
+                            props.columns[j] &&
                             <td
                                 key={`${props.columns[j].title}-${i}`}
                                 className={`usda-table__cell${props.columns[j].right ? ' usda-table__cell_right' : ''}`}>
