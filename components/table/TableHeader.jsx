@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const propTypes = {
     isActive: PropTypes.bool,
     title: PropTypes.string.isRequired,
-    displayName: PropTypes.string.isRequired,
+    displayName: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     currentSort: shape({
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
