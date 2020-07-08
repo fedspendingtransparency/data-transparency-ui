@@ -10,12 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const propTypes = {
     isActive: PropTypes.bool,
     title: PropTypes.string.isRequired,
-    displayName: PropTypes.string.isRequired,
+    displayName: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     currentSort: shape({
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
     }),
-    updateSort: PropTypes.func
+    updateSort: PropTypes.func,
+    right: PropTypes.bool
 };
 
 const TableHeaderCell = (props) => {
@@ -52,7 +53,7 @@ const TableHeaderCell = (props) => {
 
     return (
         <th className="table-header">
-            <div className="table-header__content">
+            <div className={`table-header__content${props.right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
                     {props.displayName}
                 </div>

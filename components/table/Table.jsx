@@ -5,6 +5,7 @@
 
 import React from 'react';
 import PropTypes, { shape, oneOf, oneOfType } from 'prop-types';
+import { uniqueId } from 'lodash';
 import TableHeader from './TableHeader';
 import ExpandableRow from './ExpandableRow';
 
@@ -28,7 +29,7 @@ const Table = (props) => (
             <tr className="usda-table__row">
                 {props.columns.map((col) => (
                     <TableHeader
-                        key={col.title}
+                        key={uniqueId()}
                         currentSort={props.currentSort}
                         updateSort={props.updateSort}
                         isActive={props.currentSort?.field === col.title}
@@ -44,7 +45,7 @@ const Table = (props) => (
                 if (props.expandable) {
                     return (
                         <ExpandableRow
-                            key={row.name}
+                            key={uniqueId()}
                             data={row}
                             oddClass={oddClass}
                             columns={props.columns}
@@ -53,12 +54,13 @@ const Table = (props) => (
                 }
                 return (
                     <tr
-                        key={`row-${i}`}
+                        key={uniqueId()}
                         className={`usda-table__row${oddClass}`}>
                         {row.map((data, j) => (
+                            props.columns[j] &&
                             <td
-                                key={`${props.columns[j].title}-${j}`}
-                                className={`usda-table__cell${props.columns[j].right ? ' usda-table__cell_right' : ''}`}>
+                                key={uniqueId()}
+                                className={`usda-table__cell${props.columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
                                 {data}
                             </td>
                         ))}

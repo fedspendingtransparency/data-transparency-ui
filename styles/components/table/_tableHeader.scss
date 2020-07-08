@@ -11,6 +11,9 @@ th.table-header {
             line-height: rem(25);
             max-width: 100%;
         }
+        &.table-header__content_right {
+            justify-content: flex-end;
+        }
         .table-header__sort {
             display: block;
             margin-left: rem(8);

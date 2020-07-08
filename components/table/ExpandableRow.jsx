@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { uniqueId } from 'lodash';
 
 const propTypes = {
     data: PropTypes.object,
@@ -42,7 +43,7 @@ const ExpandableRow = ({
                     if (col === 'name' && data.children) {
                         return (
                             <td
-                                key={`${data.name}`}
+                                key={uniqueId()}
                                 className="usda-table__cell">
                                 <button
                                     className="usda-table__expand-button"
@@ -57,7 +58,7 @@ const ExpandableRow = ({
                     }
                     return (
                         <td
-                            key={`${col}-${i}`}
+                            key={uniqueId()}
                             className={`usda-table__cell${col === 'name' ? ' usda-table__cell_name' : ''}${columns[i].right ? ' usda-table__cell_right' : ''}`}>
                             {data[col]}
                         </td>
@@ -71,11 +72,11 @@ const ExpandableRow = ({
                         const lastClass = j === data.children.length - 1 ? ' usda-table__child-row_last' : '';
                         return (
                             <tr
-                                key={`${data.name}-child-${j}`}
+                                key={uniqueId()}
                                 className={`usda-table__child-row${lastClass}${oddClass}`}>
                                 {columnTitles.map((col, k) => (
                                     <td
-                                        key={`${data.name}-row-${j}-col${k}`}
+                                        key={uniqueId()}
                                         className={`usda-table__cell ${columns[k].right ? ' usda-table__cell_right' : ''} usda-table__cell_child`}>
                                         <div className="usda-table__child-cell-content">
                                             {childRow[col]}
