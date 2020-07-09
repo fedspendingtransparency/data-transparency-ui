@@ -74,6 +74,7 @@ const QuarterButton = ({
             className={`usa-dt-quarter-picker__quarter ${additionalClasses}`}
             onMouseDown={handleClick}
             onClick={handleClick}
+            onMouseOver={onMouseEnter}
             onMouseEnter={onMouseEnter}
             onFocus={onMouseEnter}
             onMouseLeave={onMouseLeave}
