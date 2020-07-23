@@ -33,7 +33,7 @@ export default class LimitSelector extends React.Component {
 
 
     render() {
-        const label = this.props.label ? this.props.label : 'Rows Per Page: ';
+        const label = this.props.label ? this.props.label : 'Rows per page: ';
         const { limitList, pageSize } = this.props;
         const list = limitList.map((limit) => (
             <option key={`limit-${limit}`} value={limit}>
