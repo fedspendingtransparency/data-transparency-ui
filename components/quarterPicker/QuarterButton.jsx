@@ -45,7 +45,8 @@ const QuarterButton = ({
         handleBlur(showPeriods ? 'period' : 'quarter');
     };
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.preventDefault();
         if (!disabled) {
             handleSelection(quarter);
         }
