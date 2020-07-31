@@ -3,7 +3,7 @@
  * Created by Kevin Li 8/16/17
  */
 
-import React, { createRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -27,9 +27,6 @@ const propTypes = {
     children: PropTypes.node
 };
 
-const pickerRef = createRef();
-const buttonRef = createRef();
-
 const defaultSort = (a, b, selectedOption) => {
     // if no sort fn is provided, sort active element to lowest index
     if (a.name === selectedOption) return -1;
@@ -51,6 +48,8 @@ const Picker = ({
     children,
     dropdownDirection = 'right'
 }) => {
+    const pickerRef = useRef(null);
+    const buttonRef = useRef(null);
     const [expanded, setExpanded] = useState(false);
     const [dimensions, setDimensions] = useState({
         top: 0,
