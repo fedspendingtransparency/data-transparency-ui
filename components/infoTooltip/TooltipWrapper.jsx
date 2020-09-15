@@ -60,6 +60,8 @@ const horizontalPadding = 20;
 
 const baseTooltipWidth = 375;
 
+let timeout = null;
+
 const tooltipIcons = {
     info: <FontAwesomeIcon className="tooltip__icon" icon="info-circle" />
 };
@@ -103,19 +105,34 @@ export default class TooltipWrapper extends React.Component {
     componentWillUnmount() {
         window.removeEventListener("scroll", this.measureOffset);
         window.removeEventListener("resize", this.measureOffset);
+        if (timeout) {
+            window.clearTimeout(timeout);
+        }
     }
 
     onMouseMoveTooltip = () => {
         const { onMouseMoveTooltip } = this.props;
         if (onMouseMoveTooltip) onMouseMoveTooltip();
+        else {
+            if (timeout) {
+                window.clearTimeout(timeout);
+            }
+            if (!this.state.showTooltip) {
+                this.setState({ showTooltip: true });
+            }
+        }
     }
     onMouseLeaveTooltip = () => {
         const { onMouseLeaveTooltip } = this.props;
         if (onMouseLeaveTooltip) onMouseLeaveTooltip();
+        else {
+            this.delayedCloseTooltip();
+        }
     }
 
     showTooltip() {
         if (!this.props.controlledProps.isControlled) {
+            if (timeout) window.clearTimeout(timeout);
             this.setState({
                 showTooltip: true
             });
@@ -203,6 +220,14 @@ export default class TooltipWrapper extends React.Component {
 
     arrowClassName = () => (this.props.tooltipPosition === 'left' ? 'right' : '');
 
+    delayedCloseTooltip = () => {
+        if (!timeout) {
+            timeout = window.setTimeout(() => {
+                this.closeTooltip();
+            }, 250);
+        }
+    }
+
     render() {
         const showTooltip = (this.props.controlledProps.isControlled) ? this.props.controlledProps.isVisible : this.state.showTooltip;
         let tooltip = null;
@@ -244,11 +269,11 @@ export default class TooltipWrapper extends React.Component {
                         role="button"
                         tabIndex="0"
                         className="tooltip__hover-wrapper"
-                        onBlur={this.closeTooltip}
+                        onBlur={this.delayedCloseTooltip}
                         onFocus={this.showTooltip}
                         onKeyPress={this.showTooltip}
                         onMouseEnter={this.showTooltip}
-                        onMouseLeave={this.closeTooltip}
+                        onMouseLeave={this.delayedCloseTooltip}
                         onClick={this.showTooltip}>
                         {this.props.children}
                         {this.props.icon && tooltipIcons[this.props.icon]}
