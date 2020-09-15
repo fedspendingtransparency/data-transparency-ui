@@ -126,7 +126,7 @@ export default class TooltipWrapper extends React.Component {
         const { onMouseLeaveTooltip } = this.props;
         if (onMouseLeaveTooltip) onMouseLeaveTooltip();
         else {
-            this.delayedCloseTooltip();
+            this.setState({ showTooltip: false });
         }
     }
 
@@ -221,11 +221,9 @@ export default class TooltipWrapper extends React.Component {
     arrowClassName = () => (this.props.tooltipPosition === 'left' ? 'right' : '');
 
     delayedCloseTooltip = () => {
-        if (!timeout) {
-            timeout = window.setTimeout(() => {
-                this.closeTooltip();
-            }, 250);
-        }
+        timeout = window.setTimeout(() => {
+            this.closeTooltip();
+        }, 250);
     }
 
     render() {
