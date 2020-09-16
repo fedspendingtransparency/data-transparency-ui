@@ -1,11 +1,13 @@
 $color-tooltip-border: $color-gray-light;
 
 .tooltip-pointer {
-    width: 0;
-    height: 0;
+    // width: 0;
+    // height: 0;
+    width: 16px;
+    height: 16px;
     position: absolute;
     top: rem(12);
-    left: rem(-9);
+    left: rem(-16);
     &:after {
         content: "";
         position: absolute;
