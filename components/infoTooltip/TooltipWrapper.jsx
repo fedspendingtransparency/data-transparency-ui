@@ -53,8 +53,8 @@ const defaultProps = {
     },
     width: baseTooltipWidth,
     offsetAdjustments: {
-        top: -15, // InfoToolTip offset
-        right: 30, // InfoToolTip offset
+        top: -15, // So that the arrow points at the middle of the tooltip trigger area 👌
+        right: 0, // InfoToolTip offset
         left: 0
     },
     styles: {}
@@ -155,12 +155,15 @@ export default class TooltipWrapper extends React.Component {
         return this.props.width;
     };
 
-    getDimensionsForMobile = (isMobile, { offsetTop: top, tooltipWidth: width }) => {
+    getDimensionsForMobile = (isMobile, width) => {
         if (isMobile) {
+            // 8px being 1/2 the height of the arrow.
+            const top = `${this.tooltipContainer.clientHeight + this.tooltipContainer.offsetTop + 8}px`;
             return {
                 top,
                 width,
-                left: `50%`
+                // 1/2 the width of the arrow
+                left: `${(this.tooltipContainer.clientWidth / 2) - 8}px`
             };
         }
         return {
@@ -194,7 +197,7 @@ export default class TooltipWrapper extends React.Component {
                         transform: 'rotate(90deg)'
                     },
                     spacerStyle: {
-                        ...this.getDimensionsForMobile(isMobile, { offsetTop, tooltipWidth })
+                        ...this.getDimensionsForMobile(isMobile, tooltipWidth)
                     }
                 });
             }
