@@ -71,7 +71,7 @@ export default class TooltipWrapper extends React.Component {
             showTooltip: false,
             isHoveringOnTooltip: false,
             offsetTop: 0,
-            arrowStyles: {},
+            arrowDirection: 'left',
             spacerStyles: {}
         };
 
@@ -134,7 +134,6 @@ export default class TooltipWrapper extends React.Component {
 
     getTooltipWidth = () => {
         const { right: spaceToRight, left: spaceToLeft, total } = this.getAvailableHorizontalSpace();
-
         if (total < 425) {
             // mobile tooltip stylez
             return total - (horizontalPadding * 2);
@@ -145,7 +144,7 @@ export default class TooltipWrapper extends React.Component {
                 : spaceToLeft - horizontalPadding;
         }
         else if (this.props.tooltipPosition === 'bottom') {
-            return `${this.props.width || baseTooltipWidth}px`;
+            return this.props.width;
         }
         else if (this.props.wide) {
             return (spaceToRight > 800)
@@ -173,17 +172,27 @@ export default class TooltipWrapper extends React.Component {
     }
 
     setTooltipDimensions() {
-        if (this.tooltipContainer && Object.keys(this.props.styles).includes('transform')) {
-            // The consumer is overriding our positioning, just set the width.
-            this.setState({
-                spacerStyles: {
-                    ...this.state.spacerStyles,
-                    width: this.getTooltipWidth()
-                }
-            });
+        const shouldOverridePositioning = Object.keys(this.props.styles).includes('transform');
+        if (shouldOverridePositioning && this.tooltipContainer) {
+            if (this.props.tooltipPosition === 'bottom') {
+                // make sure we set  the arrow styles if the positioning is being overridden.
+                this.setState({
+                    arrowDirection: 'bottom',
+                    spacerStyle: {
+                        width: this.getTooltipWidth()
+                    }
+                });
+            }
+            else {
+                // position is being overridden
+                this.setState({
+                    spacerStyle: {
+                        width: this.getTooltipWidth()
+                    }
+                });
+            }
         }
         else if (this.tooltipContainer) {
-            // confirming the tooltip is mounted
             const tooltipWidth = this.getTooltipWidth();
 
             const { left: spaceToLeft, total } = this.getAvailableHorizontalSpace();
@@ -191,11 +200,7 @@ export default class TooltipWrapper extends React.Component {
             const isMobile = total < 700;
             if (this.props.tooltipPosition === 'bottom' || isMobile) {
                 this.setState({
-                    arrowStyles: {
-                        top: '-1.6rem', // half the height of the arrow
-                        left: `calc(50% - 8px)`, // add 8 for half the pointer
-                        transform: 'rotate(90deg)'
-                    },
+                    arrowDirection: 'bottom',
                     spacerStyle: {
                         ...this.getDimensionsForMobile(isMobile, tooltipWidth)
                     }
@@ -204,6 +209,7 @@ export default class TooltipWrapper extends React.Component {
             else if (this.props.tooltipPosition === 'left') {
                 const startingPositionLeft = spaceToLeft - tooltipWidth; // minus tooltipWidth b/c right corner of toolTip is flush w/ left edge of toolTip container
                 this.setState({
+                    arrowDirection: 'right',
                     spacerStyle: {
                         top: offsetTop,
                         left: startingPositionLeft - horizontalPadding,
@@ -221,7 +227,6 @@ export default class TooltipWrapper extends React.Component {
                     }
                 });
             }
-
         }
     }
 
@@ -248,8 +253,6 @@ export default class TooltipWrapper extends React.Component {
         }
     }
 
-    arrowClassName = () => (this.props.tooltipPosition === 'left' ? 'right' : '');
-
     render() {
         const showTooltip = (
             (this.props.controlledProps.isControlled && this.props.controlledProps.isVisible) ||
@@ -273,9 +276,7 @@ export default class TooltipWrapper extends React.Component {
                         }}>
                         <div
                             className="tooltip__interior">
-                            <div
-                                className={`tooltip-pointer ${this.arrowClassName()}`}
-                                style={this.state.arrowStyles} />
+                            <div className={`tooltip-pointer ${this.state.arrowDirection}`} />
                             <div className="tooltip__content">
                                 <div className="tooltip__message">
                                     {this.props.tooltipComponent}

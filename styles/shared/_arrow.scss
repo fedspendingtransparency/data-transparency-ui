@@ -1,10 +1,8 @@
 $color-tooltip-border: $color-gray-light;
 
 .tooltip-pointer {
-    // width: 0;
-    // height: 0;
-    width: 16px;
-    height: 16px;
+    width: rem(16);
+    height: rem(16);
     position: absolute;
     top: rem(12);
     left: rem(-16);
@@ -25,6 +23,11 @@ $color-tooltip-border: $color-gray-light;
         &:after {
             transform: rotate(225deg);
         }
+    }
+    &.bottom {
+        top: rem(-16); // half the height of the arrow
+        left: calc(50% - 8px); // add 8 for half the pointer
+        transform: rotate(90deg);
     }
     &.top,
     &.top-left,
