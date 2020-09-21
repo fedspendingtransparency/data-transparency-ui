@@ -220,6 +220,7 @@ export default class TooltipWrapper extends React.Component {
             else {
                 const startingPositionLeft = spaceToLeft + this.tooltipContainer.clientWidth; // plus ttContainerWidth b/c left corner of toolTip is flush w/ right edge of toolTip container
                 this.setState({
+                    arrowDirection: 'left',
                     spacerStyle: {
                         top: offsetTop,
                         left: startingPositionLeft + horizontalPadding,
