@@ -1,6 +1,10 @@
 $color-tooltip-border: $color-gray-light;
 
 .tooltip-pointer {
+    display: none;
+    @media (min-width: $tablet-screen) {
+        display: none;
+    }
     width: rem(16);
     height: rem(16);
     position: absolute;
