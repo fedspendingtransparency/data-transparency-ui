@@ -3,7 +3,7 @@ $color-tooltip-border: $color-gray-light;
 .tooltip-pointer {
     display: none;
     @media (min-width: $tablet-screen) {
-        display: none;
+        display: block;
     }
     width: rem(16);
     height: rem(16);
@@ -23,7 +23,7 @@ $color-tooltip-border: $color-gray-light;
     }
     &.right {
         left: auto;
-        right: rem(8.5);
+        right: rem(1.5);
         &:after {
             transform: rotate(225deg);
         }
