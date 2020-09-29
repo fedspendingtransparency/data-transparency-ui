@@ -151,12 +151,20 @@ const Picker = ({
             <div className="usa-dt-picker__dropdown-container">
                 {children
                     ? (
-                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu}>
+                        <button
+                            ref={buttonRef}
+                            aria-label="Dropdown Toggle Button"
+                            className="usa-dt-picker__button"
+                            onClick={toggleMenu}>
                             {children}
                         </button>
                     )
                     : (
-                        <button ref={buttonRef} className="usa-dt-picker__button" onClick={toggleMenu}>
+                        <button
+                            ref={buttonRef}
+                            aria-label="Dropdown Toggle Button"
+                            className="usa-dt-picker__button"
+                            onClick={toggleMenu}>
                             <span className="usa-dt-picker__button-text">
                                 {selectedOption}
                             </span>
