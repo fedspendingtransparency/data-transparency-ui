@@ -297,6 +297,7 @@ export default class TooltipWrapper extends React.Component {
                     <div
                         role="button"
                         tabIndex="0"
+                        aria-label="Tooltip Hover Wrapper"
                         className="tooltip__hover-wrapper"
                         onBlur={this.closeTooltip}
                         onFocus={this.showTooltip}
