@@ -2,18 +2,27 @@
 
 .usa-dt-search-bar {
   border: 1px solid $color-gray-lighter;
+  position: relative;
   display: flex;
   align-items: center;
   max-width: 40rem;
   margin: 2rem 0;
   .usa-dt-search-bar__input {
-      flex: 1 1 auto;
       line-height: rem(28);
-      padding: rem(5) rem(10);
+      padding: rem(2.5) 0;
+      @media(min-width: $tablet-screen) {
+        flex: 1 1 auto;
+        padding: rem(5) rem(10);
+      }
       border: 0;
   }
   .usa-dt-search-bar__button {
-      flex: 0 0 auto;
+      right: 0;
+      position: absolute;
+      @media(min-width: $tablet-screen) {
+        flex: 0 0 auto;
+        padding: rem(5) rem(10);
+      }
       background-color: transparent;
       border: 0;
       border-radius: 0;
