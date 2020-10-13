@@ -1,0 +1,36 @@
+@import "../global/index";
+
+.usa-dt-search-bar {
+  border: 1px solid $color-gray-lighter;
+  display: flex;
+  align-items: center;
+  max-width: 40rem;
+  margin: 2rem 0;
+  .usa-dt-search-bar__input {
+      flex: 1 1 auto;
+      line-height: rem(28);
+      padding: rem(5) rem(10);
+      border: 0;
+  }
+  .usa-dt-search-bar__button {
+      flex: 0 0 auto;
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      font-weight: $font-normal;
+      margin: 0;
+      outline: 0;
+      text-align: left;
+      padding: 0 rem(15);
+      color: $color-gray-light;
+      font-size: rem(26);
+      &:hover {
+        background-color: transparent;
+        color: $color-gray-light;
+      }
+      &:disabled {
+          color: $color-gray-lighter;
+          cursor: not-allowed;
+      }
+  }
+}

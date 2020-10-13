@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import SearchBar from "../components/SearchBar";
 import TooltipComponent from "../components/infoTooltip/TooltipComponent";
 import { useCumulativeQuarterPicker } from "../components/quarterPicker/QuarterPicker";
 
