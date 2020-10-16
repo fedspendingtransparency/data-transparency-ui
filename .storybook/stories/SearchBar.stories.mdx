@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, boolean, number, text } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
@@ -21,15 +21,23 @@ import SearchBar from '../../components/SearchBar';
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
- - `setQuery`: A function that will pass the search term to it's parent component.
+ - `onSearch`: A function that will pass the search term to it's parent component.
  
 ### Props:
- - `setQuery`: A function that will pass the search term to it's parent component.
+ - `onSearch`: A function that will pass the search term to it's parent component.
  - `minChars`: A number that will serve as the minimum number of characters to submit a search.
+ - `isDisabled`: A boolean that will decide whether to disable the input.
+ - `throttleOnChange`:  A number in milliseconds that only invokes onChange at most once per every milliseconds.
+ - `inputTitle`: A string that will serve as the input title.
 
 <Preview>
     <Story name='SearchBar'>
-        <SearchBar setQuery={(searchTerm) => console.log(searchTerm)} minChars={number('minChars', 2)} />
+        <SearchBar
+            setQuery={(searchTerm) => console.log(searchTerm)}
+            minChars={number('minChars', 2)}
+            isDisabled={boolean('isDisabled', false)}
+            throttleOnChange={number('throttleOnChange', 500)}
+            inputTitle={text('inputTitle', 'Search Input')} />
     </Story>
 </Preview>
 

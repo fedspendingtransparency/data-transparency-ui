@@ -21,7 +21,7 @@ const ExpandableRow = ({
     oddClass,
     divider
 }) => {
-    const [expanded, setExpanded] = useState(false);
+    const [expanded, setExpanded] = useState(data.expanded || false);
     const icon = expanded ? 'chevron-down' : 'chevron-right';
     const columnTitles = columns.map(({ title }) => title);
     const toggleExpand = () => {

@@ -8,10 +8,10 @@ export const resetOrSubmitSearch = (value, searchTerm, minChars) => {
   return true;
 };
 
-export const changeSearchTerm = (searchTerm, e) => {
+export const shouldResetSearchTerm = (e, searchTerm) => {
   if (searchTerm && !e.target.value) {
       // auto-reset the search when all input is deleted
-      return false
+      return true
   }
-  return true;
+  return false;
 };

@@ -7,36 +7,44 @@ import React, { useState, useEffect } from 'react';
 import { throttle } from 'lodash';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { resetOrSubmitSearch, changeSearchTerm } from '../helpers/searchBarHelper';
+import { resetOrSubmitSearch, shouldResetSearchTerm } from '../helpers/searchBarHelper';
 
 require('../styles/components/_searchBar.scss');
 
 const propTypes = {
-    setQuery: PropTypes.func.isRequired,
-    minChars: PropTypes.number
+    onSearch: PropTypes.func,
+    minChars: PropTypes.number,
+    isDisabled: PropTypes.bool,
+    throttleOnChange: PropTypes.number,
+    inputTitle: PropTypes.string
 };
 
 // the minimum number of characters a user is required to enter before they can perform a search
 const defaultProps = {
-    setQuery: () => {},
-    minChars: 2
+    onSearch: () => {},
+    minChars: 2,
+    throttleOnChange: 500,
+    inputTitle: 'Search Input',
+    isDisabled: false
 };
 
-const SearchBar = ({ setQuery, minChars }) => {
+const SearchBar = ({ onSearch, minChars, isDisabled, throttleOnChange, inputTitle }) => {
+    // value of the input
     const [value, setValue] = useState('');
+    // The searchTerm is the current submitted search term.
     const [searchTerm, setSearchTerm] = useState('');
 
     const resetSearch = () => {
         setValue('');
-        setQuery('');
+        onSearch('');
         setSearchTerm('');
     };
 
-    const onChange = throttle((e) => (changeSearchTerm(searchTerm, e) ? setValue(e.target.value) : resetSearch()), 500);
+    const onChange = throttle((e) => (shouldResetSearchTerm(e, searchTerm) ? resetSearch() : setValue(e.target.value)), throttleOnChange);
 
     const onSubmit = () => {
         const trimmedvalue = value.trim();
-        setQuery(trimmedvalue);
+        onSearch(trimmedvalue);
         setValue(trimmedvalue);
         setSearchTerm(trimmedvalue);
     };
@@ -59,14 +67,15 @@ const SearchBar = ({ setQuery, minChars }) => {
             <input
                 className="usa-dt-search-bar__input"
                 aria-label="Search Input"
-                title="Search Input"
+                title={inputTitle}
                 value={value}
                 type="text"
+                disabled={isDisabled}
                 onChange={onChange} />
             <button
-                disabled={value.length < minChars && !searchTerm}
+                disabled={(value.length < minChars && !searchTerm) || isDisabled}
                 aria-label="Search Button"
-                title="Search Button"
+                title={icon === 'search' ? 'Submit Search Button' : 'Remove Input Value Button'}
                 onClick={handleClick}
                 className="usa-dt-search-bar__button">
                 <FontAwesomeIcon icon={icon} />
