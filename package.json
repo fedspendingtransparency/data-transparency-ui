@@ -41,6 +41,7 @@
     "@storybook/react": "^5.2.5",
     "@storybook/source-loader": "^5.2.5",
     "@storybook/theming": "^5.2.5",
+    "@testing-library/react": "^11.0.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^3.2.0",
