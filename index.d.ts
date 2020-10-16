@@ -68,6 +68,22 @@ export interface PickerProps {
     children: Array<JSX.Element> | JSX.Element
 }
 
+interface SearchBarProps {
+    onSearch: (value: string) => void,
+    minChars: number,
+    isDisabled: boolean,
+    throttleOnChange: number,
+    inputTitle: string
+}
+
+export interface SearchBarProps {
+  onSearch: (value: string) => void,
+  minChars: number,
+  isDisabled: boolean,
+  throttleOnChange: number,
+  inputTitle: string
+}
+
 interface TooltipComponentTextAlign {
     title?: string,
     text?: string
@@ -100,6 +116,7 @@ export class Pagination extends React.Component<PaginationProps>{}
 export class TooltipWrapper extends React.Component<TooltipWrapperProps>{}
 export class QuarterPicker extends React.Component<QuarterPickerProps>{}
 export function Picker(props: PickerProps): JSX.Element;
+export function SearchBar(props: SearchBarProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
 export function Table(props: TableProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
