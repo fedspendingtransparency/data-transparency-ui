@@ -73,13 +73,13 @@
     "@fortawesome/react-fontawesome": "^0.1.7",
     "accounting": "^0.4.1",
     "classnames": "^2.2.6",
-    "file-loader": "^5.0.2",
     "core-js": "^3.4.5",
+    "file-loader": "^5.0.2",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "resolve-url-loader": "^3.1.1",
+    "resolve-url-loader": "^3.1.2",
     "storybook": "^5.3.8"
   },
   "browserslist": [
