@@ -31,14 +31,14 @@ In this example, our parent -- `TableWrapper` -- looks like this before the rend
 const [field, updateField] = useState('amount');
 const [direction, updateDirection] = useState('desc');
 const updateSort = (field, direction) => {
-console.log(`update sort invoked with ${field}, ${direction}`);
-updateField(field);
-updateDirection(direction)
-};
-const currentSort = {
-field,
-direction
-};
+    console.log(`update sort invoked with ${field}, ${direction}`);
+        updateField(field);
+        updateDirection(direction)
+    const currentSort = {
+        field,
+        direction
+    };
+}
 ```
 
 ### Other props:
@@ -157,6 +157,19 @@ direction
                 ]}
                 expandable
                 divider="Budget Sub-Function" />
+        </TableWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='New Table Styles'>
+        <TableWrapper>
+            <Table
+                classNames="agency-reporting"
+                rows={[
+                    [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                ]} />
         </TableWrapper>
     </Story>
 </Preview>

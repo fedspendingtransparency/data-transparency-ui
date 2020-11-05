@@ -18,38 +18,47 @@ const propTypes = {
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
     }),
+    classNames: PropTypes.string,
     updateSort: PropTypes.func,
     expandable: PropTypes.bool,
     divider: PropTypes.string
 };
 
-const Table = (props) => (
-    <table className="usda-table">
+const Table = ({
+    columns,
+    rows,
+    currentSort,
+    classNames = '',
+    updateSort,
+    expandable,
+    divider
+}) => (
+    <table className={`usda-table ${classNames}`}>
         <thead className="usda-table__head">
             <tr className="usda-table__row">
-                {props.columns.map((col) => (
+                {columns.map((col) => (
                     <TableHeader
                         key={uniqueId()}
-                        currentSort={props.currentSort}
-                        updateSort={props.updateSort}
-                        isActive={props.currentSort?.field === col.title}
+                        currentSort={currentSort}
+                        updateSort={updateSort}
+                        isActive={currentSort?.field === col.title}
                         {...col} />
                 ))}
             </tr>
         </thead>
         <tbody className="usda-table__body">
-            {props.rows.map((row, i) => {
+            {rows.map((row, i) => {
                 // Use a class name for alternating gray/white rows
                 // because child rows should match their parent
                 const oddClass = i % 2 === 0 ? '' : ' usda-table__row_odd';
-                if (props.expandable) {
+                if (expandable) {
                     return (
                         <ExpandableRow
                             key={uniqueId()}
                             data={row}
                             oddClass={oddClass}
-                            columns={props.columns}
-                            divider={props.divider} />
+                            columns={columns}
+                            divider={divider} />
                     );
                 }
                 return (
@@ -57,10 +66,10 @@ const Table = (props) => (
                         key={uniqueId()}
                         className={`usda-table__row${oddClass}`}>
                         {row.map((data, j) => (
-                            props.columns[j] &&
+                            columns[j] &&
                             <td
                                 key={uniqueId()}
-                                className={`usda-table__cell${props.columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
+                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
                                 {data}
                             </td>
                         ))}
