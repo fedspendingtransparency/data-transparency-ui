@@ -27,7 +27,7 @@ th.table-header {
                     margin-top: -9px;
                     pointer-events: none;
                 }
-                &.table-header__icon_active {
+                &.table-header__icon_active svg {
                     color: $color-gold;
                 }
             }

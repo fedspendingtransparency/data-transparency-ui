@@ -8,7 +8,6 @@ import PropTypes, { shape, oneOf } from 'prop-types';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const propTypes = {
-    isActive: PropTypes.bool,
     title: PropTypes.string.isRequired,
     displayName: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     currentSort: shape({
@@ -16,48 +15,95 @@ const propTypes = {
         field: PropTypes.string
     }),
     updateSort: PropTypes.func,
-    right: PropTypes.bool
+    right: PropTypes.bool,
+    // int as string
+    columnSpan: PropTypes.string,
+    subColumnNames: PropTypes.arrayOf(PropTypes.string)
 };
 
-const TableHeaderCell = (props) => {
-    const clickedSort = (e) => {
-        props.updateSort(props.title, e.target.value);
-    };
-
+const SortIcon = ({
+    clickedSort,
+    displayName,
+    currentSort,
+    title
+}) => {
     // highlight the active arrow
-    const activeAsc = (props.isActive && props.currentSort?.direction === 'asc')
+    const activeAsc = (currentSort?.field === title && currentSort?.direction === 'asc')
         ? ' table-header__icon_active' : '';
-    const activeDesc = (props.isActive && props.currentSort?.direction === 'desc')
+    const activeDesc = (currentSort?.field === title && currentSort?.direction === 'desc')
         ? ' table-header__icon_active' : '';
-
-    const sort = (
+    return (
         <div className="table-header__sort">
             <button
                 onClick={clickedSort}
                 className={`table-header__icon${activeAsc}`}
                 value="asc"
-                title={`Sort table by ascending ${props.displayName}`}
-                aria-label={`Sort table by ascending ${props.displayName}`}>
+                title={`Sort table by ascending ${displayName}`}
+                aria-label={`Sort table by ascending ${displayName}`}>
                 <FontAwesomeIcon size="2x" icon="caret-up" />
             </button>
             <button
                 onClick={clickedSort}
                 className={`table-header__icon${activeDesc}`}
                 value="desc"
-                title={`Sort table by descending ${props.displayName}`}
-                aria-label={`Sort table by descending ${props.displayName}`}>
+                title={`Sort table by descending ${displayName}`}
+                aria-label={`Sort table by descending ${displayName}`}>
                 <FontAwesomeIcon size="2x" icon="caret-down" />
             </button>
         </div>
     );
+};
+
+SortIcon.propTypes = {
+    title: PropTypes.string.isRequired,
+    displayName: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+    currentSort: shape({
+        direction: oneOf(['asc', 'desc']),
+        field: PropTypes.string
+    }).isRequired,
+    clickedSort: PropTypes.func.isRequired
+};
+
+const TableHeaderCell = ({
+    title,
+    displayName,
+    currentSort,
+    updateSort,
+    right,
+    columnSpan = '1',
+    subColumnNames = []
+}) => {
+    const handleClickedSort = (e, sortOn = title) => {
+        updateSort(sortOn, e.target.value);
+    };
 
     return (
-        <th className="table-header">
-            <div className={`table-header__content${props.right ? ' table-header__content_right' : ''}`}>
+        <th className={`${subColumnNames.length ? 'nested-header table-header' : 'table-header'}`} colSpan={columnSpan}>
+            <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
-                    {props.displayName}
+                    {displayName}
                 </div>
-                {props.updateSort && sort}
+                {subColumnNames.length && (
+                    <ul>
+                        {subColumnNames.map(({ name, fieldName }) => (
+                            <li className="table-header__sublabel">
+                                {name}{updateSort && (
+                                    <SortIcon
+                                        clickedSort={(e) => handleClickedSort(e, fieldName)}
+                                        currentSort={currentSort}
+                                        title={fieldName}
+                                        displayName={name} />
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+                {updateSort && !subColumnNames.length && <SortIcon
+                    clickedSort={handleClickedSort}
+                    currentSort={currentSort}
+                    title={title}
+                    displayName={displayName} />
+                }
             </div>
         </th>
     );

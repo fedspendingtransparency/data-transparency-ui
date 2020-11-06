@@ -41,7 +41,6 @@ const Table = ({
                         key={uniqueId()}
                         currentSort={currentSort}
                         updateSort={updateSort}
-                        isActive={currentSort?.field === col.title}
                         {...col} />
                 ))}
             </tr>
@@ -66,7 +65,6 @@ const Table = ({
                         key={uniqueId()}
                         className={`usda-table__row${oddClass}`}>
                         {row.map((data, j) => (
-                            columns[j] &&
                             <td
                                 key={uniqueId()}
                                 className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>

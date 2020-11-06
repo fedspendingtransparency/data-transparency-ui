@@ -4,7 +4,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
 import Table from '../../components/table/Table';
-import { TableWrapper, BasicTableWrapper } from "../misc";
+import { TableWrapper, BasicTableWrapper, CustomColumnExample } from "../misc";
 
 <Meta
     title="Table"
@@ -163,12 +163,16 @@ const updateSort = (field, direction) => {
 
 <Preview>
     <Story name='New Table Styles'>
-        <TableWrapper>
+        <TableWrapper columns={[
+            { title: 'name',  displayName: 'Agency  Name' },
+            { title: 'total',  displayName: 'Total Budgetary  Resources' },
+            { title: 'Q4',  displayName: 'FY 2020 Q4', columnSpan: "2", subColumnNames: [{ name: 'P10', fieldName: 'P10'}, { name: 'P11', fieldName: 'P11' }] }
+        ]}>
             <Table
                 classNames="agency-reporting"
                 rows={[
-                    [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%'],
-                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                    [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%', '26%'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'mock data IIIIIIIII']
                 ]} />
         </TableWrapper>
     </Story>
