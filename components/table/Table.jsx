@@ -24,46 +24,6 @@ const propTypes = {
     divider: PropTypes.string
 };
 
-const getNumberOfColumnsIncludingSubColumns = (cols) => cols
-    .reduce((acc, col) => {
-        if (col?.columnSpan && col?.columnSpan !== "1") {
-            return acc + parseInt(col.columnSpan, 10);
-        }
-        return acc + 1;
-    }, 0);
-
-/**
- * getCellTrangeForColumns
- * @param {Array} columns: the columns for the table
- * @returns {Array}: an array that includes a new property on the objects called "range" which represents
- * the range of cells in a given row are technically under it.
- */
-const getCellRangeForColumns = (columns) => columns
-    .map((obj, i) => ({ ...obj, index: i }))
-    .filter((col) => parseInt(col?.columnSpan, 10) > 1)
-    .map((col) => {
-        if (col?.columnSpan) {
-            return {
-                ...col,
-                range: new Array(parseInt(col.columnSpan, 10))
-                    .fill(parseInt(col.columnSpan, 10))
-                    .map((int, i) => int + i)
-            };
-        }
-        return col;
-    });
-
-const getCellWidth = (columns, cellIndex) => {
-    const columnsSpanningMultipleCells = getCellRangeForColumns(columns);
-    if (columnsSpanningMultipleCells.length) {
-        const parentColumn = columnsSpanningMultipleCells.find((col) => col.range.includes(cellIndex));
-        if (parentColumn) {
-            return `${((1 / getNumberOfColumnsIncludingSubColumns(columns)) / parentColumn.subColumnNames.length) * 100}%`;
-        }
-    }
-    return 'auto';
-};
-
 const Table = ({
     columns,
     rows,
@@ -83,6 +43,25 @@ const Table = ({
                         updateSort={updateSort}
                         {...col} />
                 ))}
+            </tr>
+            <tr className="usda-table__row">
+                {columns
+                    .filter((col) => col?.subColumnNames?.length)
+                    .reduce((acc, col) => {
+                        if (col?.subColumnNames?.length) {
+                            return acc.concat(col.subColumnNames);
+                        }
+                        return acc.concat([{ ...col, displayName: '', className: 'empty-subheader' }]);
+                    }, [])
+                    .map((col) => (
+                        <TableHeader
+                            key={uniqueId()}
+                            className={col?.title ? 'nested-header' : 'empty'}
+                            currentSort={currentSort}
+                            updateSort={updateSort}
+                            {...col} />
+                    ))
+                }
             </tr>
         </thead>
         <tbody className="usda-table__body">
@@ -107,7 +86,6 @@ const Table = ({
                         {row.map((data, j) => (
                             <td
                                 key={uniqueId()}
-                                style={{ width: getCellWidth(columns, j) }}
                                 className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
                                 {data}
                             </td>

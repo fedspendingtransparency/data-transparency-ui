@@ -18,7 +18,8 @@ const propTypes = {
     right: PropTypes.bool,
     // int as string
     columnSpan: PropTypes.string,
-    subColumnNames: PropTypes.arrayOf(PropTypes.string)
+    subColumnNames: PropTypes.arrayOf(PropTypes.string),
+    className: PropTypes.string
 };
 
 const SortIcon = ({
@@ -66,7 +67,8 @@ SortIcon.propTypes = {
 
 const TableHeaderCell = ({
     title,
-    displayName,
+    className = '',
+    displayName = '',
     currentSort,
     updateSort,
     right,
@@ -78,27 +80,12 @@ const TableHeaderCell = ({
     };
 
     return (
-        <th className={`${subColumnNames.length ? 'nested-header table-header' : 'table-header'}`} colSpan={columnSpan}>
+        <th className={`${className} table-header`} colSpan={columnSpan} rowSpan={subColumnNames.length ? "1" : "2"}>
             <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
                     {displayName}
                 </div>
-                {subColumnNames.length > 0 && (
-                    <ul>
-                        {subColumnNames.map(({ name, fieldName }) => (
-                            <li className="table-header__sublabel">
-                                {name}{updateSort && (
-                                    <SortIcon
-                                        clickedSort={(e) => handleClickedSort(e, fieldName)}
-                                        currentSort={currentSort}
-                                        title={fieldName}
-                                        displayName={name} />
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                )}
-                {(updateSort && !subColumnNames.length) && <SortIcon
+                {(updateSort && !subColumnNames.length && displayName) && <SortIcon
                     clickedSort={handleClickedSort}
                     currentSort={currentSort}
                     title={title}

@@ -166,13 +166,24 @@ const updateSort = (field, direction) => {
         <TableWrapper columns={[
             { title: 'name',  displayName: 'Agency  Name' },
             { title: 'total',  displayName: 'Total Budgetary  Resources' },
-            { title: 'Q4',  displayName: 'FY 2020 Q4', columnSpan: "2", subColumnNames: [{ name: 'P10', fieldName: 'P10'}, { name: 'P11', fieldName: 'P11' }] }
+            { title: 'Q4',  displayName: 'FY 2020 Q4', columnSpan: "2", subColumnNames: [{ displayName: 'P10', title: 'P10'}, { displayName: 'P11', title: 'P11' }] },
+            {
+                title: 'Q3', 
+                displayName: 'FY 2020 Q3',
+                columnSpan: "4",
+                subColumnNames: [
+                    { displayName: 'P9', title: 'P9'},
+                    { displayName: 'P8', title: 'P8' },
+                    { displayName: 'P7', title: 'P7' },
+                    { displayName: 'P6', title: 'P6' }
+                ]
+            }
         ]}>
             <Table
                 classNames="agency-reporting"
                 rows={[
-                    [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%', '26%'],
-                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'mock data IIIIIIIII']
+                    [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%', '26%', '$1.2 million', '$1.3 million', '$1.4 million', '$1.5 million'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'mock data IIIIIIIII', '$5.2 million', '$2.3 million', '$11.4 million', '$23.5 million']
                 ]} />
         </TableWrapper>
     </Story>
