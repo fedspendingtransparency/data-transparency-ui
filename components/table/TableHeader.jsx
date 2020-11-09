@@ -83,7 +83,7 @@ const TableHeaderCell = ({
                 <div className="table-header__label">
                     {displayName}
                 </div>
-                {subColumnNames.length && (
+                {subColumnNames.length > 0 && (
                     <ul>
                         {subColumnNames.map(({ name, fieldName }) => (
                             <li className="table-header__sublabel">
@@ -98,7 +98,7 @@ const TableHeaderCell = ({
                         ))}
                     </ul>
                 )}
-                {updateSort && !subColumnNames.length && <SortIcon
+                {(updateSort && !subColumnNames.length) && <SortIcon
                     clickedSort={handleClickedSort}
                     currentSort={currentSort}
                     title={title}

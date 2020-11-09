@@ -101,6 +101,7 @@ table.usda-table {
                 &.nested-header {
                     .table-header__content {
                         padding: rem(0);
+                        flex-wrap: wrap;
                     }
                     .table-header__label {
                         border-bottom: rem(1) solid #D6D7D9;
@@ -111,7 +112,6 @@ table.usda-table {
                 }
                 .table-header__content {
                     display: flex;
-                    flex-wrap: wrap;
                     padding: rem(15);
                     .table-header__label {
                         font-size: rem(16);
