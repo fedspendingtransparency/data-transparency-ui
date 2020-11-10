@@ -87,13 +87,13 @@ const TableHeaderCell = ({
                 <div className="table-header__label">
                     {displayName}
                     {icon && icon}
+                    {(updateSort && !subColumnNames.length && displayName) && <SortIcon
+                        clickedSort={handleClickedSort}
+                        currentSort={currentSort}
+                        title={title}
+                        displayName={displayName} />
+                    }
                 </div>
-                {(updateSort && !subColumnNames.length && displayName) && <SortIcon
-                    clickedSort={handleClickedSort}
-                    currentSort={currentSort}
-                    title={title}
-                    displayName={displayName} />
-                }
             </div>
         </th>
     );

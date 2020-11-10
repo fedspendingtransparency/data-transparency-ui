@@ -5,7 +5,9 @@ import { withActions, actions } from '@storybook/addon-actions';
 
 import Table from '../../components/table/Table';
 import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
-import { TableWrapper, BasicTableWrapper, CustomColumnExample, Tooltip } from "../misc";
+import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
+
+import { TableWrapper, BasicTableWrapper, CustomColumnExample } from "../misc";
 
 <Meta
     title="Table"
@@ -165,7 +167,7 @@ const updateSort = (field, direction) => {
 <Preview>
     <Story name='New Table Styles'>
         <TableWrapper columns={[
-            { title: 'name',  displayName: 'Agency  Name', icon: <TooltipWrapper icon="info" tooltipComponent={<Tooltip />} /> },
+            { title: 'name',  displayName: 'Agency  Name', icon: <TooltipWrapper icon="info" tooltipComponent={<TooltipComponent title="Test Tooltip"><div>Test content for tooltip</div></TooltipComponent>} /> },
             { title: 'total',  displayName: 'Total Budgetary  Resources' },
             { title: 'Q4',  displayName: 'FY 2020 Q4', columnSpan: "2", subColumnNames: [{ displayName: 'P10', title: 'P10'}, { displayName: 'P11', title: 'P11' }] },
             {
