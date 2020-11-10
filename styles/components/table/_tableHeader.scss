@@ -2,6 +2,16 @@ th.table-header {
     border: 0;
     background-color: $color-white;
     padding: rem(15);
+    &.nested-header {
+        .table-header__content {
+            padding: rem(0);
+            flex-wrap: wrap;
+        }
+        .table-header__label {
+            text-indent: 1rem;
+            text-align: left;
+        }
+    }
     .table-header__content {
         display: flex;
         flex-wrap: wrap;
