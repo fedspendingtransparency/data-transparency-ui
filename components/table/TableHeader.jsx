@@ -7,21 +7,6 @@ import React from 'react';
 import PropTypes, { shape, oneOf } from 'prop-types';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const propTypes = {
-    title: PropTypes.string.isRequired,
-    displayName: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
-    currentSort: shape({
-        direction: oneOf(['asc', 'desc']),
-        field: PropTypes.string
-    }),
-    updateSort: PropTypes.func,
-    right: PropTypes.bool,
-    // int as string
-    columnSpan: PropTypes.string,
-    subColumnNames: PropTypes.arrayOf(PropTypes.string),
-    className: PropTypes.string
-};
-
 const SortIcon = ({
     clickedSort,
     displayName,
@@ -65,6 +50,22 @@ SortIcon.propTypes = {
     clickedSort: PropTypes.func.isRequired
 };
 
+const propTypes = {
+    title: PropTypes.string.isRequired,
+    displayName: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+    currentSort: shape({
+        direction: oneOf(['asc', 'desc']),
+        field: PropTypes.string
+    }),
+    updateSort: PropTypes.func,
+    right: PropTypes.bool,
+    // int as string
+    columnSpan: PropTypes.string,
+    subColumnNames: PropTypes.arrayOf(PropTypes.string),
+    className: PropTypes.string,
+    icon: PropTypes.element
+};
+
 const TableHeaderCell = ({
     title,
     className = '',
@@ -73,7 +74,8 @@ const TableHeaderCell = ({
     updateSort,
     right,
     columnSpan = '1',
-    subColumnNames = []
+    subColumnNames = [],
+    icon = (<></>)
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -84,6 +86,7 @@ const TableHeaderCell = ({
             <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
                     {displayName}
+                    {icon && icon}
                 </div>
                 {(updateSort && !subColumnNames.length && displayName) && <SortIcon
                     clickedSort={handleClickedSort}

@@ -9,7 +9,9 @@ th.table-header {
             font-size: rem(20);
             font-weight: $font-semibold;
             line-height: rem(25);
-            max-width: 100%;
+            width: 90%;
+            display: flex;
+            position: relative;
         }
         &.table-header__content_right {
             justify-content: flex-end;
