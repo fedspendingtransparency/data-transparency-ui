@@ -199,3 +199,16 @@ export const BasicTableWrapper = (props) => {
     </div>
   );
 }
+
+export const TabsWrapper = (props) => {
+  const [activeTab, setActiveTab] = useState('name'); 
+  return (
+    <div className="story__container tabs-story" style={{ width: '100%', 'paddingLeft': '0' }}>
+        {React.cloneElement(props.children, {
+          switchTab: setActiveTab,
+          active: activeTab,
+          ...props.children.props
+        })}
+    </div>
+  );
+}

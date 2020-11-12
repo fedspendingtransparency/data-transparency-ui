@@ -1,0 +1,76 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { withActions, actions } from '@storybook/addon-actions';
+import { TabsWrapper } from "../misc";
+
+import Tabs from '../../components/tabs/Tabs';
+
+<Meta
+    title="Tabs"
+    component={Tabs}
+    decorators={[withKnobs, withA11y, withActions('onClick')]}
+    parameters={{
+        a11y: {
+            // ... axe options
+            element: '.table-types', // optional selector which element to inspect
+            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+        }
+    }}
+/>
+
+## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
+This means the component relies on its parent to pass the following props:
+ - `types`: An array of tab objects
+ - `active`: The name of the active tab
+ - `switchTab`: A function to execute on switching tabs
+
+In this example:
+
+### Other props:
+ - `counts`: An array of count objects
+ - `disabled`: Is the tab disabled
+ - `hideCounts`: should we hide the counts
+ - `tabsClassName`: A class name for the tabs
+
+<Preview>
+    <Story name='Tabs'>
+      <TabsWrapper>
+        <Tabs
+        types={[
+          {
+            internal: 'name',
+            label: 'Names'
+          },
+          {
+            internal: 'dates',
+            label: 'Dates'
+          }
+        ]}
+        hideCounts={true} />
+      </TabsWrapper>
+    </Story>
+</Preview>
+
+<Preview>
+    <Story name='Tabs with Counts'>
+      <TabsWrapper>
+        <Tabs
+        types={[
+          {
+            internal: 'name',
+            label: 'Names'
+          },
+          {
+            internal: 'dates',
+            label: 'Dates'
+          }
+        ]}
+        counts={{ name: 101, dates: 1002 }}
+        hideCounts={boolean('hideCounts', false)} />
+      </TabsWrapper>
+    </Story>
+</Preview>
+
+<Props of={Tabs} />
