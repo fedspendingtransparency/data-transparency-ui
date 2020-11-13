@@ -107,7 +107,8 @@ export interface TableProps {
     currentSort: tableCurrentSortProps,
     updateSort: (title: string, direction: string) => void,
     expandable: boolean,
-    divider: string
+    divider: string,
+    classNames: string
 }
 
 /*~ If this module has methods, declare them as functions like so.
