@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import SearchBar from "../components/SearchBar";
 import TooltipComponent from "../components/infoTooltip/TooltipComponent";
 import { useCumulativeQuarterPicker } from "../components/quarterPicker/QuarterPicker";
+import { TooltipWrapper } from '../components/infoTooltip/TooltipWrapper';
 
 export const Tooltip = () => (
     <TooltipComponent title="An Example Tooltip" textAlign={{ title: 'left', text: 'left'}}>
@@ -194,6 +195,19 @@ export const BasicTableWrapper = (props) => {
     <div className="story__container table-story">
         {React.cloneElement(props.children, {
           columns,
+          ...props.children.props
+        })}
+    </div>
+  );
+}
+
+export const TabsWrapper = (props) => {
+  const [activeTab, setActiveTab] = useState('name'); 
+  return (
+    <div className="story__container tabs-story" style={{ width: '100%', 'paddingLeft': '0' }}>
+        {React.cloneElement(props.children, {
+          switchTab: setActiveTab,
+          active: activeTab,
           ...props.children.props
         })}
     </div>
