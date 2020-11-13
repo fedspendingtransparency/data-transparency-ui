@@ -166,7 +166,7 @@ export const TableWrapper = (props) => {
         {React.cloneElement(props.children, {
           updateSort,
           currentSort,
-          columns,
+          columns: props.columns ? props.columns : columns,
           ...props.children.props
         })}
     </div>

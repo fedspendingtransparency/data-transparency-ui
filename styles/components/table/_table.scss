@@ -91,4 +91,53 @@ table.usda-table {
             }
         }
     }
+    &.usda-table-w-grid {
+        border-bottom: rem(1) solid #D6D7D9;
+        thead.usda-table__head {
+            .table-header {
+                background-color: #F2F2F2;
+                border: rem(1) solid #D6D7D9;
+                padding: 0;
+                .table-header__content {
+                    display: flex;
+                    padding: rem(15);
+                    .table-header__label {
+                        font-size: rem(16);
+                    }
+                    .table-header__sort {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        button.table-header__icon {
+                            height: rem(9);
+                            padding-right: rem(20);
+                            &:focus {
+                                outline: none;
+                            }
+                            svg {
+                                width: rem(13);
+                                color: #D6D7D9;
+                            }
+                            &.table-header__icon_active {
+                                color: $color-gold;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        tbody.usda-table__body {
+            tr.usda-table__row {
+                border-right: rem(1) solid #D6D7D9;
+                border-left: rem(1) solid #D6D7D9;
+                .usda-table__cell {
+                    border-right: rem(1) solid #D6D7D9;
+                }
+
+                .usda-table__cell_right {
+                    border-right: none;
+                }
+            }
+        }
+    }
 }

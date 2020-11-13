@@ -4,7 +4,10 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 
 import Table from '../../components/table/Table';
-import { TableWrapper, BasicTableWrapper } from "../misc";
+import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
+import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
+
+import { TableWrapper, BasicTableWrapper, CustomColumnExample } from "../misc";
 
 <Meta
     title="Table"
@@ -20,32 +23,6 @@ import { TableWrapper, BasicTableWrapper } from "../misc";
     }}
 />
 
-## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
-This means the component relies on its parent to pass the following props:
- - `updateSort`: a function that will change the order of the `rows`
- - `currentSort`: an object with a `field` (matching one of the column's `title` property), and a direction (either `asc` or `desc`)
-
-In this example, our parent -- `TableWrapper` -- looks like this before the render:
-
-```javascript
-const [field, updateField] = useState('amount');
-const [direction, updateDirection] = useState('desc');
-const updateSort = (field, direction) => {
-console.log(`update sort invoked with ${field}, ${direction}`);
-updateField(field);
-updateDirection(direction)
-};
-const currentSort = {
-field,
-direction
-};
-```
-
-### Other props:
- - `expandable`: a boolean indicating whether this table will have nested rows that can be expanded and collapsed
- - `columns`: an array of objects each with a `title` and a `displayName`
- - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
-
 <Preview>
     <Story name='Table'>
         <TableWrapper>
@@ -58,6 +35,37 @@ direction
     </Story>
 </Preview>
 
+<Props of={Table} />
+
+## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
+This means the component relies on its parent to pass the following props:
+ - `updateSort`: a function that will change the order of the `rows`
+ - `currentSort`: an object with a `field` (matching one of the column's `title` property), and a direction (either `asc` or `desc`)
+
+In this example, our parent -- `TableWrapper` -- looks like this before the render:
+
+```javascript
+const [field, updateField] = useState('amount');
+const [direction, updateDirection] = useState('desc');
+const updateSort = (field, direction) => {
+    console.log(`update sort invoked with ${field}, ${direction}`);
+        updateField(field);
+        updateDirection(direction)
+    const currentSort = {
+        field,
+        direction
+    };
+}
+```
+
+### Other props:
+ - `expandable`: a boolean indicating whether this table will have nested rows that can be expanded and collapsed
+ - `columns`: an array of objects each with a `title` and a `displayName`
+ - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
+ - `classNames`: way to customize table styles. `usda-table-w-grid` puts nice borders around the table cells.
+
+
+## Table without Sorting
 <Preview>
     <Story name='Table without Sorting'>
         <BasicTableWrapper>
@@ -70,6 +78,7 @@ direction
     </Story>
 </Preview>
 
+## Expandable Table without Divider
 <Preview>
     <Story name='Expandable Table without Divider'>
         <TableWrapper>
@@ -115,6 +124,7 @@ direction
     </Story>
 </Preview>
 
+## Expandable Table with Divider
 <Preview>
     <Story name='Expandable Table with Divider'>
         <TableWrapper>
@@ -161,7 +171,48 @@ direction
     </Story>
 </Preview>
 
-<Props of={Table} />
+## Table w/ Grid Styles
+<Preview>
+    <Story name='Table w/ Grid Styles'>
+        <TableWrapper>
+            <Table
+                classNames="usda-table-w-grid"
+                rows={[
+                    [<a href="/">Link</a>, 'mock data', '25%'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                ]} />
+        </TableWrapper>
+    </Story>
+</Preview>
+
+## Table w/ Sub Columns & Tooltips
+<Preview>
+        <Story name='Table w/ Sub Columns & Tooltips'>
+        <TableWrapper columns={[
+            { title: 'name',  displayName: 'Agency  Name', icon: <TooltipWrapper icon="info" tooltipComponent={<TooltipComponent title="Test Tooltip"><div>Test content for tooltip</div></TooltipComponent>} /> },
+            { title: 'total',  displayName: 'Total Budgetary  Resources' },
+            { title: 'Q4',  displayName: 'FY 2020 Q4', columnSpan: "2", subColumnNames: [{ displayName: 'P10', title: 'P10'}, { displayName: 'P11', title: 'P11' }] },
+            {
+                title: 'Q3', 
+                displayName: 'FY 2020 Q3',
+                columnSpan: "4",
+                subColumnNames: [
+                    { displayName: 'P9', title: 'P9'},
+                    { displayName: 'P8', title: 'P8' },
+                    { displayName: 'P7', title: 'P7' },
+                    { displayName: 'P6', title: 'P6' }
+                ]
+            }
+        ]}>
+            <Table
+                classNames="usda-table-w-grid"
+                rows={[
+                    [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%', '26%', '$1.2 million', '$1.3 million', '$1.4 million', '$1.5 million'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'mock data IIIIIIIII', '$5.2 million', '$2.3 million', '$11.4 million', '$23.5 million']
+                ]} />
+        </TableWrapper>
+    </Story>
+</Preview>
 
 ## Integration Status
 Answers the question, where is this component used?
@@ -169,3 +220,12 @@ Answers the question, where is this component used?
 ### USASpending
 - [x] Agency Profile v2
 - [x] COVID-19 Page
+- [x] Agency Reporting Page
+- [ ] Advanced Search
+- [ ] Award Summary
+- [ ] State Landing Page
+- [ ] State Profile Page
+- [ ] Federal Account Landing Page
+- [ ] Account Profile Page
+- [ ] Recipient Landing Page
+- [ ] Recipient Profile Page
