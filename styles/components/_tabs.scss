@@ -1,14 +1,12 @@
 @import "../global/index";
 
 .table-types {
-  border-bottom: 2px solid $color-gray-light;
+  border-bottom: 2px solid $color-gray-lighter;
   padding-left: rem(15);
   width: 100%;
-  // display: none;
-  // @media($tablet-screen) {
-  //     display: flex;
-  // }
-  display: flex;
+  @media(min-width: $tablet-screen) {
+      display: flex;
+  }
 
   .table-type-toggle__wrapper {
       &.disabled {
@@ -17,9 +15,8 @@
 
       .table-type-toggle {
           border: 2px solid transparent;
-          border-bottom: 2px solid $color-gray-light;
+          border-bottom: 2px solid $color-gray-lighter;
           color: $color-gray-dark;
-          // background-color: #f1f1f1;
           font-size: $base-font-size;
           font-weight: normal;
           vertical-align: middle;
@@ -27,9 +24,6 @@
           width: auto;
           padding: rem(15) rem(20) rem(13) rem(20);
           margin-right: rem(5);
-
-          // white-space: nowrap;
-          // border-bottom: none;
           border-top-left-radius: rem(8);
           border-top-right-radius: rem(8);
           border-bottom-right-radius: 0;
@@ -45,10 +39,10 @@
           }
           &.active {
               background-color: $color-white;
-              border-top: 2px solid $color-gray-light;
-              border-right: 2px solid $color-gray-light;
+              border-top: 2px solid $color-gray-lighter;
+              border-right: 2px solid $color-gray-lighter;
               border-bottom: 2px solid $color-white;
-              border-left: 2px solid $color-gray-light;
+              border-left: 2px solid $color-gray-lighter;
               color: $color-base;
           }
           .tab-content {
@@ -67,19 +61,9 @@
               position: relative;
               .tab-label {
                   flex: 1 1 auto;
+                  font-size: rem(18);
+                  line-height: rem(23);
                   margin-right: rem(5);
-              }
-  
-              .count-badge {
-                  flex: 1 1 auto;
-                  background-color: $color-gray-lighter;
-                  font-size: rem(12);
-                  line-height: rem(16);
-                  padding: rem(0) rem(5);
-  
-                  &.active {
-                      background-color: $color-gold;
-                  }
               }
                 .tooltip-wrapper {
                   .tooltip__text {
@@ -96,9 +80,8 @@
   
           &[disabled] {
               pointer-events: none;
-              color: #1010104d;
+              color: $color-gray;
               background-color: #f5f5f5;
-              border-bottom: 2px solid;
           }
       }
   }

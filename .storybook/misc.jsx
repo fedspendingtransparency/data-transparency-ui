@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import SearchBar from "../components/SearchBar";
 import TooltipComponent from "../components/infoTooltip/TooltipComponent";
 import { useCumulativeQuarterPicker } from "../components/quarterPicker/QuarterPicker";
+import { TooltipWrapper } from '../components/infoTooltip/TooltipWrapper';
 
 export const Tooltip = () => (
     <TooltipComponent title="An Example Tooltip" textAlign={{ title: 'left', text: 'left'}}>

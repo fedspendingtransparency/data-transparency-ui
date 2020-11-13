@@ -5,44 +5,32 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import Tab from './Tab';
 
 require('../../styles/components/_tabs.scss');
 
 const propTypes = {
-    types: PropTypes.array,
-    counts: PropTypes.object,
-    active: PropTypes.string,
-    switchTab: PropTypes.func,
-    disabled: PropTypes.bool,
-    hideCounts: PropTypes.bool,
+    types: PropTypes.array.isRequired,
+    active: PropTypes.string.isRequired,
+    switchTab: PropTypes.func.isRequired,
     tabsClassName: PropTypes.string
 };
 
 const Tabs = ({
     types,
-    counts,
     active,
     switchTab,
-    disabled,
-    hideCounts,
     tabsClassName
 }) => {
-    const tabs = types.map((type) => {
-        const count = hideCounts ? null : counts[type.internal];
-        return (
-            <Tab
-                {...type}
-                count={count}
-                active={active === type.internal}
-                switchTab={switchTab}
-                key={`table-type-item-${type.internal}`}
-                enabled={!disabled}
-                hideCounts={hideCounts}
-                className={tabsClassName} />
-        );
-    });
+    const tabs = types.map((type) => (
+        <Tab
+            {...type}
+            active={active === type.internal}
+            switchTab={switchTab}
+            key={`table-type-item-${type.internal}`}
+            enabled={!type.disabled}
+            className={tabsClassName} />
+    ));
 
     return (
         <div

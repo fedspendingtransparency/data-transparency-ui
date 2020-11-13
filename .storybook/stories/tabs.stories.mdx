@@ -2,7 +2,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
-import { TabsWrapper } from "../misc";
+import { TabsWrapper, TabsTooltip } from "../misc";
 
 import Tabs from '../../components/tabs/Tabs';
 
@@ -29,10 +29,12 @@ This means the component relies on its parent to pass the following props:
 In this example:
 
 ### Other props:
- - `counts`: An array of count objects
- - `disabled`: Is the tab disabled
- - `hideCounts`: should we hide the counts
  - `tabsClassName`: A class name for the tabs
+
+```javascript
+
+```
+
 
 <Preview>
     <Story name='Tabs'>
@@ -47,14 +49,13 @@ In this example:
             internal: 'dates',
             label: 'Dates'
           }
-        ]}
-        hideCounts={true} />
+        ]} />
       </TabsWrapper>
     </Story>
 </Preview>
 
 <Preview>
-    <Story name='Tabs with Counts'>
+    <Story name='Tabs with Disabled'>
       <TabsWrapper>
         <Tabs
         types={[
@@ -64,13 +65,17 @@ In this example:
           },
           {
             internal: 'dates',
-            label: 'Dates'
+            label: 'Dates',
+            disabled: true
           }
-        ]}
-        counts={{ name: 101, dates: 1002 }}
-        hideCounts={boolean('hideCounts', false)} />
+        ]} />
       </TabsWrapper>
     </Story>
 </Preview>
 
 <Props of={Tabs} />
+
+## Integration Status
+Answers the question, where is this component used?
+
+- [ ] N/A

@@ -6,19 +6,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { formatNumber } from 'accounting';
 import { createOnKeyDownHandler } from '../../helpers/keyboardEventsHelper';
 
 const propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
     internal: PropTypes.string,
-    count: PropTypes.number,
     active: PropTypes.bool,
     enabled: PropTypes.bool,
     switchTab: PropTypes.func,
-    hideCounts: PropTypes.bool,
-    className: PropTypes.string,
-    tooltip: PropTypes.element
+    className: PropTypes.string
 };
 
 export default class Tab extends React.Component {
@@ -43,27 +39,11 @@ export default class Tab extends React.Component {
             disabledStatus = true;
             disabledClass = ' disabled';
         }
-        else if (!this.props.hideCounts && (!this.props.count || this.props.count === 0)) {
-            disabledStatus = true;
-            disabledClass = ' disabled';
-        } else {
+        else {
             disabledStatus = false;
             disabledClass = '';
         }
 
-        let resultString = 'results';
-        if (this.props.count === 1) {
-            resultString = 'result';
-        }
-
-        let count = null;
-        if (!this.props.hideCounts) {
-            count = (
-                <div className={`count-badge ${activeClass}`}>
-                    {formatNumber(this.props.count)}
-                </div>
-            );
-        }
         const className = `table-type-toggle${activeClass} ${this.props.className}${disabledClass}`;
         const onKeyDownHandler = createOnKeyDownHandler(this.clickedTab);
         return (
@@ -75,15 +55,13 @@ export default class Tab extends React.Component {
                     role="menuitemradio"
                     aria-checked={this.props.active}
                     title={`Show ${this.props.label}`}
-                    aria-label={`Show ${this.props.label} - ${this.props.count} ${resultString}`}
+                    aria-label={`Show ${this.props.label}`}
                     tabIndex={0}
                     disabled={disabledStatus}>
                     <div className="tab-content">
                         <div className="tab-label">
                             {this.props.label}
                         </div>
-                        {count}
-                        {this.props.tooltip}
                     </div>
                 </div>
             </div>
