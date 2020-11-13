@@ -84,6 +84,18 @@ export interface SearchBarProps {
   inputTitle: string
 }
 
+interface TabsProps {
+  types: Array<[object]>
+  active: string,
+  switchTab: (value: string) => void
+}
+
+export interface TabsProps {
+  types: Array<[object]>
+  active: string,
+  switchTab: (value: string) => void
+}
+
 interface TooltipComponentTextAlign {
     title?: string,
     text?: string
@@ -117,6 +129,7 @@ export class TooltipWrapper extends React.Component<TooltipWrapperProps>{}
 export class QuarterPicker extends React.Component<QuarterPickerProps>{}
 export function Picker(props: PickerProps): JSX.Element;
 export function SearchBar(props: SearchBarProps): JSX.Element;
+export function Tabs(props: TabsProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
 export function Table(props: TableProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
