@@ -5,6 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import Picker from '../Picker';
 import Tab from './Tab';
 
 require('../../styles/components/_tabs.scss');
@@ -32,12 +33,24 @@ const Tabs = ({
             className={tabsClassName} />
     ));
 
+    const pickerData = types.map((type) => ({
+        name: type.label,
+        value: type.internal,
+        onClick: switchTab
+    }));
+
     return (
-        <div
-            className="table-types"
-            role="menu">
-            {tabs}
-        </div>
+        <>
+            <div
+                className="table-types"
+                role="menu">
+                {tabs}
+            </div>
+            <Picker
+                className="table-types-mobile"
+                options={pickerData}
+                selectedOption={types.find((x) => active === x.internal).label} />
+        </>
     );
 };
 

@@ -1,13 +1,21 @@
 @import "../global/index";
 
+.table-types-mobile {
+  @media(min-width: $tablet-screen) {
+    display: none;
+  }
+  display: flex;
+  border: none;
+}
+
 .table-types {
   border-bottom: 2px solid $color-gray-lighter;
   padding-left: rem(15);
   width: 100%;
+  display: none;
   @media(min-width: $tablet-screen) {
       display: flex;
   }
-
   .table-type-toggle__wrapper {
       &.disabled {
           cursor: not-allowed;
