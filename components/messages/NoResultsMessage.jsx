@@ -4,31 +4,10 @@
  **/
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import GenericMessage from '../messages/GenericMessage';
 
-require('../../styles/components/_messages.scss');
-
-const defaultProps = {
-    title: 'No Results',
-    description: 'No available data to display.'
-};
-
-const propTypes = {
-    title: PropTypes.string,
-    description: PropTypes.string
-};
-
-const NoResultsMessage = ({ title, description }) => (
-    <div className="usda-message usda-message_no-results">
-        <div className="usda-message__title">
-            {title}
-        </div>
-        <div className="usda-message__description">
-            {description}
-        </div>
-    </div>
+const NoResultsMessage = () => (
+    <GenericMessage title="No Results" description="No available data to display." className="no-results" />
 );
 
-NoResultsMessage.propTypes = propTypes;
-NoResultsMessage.defaultProps = defaultProps;
 export default NoResultsMessage;

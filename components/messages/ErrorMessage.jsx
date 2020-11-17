@@ -6,33 +6,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-require('../../styles/components/_messages.scss');
+import GenericMessage from './GenericMessage';
 
 const defaultProps = {
-    title: 'An error occurred',
     description: 'Something went wrong while gathering your data.'
 };
 
 const propTypes = {
-    title: PropTypes.string,
     description: PropTypes.string
 };
 
-const ErrorMessage = ({ title, description }) => (
-    <div className="usda-message usda-message_error">
-        <div className="usda-message__icon">
-            <FontAwesomeIcon icon="exclamation-triangle" />
-        </div>
-        <div className="usda-message__title">
-            {title}
-        </div>
-        <div className="usda-message__description">
-            {description}
-        </div>
-    </div>
-);
-
+const ErrorMessage = ({ description }) => {
+    const icon = <FontAwesomeIcon icon="exclamation-triangle" />;
+    return <GenericMessage description={description} title="An error occurred" icon={icon} className="error" />;
+};
 
 ErrorMessage.propTypes = propTypes;
 ErrorMessage.defaultProps = defaultProps;

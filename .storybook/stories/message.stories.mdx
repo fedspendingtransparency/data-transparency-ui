@@ -6,6 +6,8 @@ import { withActions, actions } from '@storybook/addon-actions';
 import LoadingMessage from '../../components/messages/LoadingMessage';
 import ErrorMessage from '../../components/messages/ErrorMessage';
 import NoResultsMessage from '../../components/messages/NoResultsMessage';
+import ComingSoon from '../../components/messages/ComingSoon';
+import GenericMessage from '../../components/messages/GenericMessage';
 
 <Meta
     title="Messages"
@@ -21,17 +23,17 @@ import NoResultsMessage from '../../components/messages/NoResultsMessage';
     }}
 />
 
+## Generic Message
+<Preview>
+    <Story name='Generic Message'>
+        <GenericMessage className="your-class" title="Your title" description="Custom description here." />
+    </Story>
+</Preview>
+
 ## Loading Message
 <Preview>
     <Story name='Loading Message'>
         <LoadingMessage />
-    </Story>
-</Preview>
-
-## Custom Loading Message
-<Preview>
-    <Story name='Custom Loading Message'>
-        <LoadingMessage title="Your title" description="Custom description here." />
     </Story>
 </Preview>
 
@@ -49,19 +51,18 @@ import NoResultsMessage from '../../components/messages/NoResultsMessage';
     </Story>
 </Preview>
 
-## Default No Results Message
+## No Results Message
 <Preview>
     <Story name='No Results Message'>
         <NoResultsMessage />
     </Story>
 </Preview>
 
-## Custom No Results Message
+## Coming Soon Placeholder
 <Preview>
-    <Story name='Custom No Results Message'>
-        <NoResultsMessage title="Your title" description="Custom description here." />
+    <Story name="Coming Soon Placeholder">
+        <ComingSoon />
     </Story>
 </Preview>
-
 
 <Props of={ErrorMessage} />
