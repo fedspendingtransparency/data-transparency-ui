@@ -220,21 +220,27 @@ const updateSort = (field, direction) => {
 ## Loading Table
 <Preview>
     <Story name="Loading Table">
-        <Table loading ></Table>
+        <BasicTableWrapper>
+            <Table loading ></Table>
+        </BasicTableWrapper>
     </Story>
 </Preview>
 
 ## Table Error
 <Preview>
     <Story name="Table Error">
-        <Table error ></Table>
+        <BasicTableWrapper>
+            <Table error ></Table>
+        </BasicTableWrapper>
     </Story>
 </Preview>
 
 ## No Results
 <Preview>
     <Story name="No Results">
-        <Table rows={[]} ></Table>
+        <BasicTableWrapper>
+            <Table rows={[]} ></Table>
+        </BasicTableWrapper>
     </Story>
 </Preview>
 
