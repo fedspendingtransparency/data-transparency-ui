@@ -133,6 +133,22 @@ export const PickerWrapper = (props) => {
   );
 }
 
+export const mockColumns = [
+  {
+      title: 'name',
+      displayName: 'Budget Function'
+  },
+  {
+      title: 'amount',
+      displayName: 'Amount'
+  },
+  {
+      title: 'percent',
+      displayName: '% of Total Amount',
+      right: true
+  }
+];
+
 export const TableWrapper = (props) => {
   const [field, updateField] = useState('amount');
   const [direction, updateDirection] = useState('desc');
@@ -145,56 +161,25 @@ export const TableWrapper = (props) => {
     field,
     direction
   };
-  const columns = [
-    {
-        title: 'name',
-        displayName: 'Budget Function'
-    },
-    {
-        title: 'amount',
-        displayName: 'Amount'
-    },
-    {
-        title: 'percent',
-        displayName: '% of Total Amount',
-        right: true
-    }
-  ];
 
   return (
     <div className="story__container table-story">
-        {React.cloneElement(props.children, {
-          updateSort,
-          currentSort,
-          columns: props.columns ? props.columns : columns,
-          ...props.children.props
-        })}
+      {React.cloneElement(props.children, {
+        updateSort,
+        currentSort,
+        columns: props.columns ? props.columns : mockColumns,
+        ...props.children.props
+      })}
     </div>
   );
 }
 
 // For the table without sorting
 export const BasicTableWrapper = (props) => {
-  const columns = [
-    {
-        title: 'name',
-        displayName: 'Budget Function'
-    },
-    {
-        title: 'amount',
-        displayName: 'Amount'
-    },
-    {
-        title: 'percent',
-        displayName: '% of Total Amount',
-        right: true
-    }
-  ];
-
   return (
     <div className="story__container table-story">
         {React.cloneElement(props.children, {
-          columns,
+          columns: mockColumns,
           ...props.children.props
         })}
     </div>
@@ -202,7 +187,7 @@ export const BasicTableWrapper = (props) => {
 }
 
 export const TabsWrapper = (props) => {
-  const [activeTab, setActiveTab] = useState('name'); 
+  const [activeTab, setActiveTab] = useState('name');
   return (
     <div className="story__container tabs-story" style={{ width: '100%', 'paddingLeft': '0' }}>
         {React.cloneElement(props.children, {

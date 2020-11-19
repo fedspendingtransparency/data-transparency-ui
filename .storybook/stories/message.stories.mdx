@@ -11,7 +11,7 @@ import GenericMessage from '../../components/messages/GenericMessage';
 
 <Meta
     title="Messages"
-    component={ErrorMessage}
+    component={GenericMessage}
     decorators={[withA11y, withActions('onClick')]}
     parameters={{
         a11y: {
@@ -23,12 +23,20 @@ import GenericMessage from '../../components/messages/GenericMessage';
     }}
 />
 
+## Generic Message Props:
+ - `className`: A way to customize message stlyling. Gets appended to `usda-message_` to create a _modifier_ class in BEM methodology.
+ - `title`: The first (bolded) line of text.
+ - `description`: The second line of text.
+ - `icon`: An icon to display above the text.
+
 ## Generic Message
 <Preview>
     <Story name='Generic Message'>
         <GenericMessage className="your-class" title="Your title" description="Custom description here." />
     </Story>
 </Preview>
+
+<Props of={GenericMessage} />
 
 ## Loading Message
 <Preview>
@@ -43,6 +51,8 @@ import GenericMessage from '../../components/messages/GenericMessage';
         <ErrorMessage />
     </Story>
 </Preview>
+
+<Props of={ErrorMessage} />
 
 ## Custom Error Message
 <Preview>
@@ -65,4 +75,4 @@ import GenericMessage from '../../components/messages/GenericMessage';
     </Story>
 </Preview>
 
-<Props of={ErrorMessage} />
+

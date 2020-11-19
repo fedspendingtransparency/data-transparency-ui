@@ -27,7 +27,7 @@ const propTypes = {
     divider: PropTypes.string,
     loading: PropTypes.bool,
     error: PropTypes.bool,
-    message: PropTypes.oneOf([PropTypes.string, PropTypes.object])
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
 const Table = (props) => {
