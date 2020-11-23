@@ -61,7 +61,7 @@ const propTypes = {
     right: PropTypes.bool,
     // int as string
     columnSpan: PropTypes.string,
-    subColumnNames: PropTypes.arrayOf(PropTypes.string),
+    subColumnNames: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object])),
     className: PropTypes.string,
     icon: PropTypes.element
 };
