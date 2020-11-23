@@ -123,6 +123,17 @@ export interface TableProps {
     classNames: string
 }
 
+export interface GenericMessageProps {
+    title: string,
+    description: string,
+    icon: object,
+    className: string
+}
+
+export interface ErrorMessageProps {
+    description: string
+}
+
 /*~ If this module has methods, declare them as functions like so.
  */
 export class Pagination extends React.Component<PaginationProps>{}
@@ -133,6 +144,8 @@ export function SearchBar(props: SearchBarProps): JSX.Element;
 export function Tabs(props: TabsProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
 export function Table(props: TableProps): JSX.Element;
+export function GenericMessage(props: GenericMessageProps): JSX.Element;
+export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
 /*~ If there are types, properties, or methods inside dotted names
  *~ of the module, declare them inside a 'namespace'.
