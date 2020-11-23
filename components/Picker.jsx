@@ -6,6 +6,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { uniqueId } from 'lodash';
 
 require('../styles/components/_picker.scss');
 
@@ -14,11 +15,11 @@ const fontAwesomeIconId = "usa-dt-picker__button-icon--svg";
 const propTypes = {
     sortFn: PropTypes.func,
     icon: PropTypes.node,
-    selectedOption: PropTypes.string,
+    selectedOption: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
     className: PropTypes.string,
     id: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
+        name: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
         value: PropTypes.any,
         onClick: PropTypes.func
     })),
@@ -107,9 +108,8 @@ const Picker = ({
         };
     }, [expanded]);
 
-    const createOnClickFn = (cb) => (e) => {
-        e.preventDefault();
-        cb(e.target.value);
+    const createOnClickFn = (cb) => (param) => {
+        cb(param);
         setExpanded(false);
     };
 
@@ -186,11 +186,14 @@ const Picker = ({
                             onClick: createOnClickFn(option.onClick)
                         }))
                         .map((option) => (
-                            <li key={option.name} className="usa-dt-picker__list-item">
+                            <li key={uniqueId()} className="usa-dt-picker__list-item">
                                 <button
                                     className={`usa-dt-picker__item ${option.name === selectedOption ? 'active' : ''}`}
                                     value={`${option.value || option.name}`}
-                                    onClick={option.onClick}>
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        option.onClick(option.value);
+                                    }}>
                                     {option.component ? option.component : option.name}
                                 </button>
                             </li>
