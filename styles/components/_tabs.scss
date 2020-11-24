@@ -1,6 +1,6 @@
 @import "../global/index";
 
-.table-types-mobile {
+.usa-dt-tabs-mobile {
   @media(min-width: $tablet-screen) {
     display: none;
   }
@@ -8,7 +8,7 @@
   border: none;
 }
 
-.table-types {
+.usa-dt-tabs {
   border-bottom: 2px solid $color-gray-lighter;
   padding-left: rem(15);
   width: 100%;
@@ -16,12 +16,12 @@
   @media(min-width: $tablet-screen) {
       display: flex;
   }
-  .table-type-toggle__wrapper {
+  .usa-dt-tab-toggle__wrapper {
       &.disabled {
           cursor: not-allowed;
       }
 
-      .table-type-toggle {
+      .usa-dt-tab-toggle {
           border: 2px solid transparent;
           border-bottom: 2px solid $color-gray-lighter;
           color: $color-gray-dark;
@@ -53,21 +53,20 @@
               border-left: 2px solid $color-gray-lighter;
               color: $color-base;
           }
-          .tab-content {
+          .usa-dt-tab-content {
               font-size: rem(18);
           }
           &.active {
-              .tab-content {
+              .usa-dt-tab-content {
                   font-weight: 600;
               }
           }
-  
-          .tab-content {
+          .usa-dt-tab-content {
               display: flex;
               align-items: center;
               justify-content: center;
               position: relative;
-              .tab-label {
+              .usa-dt-tab-label {
                   flex: 1 1 auto;
                   font-size: rem(18);
                   line-height: rem(23);
