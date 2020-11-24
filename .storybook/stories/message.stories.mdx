@@ -2,7 +2,7 @@ import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoadingMessage from '../../components/messages/LoadingMessage';
 import ErrorMessage from '../../components/messages/ErrorMessage';
 import NoResultsMessage from '../../components/messages/NoResultsMessage';
@@ -32,7 +32,11 @@ import GenericMessage from '../../components/messages/GenericMessage';
 ## Generic Message
 <Preview>
     <Story name='Generic Message'>
-        <GenericMessage className="your-class" title="Your title" description="Custom description here." />
+        <GenericMessage
+            className="your-class"
+            title="Your title"
+            description="Custom description here."
+            icon={<FontAwesomeIcon icon="pencil-alt" />} />
     </Story>
 </Preview>
 
