@@ -1,0 +1,30 @@
+@import "../global/index";
+
+.usda-message {
+    text-align: center;
+    background-color: $color-gray-lightest;
+    padding: 10rem 0;
+    color: $color-base;
+    width: 100%;
+    .usda-message__icon {
+        font-size: 3.6rem;
+    }
+    .usda-message__title {
+        font-size: 2rem;
+        line-height: 4.5rem;
+        font-weight: $font-semibold;
+    }
+    .usda-message__description {
+        font-size: $base-font-size;
+    }
+    &.usda-message_loading {
+        .usda-message__icon {
+            color: $color-primary;
+        }
+    }
+    &.usda-message_error {
+        .usda-message__icon {
+            color: $color-secondary-dark;
+        }
+    }
+}
