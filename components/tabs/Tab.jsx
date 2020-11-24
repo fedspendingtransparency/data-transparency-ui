@@ -44,10 +44,10 @@ export default class Tab extends React.Component {
             disabledClass = '';
         }
 
-        const className = `table-type-toggle${activeClass} ${this.props.className}${disabledClass}`;
+        const className = `usa-dt-tab-toggle${activeClass} ${this.props.className}${disabledClass}`;
         const onKeyDownHandler = createOnKeyDownHandler(this.clickedTab);
         return (
-            <div className={`table-type-toggle__wrapper${disabledClass}`}>
+            <div className={`usa-dt-tab-toggle__wrapper${disabledClass}`}>
                 <div
                     className={className}
                     onClick={this.clickedTab}
@@ -58,8 +58,8 @@ export default class Tab extends React.Component {
                     aria-label={`Show ${this.props.label}`}
                     tabIndex={0}
                     disabled={disabledStatus}>
-                    <div className="tab-content">
-                        <div className="tab-label">
+                    <div className="usa-dt-tab-content">
+                        <div className="usa-dt-tab-label">
                             {this.props.label}
                         </div>
                     </div>
