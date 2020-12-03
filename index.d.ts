@@ -53,7 +53,8 @@ export interface QuarterPickerProps {
 interface PickerPropsOptions {
     name: string | number,
     value: string | number
-    onClick: (value: string | number) => void
+    onClick: (value: string | number) => void,
+    classNames?: string
 }
 
 export interface PickerProps {
