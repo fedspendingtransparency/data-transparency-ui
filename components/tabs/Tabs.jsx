@@ -42,12 +42,12 @@ const Tabs = ({
     return (
         <>
             <div
-                className="table-types"
+                className="usa-dt-tabs"
                 role="menu">
                 {tabs}
             </div>
             <Picker
-                className="table-types-mobile"
+                className="usa-dt-tabs-mobile"
                 options={pickerData}
                 selectedOption={types.find((x) => active === x.internal).label} />
         </>

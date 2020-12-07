@@ -63,6 +63,9 @@ const updateSort = (field, direction) => {
  - `columns`: an array of objects each with a `title` and a `displayName`
  - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
  - `classNames`: way to customize table styles. `usda-table-w-grid` puts nice borders around the table cells.
+ - `loading`: a boolean indicating that the table data is loading
+ - `error` : a boolean indicating that there was an error fetching the table data
+ - `message`: a custom error, loading, or no results message
 
 
 ## Table without Sorting
@@ -193,7 +196,7 @@ const updateSort = (field, direction) => {
             { title: 'total',  displayName: 'Total Budgetary  Resources' },
             { title: 'Q4',  displayName: 'FY 2020 Q4', columnSpan: "2", subColumnNames: [{ displayName: 'P10', title: 'P10'}, { displayName: 'P11', title: 'P11' }] },
             {
-                title: 'Q3', 
+                title: 'Q3',
                 displayName: 'FY 2020 Q3',
                 columnSpan: "4",
                 subColumnNames: [
@@ -211,6 +214,42 @@ const updateSort = (field, direction) => {
                     [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'mock data IIIIIIIII', '$5.2 million', '$2.3 million', '$11.4 million', '$23.5 million']
                 ]} />
         </TableWrapper>
+    </Story>
+</Preview>
+
+## Loading Table
+<Preview>
+    <Story name="Loading Table">
+        <BasicTableWrapper>
+            <Table loading ></Table>
+        </BasicTableWrapper>
+    </Story>
+</Preview>
+
+## Table Error
+<Preview>
+    <Story name="Table Error">
+        <BasicTableWrapper>
+            <Table error ></Table>
+        </BasicTableWrapper>
+    </Story>
+</Preview>
+
+## Custom Error Message
+<Preview>
+    <Story name="Custom Error Message">
+        <BasicTableWrapper>
+            <Table error message="Custom error message here." ></Table>
+        </BasicTableWrapper>
+    </Story>
+</Preview>
+
+## No Results
+<Preview>
+    <Story name="No Results">
+        <BasicTableWrapper>
+            <Table rows={[]} ></Table>
+        </BasicTableWrapper>
     </Story>
 </Preview>
 
