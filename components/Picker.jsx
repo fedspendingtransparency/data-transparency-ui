@@ -21,7 +21,8 @@ const propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape({
         name: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
         value: PropTypes.any,
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
+        classNames: PropTypes.string
     })),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
     isFixedWidth: PropTypes.bool,
@@ -186,7 +187,7 @@ const Picker = ({
                             onClick: createOnClickFn(option.onClick)
                         }))
                         .map((option) => (
-                            <li key={uniqueId()} className="usa-dt-picker__list-item">
+                            <li key={uniqueId()} className={`usa-dt-picker__list-item ${option?.classNames ? option.classNames : ''}`}>
                                 <button
                                     className={`usa-dt-picker__item ${option.name === selectedOption ? 'active' : ''}`}
                                     value={`${option.value || option.name}`}
