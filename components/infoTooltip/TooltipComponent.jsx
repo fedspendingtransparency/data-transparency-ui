@@ -15,6 +15,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+    className: null,
     textAlign: {
         title: 'left',
         text: 'left'
