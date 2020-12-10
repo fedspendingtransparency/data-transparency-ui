@@ -5,8 +5,8 @@ import cx from 'classnames';
 import '../../styles/components/infoTooltip/_tooltipComponent.scss';
 
 const propTypes = {
-    title: PropTypes.string,
-    children: PropTypes.node,
+    title: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     textAlign: PropTypes.shape({
         title: PropTypes.oneOf(["center", "left"]),
@@ -15,9 +15,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-    title: "Tooltip Info",
-    children: <p>Here is some info.</p>,
-    className: null,
     textAlign: {
         title: 'left',
         text: 'left'
