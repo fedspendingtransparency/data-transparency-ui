@@ -11,7 +11,11 @@ import Tab from './Tab';
 require('../../styles/components/_tabs.scss');
 
 const propTypes = {
-    types: PropTypes.array.isRequired,
+    types: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        internal: PropTypes.string.isRequired,
+        labelContent: PropTypes.element
+    })).isRequired,
     active: PropTypes.string.isRequired,
     switchTab: PropTypes.func.isRequired,
     tabsClassName: PropTypes.string

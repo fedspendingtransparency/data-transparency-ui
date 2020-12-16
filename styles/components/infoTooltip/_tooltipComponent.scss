@@ -18,10 +18,11 @@
             .tooltip__title {
                 font-size: $base-font-size;
                 background-color: $color-gray-lightest;
-                padding: rem(10) rem(20);
+                padding: rem(20);
                 font-weight: $font-bold;
                 z-index: 10;
                 margin: 0;
+                line-height: normal;
                 &.center {
                     text-align: center;
                 }
@@ -33,7 +34,7 @@
                 margin: 0;
                 text-align: center;
                 font-size: $small-font-size;
-                font-weight: $font-normal; 
+                font-weight: $font-normal;
                 span:first-of-type {
                     font-size: $base-font-size * 1.25;
                     font-weight: $font-bold;

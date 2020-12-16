@@ -9,8 +9,9 @@ import PropTypes from 'prop-types';
 import { createOnKeyDownHandler } from '../../helpers/keyboardEventsHelper';
 
 const propTypes = {
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+    label: PropTypes.string.isRequired,
     internal: PropTypes.string,
+    labelContent: PropTypes.element,
     active: PropTypes.bool,
     enabled: PropTypes.bool,
     switchTab: PropTypes.func,
@@ -60,7 +61,7 @@ export default class Tab extends React.Component {
                     disabled={disabledStatus}>
                     <div className="usa-dt-tab-content">
                         <div className="usa-dt-tab-label">
-                            {this.props.label}
+                            {this.props.labelContent || this.props.label}
                         </div>
                     </div>
                 </div>
