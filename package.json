@@ -79,6 +79,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-transition-group": "^4.4.1",
     "resolve-url-loader": "^3.1.2",
     "storybook": "^5.3.8"
   },
