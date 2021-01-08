@@ -50,6 +50,10 @@ export interface QuarterPickerProps {
     showPeriods: boolean
 }
 
+interface LoadingMessageProps {
+    loadingText: string
+};
+
 interface PickerPropsOptions {
     name: string | number,
     value: string | number
@@ -146,6 +150,7 @@ export function Tabs(props: TabsProps): JSX.Element;
 export function TooltipComponent(props: TooltipComponentProps): JSX.Element;
 export function Table(props: TableProps): JSX.Element;
 export function GenericMessage(props: GenericMessageProps): JSX.Element;
+export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
 /*~ If there are types, properties, or methods inside dotted names
