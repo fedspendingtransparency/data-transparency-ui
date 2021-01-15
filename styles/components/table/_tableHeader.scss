@@ -28,6 +28,7 @@ th.table-header {
         }
         &.table-header__content_right {
             justify-content: flex-end;
+            text-align: right;
         }
         .table-header__sort {
             display: block;
