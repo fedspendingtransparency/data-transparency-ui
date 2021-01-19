@@ -230,7 +230,7 @@ const updateSort = (field, direction) => {
                 columns={
                     [
                         {
-                            title: '',
+                            title: 'blank',
                             displayName: '',
                             header: true
                         },
@@ -254,46 +254,6 @@ const updateSort = (field, direction) => {
                     [{ displayName: 'Other Header', title: '', rowSpan: '0' }, <React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
                 ]} />
         </div>
-    </Story>
-</Preview>
-
-## Table with Last Column Headers
-
-### Steps to implement
-- Pass the property `header: true` to the last element of the columns property.
-- Pass the property `rowSpan: '0'` to the last element of each of the rows property.
-
-<Preview>
-    <Story name='Table with Last Column Headers'>
-        <div className="story__container table-story">
-            <Table
-                columns={
-                    [
-                        {
-                            title: 'name',
-                            displayName: 'Budget Function'
-                        },
-                        {
-                            title: 'amount',
-                            displayName: 'Amount'
-                        },
-                        {
-                            title: 'percent',
-                            displayName: '% of Total Amount',
-                            right: true
-                        },
-                        {
-                            title: '',
-                            displayName: '',
-                            header: true
-                        }
-                    ]
-                }
-                rows={[
-                    [<a href="/">Link</a>, 'mock data', '25%', { displayName: 'Header', title: '', rowSpan: '0' }],
-                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', { displayName: 'Other Header', title: '', rowSpan: '0' }]
-                ]} />
-          </div>
     </Story>
 </Preview>
 
