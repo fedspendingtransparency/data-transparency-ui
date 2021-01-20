@@ -232,7 +232,7 @@ const updateSort = (field, direction) => {
                         {
                             title: 'blank',
                             displayName: '',
-                            header: true
+                            bodyHeader: true
                         },
                         {
                             title: 'name',
@@ -250,8 +250,8 @@ const updateSort = (field, direction) => {
                     ]
                 }
                 rows={[
-                    [{ displayName: 'Header', title: '', rowSpan: '0' }, <a href="/">Link</a>, 'mock data', '25%'],
-                    [{ displayName: 'Other Header', title: '', rowSpan: '0' }, <React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                    [{ displayName: 'Body Header', title: '', rowSpan: '0' }, <a href="/">Link</a>, 'mock data', '25%'],
+                    [{ displayName: 'Body Header', title: '', rowSpan: '0' }, <React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
                 ]} />
         </div>
     </Story>
