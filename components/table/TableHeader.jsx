@@ -61,6 +61,7 @@ const propTypes = {
     right: PropTypes.bool,
     // int as string
     columnSpan: PropTypes.string,
+    rowSpan: PropTypes.string,
     subColumnNames: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object])),
     className: PropTypes.string,
     icon: PropTypes.element
@@ -74,15 +75,22 @@ const TableHeaderCell = ({
     updateSort,
     right,
     columnSpan = '1',
+    rowSpan,
     subColumnNames = [],
     icon = (<></>)
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
     };
+    const rowsSpan = () => {
+        if (rowSpan === '0') {
+            return null;
+        }
+        return subColumnNames.length ? "1" : "2";
+    };
 
     return (
-        <th className={`${className} table-header`} colSpan={columnSpan} rowSpan={subColumnNames.length ? "1" : "2"}>
+        <th className={`${className} table-header`} colSpan={columnSpan} rowSpan={rowsSpan()}>
             <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
                     {displayName}

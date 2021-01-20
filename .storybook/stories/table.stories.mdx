@@ -217,6 +217,46 @@ const updateSort = (field, direction) => {
     </Story>
 </Preview>
 
+## Table with First Column Headers
+
+### Steps to implement
+- Pass the property `header: true` to the first element of the columns property.
+- Pass the property `rowSpan: '0'` to the first element of each of the rows property.
+
+<Preview>
+    <Story name='Table with First Column Headers'>
+        <div className="story__container table-story">
+            <Table
+                columns={
+                    [
+                        {
+                            title: 'blank',
+                            displayName: '',
+                            bodyHeader: true
+                        },
+                        {
+                            title: 'name',
+                            displayName: 'Budget Function'
+                        },
+                        {
+                            title: 'amount',
+                            displayName: 'Amount'
+                        },
+                        {
+                            title: 'percent',
+                            displayName: '% of Total Amount',
+                            right: true
+                        }
+                    ]
+                }
+                rows={[
+                    [{ displayName: 'Body Header', title: '', rowSpan: '0' }, <a href="/">Link</a>, 'mock data', '25%'],
+                    [{ displayName: 'Body Header', title: '', rowSpan: '0' }, <React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                ]} />
+        </div>
+    </Story>
+</Preview>
+
 ## Loading Table
 <Preview>
     <Story name="Loading Table">

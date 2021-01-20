@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 import { uniqueId } from 'lodash';
 import ExpandableRow from './ExpandableRow';
+import TableHeader from './TableHeader';
 
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -41,11 +42,16 @@ const TableData = ({
                     key={uniqueId()}
                     className={`usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
-                        <td
-                            key={uniqueId()}
-                            className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
-                            {data}
-                        </td>
+                        columns[j]?.bodyHeader ?
+                            <TableHeader
+                                key={uniqueId()}
+                                {...data} />
+                            :
+                            <td
+                                key={uniqueId()}
+                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
+                                {data}
+                            </td>
                     ))}
                 </tr>
             );
