@@ -2,6 +2,7 @@ th.table-header {
     border: 0;
     background-color: $color-white;
     padding: rem(15);
+    vertical-align: top;
     &.nested-header {
         .table-header__content {
             padding: rem(0);
@@ -15,6 +16,7 @@ th.table-header {
     .table-header__content {
         display: flex;
         flex-wrap: wrap;
+        align-items: flex-start;
         .table-header__label {
             flex: (0 0 auto);
             font-size: rem(20);
