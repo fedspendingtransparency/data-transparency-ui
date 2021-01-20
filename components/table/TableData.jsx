@@ -42,10 +42,9 @@ const TableData = ({
                     key={uniqueId()}
                     className={`usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
-                        columns[j]?.header ?
+                        columns[j]?.bodyHeader ?
                             <TableHeader
                                 key={uniqueId()}
-                                className={data?.title ? 'nested-header' : 'empty'}
                                 {...data} />
                             :
                             <td
