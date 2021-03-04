@@ -198,3 +198,16 @@ export const TabsWrapper = (props) => {
     </div>
   );
 }
+
+export const TabsWrapperShowTooltip = (props) => {
+  const [activeTab, setActiveTab] = useState('name');
+  return (
+    <div className="story__container tabs-story tabs-story-show-tooltip" style={{ width: '100%', 'paddingLeft': '0' }}>
+        {React.cloneElement(props.children, {
+          switchTab: setActiveTab,
+          active: activeTab,
+          ...props.children.props
+        })}
+    </div>
+  );
+}

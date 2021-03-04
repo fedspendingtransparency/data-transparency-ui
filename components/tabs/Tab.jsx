@@ -3,10 +3,12 @@
   * Created by Kevin Li 11/29/16
   **/
 
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-
+import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
+import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
 import { createOnKeyDownHandler } from '../../helpers/keyboardEventsHelper';
+import { formatNumber } from '../../helpers/moneyFormatter';
 
 const propTypes = {
     label: PropTypes.string.isRequired,
@@ -15,60 +17,52 @@ const propTypes = {
     active: PropTypes.bool,
     enabled: PropTypes.bool,
     switchTab: PropTypes.func,
-    className: PropTypes.string
+    className: PropTypes.string,
+    tooltip: PropTypes.object,
+    count: PropTypes.number,
+    tablessStyle: PropTypes.bool
 };
 
-export default class Tab extends React.Component {
-    constructor(props) {
-        super(props);
+const Tab = (props) => {
+    const tab = useRef(null);
 
-        this.clickedTab = this.clickedTab.bind(this);
+    const clickedTab = () => {
+        if (!props.enabled) return;
+        if (tab?.current && tab.current?.scrollIntoView) tab.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        props.switchTab(props.internal);
     }
 
-    clickedTab() {
-        this.props.switchTab(this.props.internal);
-    }
+    const onKeyDownHandler = createOnKeyDownHandler(clickedTab);
 
-    render() {
-        let activeClass = '';
-        let disabledStatus = '';
-        let disabledClass = '';
-        if (this.props.active) {
-            activeClass = ' active';
-        }
-        if (this.props.enabled === false) {
-            disabledStatus = true;
-            disabledClass = ' disabled';
-        }
-        else {
-            disabledStatus = false;
-            disabledClass = '';
-        }
-
-        const className = `usa-dt-tab-toggle${activeClass} ${this.props.className}${disabledClass}`;
-        const onKeyDownHandler = createOnKeyDownHandler(this.clickedTab);
-        return (
-            <div className={`usa-dt-tab-toggle__wrapper${disabledClass}`}>
-                <div
-                    className={className}
-                    onClick={this.clickedTab}
-                    onKeyDown={onKeyDownHandler}
-                    role="menuitemradio"
-                    aria-checked={this.props.active}
-                    title={`Show ${this.props.label}`}
-                    aria-label={`Show ${this.props.label}`}
-                    tabIndex={0}
-                    disabled={disabledStatus}>
-                    <div className="usa-dt-tab-content">
-                        <div className="usa-dt-tab-label">
-                            {this.props.labelContent || this.props.label}
+    return (
+        <div className={`usa-dt-tab__wrapper${!props.enabled ? ' disabled' : ''}${props.tablessStyle ? ' tabless-tab' : ''}`}>
+            <div
+                className={`usa-dt-tab${props.active ? ' active' : ''} ${props.className || ''}${!props.enabled ? ' disabled' : ''}`}
+                ref={tab}
+                onClick={clickedTab}
+                onKeyDown={onKeyDownHandler}
+                role="tab"
+                title={`Show ${props.label}`}
+                aria-label={`Show ${props.label}`}
+                tabIndex={0}
+                disabled={!props.enabled}>
+                <div className="usa-dt-tab__content">
+                    <div className="usa-dt-tab__label">
+                        <div className="usa-dt-tab__label-text">{props.label}</div>
+                        {props.count && <div aria-label={`Count of ${formatNumber(props.count)} for ${props.label}`} className={`count${props.active ? ' active' : ''}`}>
+                            {formatNumber(props.count)}
                         </div>
+                        }
+                        {props.tooltip && <TooltipWrapper
+                            tooltipComponent={(<TooltipComponent title={props.label}>{props.tooltip}</TooltipComponent>)}
+                            icon="info" />
+                        }
                     </div>
                 </div>
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 Tab.propTypes = propTypes;
-
+export default Tab;
