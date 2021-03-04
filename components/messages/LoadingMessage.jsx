@@ -10,7 +10,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 const LoadingMessage = ({
     loadingText = "Gathering your data..."
 }) => (
-    <TransitionGroup>
+    <TransitionGroup className="usda-message usda-message_loading">
         <CSSTransition
             classNames="usda-loading-animation__container"
             timeout={{ exit: 225, enter: 195 }}
