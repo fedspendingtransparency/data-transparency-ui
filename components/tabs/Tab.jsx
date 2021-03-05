@@ -35,7 +35,7 @@ const Tab = (props) => {
     const onKeyDownHandler = createOnKeyDownHandler(clickedTab);
 
     return (
-        <div className={`usa-dt-tab__wrapper${!props.enabled ? ' disabled' : ''}${props.tablessStyle ? ' tabless-tab' : ''}`}>
+        <div className={`usa-dt-tab__wrapper${!props.enabled ? ' disabled' : ''}${props.tablessStyle ? ' tabless-tab' : ''}${props.active ? ' active' : ''}`}>
             <div
                 className={`usa-dt-tab${props.active ? ' active' : ''} ${props.className || ''}${!props.enabled ? ' disabled' : ''}`}
                 ref={tab}

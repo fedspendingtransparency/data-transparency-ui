@@ -49,7 +49,7 @@ const Tabs = ({
             role="tablist">
             {!tablessStyle && <div className="usa-dt-tab-list__border-pre-filler" />}
                 {tabs}
-            {!tablessStyle && <div className="usa-dt-tab-list__border-post-filler" />}
+            <div className="usa-dt-tab-list__border-post-filler" />
         </div>
     );
 };

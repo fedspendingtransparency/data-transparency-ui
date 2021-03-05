@@ -25,38 +25,35 @@ const switchTab = (tab) => {
   defaultProps.active = tab
 };
 
-describe('SearchBar', () => {
+describe('Tabs', () => {
     defaultProps.switchTab = 
     beforeEach(() => {
         defaultProps.active = 'name';
         defaultProps.switchTab = switchTab;
     });
-    describe('Dom Nodes', () => {
-        it('it should show default active tab', () => {
-          render(<Tabs {...defaultProps} />);
-          expect(screen.getByTitle('Show Names').classList.contains('active')).toBeTruthy();
-        });
-        it('it should switch tab', async () => {
-          const { rerender } = render(<Tabs {...defaultProps} />);
-          fireEvent.click(screen.getByTitle('Show Dates'));
-          rerender(<Tabs {...defaultProps} />);
-          expect(screen.getByTitle('Show Dates').classList.contains('active')).toBeTruthy();
-        });
-        it('it should show counts', () => {
-          render(<Tabs {...defaultProps} />);
-          expect(screen.getByText('23')).toBeTruthy();
-        });
-        it('it should show tooltip', () => {
-          render(<Tabs {...defaultProps} />);
-          expect(screen.getByRole('button').classList.contains('tooltip__hover-wrapper')).toBeTruthy();
-        });
-        it('it should not switch tab when tab is disabled', async () => {
-          defaultProps.types[1] = { internal: 'dates', label: 'Dates', disabled: true };
-          console.log(' Default Props : ', defaultProps);
-          const { rerender } = render(<Tabs {...defaultProps} />);
-          fireEvent.click(screen.getByTitle('Show Dates'));
-          rerender(<Tabs {...defaultProps} />);
-          expect(screen.getByTitle('Show Dates').classList.contains('active')).toBeFalsy();
-        });
+    it('it should show default active tab', () => {
+      render(<Tabs {...defaultProps} />);
+      expect(screen.getByTitle('Show Names').classList.contains('active')).toBeTruthy();
+    });
+    it('it should switch tab', async () => {
+      const { rerender } = render(<Tabs {...defaultProps} />);
+      fireEvent.click(screen.getByTitle('Show Dates'));
+      rerender(<Tabs {...defaultProps} />);
+      expect(screen.getByTitle('Show Dates').classList.contains('active')).toBeTruthy();
+    });
+    it('it should show counts', () => {
+      render(<Tabs {...defaultProps} />);
+      expect(screen.getByText('23')).toBeTruthy();
+    });
+    it('it should show tooltip', () => {
+      render(<Tabs {...defaultProps} />);
+      expect(screen.getByRole('button').classList.contains('tooltip__hover-wrapper')).toBeTruthy();
+    });
+    it('it should not switch tab when tab is disabled', async () => {
+      defaultProps.types[1] = { internal: 'dates', label: 'Dates', disabled: true };
+      const { rerender } = render(<Tabs {...defaultProps} />);
+      fireEvent.click(screen.getByTitle('Show Dates'));
+      rerender(<Tabs {...defaultProps} />);
+      expect(screen.getByTitle('Show Dates').classList.contains('active')).toBeFalsy();
     });
 });

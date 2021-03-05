@@ -1,28 +1,21 @@
 @import "../global/index";
+.usa-dt-tab-list::-webkit-scrollbar {
+  width: 0px;
+  height: 0;
+  background: transparent; /* Chrome/Safari/Webkit */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  display: none;
+  overflow: -moz-scrollbars-none;
+}
 
 .usa-dt-tab-list {
-  padding-left: rem(15);
+  scrollbar-width: none;
   width: 100%;
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
-
-  background-image:
-  /* Shadows */ 
-  linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)),
-  linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)),
-  /* Shadow covers */
-  linear-gradient(to right, rgba(0, 0, 0, .25), rgba(255, 255, 255, 0)),
-  linear-gradient(to left, rgba(0, 0, 0, .25), rgba(255, 255, 255, 0));
-
-  background-position: left center, right center, left center, right center;
-  background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 1);
-  background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
-
-  /* Opera doesn't support this in the shorthand */
-  background-attachment: local, local, scroll, scroll;
 
   .usa-dt-tab-list__border-pre-filler {
     width: rem(15);
@@ -33,7 +26,15 @@
     border-bottom: 2px solid $color-gray-lighter;
   }
   &.tabless-tabs {
-    padding: 3rem 0 2.2rem 3rem;
+    padding: 1.5rem 0 1rem 0;
+    .usa-dt-tab-list__border-pre-filler {
+      width: rem(15);
+      border-bottom: 1px solid $color-gray-lighter;
+    }
+    .usa-dt-tab-list__border-post-filler {
+      width: 100%;
+      border-bottom: 1px solid $color-gray-lighter;
+    }
   }
 
   .usa-dt-tab__wrapper {
@@ -41,6 +42,9 @@
       scroll-snap-align: center;
       &.disabled {
           cursor: not-allowed;
+      }
+      .usa-dt-tab:focus {
+        outline: none;
       }
 
       .usa-dt-tab {
@@ -52,7 +56,7 @@
           vertical-align: middle;
           margin-bottom: -0.2rem;          
           width: auto;
-          padding: rem(15) rem(20) rem(13) rem(20);
+          padding: rem(11) rem(20) rem(11) rem(20);
           margin-right: rem(5);
           border-top-left-radius: rem(8);
           border-top-right-radius: rem(8);
@@ -88,9 +92,8 @@
                   display: flex;
                   justify-content: center;
                   align-items: center;
-                  font-size: rem(18);
-                  line-height: rem(23);
-                  margin-right: rem(5);
+                  font-size: rem(14);
+                  line-height: rem(18);
                   white-space: nowrap;
  
                   .count {
@@ -110,6 +113,11 @@
                   }
               }
                 .tooltip-wrapper {
+                  .tooltip__hover-wrapper {
+                    .tooltip__icon {
+                      margin-right: 0;
+                    }
+                  }
                   .tooltip__text {
                       padding: 2rem 2rem 0 2rem;
                       strong {
@@ -135,7 +143,8 @@
         display: flex;
         border: none;
         scroll-snap-align: center;
-        padding: 0 1.2rem;
+        padding: 0 1.5rem;
+        border-bottom: 1px solid $color-gray-lighter;
         &.disabled {
             cursor: not-allowed;
             opacity: 0.75;
@@ -143,16 +152,23 @@
               border: none;
             }
         }
+        &.active {
+          font-weight: $font-semibold;
+          border: none;
+          border-bottom: 0.3rem solid $color-primary;
+        }
         .usa-dt-tab {
           display: flex;
           padding: 0 0 0.3rem;
-          margin: 0 0 0.8rem;
+          margin: 0 0 0.9rem;
           background-color: transparent;
           color: $color-base;
           font-size: 1.6rem;
           font-weight: $font-normal;
           letter-spacing: 0;
           line-height: 2rem;
+          border: none;
+          border-radius: 0;
           .usa-dt-tab__content {
             .usa-dt-tab__label {
               margin-right: 0;
@@ -166,12 +182,12 @@
               }
             }
           }
-          &.active {
-            font-weight: $font-semibold;
-            border: none;
-            border-bottom: 0.3rem solid $color-primary;
-          }
         }
       }
+      // ie only
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        &.tabless-tab {display: inline-block;}
+      }
   }
+
 }
