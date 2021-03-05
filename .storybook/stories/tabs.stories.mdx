@@ -1,8 +1,8 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
+import { withKnobs, boolean, object, text, number, array } from "@storybook/addon-knobs";
 import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
-import { TabsWrapper, TabsTooltip } from "../misc";
+import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from "../misc";
 
 import Tabs from '../../components/tabs/Tabs';
 
@@ -13,7 +13,7 @@ import Tabs from '../../components/tabs/Tabs';
     parameters={{
         a11y: {
             // ... axe options
-            element: '.table-types', // optional selector which element to inspect
+            element: '.usa-dt-tab-list', // optional selector which element to inspect
             config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
             options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
         }
@@ -22,38 +22,201 @@ import Tabs from '../../components/tabs/Tabs';
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
- - `types`: An array of tab objects
- - `active`: The name of the active tab
+ - `types`: An array of tab objects with their properties below
+      - `label`: (required) string, the title of the label to display
+      - `internal`: (required) string, the unique name of the tab 
+      - `count`: number, the count to display to the right of the label
+      - `disabled`: boolean, is the tab disabled
+      - `tooltip`: element, HTML to display in the tooltip
+ - `active`: The internal property of the active tab
  - `switchTab`: A function to execute on switching tabs
 
 In this example:
 
 ### Other props:
  - `tabsClassName`: A class name for the tabs
-
-```javascript
-
-```
+ - `tablessStyle`: A property to show tabs in a tabless style
 
 
+## Tabs with a Mix of Labels, Counts, and Tooltips
 <Preview>
     <Story name='Tabs'>
+      <TabsWrapperShowTooltip>
+        <Tabs
+        types={[
+          {
+            internal: 'name',
+            label: 'Names',
+            count: 22,
+            tooltip: (<div>hi</div>)
+          },
+          {
+            internal: 'dates',
+            label: 'Dates',
+            count: 33
+          },
+                    {
+            internal: 'cars',
+            label: 'Cars',
+            tooltip: (<div>:wave:</div>)
+          },
+          {
+            internal: 'coffeemugs',
+            label: 'Coffee Mugs'
+          },
+          {
+            internal: 'colorado',
+            label: 'Colorado'
+          },
+                    {
+            internal: 'whistler',
+            label: 'Whistler'
+          }
+        ]} />
+      </TabsWrapperShowTooltip>
+    </Story>
+</Preview>
+
+## Tabs with Scroll
+<Preview>
+    <Story name='Tabs with Scroll'>
       <TabsWrapper>
         <Tabs
         types={[
           {
             internal: 'name',
-            label: 'Names'
+            label: 'Names',
+            count: 22,
           },
           {
             internal: 'dates',
-            label: 'Dates'
+            label: 'Dates',
+            count: 33
+          },
+                    {
+            internal: 'cars',
+            label: 'Cars',
+          },
+          {
+            internal: 'coffeemugs',
+            label: 'Coffee Mugs'
+          },
+          {
+            internal: 'colorado',
+            label: 'Colorado'
+          },
+          {
+            internal: 'whistler',
+            label: 'Whistler'
+          },
+          {
+            internal: 'yellowstone',
+            label: 'Yellowstone',
+            count: 22,
+          },
+          {
+            internal: 'washingtondc',
+            label: 'Washington D.C.',
+            count: 33
+          },
+          {
+            internal: 'blue',
+            label: 'Blue',
+          },
+          {
+            internal: 'purple',
+            label: 'Purple'
+          },
+          {
+            internal: 'dinnerware',
+            label: 'Dinnerware'
+          },
+          {
+            internal: 'cookware',
+            label: 'Cookware'
+          }]} />
+      </TabsWrapper>
+    </Story>
+</Preview>
+
+## Tabs with a Tabless Style
+<Preview>
+    <Story name='Tabless Style'>
+      <TabsWrapper>
+        <Tabs
+        tablessStyle
+        types={[
+          {
+            internal: 'name',
+            label: 'Names',
+            count: 22
+          },
+          {
+            internal: 'dates',
+            label: 'Dates',
+            count: 33
+          },
+                    {
+            internal: 'cars',
+            label: 'Cars'
+          },
+          {
+            internal: 'coffeemugs',
+            label: 'Coffee Mugs'
+          },
+          {
+            internal: 'colorado',
+            label: 'Colorado'
+          },
+                    {
+            internal: 'whistler',
+            label: 'Whistler'
           }
         ]} />
       </TabsWrapper>
     </Story>
 </Preview>
 
+## Tabs with a Tabless Style Disabled
+<Preview>
+    <Story name='Tabless Style with Disabled'>
+      <TabsWrapper>
+        <Tabs
+        tablessStyle
+        types={[
+          {
+            internal: 'name',
+            label: 'Names',
+            count: 22
+          },
+          {
+            internal: 'dates',
+            label: 'Dates',
+            count: 33
+          },
+                    {
+            internal: 'cars',
+            label: 'Cars',
+            disabled: true
+          },
+          {
+            internal: 'coffeemugs',
+            label: 'Coffee Mugs'
+          },
+          {
+            internal: 'colorado',
+            label: 'Colorado'
+          },
+                    {
+            internal: 'whistler',
+            label: 'Whistler'
+          }
+        ]} />
+      </TabsWrapper>
+    </Story>
+</Preview>
+
+## Tabs with a Disabled Tab
 <Preview>
     <Story name='Tabs with Disabled'>
       <TabsWrapper>
@@ -80,3 +243,4 @@ Answers the question, where is this component used?
 
 ### USASpending
 - [x] Agency Submission Statistics
+- [x] COVID-19 Page

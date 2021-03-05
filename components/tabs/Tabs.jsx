@@ -5,7 +5,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Picker from '../Picker';
 import Tab from './Tab';
 
 require('../../styles/components/_tabs.scss');
@@ -14,18 +13,23 @@ const propTypes = {
     types: PropTypes.arrayOf(PropTypes.shape({
         label: PropTypes.string.isRequired,
         internal: PropTypes.string.isRequired,
-        labelContent: PropTypes.element
+        count: PropTypes.number,
+        disabled: PropTypes.bool,
+        tooltip: PropTypes.element,
+        count: PropTypes.number
     })).isRequired,
     active: PropTypes.string.isRequired,
     switchTab: PropTypes.func.isRequired,
-    tabsClassName: PropTypes.string
+    tabsClassName: PropTypes.string,
+    tablessStyle: PropTypes.bool
 };
 
 const Tabs = ({
     types,
     active,
     switchTab,
-    tabsClassName
+    tabsClassName,
+    tablessStyle
 }) => {
     const tabs = types.map((type) => (
         <Tab
@@ -34,27 +38,19 @@ const Tabs = ({
             switchTab={switchTab}
             key={`table-type-item-${type.internal}`}
             enabled={!type.disabled}
-            className={tabsClassName} />
+            className={tabsClassName}
+            tooltip={type.tooltip}
+            tablessStyle={tablessStyle} />
     ));
-
-    const pickerData = types.map((type) => ({
-        name: type.label,
-        value: type.internal,
-        onClick: switchTab
-    }));
-
+    console.log(' Active ', active);
     return (
-        <>
-            <div
-                className="usa-dt-tabs"
-                role="menu">
+        <div
+            className={`usa-dt-tab-list${tablessStyle ? ' tabless-tabs' : ''}`}
+            role="tablist">
+            {!tablessStyle && <div className="usa-dt-tab-list__border-pre-filler" />}
                 {tabs}
-            </div>
-            <Picker
-                className="usa-dt-tabs-mobile"
-                options={pickerData}
-                selectedOption={types.find((x) => active === x.internal).label} />
-        </>
+            <div className="usa-dt-tab-list__border-post-filler" />
+        </div>
     );
 };
 
