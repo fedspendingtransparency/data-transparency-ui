@@ -93,12 +93,16 @@ interface TabsProps {
   types: Array<[object]>
   active: string,
   switchTab: (value: string) => void
+  tabsClassName: string
+  tablessStyle: boolean
 }
 
 export interface TabsProps {
   types: Array<[object]>
   active: string,
   switchTab: (value: string) => void
+  tabsClassName: string,
+  tablessStyle: boolean
 }
 
 interface TooltipComponentTextAlign {
