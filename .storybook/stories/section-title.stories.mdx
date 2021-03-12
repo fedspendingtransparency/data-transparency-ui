@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs/blocks';
+
+import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { withActions, actions } from '@storybook/addon-actions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SectionTitle from '../../components/SectionTitle';
+import ComingSoon from '../../components/messages/ComingSoon';
+import { ExampleTooltip } from '../misc';
+
+<Meta
+    title="Section Title"
+    component={SectionTitle} />
+
+## Props
+<ArgsTable of={SectionTitle} />
+
+## Collapsible Section
+<Canvas>
+    <Story name='Collapsible Section'>
+        <SectionTitle
+            title="Award"
+            isCollapsible
+            overLine="Award Spending"
+            icon ={<FontAwesomeIcon icon="map-marker" size="3x" color="#555" />}
+            titleTooltip={{
+                component: <ExampleTooltip />,
+                props: {}
+            }}
+            descTooltip={{
+                component: <ExampleTooltip />,
+                props: {}
+            }}
+            description={<span className="usda-section-title__desc">This section covers <strong>Award Spending</strong></span>}>
+            <ComingSoon />
+        </SectionTitle>
+    </Story>
+</Canvas>
+
+## Always Expanded
+<Canvas>
+    <Story name='Always Expanded'>
+        <SectionTitle
+            title="Award"
+            overLine="Award Spending"
+            icon ={<FontAwesomeIcon icon="map-marker" size="3x" />}
+            titleTooltip={{
+                component: <ExampleTooltip />,
+                props: {}
+            }}
+            descTooltip={{
+                component: <ExampleTooltip />,
+                props: {}
+            }}
+            description={<span className="usda-section-title__desc">This section covers <strong>Award Spending</strong></span>}>
+            <ComingSoon />
+        </SectionTitle>
+    </Story>
+</Canvas>
+
+## Integration Status
+Answers the question, where is this component used?
+
+### USASpending
+- [x] Agency Profile v2
+- [x] COVID Profile
+- [ ] Award Summary
+

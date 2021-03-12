@@ -211,3 +211,9 @@ export const TabsWrapperShowTooltip = (props) => {
     </div>
   );
 }
+
+export const ExampleTooltip = () => (
+  <TooltipComponent title="Details">
+    <p>Here is some sample content.</p>
+  </TooltipComponent>
+);

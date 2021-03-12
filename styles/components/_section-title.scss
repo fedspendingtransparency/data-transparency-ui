@@ -1,0 +1,106 @@
+@import "../global/index";
+
+.usda-section__container {
+  margin-top: rem(15);
+  margin-bottom: rem(15);
+  flex-wrap: wrap;
+  .usda-section-title__container {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include for-phone-only {
+      flex-wrap: nowrap;
+    }
+    .usda-section-title__title-icon {
+      margin-left: rem(15);
+      align-self: flex-end;
+      @include for-phone-only {
+        margin-left: rem(5);
+        align-self: center;
+      }
+    }
+    .usda-section-title__header {
+      display: flex;
+      flex-direction: column;
+      margin-left: rem(9);
+      margin-right: auto;
+      align-self: flex-end;
+      flex-wrap: wrap;
+      strong.usda-section-title__overline {
+        font-size: rem(12);
+        flex-wrap: wrap;
+        font-weight: $font-semibold;
+        text-transform: uppercase;
+        color: #555;
+      }
+      .usda-section-title__title {
+        display: flex;
+        align-items: flex-end;
+        h3 {
+          margin: 0;
+          font-size: rem(20);
+          color: #555;
+          font-weight: $font-semibold;
+          line-height: rem(20);
+        }
+        .tooltip-wrapper {
+          display: block;
+          font-size: rem(20);
+          align-self: flex-start;
+          @include for-phone-only {
+            &:not(.has-overline) {
+              align-self: center;
+            }
+          }
+          .tooltip__hover-wrapper {
+            display: flex;
+          }
+        }
+      }
+    }
+    .tooltip-wrapper {
+      display: none;
+      @include for-tablet-portrait-up {
+        font-size: rem(20);
+        display: block;
+        align-self: flex-end;
+        @include for-phone-only {
+          align-self: center;
+        }
+        .tooltip__hover-wrapper {
+          display: flex;
+        }
+      }
+    }
+  
+    .usda-section-title__desc {
+      display: none;
+      @include for-tablet-portrait-up {
+        display: block;
+        align-self: flex-end;
+        font-size: rem(14);
+        color: #555;
+        strong {
+          font-weight: $font-semibold;
+        }
+      }
+    }
+  
+    .usda-section-title__expand-icon {
+      color: #0074be;
+      align-self: flex-end;
+      font-size: rem(20);
+      margin-right: rem(10);
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: rem(2);
+    background: #494440;
+    border: none;
+  }
+}

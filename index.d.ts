@@ -139,6 +139,26 @@ export interface GenericMessageProps {
     className: string
 }
 
+export interface SectionTitleProps {
+    children: JSX.Element,
+    defaultExpandedState: boolean,
+    overLine: string,
+    controlledProps: object,
+    description: JSX.Element,
+    titleTooltip: object,
+    descTooltip: object,
+    isCollapsible: boolean,
+    isComingSoon: boolean,
+    isLoading: boolean,
+    isError: boolean,
+    errorMsg: string,
+    classNames: string,
+    id: string
+    title: string,
+    icon: JSX.Element,
+    className: string
+}
+
 export interface ErrorMessageProps {
     description: string
 }
@@ -156,6 +176,7 @@ export function Table(props: TableProps): JSX.Element;
 export function GenericMessage(props: GenericMessageProps): JSX.Element;
 export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
+export function SectionTitle(props: SectionTitleProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
 /*~ If there are types, properties, or methods inside dotted names
  *~ of the module, declare them inside a 'namespace'.
