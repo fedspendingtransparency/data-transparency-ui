@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { withKnobs, array, object, text, select, boolean } from "@storybook/addon-knobs";
-import { withA11y } from '@storybook/addon-a11y';
 import { withActions, actions } from '@storybook/addon-actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Picker from '../../components/Picker';
@@ -9,15 +8,7 @@ import { PickerWrapper } from '../misc';
 <Meta
     title="Picker"
     component={Picker}
-    decorators={[withA11y, withActions('onClick'), withKnobs]}
-    parameters={{
-        a11y: {
-            // ... axe options
-            element: '.story__container', // optional selector which element to inspect
-            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-        }
-    }}
+    decorators={[withActions('onClick'), withKnobs]}
 />
 
 <Preview>

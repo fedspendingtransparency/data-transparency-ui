@@ -115,6 +115,12 @@ addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+  a11y: {
+    element: '#root',
+    config: {},
+    options: {},
+    manual: true,
+  },
 });
 
 addDecorator(
