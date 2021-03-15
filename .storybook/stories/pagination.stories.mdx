@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { boolean, object, } from "@storybook/addon-knobs";
-import { withActions, actions } from '@storybook/addon-actions';
 
 import Pagination from '../../components/pagination/Pagination';
 import { PaginationWrapper } from "../misc";
@@ -8,7 +7,6 @@ import { PaginationWrapper } from "../misc";
 <Meta
     title="Pagination"
     component={Pagination}
-    decorators={[withActions('onClick')]}
 />
 
 <!--

@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { boolean, object, } from "@storybook/addon-knobs";
-import { withActions, actions } from '@storybook/addon-actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoadingMessage from '../../components/messages/LoadingMessage';
 import ErrorMessage from '../../components/messages/ErrorMessage';
@@ -11,7 +10,6 @@ import GenericMessage from '../../components/messages/GenericMessage';
 <Meta
     title="Messages"
     component={GenericMessage}
-    decorators={[withActions('onClick')]}
 />
 
 ## Generic Message Props:

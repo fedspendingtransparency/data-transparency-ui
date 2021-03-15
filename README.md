@@ -46,9 +46,7 @@ Storybook supports `mdx` format for stories, we will migrate to that to achieve 
 
 Currently, we are using the following Storybook features to display our current implementation:
 
-- [Knobs](https://github.com/storybookjs/storybook/tree/master/addons/knobs)
 - [Mobile Responsiveness](https://github.com/storybookjs/storybook/tree/master/addons/viewport)
-- [Actions](https://github.com/storybookjs/storybook/tree/master/addons/actions)
 - [Docs](https://github.com/storybookjs/storybook/tree/master/addons/docs)
 
 ### Technical Directions for Adding New Components
