@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
 import { boolean, object, } from "@storybook/addon-knobs";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoadingMessage from '../../components/messages/LoadingMessage';
@@ -19,7 +19,7 @@ import GenericMessage from '../../components/messages/GenericMessage';
  - `icon`: An icon to display above the text.
 
 ## Generic Message
-<Preview>
+<Canvas>
     <Story name='Generic Message'>
         <GenericMessage
             className="your-class"
@@ -27,46 +27,46 @@ import GenericMessage from '../../components/messages/GenericMessage';
             description="Custom description here."
             icon={<FontAwesomeIcon icon="pencil-alt" />} />
     </Story>
-</Preview>
+</Canvas>
 
 <Props of={GenericMessage} />
 
 ## Loading Message
-<Preview>
+<Canvas>
     <Story name='Loading Message'>
         <LoadingMessage />
     </Story>
-</Preview>
+</Canvas>
 
 ## Default Error Message
-<Preview>
+<Canvas>
     <Story name='Error Message'>
         <ErrorMessage />
     </Story>
-</Preview>
+</Canvas>
 
 <Props of={ErrorMessage} />
 
 ## Custom Error Message
-<Preview>
+<Canvas>
     <Story name='Custom Error Message'>
         <ErrorMessage title="Your title" description="Custom error message here." />
     </Story>
-</Preview>
+</Canvas>
 
 ## No Results Message
-<Preview>
+<Canvas>
     <Story name='No Results Message'>
         <NoResultsMessage />
     </Story>
-</Preview>
+</Canvas>
 
 ## Coming Soon Placeholder
-<Preview>
+<Canvas>
     <Story name="Coming Soon Placeholder">
         <ComingSoon />
     </Story>
-</Preview>
+</Canvas>
 
 ## Integration Status
 Answers the question, where is this component used?
