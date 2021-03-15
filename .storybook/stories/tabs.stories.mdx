@@ -1,6 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { boolean, object, text, number, array } from "@storybook/addon-knobs";
-import { withActions, actions } from '@storybook/addon-actions';
 import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from "../misc";
 
 import Tabs from '../../components/tabs/Tabs';
@@ -8,7 +7,6 @@ import Tabs from '../../components/tabs/Tabs';
 <Meta
     title="Tabs"
     component={Tabs}
-    decorators={[withActions('onClick')]}
 />
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)

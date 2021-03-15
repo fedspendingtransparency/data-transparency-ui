@@ -1,5 +1,4 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withActions, actions } from '@storybook/addon-actions';
 
 import Table from '../../components/table/Table';
 import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
@@ -10,7 +9,6 @@ import { TableWrapper, BasicTableWrapper, CustomColumnExample } from "../misc";
 <Meta
     title="Table"
     component={Table}
-    decorators={[withActions('onClick')]}
 />
 
 <Preview>
