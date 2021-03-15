@@ -1,5 +1,5 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, array, object, text, select, boolean } from "@storybook/addon-knobs";
+import { array, object, text, select, boolean } from "@storybook/addon-knobs";
 import { withActions, actions } from '@storybook/addon-actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Picker from '../../components/Picker';
@@ -8,7 +8,7 @@ import { PickerWrapper } from '../misc';
 <Meta
     title="Picker"
     component={Picker}
-    decorators={[withActions('onClick'), withKnobs]}
+    decorators={[withActions('onClick')]}
 />
 
 <Preview>
