@@ -1,5 +1,4 @@
 import React from 'react';
-import { configure } from '@storybook/react';
 import { withConsole } from '@storybook/addon-console';
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
@@ -122,5 +121,3 @@ addDecorator(
   (storyFn) => <div style={{ width: "100%" }}>{storyFn()}</div>,
   (storyFn, context) => withConsole()(storyFn)(context)
 );
-
-configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);
