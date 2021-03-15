@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
 import { boolean, object, } from "@storybook/addon-knobs";
 
 import Pagination from '../../components/pagination/Pagination';
@@ -8,12 +8,6 @@ import { PaginationWrapper } from "../misc";
     title="Pagination"
     component={Pagination}
 />
-
-<!--
- * If this PR Gets merged (https://github.com/storybookjs/storybook/pull/3909)...
- * We can use knobs for controlled components.
- * As of right now, if we use knobs to update a prop the component will only update via knobs
- -->
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
@@ -36,7 +30,10 @@ console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
 changeLimit(pageSize);
 }
 ```
-<Preview>
+
+export const Template = (args) => <Pagination {...args} />;
+
+<Canvas>
     <Story name='Limit selector and "Go to page"'>
         <PaginationWrapper>
             <Pagination
@@ -48,9 +45,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name='"Go to Page"'>
         <PaginationWrapper>
             <Pagination
@@ -60,9 +57,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Limit Selector">
         <PaginationWrapper>
             <Pagination
@@ -72,9 +69,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Custom Results Text">
         <PaginationWrapper>
             <Pagination
@@ -87,9 +84,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Default Results Text">
         <PaginationWrapper>
             <Pagination
@@ -98,9 +95,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Default">
         <PaginationWrapper>
             {/* /* handler Funcs Passed from PaginationWrapper */}
@@ -109,7 +106,7 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 
 <Props of={Pagination} />

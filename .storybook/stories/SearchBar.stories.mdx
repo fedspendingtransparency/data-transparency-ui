@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
 import { boolean, number, text } from "@storybook/addon-knobs";
 
 import SearchBar from '../../components/SearchBar';
@@ -19,7 +19,7 @@ This means the component relies on its parent to pass the following props:
  - `throttleOnChange`:  A number in milliseconds that only invokes onChange at most once per every milliseconds.
  - `inputTitle`: A string that will serve as the input title.
 
-<Preview>
+<Canvas>
     <Story name='SearchBar'>
         <SearchBar
             setQuery={(searchTerm) => console.log(searchTerm)}
@@ -28,7 +28,7 @@ This means the component relies on its parent to pass the following props:
             throttleOnChange={number('throttleOnChange', 500)}
             inputTitle={text('inputTitle', 'Search Input')} />
     </Story>
-</Preview>
+</Canvas>
 
 <Props of={SearchBar} />
 

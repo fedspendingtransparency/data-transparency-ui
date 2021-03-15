@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
 import { boolean, object, text, number, array } from "@storybook/addon-knobs";
 import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from "../misc";
 
@@ -28,7 +28,7 @@ In this example:
 
 
 ## Tabs with a Mix of Labels, Counts, and Tooltips
-<Preview>
+<Canvas>
     <Story name='Tabs'>
       <TabsWrapperShowTooltip>
         <Tabs
@@ -64,10 +64,10 @@ In this example:
         ]} />
       </TabsWrapperShowTooltip>
     </Story>
-</Preview>
+</Canvas>
 
 ## Tabs with Scroll
-<Preview>
+<Canvas>
     <Story name='Tabs with Scroll'>
       <TabsWrapper>
         <Tabs
@@ -126,10 +126,10 @@ In this example:
           }]} />
       </TabsWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 ## Tabs with a Tabless Style
-<Preview>
+<Canvas>
     <Story name='Tabless Style'>
       <TabsWrapper>
         <Tabs
@@ -164,10 +164,10 @@ In this example:
         ]} />
       </TabsWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 ## Tabs with a Tabless Style Disabled
-<Preview>
+<Canvas>
     <Story name='Tabless Style with Disabled'>
       <TabsWrapper>
         <Tabs
@@ -203,10 +203,10 @@ In this example:
         ]} />
       </TabsWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 ## Tabs with a Disabled Tab
-<Preview>
+<Canvas>
     <Story name='Tabs with Disabled'>
       <TabsWrapper>
         <Tabs
@@ -223,7 +223,7 @@ In this example:
         ]} />
       </TabsWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 <Props of={Tabs} />
 

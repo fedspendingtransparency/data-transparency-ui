@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
 import { array, object, text, select, boolean } from "@storybook/addon-knobs";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Picker from '../../components/Picker';
@@ -9,7 +9,7 @@ import { PickerWrapper } from '../misc';
     component={Picker}
 />
 
-<Preview>
+<Canvas>
     <Story name='Default'>
         <PickerWrapper>
             <Picker
@@ -18,9 +18,9 @@ import { PickerWrapper } from '../misc';
                 dropdownDirection={select('dropdownDirection', ['right', 'left'], 'right', '')} />
         </PickerWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name='w/ Children'>
         <PickerWrapper>
             <Picker
@@ -30,7 +30,7 @@ import { PickerWrapper } from '../misc';
             </Picker>
         </PickerWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 <Props of={Picker} />
 

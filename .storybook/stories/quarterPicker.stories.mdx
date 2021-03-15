@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
 
 import QuarterPicker from '../../components/quarterPicker/QuarterPicker';
 import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative } from "../misc";
@@ -8,7 +8,7 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative
     component={QuarterPicker}
 />
 
-<Preview>
+<Canvas>
     <Story name="Default">
         <QuarterPickerWrapper>
             <QuarterPicker disabledQuarters={[]} />
@@ -26,7 +26,7 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative
             </QuarterPickerWithPeriods>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
 <Props of={QuarterPicker} />
 

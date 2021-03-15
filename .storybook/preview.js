@@ -92,11 +92,6 @@ import '../styles/storybook.scss';
 
 addParameters({
   docs: {
-    /**
-     * 01/07/20 should be storybook 5.3 release where we can start adding
-     * to the documentation in .mdx
-     * source: https://github.com/storybookjs/storybook/issues/8658
-     */
     container: DocsContainer,
     page: DocsPage,
   },
