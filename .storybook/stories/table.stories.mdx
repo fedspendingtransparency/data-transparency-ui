@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 import Table from '../../components/table/Table';
 import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
@@ -23,7 +23,7 @@ import { TableWrapper, BasicTableWrapper, CustomColumnExample } from "../misc";
     </Story>
 </Canvas>
 
-<Props of={Table} />
+<ArgsTable of={Table} />
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:

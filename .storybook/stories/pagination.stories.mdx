@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { boolean, object, } from "@storybook/addon-knobs";
 
 import Pagination from '../../components/pagination/Pagination';
@@ -109,7 +109,7 @@ export const Template = (args) => <Pagination {...args} />;
 </Canvas>
 
 
-<Props of={Pagination} />
+<ArgsTable of={Pagination} />
 
 ## Integration Status
 Answers the question, where is this component used?
