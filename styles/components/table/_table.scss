@@ -12,7 +12,7 @@ table.usda-table {
     }
     tbody.usda-table__body {
         font-size: rem(14);
-        border-bottom: solid rem(1) $color-gray-lighter;
+        border: solid rem(1) $color-gray-lighter;
         tr.usda-table__row {
             td.usda-table__cell {
                 border: solid rem(1) $color-gray-lighter;
