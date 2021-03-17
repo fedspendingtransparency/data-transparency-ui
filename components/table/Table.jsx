@@ -30,6 +30,10 @@ const propTypes = {
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
 };
 
+const defaultProps = {
+    classNames: ''
+};
+
 const Table = (props) => {
     let body;
     if (props.loading) {
@@ -103,4 +107,5 @@ const Table = (props) => {
 
 
 Table.propTypes = propTypes;
+Table.defaultProps = defaultProps;
 export default Table;
