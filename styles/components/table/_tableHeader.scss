@@ -1,25 +1,26 @@
 th.table-header {
-    border: 0;
-    background-color: $color-white;
-    padding: rem(15);
+    background-color: $color-gray-lightest;
+    border: rem(1) solid $color-gray-lighter;
+    padding: 0;
     &.nested-header {
         .table-header__content {
-            padding: rem(0);
+            padding: 0;
             flex-wrap: wrap;
         }
         .table-header__label {
-            text-indent: 1rem;
+            text-indent: rem(10);
             text-align: left;
         }
     }
     .table-header__content {
         display: flex;
         flex-wrap: wrap;
+        padding: rem(15);
         .table-header__label {
             flex: (0 0 auto);
-            font-size: rem(20);
+            font-size: rem(14);
             font-weight: $font-semibold;
-            line-height: rem(25);
+            line-height: rem(18);
             width: auto;
             display: flex;
             position: relative;
@@ -31,17 +32,25 @@ th.table-header {
             text-align: right;
         }
         .table-header__sort {
-            display: block;
             margin-left: rem(8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             button.table-header__icon {
                 @include button-unstyled;
                 color: $color-gray-light;
                 display: block;
-                height: rem(13);
+                height: rem(9);
+                padding-right: rem(20);
+                &:focus {
+                    outline: none;
+                }
                 svg {
                     vertical-align: 0;
-                    margin-top: -9px;
+                    margin-top: rem(-9);
                     pointer-events: none;
+                    width: rem(13);
+                    color: $color-gray-lighter;
                 }
                 &.table-header__icon_active svg {
                     color: $color-gold;

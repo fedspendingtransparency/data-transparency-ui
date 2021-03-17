@@ -62,7 +62,7 @@ const updateSort = (field, direction) => {
  - `expandable`: a boolean indicating whether this table will have nested rows that can be expanded and collapsed
  - `columns`: an array of objects each with a `title` and a `displayName`
  - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
- - `classNames`: way to customize table styles. `usda-table-w-grid` puts nice borders around the table cells.
+ - `classNames`: way to customize table styles.
  - `loading`: a boolean indicating that the table data is loading
  - `error` : a boolean indicating that there was an error fetching the table data
  - `message`: a custom error, loading, or no results message
@@ -174,20 +174,6 @@ const updateSort = (field, direction) => {
     </Story>
 </Preview>
 
-## Table w/ Grid Styles
-<Preview>
-    <Story name='Table w/ Grid Styles'>
-        <TableWrapper>
-            <Table
-                classNames="usda-table-w-grid"
-                rows={[
-                    [<a href="/">Link</a>, 'mock data', '25%'],
-                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
-                ]} />
-        </TableWrapper>
-    </Story>
-</Preview>
-
 ## Table w/ Sub Columns & Tooltips
 <Preview>
         <Story name='Table w/ Sub Columns & Tooltips'>
@@ -208,7 +194,6 @@ const updateSort = (field, direction) => {
             }
         ]}>
             <Table
-                classNames="usda-table-w-grid"
                 rows={[
                     [<a href="/">Department of the Treasury (TREAS)</a>, 'mock data', '25%', '26%', '$1.2 million', '$1.3 million', '$1.4 million', '$1.5 million'],
                     [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'mock data IIIIIIIII', '$5.2 million', '$2.3 million', '$11.4 million', '$23.5 million']
