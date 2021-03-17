@@ -83,7 +83,7 @@ table.usda-table {
                 }
             }
             &.usda-table__child-row_last {
-                // add space below the border on the last row's first cell
+                // on the last row's first cell, add space below the line
                 td.usda-table__cell {
                     &.usda-table__cell_child {
                         &:first-of-type {
