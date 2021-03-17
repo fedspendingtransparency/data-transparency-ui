@@ -36,12 +36,8 @@ table.usda-table {
                 }
                 td.usda-table__cell {
                     border-bottom: 0;
-                    &:first-of-type {
+                    .usda-table__expandable-cell-content {
                         display: flex;
-                        p {
-                            display: flex;
-                            margin: 0;
-                        }
                     }
                 }
                 td.usda-table__cell_name {
