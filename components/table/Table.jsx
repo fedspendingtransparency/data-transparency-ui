@@ -39,7 +39,7 @@ const Table = (props) => {
     if (props.loading) {
         body = (
             <tr>
-                <td colSpan={props.columns.length}>
+                <td className="usda-table__message-cell" colSpan={props.columns.length}>
                     <LoadingMessage />
                 </td>
             </tr>
@@ -48,7 +48,7 @@ const Table = (props) => {
     else if (props.error) {
         body = (
             <tr>
-                <td colSpan={props.columns.length}>
+                <td className="usda-table__message-cell" colSpan={props.columns.length}>
                     <ErrorMessage description={props.message} />
                 </td>
             </tr>
@@ -57,7 +57,7 @@ const Table = (props) => {
     else if (!props.rows || props.rows.length === 0) {
         body = (
             <tr>
-                <td colSpan={props.columns.length}>
+                <td className="usda-table__message-cell" colSpan={props.columns.length}>
                     <NoResultsMessage description={props.message} />
                 </td>
             </tr>

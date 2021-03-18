@@ -58,4 +58,8 @@ th.table-header {
             }
         }
     }
+    &.table-header_body-header {
+        background-color: transparent;
+        border: 0;
+    }
 }

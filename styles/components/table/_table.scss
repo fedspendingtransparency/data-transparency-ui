@@ -12,7 +12,6 @@ table.usda-table {
     }
     tbody.usda-table__body {
         font-size: rem(14);
-        border: solid rem(1) $color-gray-lighter;
         tr.usda-table__row {
             td.usda-table__cell {
                 border: solid rem(1) $color-gray-lighter;
@@ -45,6 +44,14 @@ table.usda-table {
                     padding-left: rem(30);
                 }
             }
+            .table-header_body-header {
+                // First column headers
+                padding: rem(15);
+            }
+        }
+
+        .usda-table__message-cell {
+            border: solid rem(1) $color-gray-lighter;
         }
         
         tr.usda-table__child-row {
