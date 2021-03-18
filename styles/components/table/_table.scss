@@ -31,7 +31,6 @@ table.usda-table {
                     @include button-unstyled;
                     color: $color-primary;
                     margin-right: rem(8);
-                    font-size: rem(10);
                 }
                 td.usda-table__cell {
                     border-bottom: 0;
@@ -42,6 +41,9 @@ table.usda-table {
                 td.usda-table__cell_name {
                     // add extra padding when no arrow is present because there are no children
                     padding-left: rem(30);
+                }
+                &:last-of-type {
+                    border-bottom: solid rem(1) $color-gray-lighter;
                 }
             }
             .table-header_body-header {
@@ -64,12 +66,14 @@ table.usda-table {
                     padding: 0;
                     border-left: solid rem(1) $color-gray-lighter;
                     border-right: solid rem(1) $color-gray-lighter;
+                    border-top: 0;
+                    border-bottom: 0;
                     .usda-table__child-cell-content {
                         padding: rem(10) rem(15);
                     }
                     &:first-of-type {
                         // add extra padding to the first cell of every child row
-                        padding-left: rem(22);
+                        padding-left: rem(20);
                         .usda-table__child-cell-content {
                             padding-left: rem(30);
                             border-left: solid rem(1) $color-gray-light;
@@ -86,6 +90,7 @@ table.usda-table {
                 }
             }
             &.usda-table__child-row_last {
+                border-bottom: solid rem(1) $color-gray-lighter;
                 // on the last row's first cell, add space below the line
                 td.usda-table__cell {
                     &.usda-table__cell_child {

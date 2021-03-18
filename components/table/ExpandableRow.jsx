@@ -62,7 +62,7 @@ const ExpandableRow = ({
                                         className="usda-table__expand-button"
                                         aria-label="Expand Table Row Button"
                                         onClick={toggleExpand}>
-                                        <FontAwesomeIcon icon={icon} size="2x" />
+                                        <FontAwesomeIcon icon={icon} />
                                     </button>
                                     {data.name}
                                 </div>
