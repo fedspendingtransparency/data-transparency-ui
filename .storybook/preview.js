@@ -1,5 +1,4 @@
 import React from 'react';
-import { configure } from '@storybook/react';
 import { withConsole } from '@storybook/addon-console';
 import { addParameters, addDecorator } from '@storybook/react';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
@@ -93,11 +92,6 @@ import '../styles/storybook.scss';
 
 addParameters({
   docs: {
-    /**
-     * 01/07/20 should be storybook 5.3 release where we can start adding
-     * to the documentation in .mdx
-     * source: https://github.com/storybookjs/storybook/issues/8658
-     */
     container: DocsContainer,
     page: DocsPage,
   },
@@ -116,11 +110,15 @@ addParameters({
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+  a11y: {
+    element: '#root',
+    config: {},
+    options: {},
+    manual: true,
+  },
 });
 
 addDecorator(
   (storyFn) => <div style={{ width: "100%" }}>{storyFn()}</div>,
   (storyFn, context) => withConsole()(storyFn)(context)
 );
-
-configure(require.context('./stories', true, /\.stories\.js$|mdx$/), module);
