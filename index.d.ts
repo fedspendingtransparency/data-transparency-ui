@@ -149,9 +149,6 @@ export interface SectionTitleProps {
     descTooltip: object,
     isCollapsible: boolean,
     isComingSoon: boolean,
-    isLoading: boolean,
-    isError: boolean,
-    errorMsg: string,
     classNames: string,
     id: string
     title: string,

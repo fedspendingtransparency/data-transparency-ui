@@ -32,7 +32,7 @@
         flex-wrap: wrap;
         font-weight: $font-semibold;
         text-transform: uppercase;
-        color: #555;
+        color: $color-base;
       }
       .usda-section-title__title {
         display: flex;
@@ -40,7 +40,7 @@
         h3 {
           margin: 0;
           font-size: rem(20);
-          color: #555;
+          color: $color-base;
           font-weight: $font-semibold;
           line-height: rem(20);
         }
@@ -80,7 +80,7 @@
         display: block;
         align-self: flex-end;
         font-size: rem(14);
-        color: #555;
+        color: $color-base;
         strong {
           font-weight: $font-semibold;
         }
@@ -88,7 +88,7 @@
     }
   
     .usda-section-title__expand-icon {
-      color: #0074be;
+      color: $color-primary;
       align-self: flex-end;
       font-size: rem(20);
       margin-right: rem(10);

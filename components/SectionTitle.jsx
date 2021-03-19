@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TooltipWrapper from './infoTooltip/TooltipWrapper';
-import LoadingMessage from './messages/LoadingMessage';
-import ErrorMessage from './messages/ErrorMessage';
 import ComingSoon from './messages/ComingSoon';
 import { createOnKeyDownHandler } from '../helpers/keyboardEventsHelper';
 
@@ -24,9 +22,6 @@ const SectionTitle = ({
     classNames = '',
     isCollapsible = false,
     isComingSoon = false,
-    isLoading = false,
-    isError = false,
-    errorMsg = 'Something went wrong while gathering your data',
     controlledProps = defaultControlledProps,
     defaultExpandedState = true,
     overLine = "",
@@ -87,10 +82,8 @@ const SectionTitle = ({
                 )}
             </div>
             <hr />
-            {isLoading && showChildren && <LoadingMessage />}
-            {isError && showChildren && <ErrorMessage description={errorMsg} />}
             {isComingSoon && showChildren && <ComingSoon />}
-            {showChildren && !isComingSoon && !isLoading && !isError && children}
+            {showChildren && !isComingSoon && children}
         </section>
     );
 };
@@ -117,9 +110,6 @@ SectionTitle.propTypes = {
     }),
     isCollapsible: PropTypes.bool,
     isComingSoon: PropTypes.bool,
-    isLoading: PropTypes.bool,
-    isError: PropTypes.bool,
-    errorMsg: PropTypes.string,
     classNames: PropTypes.string,
     id: PropTypes.string
 };
