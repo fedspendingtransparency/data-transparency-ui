@@ -19,6 +19,7 @@ th.table-header {
         display: flex;
         flex-wrap: wrap;
         padding: rem(15);
+        text-align: left;
         .table-header__label {
             flex: (0 0 auto);
             font-size: rem(14);
@@ -44,7 +45,6 @@ th.table-header {
                 color: $color-gray-light;
                 display: block;
                 height: rem(9);
-                padding-right: rem(20);
                 &:focus {
                     outline: none;
                 }
