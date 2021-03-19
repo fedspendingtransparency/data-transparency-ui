@@ -92,7 +92,6 @@ table.usda-table {
                 }
             }
             &.usda-table__child-row_last {
-                border-bottom: solid rem(1) $color-gray-lighter;
                 // on the last row's first cell, add space below the line
                 td.usda-table__cell {
                     &.usda-table__cell_child {
