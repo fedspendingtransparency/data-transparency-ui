@@ -27,13 +27,25 @@ const ExpandableRow = ({
     const toggleExpand = () => {
         setExpanded(!expanded);
     };
+
+    // Fill out the divider row with empty cells so the borders display correctly
+    const generateDividerCells = () => columns.map((col, i) => (i === 0 ? (
+        <td key={uniqueId()} className="usda-table__cell usda-table__cell_child">
+            <div className="usda-table__child-cell-content">
+                {divider}
+            </div>
+        </td>
+    ) : (
+        <td key={uniqueId()} className="usda-table__cell usda-table__cell_child">
+            <div className="usda-table__child-cell-content">
+                &nbsp;
+            </div>
+        </td>
+    )));
+
     const dividerRow = (
         <tr className={`usda-table__child-row usda-table__child-row_divider${oddClass}`}>
-            <td colSpan={columns.length} className="usda-table__cell usda-table__cell_child">
-                <div className="usda-table__child-cell-content">
-                    {divider}
-                </div>
-            </td>
+            {generateDividerCells()}
         </tr>
     );
     return (
@@ -45,15 +57,15 @@ const ExpandableRow = ({
                             <td
                                 key={uniqueId()}
                                 className="usda-table__cell">
-                                <button
-                                    className="usda-table__expand-button"
-                                    aria-label="Expand Table Row Button"
-                                    onClick={toggleExpand}>
-                                    <FontAwesomeIcon icon={icon} size="2x" />
-                                </button>
-                                <p>
+                                <div className="usda-table__expandable-cell-content">
+                                    <button
+                                        className="usda-table__expand-button"
+                                        aria-label="Expand Table Row Button"
+                                        onClick={toggleExpand}>
+                                        <FontAwesomeIcon icon={icon} />
+                                    </button>
                                     {data.name}
-                                </p>
+                                </div>
                             </td>
                         );
                     }

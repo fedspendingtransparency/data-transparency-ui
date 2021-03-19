@@ -44,6 +44,7 @@ const TableData = ({
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
                             <TableHeader
+                                className="table-header_body-header"
                                 key={uniqueId()}
                                 {...data} />
                             :
