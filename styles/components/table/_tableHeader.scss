@@ -1,3 +1,6 @@
+tr.usda-table__row {
+    vertical-align: baseline;
+}
 th.table-header {
     background-color: $color-gray-lightest;
     border: rem(1) solid $color-gray-lighter;
@@ -25,7 +28,7 @@ th.table-header {
             display: flex;
             position: relative;
             max-width: 100%;
-            align-items: center;
+            align-items: flex-start;
         }
         &.table-header__content_right {
             justify-content: flex-end;

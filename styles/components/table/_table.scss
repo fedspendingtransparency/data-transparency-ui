@@ -14,7 +14,10 @@ table.usda-table {
         font-size: rem(14);
         tr.usda-table__row {
             td.usda-table__cell {
-                border: solid rem(1) $color-gray-lighter;
+                border-left: solid rem(1) $color-gray-lighter;
+                border-right: solid rem(1) $color-gray-lighter;
+                border-top: 0;
+                border-bottom: 0;
                 padding: rem(15);
                 text-align: left;
                 &.usda-table__cell_right {
@@ -33,7 +36,6 @@ table.usda-table {
                     margin-right: rem(8);
                 }
                 td.usda-table__cell {
-                    border-bottom: 0;
                     .usda-table__expandable-cell-content {
                         display: flex;
                     }
@@ -42,13 +44,13 @@ table.usda-table {
                     // add extra padding when no arrow is present because there are no children
                     padding-left: rem(30);
                 }
-                &:last-of-type {
-                    border-bottom: solid rem(1) $color-gray-lighter;
-                }
             }
             .table-header_body-header {
                 // First column headers
                 padding: rem(15);
+            }
+            &:last-of-type {
+                border-bottom: solid rem(1) $color-gray-lighter;
             }
         }
 
