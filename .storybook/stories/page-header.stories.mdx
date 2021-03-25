@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import PageHeader from '../../components/PageHeader';
+import ComingSoon from '../../components/messages/ComingSoon';
+
+<Meta
+    title="Page Header"
+    parameters={{ options: { showAddonPanel: false } }}/>
+
+## Props
+<ArgsTable of={PageHeader} />
+
+<Canvas>
+    <Story name='Page Header'>
+        <PageHeader
+            title="Department of Homeland Security"
+            overLine="Agency Profile">
+            <ComingSoon />
+        </PageHeader>
+    </Story>
+</Canvas>
