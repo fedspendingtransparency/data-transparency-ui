@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner, faFileDownload } from '@fortawesome/free-solid-svg-icons';
 
 const propTypes = {
     onClick: PropTypes.func,
@@ -13,7 +14,7 @@ const propTypes = {
     hoverComponent: PropTypes.element
 };
 
-const DownloadIconButton = ({ onClick, downloadInFlight, hoverComponent }) => {
+const DownloadIconButton = ({ onClick, downloadInFlight, hoverComponent = null }) => {
     const [showHover, setShowHover] = useState(false);
     const startDownload = (e) => {
         e.preventDefault();
@@ -32,18 +33,18 @@ const DownloadIconButton = ({ onClick, downloadInFlight, hoverComponent }) => {
 
     const disabledClass = downloadInFlight ? ' sticky-header__button_disabled' : '';
     const buttonText = downloadInFlight ? 'Preparing Download...' : 'Download';
-    const icon = downloadInFlight ? 'spinner' : 'download';
+    const icon = downloadInFlight ? faSpinner : faFileDownload;
 
     return (
         <div
-            className="download-wrap"
+            className="usda-download-btn"
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             onFocus={onMouseEnter}
             onBlur={onMouseLeave}>
             {hover}
             <button
-                className={`sticky-header__button${disabledClass}`}
+                className={`usda-button${disabledClass}`}
                 title={buttonText}
                 aria-label={buttonText}
                 disabled={downloadInFlight}
