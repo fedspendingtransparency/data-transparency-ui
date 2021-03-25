@@ -1,14 +1,20 @@
 @import "../global/index";
 
-.usda-section__container {
+.usda-section__container,
+.usda-page__container {
   margin-top: rem(15);
   margin-bottom: rem(15);
   flex-wrap: wrap;
-  .usda-section-title__container {
+  .usda-section-title__container,
+  .usda-page-title__container {
     flex-wrap: wrap;
     display: flex;
     align-items: center;
     width: 100%;
+    &.usda-page-title__container {
+      background: #494440;
+      padding: rem(15) rem(20);
+    }
     @include for-phone-only {
       flex-wrap: nowrap;
     }
@@ -20,29 +26,38 @@
         align-self: center;
       }
     }
-    .usda-section-title__header {
+    .usda-section-title__header,
+    .usda-page-title__header {
       display: flex;
       flex-direction: column;
       margin-left: rem(9);
       margin-right: auto;
       align-self: flex-end;
       flex-wrap: wrap;
-      strong.usda-section-title__overline {
+      strong.usda-section-title__overline,
+      .usda-page-title__overline {
         font-size: rem(12);
         flex-wrap: wrap;
         font-weight: $font-semibold;
         text-transform: uppercase;
         color: $color-base;
+        &.usda-page-title__overline {
+          color: #fff;
+        }
       }
-      .usda-section-title__title {
+      .usda-section-title__title,
+      .usda-page-title__title {
         display: flex;
         align-items: flex-end;
-        h3 {
+        h3, h1 {
           margin: 0;
           font-size: rem(20);
           color: $color-base;
           font-weight: $font-semibold;
           line-height: rem(20);
+        }
+        &.usda-page-title__title h1 {
+          color: #fff;
         }
         .tooltip-wrapper {
           display: block;
