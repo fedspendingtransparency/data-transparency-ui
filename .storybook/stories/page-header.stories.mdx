@@ -10,9 +10,39 @@ import ComingSoon from '../../components/messages/ComingSoon';
 <ArgsTable of={PageHeader} />
 
 <Canvas>
-    <Story name='Page Header'>
+    <Story name='w/ All Toolbar Options'>
         <PageHeader
             title="Department of Homeland Security"
+            fyProps={{
+                selectedFy: 2020,
+                latestFy: 2021,
+                handleFyChange: () => {}
+            }}
+            downloadProps={{
+                onClick: () => {},
+                downloadInFlight: false
+            }}
+            shareProps={{
+                url: 'this-is-a-test-url.com',
+                email: {
+                    subject: 'Example',
+                    body: ''
+                }
+            }}
+            overLine="Agency Profile">
+            <ComingSoon />
+        </PageHeader>
+    </Story>
+    <Story name='w/ Only Share'>
+        <PageHeader
+            title="Department of Homeland Security"
+            shareProps={{
+                url: 'this-is-a-test-url.com',
+                email: {
+                    subject: 'Example',
+                    body: ''
+                }
+            }}
             overLine="Agency Profile">
             <ComingSoon />
         </PageHeader>

@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Picker } from "data-transparency-ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { debounce } from "lodash";
-import {
-    socialShareOptions,
-    getSocialShareFn,
-    getBaseUrl
-} from 'helpers/socialShare';
-import Analytics from 'helpers/analytics/Analytics';
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+
+import Picker from "./Picker";
+import { socialShareOptions } from '../helpers/socialShare';
 
 const propTypes = {
     slug: PropTypes.string,
+    url: PropTypes.string.isRequired,
+    classNames: PropTypes.string,
     email: PropTypes.shape({
         subject: PropTypes.string,
         body: PropTypes.string
-    })
+    }),
+    onShareOptionClick: PropTypes.func.isRequired,
+    includedDropdownOptions: PropTypes.arrayOf(PropTypes.string)
 };
 
 const ShareIcon = ({
-    slug,
-    email: { subject, body }
+    includedDropdownOptions = [],
+    classNames = '',
+    url = '',
+    onShareOptionClick = () => {}
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
@@ -32,45 +35,40 @@ const ShareIcon = ({
         return hideConfirmationText.cancel;
     }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
 
-    const getCopyFn = () => {
+    const copyLink = () => {
         document.getElementById('slug').select();
         document.execCommand("copy");
         setConfirmationText(true);
-        Analytics.event({ category: slug, action: 'copy link', label: `${getBaseUrl(slug)}` });
+        onShareOptionClick('copy');
     };
 
-    const socialSharePickerOptions = socialShareOptions.map((option) => {
-        if (option.name === 'copy') {
+    const socialSharePickerOptions = socialShareOptions
+        .filter(({ name }) => {
+            if (!includedDropdownOptions.length) return true;
+            return includedDropdownOptions.includes(name);
+        })
+        .map((option) => {
+            if (option.name === 'copy') {
+                return {
+                    ...option,
+                    onClick: copyLink
+                };
+            }
             return {
                 ...option,
-                onClick: getCopyFn
+                onClick: () => onShareOptionClick(option.name)
             };
-        }
-        if (option.name === 'email') {
-            const onClick = getSocialShareFn(option.name).bind(null, {
-                subject,
-                body
-            });
-            return {
-                ...option,
-                onClick
-            };
-        }
-        return {
-            ...option,
-            onClick: getSocialShareFn(option.name).bind(null, slug)
-        };
-    });
+        });
 
     return (
-        <div className="sticky-header__toolbar-item">
+        <div className={`${classNames ? `usda-share-icon ${classNames}` : 'usda-share-icon'}`}>
             <input
                 id="slug"
                 aria-label="Share Input Link"
                 type="text"
                 className="text"
                 style={{ position: 'absolute', right: '9999px', opacity: 0 }}
-                value={getBaseUrl(slug)}
+                value={url}
                 readOnly />
             <Picker
                 dropdownDirection="left"
@@ -83,7 +81,7 @@ const ShareIcon = ({
             <span>Share</span>
             {showConfirmationText && (
                 <span className="copy-confirmation">
-                    <FontAwesomeIcon icon="check-circle" color="#3A8250" /> Copied!
+                    <FontAwesomeIcon icon={faCheckCircle} color="#3A8250" /> Copied!
                 </span>
             )}
         </div>
