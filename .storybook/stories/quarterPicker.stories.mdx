@@ -1,6 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs } from "@storybook/addon-knobs";
-import { withA11y } from '@storybook/addon-a11y';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 import QuarterPicker from '../../components/quarterPicker/QuarterPicker';
 import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative } from "../misc";
@@ -8,18 +6,9 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative
 <Meta
     title="Quarter Picker"
     component={QuarterPicker}
-    decorators={[withKnobs, withA11y]}
-    parameters={{
-        a11y: {
-            // ... axe options
-            element: '.story__container', // optional selector which element to inspect
-            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-        }
-    }}
 />
 
-<Preview>
+<Canvas>
     <Story name="Default">
         <QuarterPickerWrapper>
             <QuarterPicker disabledQuarters={[]} />
@@ -37,9 +26,9 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative
             </QuarterPickerWithPeriods>
         </div>
     </Story>
-</Preview>
+</Canvas>
 
-<Props of={QuarterPicker} />
+<ArgsTable of={QuarterPicker} />
 
 ## Integration Status
 Answers the question, where is this component used?

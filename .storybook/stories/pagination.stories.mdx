@@ -1,7 +1,5 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
-import { withA11y } from '@storybook/addon-a11y';
-import { withActions, actions } from '@storybook/addon-actions';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { boolean, object, } from "@storybook/addon-knobs";
 
 import Pagination from '../../components/pagination/Pagination';
 import { PaginationWrapper } from "../misc";
@@ -9,22 +7,7 @@ import { PaginationWrapper } from "../misc";
 <Meta
     title="Pagination"
     component={Pagination}
-    decorators={[withA11y, withActions('onClick')]}
-    parameters={{
-        a11y: {
-            // ... axe options
-            element: '.story__container', // optional selector which element to inspect
-            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-        }
-    }}
 />
-
-<!--
- * If this PR Gets merged (https://github.com/storybookjs/storybook/pull/3909)...
- * We can use knobs for controlled components.
- * As of right now, if we use knobs to update a prop the component will only update via knobs
- -->
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
@@ -47,7 +30,8 @@ console.log("changeLimit handler invoked w/ this parameter: ", pageSize);
 changeLimit(pageSize);
 }
 ```
-<Preview>
+
+<Canvas>
     <Story name='Limit selector and "Go to page"'>
         <PaginationWrapper>
             <Pagination
@@ -59,9 +43,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name='"Go to Page"'>
         <PaginationWrapper>
             <Pagination
@@ -71,9 +55,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Limit Selector">
         <PaginationWrapper>
             <Pagination
@@ -83,9 +67,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Custom Results Text">
         <PaginationWrapper>
             <Pagination
@@ -98,9 +82,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Default Results Text">
         <PaginationWrapper>
             <Pagination
@@ -109,9 +93,9 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
-<Preview>
+<Canvas>
     <Story name="Default">
         <PaginationWrapper>
             {/* /* handler Funcs Passed from PaginationWrapper */}
@@ -120,10 +104,10 @@ changeLimit(pageSize);
                 totalItems={100} />
         </PaginationWrapper>
     </Story>
-</Preview>
+</Canvas>
 
 
-<Props of={Pagination} />
+<ArgsTable of={Pagination} />
 
 ## Integration Status
 Answers the question, where is this component used?

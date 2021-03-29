@@ -1,7 +1,5 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, object, } from "@storybook/addon-knobs";
-import { withA11y } from '@storybook/addon-a11y';
-import { withActions, actions } from '@storybook/addon-actions';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { boolean, object, } from "@storybook/addon-knobs";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoadingMessage from '../../components/messages/LoadingMessage';
 import ErrorMessage from '../../components/messages/ErrorMessage';
@@ -12,15 +10,6 @@ import GenericMessage from '../../components/messages/GenericMessage';
 <Meta
     title="Messages"
     component={GenericMessage}
-    decorators={[withA11y, withActions('onClick')]}
-    parameters={{
-        a11y: {
-            // ... axe options
-            element: '.story__container', // optional selector which element to inspect
-            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-        }
-    }}
 />
 
 ## Generic Message Props:
@@ -30,7 +19,7 @@ import GenericMessage from '../../components/messages/GenericMessage';
  - `icon`: An icon to display above the text.
 
 ## Generic Message
-<Preview>
+<Canvas>
     <Story name='Generic Message'>
         <GenericMessage
             className="your-class"
@@ -38,46 +27,46 @@ import GenericMessage from '../../components/messages/GenericMessage';
             description="Custom description here."
             icon={<FontAwesomeIcon icon="pencil-alt" />} />
     </Story>
-</Preview>
+</Canvas>
 
-<Props of={GenericMessage} />
+<ArgsTable of={GenericMessage} />
 
 ## Loading Message
-<Preview>
+<Canvas>
     <Story name='Loading Message'>
         <LoadingMessage />
     </Story>
-</Preview>
+</Canvas>
 
 ## Default Error Message
-<Preview>
+<Canvas>
     <Story name='Error Message'>
         <ErrorMessage />
     </Story>
-</Preview>
+</Canvas>
 
-<Props of={ErrorMessage} />
+<ArgsTable of={ErrorMessage} />
 
 ## Custom Error Message
-<Preview>
+<Canvas>
     <Story name='Custom Error Message'>
         <ErrorMessage title="Your title" description="Custom error message here." />
     </Story>
-</Preview>
+</Canvas>
 
 ## No Results Message
-<Preview>
+<Canvas>
     <Story name='No Results Message'>
         <NoResultsMessage />
     </Story>
-</Preview>
+</Canvas>
 
 ## Coming Soon Placeholder
-<Preview>
+<Canvas>
     <Story name="Coming Soon Placeholder">
         <ComingSoon />
     </Story>
-</Preview>
+</Canvas>
 
 ## Integration Status
 Answers the question, where is this component used?

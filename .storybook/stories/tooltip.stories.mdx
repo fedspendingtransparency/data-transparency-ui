@@ -1,6 +1,5 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, object, text } from "@storybook/addon-knobs";
-import { withA11y } from '@storybook/addon-a11y';
+import { Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs/blocks';
+import { boolean, object, text } from "@storybook/addon-knobs";
 
 import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
 import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
@@ -9,18 +8,9 @@ import { Tooltip } from "../misc";
 <Meta
     title="Tooltip Wrapper"
     component={TooltipWrapper}
-    decorators={[withKnobs, withA11y]}
-    parameters={{
-        a11y: {
-            // ... axe options
-            element: '.story__container', // optional selector which element to inspect
-            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-        }
-    }}
 />
 
-<Preview>
+<Canvas>
     <Story name="Tooltip Wrapper">
         <div className="story__container tooltip-story">
             <TooltipWrapper
@@ -34,20 +24,20 @@ import { Tooltip } from "../misc";
                 })} />
         </div>
     </Story>
-</Preview>
+</Canvas>
 
-<Props of={TooltipWrapper} />
+<ArgsTable of={TooltipWrapper} />
 
 ## Integration Status
 Answers the question, where is this component used?
 
 ### USASpending
 - [x] Award Summary Page
+- [x] Agency Submission Statistics
 - [ ] Home Page Hero
 - [ ] Advanced Search
 - [ ] Spending Explorer
 - [ ] State Profile Page
 - [ ] Agency Profile Page
-- [x] Agency Submission Statistics
 
 ### Broker Integration Status:

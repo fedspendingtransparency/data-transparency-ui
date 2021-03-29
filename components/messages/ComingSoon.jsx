@@ -8,9 +8,11 @@ import GenericMessage from './GenericMessage';
 
 require('../../styles/components/_messages.scss');
 
-const ComingSoon = () => (
+const ComingSoon = ({
+    className
+}) => (
     <GenericMessage
-        className="coming-soon"
+        className={`coming soon ${className}`}
         title="Coming Soon"
         description="This feature is currently under development." />
 );
