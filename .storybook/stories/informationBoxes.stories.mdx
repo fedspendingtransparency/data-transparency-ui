@@ -1,0 +1,104 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { withKnobs, boolean, object, text, number, array } from "@storybook/addon-knobs";
+import { withA11y } from '@storybook/addon-a11y';
+import { withActions, actions } from '@storybook/addon-actions';
+import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from "../misc";
+
+import InformationBoxes from '../../components/InformationBoxes';
+
+<Meta
+    title="Information Boxes"
+    component={InformationBoxes}
+    decorators={[withKnobs, withA11y]}
+    parameters={{
+        a11y: {
+            // ... axe options
+            element: '.usa-dt-information-boxes', // optional selector which element to inspect
+            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
+            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
+        }
+    }}
+/>
+
+## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
+This means the component relies on its parent to pass the following props:
+- `label`: (required) string, the title of the label to display
+
+In this example:
+
+## Information Boxes, 2 Count
+<Preview>
+    <Story name='Information Boxes, 2 Count'>
+        <InformationBoxes
+        boxes={[
+          {
+            title: 'Total Obligations',
+            amount: 819900000000,
+            isMonetary: true
+          },
+          {
+            title: 'Total Outlays',
+            amount: 1070000000000,
+            isMonetary: true
+          }
+        ]} />
+    </Story>
+</Preview>
+
+## Information Boxes, 3 Count
+<Preview>
+    <Story name='Information Boxes, 3 Count'>
+        <InformationBoxes
+        boxes={[
+          {
+            title: 'Award Obligations',
+            isLoading: false,
+            amount: 819900000000,
+            isMonetary: true
+          },
+          {
+            title: 'Number of Transactions',
+            isLoading: false,
+            amount: 2531
+          },
+          {
+            title: 'Number of New Awards',
+            amount: 125
+          }
+        ]} />
+    </Story>
+</Preview>
+
+## Information Boxes, 4 Count
+<Preview>
+    <Story name='Information Boxes, 4 Count'>
+        <InformationBoxes
+        boxes={[
+          {
+            title: 'Number of Object Classes',
+            amount: 13
+          },
+          {
+            title: 'Total Budgetary Resources',
+            amount: 819900000000,
+            isMonetary: true
+          },
+          {
+            title: 'Total Obligations',
+            amount: 1110000000000,
+            isMonetary: true
+          },
+          {
+            title: 'Total Outlays',
+            amount: 1070000000000,
+            isMonetary: true
+          }
+        ]} />
+    </Story>
+</Preview>
+
+## Integration Status
+Answers the question, where is this component used?
+
+### USASpending
+- [x] COVID-19 Page

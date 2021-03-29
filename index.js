@@ -11,6 +11,7 @@ import LoadingMessage from './components/messages/LoadingMessage';
 import NoResultsMessage from './components/messages/NoResultsMessage';
 import ErrorMessage from './components/messages/ErrorMessage';
 import ComingSoon from './components/messages/ComingSoon';
+import InformationBoxes from './components/InformationBoxes';
 
 import "./styles/dist.scss";
 
@@ -28,5 +29,6 @@ export {
     LoadingMessage,
     NoResultsMessage,
     ErrorMessage,
-    ComingSoon
+    ComingSoon,
+    InformationBoxes
 };
