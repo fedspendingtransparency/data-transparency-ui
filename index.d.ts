@@ -156,6 +156,14 @@ export interface SectionTitleProps {
     className: string
 }
 
+export interface InformationBoxesProps {
+  boxes: Array<[object]>
+}
+
+export interface InformationBoxesProps {
+  boxes: Array<Object>
+}
+
 export interface ErrorMessageProps {
     description: string
 }
