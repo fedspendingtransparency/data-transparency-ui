@@ -1,6 +1,9 @@
 @import "../global/index";
 
 $page-title-background: #494440;
+$sticky-header-height: rem(66);
+$sticky-header-height-mobile: rem(96);
+$z-header: 100;
 
 .usda-section__container,
 .usda-page__container {
