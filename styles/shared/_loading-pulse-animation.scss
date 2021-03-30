@@ -1,4 +1,4 @@
-  
+@import "../global/index";
 /**
  * ==============================================
  * Dot Pulse
@@ -9,7 +9,7 @@
  $dot-height: 10px !default;
  $dot-radius: $dot-width/2 !default;
  
- $dot-color: $color-gold !default;
+ $dot-color: $color-gray-light !default;
  $dot-bg-color: $dot-color !default;
  $dot-before-color: $dot-color !default;
  $dot-after-color: $dot-color !default;
@@ -25,7 +25,6 @@
      left: $left-pos;
      width: $dot-width;
      height: $dot-height;
-    //  border-radius: rem($dot-width / 2);
     border-radius: rem(5);
      margin: 0 rem(40);
  

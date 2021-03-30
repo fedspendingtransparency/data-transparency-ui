@@ -1,64 +1,56 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { withKnobs, boolean, object, text, number, array } from "@storybook/addon-knobs";
-import { withA11y } from '@storybook/addon-a11y';
-import { withActions, actions } from '@storybook/addon-actions';
-import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from "../misc";
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { TabsWrapper, TabsTooltip, InformationBoxesWrapper } from "../misc";
 
 import InformationBoxes from '../../components/InformationBoxes';
 
 <Meta
     title="Information Boxes"
     component={InformationBoxes}
-    decorators={[withKnobs, withA11y]}
-    parameters={{
-        a11y: {
-            // ... axe options
-            element: '.usa-dt-information-boxes', // optional selector which element to inspect
-            config: {}, // axe-core configurationOptions (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#parameters-1)
-            options: {} // axe-core optionsParameter (https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#options-parameter)
-        }
-    }}
 />
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
-- `label`: (required) string, the title of the label to display
+ - `boxes`: An array of box objects with their properties below
+      - `title`: string, the title to display.
+      - `subtitle`: string, the subtitle to display.
+      - `amount`: number, the amount to display.
+      - `isMonetary`: boolean, if true will format the amount as monetary.
+      - `isLoading`: element, if true will display loading vizualisation.
 
 In this example:
 
 ## Information Boxes, 2 Count
-<Preview>
+<Canvas>
     <Story name='Information Boxes, 2 Count'>
         <InformationBoxes
-        boxes={[
-          {
-            title: 'Total Obligations',
-            amount: 819900000000,
-            isMonetary: true
-          },
-          {
-            title: 'Total Outlays',
-            amount: 1070000000000,
-            isMonetary: true
-          }
-        ]} />
+            boxes={[
+              {
+                title: 'Total Obligations',
+                amount: 819900000000,
+                isMonetary: true
+              },
+              {
+                title: 'Total Outlays',
+                amount: 1070000000000,
+                isLoading: true,
+                isMonetary: true
+              }
+            ]} />
     </Story>
-</Preview>
+</Canvas>
 
 ## Information Boxes, 3 Count
-<Preview>
+<Canvas>
     <Story name='Information Boxes, 3 Count'>
         <InformationBoxes
         boxes={[
           {
             title: 'Award Obligations',
-            isLoading: false,
             amount: 819900000000,
             isMonetary: true
           },
           {
             title: 'Number of Transactions',
-            isLoading: false,
             amount: 2531
           },
           {
@@ -67,10 +59,10 @@ In this example:
           }
         ]} />
     </Story>
-</Preview>
+</Canvas>
 
 ## Information Boxes, 4 Count
-<Preview>
+<Canvas>
     <Story name='Information Boxes, 4 Count'>
         <InformationBoxes
         boxes={[
@@ -84,18 +76,20 @@ In this example:
             isMonetary: true
           },
           {
-            title: 'Total Obligations',
+            title: 'Total Outlays',
             amount: 1110000000000,
             isMonetary: true
           },
           {
-            title: 'Total Outlays',
+            title: 'Total Obligations',
             amount: 1070000000000,
             isMonetary: true
           }
         ]} />
     </Story>
-</Preview>
+</Canvas>
+
+<ArgsTable of={InformationBoxes} />
 
 ## Integration Status
 Answers the question, where is this component used?
