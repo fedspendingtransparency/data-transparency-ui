@@ -12,6 +12,7 @@ import NoResultsMessage from './components/messages/NoResultsMessage';
 import ErrorMessage from './components/messages/ErrorMessage';
 import ComingSoon from './components/messages/ComingSoon';
 import SectionTitle from './components/SectionTitle';
+import Carousel from './components/Carousel';
 
 import "./styles/dist.scss";
 
@@ -30,5 +31,6 @@ export {
     NoResultsMessage,
     ErrorMessage,
     ComingSoon,
-    SectionTitle
+    SectionTitle,
+    Carousel
 };
