@@ -1,13 +1,49 @@
-
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'lodash';
+import { isEmpty, throttle } from 'lodash';
 
 import ShareIcon from './ShareIcon';
 import DownloadIconButton from './DownloadIconButton';
 import FiscalYearPicker from './FiscalYearPicker';
 
 require('../styles/components/_section-title.scss');
+
+export const useDynamicStickyClass = (stickyRef, fixedStickyBreakpoint = 0) => {
+    const [dynamicStickyBreakpoint, setDynamicStickyBreakpoint] = useState(0);
+    const [isSticky, setIsSticky] = useState(false);
+    return [
+        isSticky,
+        // scrollPosition at which we apply the sticky-class
+        dynamicStickyBreakpoint,
+        // setSticky
+        setIsSticky,
+        // handleScroll
+        throttle(() => {
+            const scrollY = window.scrollY || document.documentElement.scrollTop;
+            if (fixedStickyBreakpoint && scrollY >= fixedStickyBreakpoint && !isSticky) {
+                // we know which y position to apply the sticky class
+                setIsSticky(true);
+            }
+            else if (!fixedStickyBreakpoint && scrollY >= dynamicStickyBreakpoint && !isSticky) {
+                // we don't know which y position to apply the sticky class
+                setIsSticky(true);
+            }
+            else if (scrollY <= fixedStickyBreakpoint) {
+                setIsSticky(false);
+            }
+            else if (scrollY <= dynamicStickyBreakpoint) {
+                setIsSticky(false);
+            }
+        }, 100),
+        // measureScreen
+        throttle(() => {
+            const wrapperY = stickyRef.current
+                ? stickyRef.current.offsetTop
+                : 0;
+            setDynamicStickyBreakpoint(wrapperY);
+        }, 100)
+    ];
+};
 
 const ToolBar = ({
     fyProps = {},
@@ -55,16 +91,40 @@ const PageTitle = ({
     overLine = "",
     fyProps = {},
     shareProps = {},
-    downloadProps = {}
+    downloadProps = {},
+    stickyBreakPoint = 0
 }) => {
+    const stickyHeader = useRef(null);
+    const [
+        isSticky,
+        ,
+        ,
+        handleScroll,
+        measureScreen
+    ] = useDynamicStickyClass(stickyHeader, stickyBreakPoint);
+
+    useEffect(() => {
+        measureScreen();
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', measureScreen);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', measureScreen);
+        };
+    });
+
+    const stickyClass = isSticky ? ' usda-page-header--sticky' : '';
+
     const showToolbar = (
         !isEmpty(fyProps) ||
         !isEmpty(shareProps) ||
         !isEmpty(downloadProps)
     );
+
     return (
         <main id={id} className={`usda-page__container${classNames ? ` ${classNames}` : ''}`}>
-            <section className={`usda-page-header`}>
+            <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
                 <div className="usda-page-header__container">
                     <div className="usda-page-header__header">
                         {overLine && <strong className="usda-page-header__overline">{overLine}</strong>}

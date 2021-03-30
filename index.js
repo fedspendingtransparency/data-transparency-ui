@@ -14,6 +14,7 @@ import ComingSoon from './components/messages/ComingSoon';
 import InformationBoxes from './components/InformationBoxes';
 import SectionTitle from './components/SectionTitle';
 import Carousel from './components/Carousel';
+import PageHeader from './components/PageHeader';
 
 import "./styles/dist.scss";
 
@@ -34,5 +35,6 @@ export {
     ComingSoon,
     SectionTitle,
     Carousel,
-    InformationBoxes
+    InformationBoxes,
+    PageHeader
 };

@@ -1,8 +1,6 @@
 .usda-section__container {
   margin-top: rem(20);
 }
-<<<<<<< Updated upstream
-=======
 
 .usda-page__container {
   height: 1600px;
@@ -12,9 +10,4 @@
       margin-left: 0;
     }
   }
-  .usda-page-title__container.usda-page-title__container--sticky {
-      // HACKY TIMEZ... don't have to do this in consumer context b/c component is full width of page 👌
-      width: calc(100% - 20px);
-    }
 }
->>>>>>> Stashed changes
