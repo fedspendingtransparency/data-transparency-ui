@@ -42,7 +42,6 @@ const Tabs = ({
             tooltip={type.tooltip}
             tablessStyle={tablessStyle} />
     ));
-    console.log(' Active ', active);
     return (
         <div
             className={`usa-dt-tab-list${tablessStyle ? ' tabless-tabs' : ''}`}
