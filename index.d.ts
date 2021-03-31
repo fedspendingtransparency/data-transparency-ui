@@ -168,6 +168,37 @@ export interface ErrorMessageProps {
     description: string
 }
 
+export interface DownloadIconButtonProps {
+    onClick: () => void,
+    downloadInFlight: boolean,
+    hoverComponent: JSX.Element
+}
+export interface FiscalYearPickerProps {
+    selectedFy: number,
+    latestFy: number,
+    handleFyChange: (fy: string) => void
+}
+export interface ShareIconProps {
+    slug: string,
+    classNames: string,
+    email: {
+        subject: string,
+        body: string
+    }
+}
+
+export interface PageHeaderProps {
+    title: string,
+    children: Array<JSX.Element>,
+    id: string,
+    classNames: string,
+    overLine: string,
+    fyProps: FiscalYearPickerProps,
+    shareProps: ShareIconProps,
+    downloadProps: DownloadIconButtonProps,
+    stickyBreakPoint: number
+}
+
 /*~ If this module has methods, declare them as functions like so.
  */
 export class Pagination extends React.Component<PaginationProps>{}
@@ -182,7 +213,12 @@ export function GenericMessage(props: GenericMessageProps): JSX.Element;
 export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
 export function SectionTitle(props: SectionTitleProps): JSX.Element;
+export function PageHeader(props: SectionTitleProps): JSX.Element;
+export function DownloadIconButton(props: SectionTitleProps): JSX.Element;
+export function FiscalYearPicker(props: SectionTitleProps): JSX.Element;
+export function ShareIcon(props: SectionTitleProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
+export function useDynamicStickyClass(ref: object, fixedStickyBreakPoint: number): [boolean, number, () => void, () => void, () => void]
 /*~ If there are types, properties, or methods inside dotted names
  *~ of the module, declare them inside a 'namespace'.
  */
