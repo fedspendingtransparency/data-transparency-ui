@@ -78,6 +78,13 @@
         padding: rem(4) rem(12);
       }
     }
+    @include for-tablet-portrait-up {
+      .usa-dt-information-box {
+        .usa-dt-information-box__divider {
+          padding: 0 rem(47) rem(23) rem(47);
+        }
+      }
+    }
   }
   &.four-boxes {
     flex-wrap: wrap;
@@ -90,7 +97,7 @@
         align-self: stretch;
         flex-basis: 100%;
         display: flex;
-        padding: rem(4) rem(25);
+        padding: rem(4) rem(30);
         .usa-dt-information-box__content {
           align-self: flex-end;
           flex-basis: 100%;
@@ -117,6 +124,9 @@
         margin-bottom: 0;
         flex-basis: auto;
         border-right: rem(1) solid $color-gray-lighter;
+        .usa-dt-information-box__divider {
+          padding: 0 rem(34) rem(25) rem(34);
+        }
         .usa-dt-information-box__content {
           border: none;
         }
