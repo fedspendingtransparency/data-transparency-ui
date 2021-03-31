@@ -14,7 +14,10 @@ import ComingSoon from './components/messages/ComingSoon';
 import InformationBoxes from './components/InformationBoxes';
 import SectionTitle from './components/SectionTitle';
 import Carousel from './components/Carousel';
-import PageHeader from './components/PageHeader';
+import PageHeader, { useDynamicStickyClass } from './components/PageHeader';
+import DownloadIconButton from './components/DownloadIconButton';
+import FiscalYearPicker from './components/FiscalYearPicker';
+import ShareIcon from './components/ShareIcon';
 
 import "./styles/dist.scss";
 
@@ -36,5 +39,9 @@ export {
     SectionTitle,
     Carousel,
     InformationBoxes,
-    PageHeader
+    PageHeader,
+    DownloadIconButton,
+    FiscalYearPicker,
+    ShareIcon,
+    useDynamicStickyClass
 };
