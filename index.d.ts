@@ -157,10 +157,6 @@ export interface SectionTitleProps {
 }
 
 export interface InformationBoxesProps {
-  boxes: Array<[object]>
-}
-
-export interface InformationBoxesProps {
   boxes: Array<Object>
 }
 

@@ -16,9 +16,9 @@ const defaultProps = {
 };
 
 const InformationBoxes = ({ boxes }) => {
-    const [isForTabletPortaitUp, setIsForTabletPortaitUp] = useState(window.innerWidth > 768);
+    const [isForTabletPortaitUp, setIsForTabletPortaitUp] = useState(window.innerWidth > 1200);
 
-    const checkWidth = throttle(() => setIsForTabletPortaitUp(window.innerWidth > 768));
+    const checkWidth = throttle(() => setIsForTabletPortaitUp(window.innerWidth > 1200));
 
     useEffect(() => {
         checkWidth();

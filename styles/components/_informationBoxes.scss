@@ -2,39 +2,46 @@
 
 .usa-dt-information-boxes {
   display: flex;
-  padding: rem(18) 0;
+  padding-top: rem(20);
   .usa-dt-information-box {
+    display: flex;
     text-align: center;
     flex: 1 1 auto;
     border-right: 0.1rem solid $color-gray-lighter;
     .usa-dt-information-box__divider {
-      align-self: flex-end;
+      align-self: stretch;
+      flex-basis: 100%;
+      display: flex;
       padding: rem(4) rem(32);
-      .usa-dt-information-box__title {
-        font-size: rem(14);
-        letter-spacing: 0;
-        line-height: rem(16);
-        padding-bottom: rem(3);
-        color: $color-base;
-      }
-      .usa-dt-information-box__subtitle {
-        font-size: rem(9);
-        letter-spacing: 0;
-        line-height: rem(11);
-        color: $color-base;
-      }
-      .usa-dt-information-box__amount {
-        font-size: rem(20);
-        font-weight: $font-semibold;
-        letter-spacing: 0;
-        line-height: rem(25);
-        color: $color-base;
-        &.loading {
-          margin: 2.5rem 0 2rem 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          @import "../shared/loading-pulse-animation";
+      .usa-dt-information-box__content {
+        align-self: flex-end;
+        flex-basis: 100%;
+        .usa-dt-information-box__title {
+          font-size: rem(14);
+          letter-spacing: 0;
+          line-height: rem(16);
+          padding-bottom: rem(3);
+          color: $color-base;
+        }
+        .usa-dt-information-box__subtitle {
+          font-size: rem(9);
+          letter-spacing: 0;
+          line-height: rem(11);
+          color: $color-base;
+        }
+        .usa-dt-information-box__amount {
+          font-size: rem(20);
+          font-weight: $font-semibold;
+          letter-spacing: 0;
+          line-height: rem(25);
+          color: $color-base;
+          &.loading {
+            margin: 2.5rem 0 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @import "../shared/loading-pulse-animation";
+          }
         }
       }
     }
@@ -46,21 +53,23 @@
     .usa-dt-information-box {
       .usa-dt-information-box__divider {
         padding: 0 rem(25) rem(34);
-        .usa-dt-information-box__title {
-          font-size: rem(22);
-          line-height: rem(28);
-        }
-        .usa-dt-information-box__subtitle {
-          font-size: rem(17);
-          line-height: rem(22);
-          font-weight: $font-light;
-          padding-bottom: rem(3);
-        }
-        .usa-dt-information-box__amount {
-          font-size: rem(32);
-          font-weight: $font-semibold;
-          letter-spacing: 0;
-          line-height: rem(40);
+        .usa-dt-information-box__content {
+          .usa-dt-information-box__title {
+            font-size: rem(22);
+            line-height: rem(28);
+          }
+          .usa-dt-information-box__subtitle {
+            font-size: rem(17);
+            line-height: rem(22);
+            font-weight: $font-light;
+            padding-bottom: rem(3);
+          }
+          .usa-dt-information-box__amount {
+            font-size: rem(32);
+            font-weight: $font-semibold;
+            letter-spacing: 0;
+            line-height: rem(40);
+          }
         }
       }
     }
@@ -68,20 +77,38 @@
   &.two-boxes {
     .usa-dt-information-box {
       .usa-dt-information-box__divider {
-        padding: rem(4) rem(35);
+        padding: rem(4) rem(25);
+      }
+    }
+    @include for-tablet-portrait-up {
+      .usa-dt-information-box {
+        .usa-dt-information-box__divider {
+          padding: rem(4) rem(35);
+        }
       }
     }
   }
   &.three-boxes {
     .usa-dt-information-box {
       .usa-dt-information-box__divider {
-        padding: rem(4) rem(12);
+        padding: rem(4) rem(12) rem(4) rem(12);
+        .usa-dt-information-box__content {
+          .usa-dt-information-box__amount {
+            font-size: rem(16);
+          }
+        }
       }
     }
     @include for-tablet-portrait-up {
       .usa-dt-information-box {
         .usa-dt-information-box__divider {
           padding: 0 rem(47) rem(23) rem(47);
+          .usa-dt-information-box__content {
+            .usa-dt-information-box__amount { 
+              font-size: rem(32);
+              line-height: rem(40);
+            }
+          }
         }
       }
     }
@@ -97,11 +124,7 @@
         align-self: stretch;
         flex-basis: 100%;
         display: flex;
-        padding: rem(4) rem(30);
-        .usa-dt-information-box__content {
-          align-self: flex-end;
-          flex-basis: 100%;
-        }
+        padding: rem(4) rem(25);
       }
     }
     .usa-dt-information-box:nth-child(2n + 1) { // every odd
@@ -122,7 +145,7 @@
       flex-wrap: nowrap;
       .usa-dt-information-box {
         margin-bottom: 0;
-        flex-basis: auto;
+        flex-basis: 25%;
         border-right: rem(1) solid $color-gray-lighter;
         .usa-dt-information-box__divider {
           padding: 0 rem(34) rem(25) rem(34);
@@ -155,7 +178,6 @@
 @include for-tablet-portrait-up {
   .usa-dt-information-boxes {
     border-bottom: rem(1) solid $color-gray-lighter;
+    padding-bottom: rem(20);
   }
 }
-
-
