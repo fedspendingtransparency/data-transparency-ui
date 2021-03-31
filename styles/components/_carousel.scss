@@ -110,12 +110,12 @@
                   width: rem(10);
                   height: rem(10);
                   border-radius: rem(5);
-                  background-color: $color-gray-medium;
+                  background-color:$color-gray-medium;
                   pointer-events: none;
               }
 
               &:hover, &:active, &.feature-carousel-pager__dot-button_active {
-                  opacity: 1;
+                  opacity: 0.8;
               }
           }
       }
