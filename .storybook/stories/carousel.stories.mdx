@@ -11,21 +11,9 @@ import Carousel from '../../components/Carousel';
 
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
- - `types`: An array of tab objects with their properties below
-      - `label`: (required) string, the title of the label to display
-      - `internal`: (required) string, the unique name of the tab 
-      - `count`: number, the count to display to the right of the label
-      - `disabled`: boolean, is the tab disabled
-      - `tooltip`: element, HTML to display in the tooltip
- - `active`: The internal property of the active tab
- - `switchTab`: A function to execute on switching tabs
+ - `items`: An array of strings or elements to display
 
 In this example:
-
-### Other props:
- - `tabsClassName`: A class name for the tabs
- - `tablessStyle`: A property to show tabs in a tabless style
-
 
 ## Carousel
 <Canvas>
@@ -38,8 +26,6 @@ In this example:
             ]} />
     </Story>
 </Canvas>
-
-
 
 <ArgsTable of={Carousel} />
 

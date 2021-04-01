@@ -1,76 +1,42 @@
 @import "../global/index";
 
-.feature-carousel {
-  .feature-carousel__instructions {
+.usa-dt-carousel {
+  .usa-dt-carousel__instructions {
     position: absolute;
     left: -999em;
   }
 
-  .feature-carousel-content {
+  .usa-dt-carousel-content {
       display: flex;
       justify-content: flex-start;
       align-items: center;
 
-      button.feature-carousel-content__arrow {
-          flex: 0 0 auto;
-          @include button-unstyled;
-
-          opacity: 1;
-          transition: opacity 150ms;
-
-          display: none;
-          @include for-phone-only {
-              display: block;
-          }
-
-          svg {
-              fill: $color-gray;
-              width: rem(50);
-          }
-
-          &.feature-carousel-content__arrow_hidden {
-              opacity: 0;
-              pointer-events: none;
-          }
-      }
-
-      .feature-carousel-image {
+      .usa-dt-carousel-item {
           flex: 1 1 auto;
           overflow-x: hidden;
       }
 
-      ul.feature-carousel-image__list {
+      .usa-dt-carousel-item__list {
           @include unstyled-list;
           display: flex;
           justify-content: flex-start;
           align-items: center;
           transition: transform 300ms;
 
-          &.feature-carousel-image__list_dragging {
+          &.usa-dt-carousel-item__list_dragging {
               transition: none;
           }
 
-          li.feature-carousel-image__list-item {
+          .usa-dt-carousel-item__list-item {
               flex: 0 0 auto;
               width: 100%;
 
               // within the box, we need to center the image
-              // img.feature-carousel-image__image {
-              //     display: block;
-              //     background-color: $color-white;
-              //     padding: rem(10);
-              //     border: rem(10) solid $color-gray-lighter;
-              //     margin-left: auto;
-              //     margin-right: auto;
-              // }
-
-              // within the box, we need to center the image
-              .feature-carousel-image__image {
+              .usa-dt-carousel-item__item {
                   display: block;
                   text-align: center;
                   background-color: $color-white;
                   padding: rem(10);
-                  // border: rem(10) solid $color-gray-lighter;
                   margin-left: auto;
                   margin-right: auto;
               }
@@ -78,8 +44,8 @@
       }
   }
 
-  .feature-carousel-pager {
-      .feature-carousel-pager__list {
+  .usa-dt-carousel-pager {
+      .usa-dt-carousel-pager__list {
           @include unstyled-list;
           margin-top: rem(25);
           
@@ -87,14 +53,14 @@
           justify-content: center;
           align-items: center;
 
-          .feature-carousel-pager__list-item {
+          .usa-dt-carousel-pager__list-item {
               flex: 0 0 auto;
               &:not(:first-child) {
                   margin-left: rem(7);
               }
           }
 
-          button.feature-carousel-pager__dot-button {
+          button.usa-dt-carousel-pager__dot-button {
             flex: 0 0 auto;
             &:not(:first-child) {
                 margin-left: rem(7);
@@ -106,7 +72,7 @@
               opacity: 0.4;
               transition: opacity 150ms;
 
-              .feature-carousel-pager__dot-decorator {
+              .usa-dt-carousel-pager__dot-decorator {
                   width: rem(10);
                   height: rem(10);
                   border-radius: rem(5);
@@ -114,7 +80,7 @@
                   pointer-events: none;
               }
 
-              &:hover, &:active, &.feature-carousel-pager__dot-button_active {
+              &:hover, &:active, &.usa-dt-carousel-pager__dot-button_active {
                   opacity: 0.8;
               }
           }
