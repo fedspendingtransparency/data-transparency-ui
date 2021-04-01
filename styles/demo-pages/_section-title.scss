@@ -4,6 +4,12 @@
 
 .usda-page__container {
   height: 1600px;
+  .usda-page-header.usda-page-header--sticky {
+    width: calc(100% - 20px);
+    @include for-phone-only {
+      width: 100%;
+    }
+  }
   .usda-page-header .usda-page-header__container .usda-page-header__header {
     margin-left: rem(10);
     @include for-phone-only {
