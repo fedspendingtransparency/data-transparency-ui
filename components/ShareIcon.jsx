@@ -7,6 +7,8 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Picker from "./Picker";
 import { socialShareOptions } from '../helpers/socialShare';
 
+require('../styles/components/_shareIcon.scss');
+
 const propTypes = {
     slug: PropTypes.string,
     url: PropTypes.string.isRequired,

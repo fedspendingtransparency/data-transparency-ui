@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faFileDownload } from '@fortawesome/free-solid-svg-icons';
 
+require('../styles/components/_downloadIconButton.scss');
+
 const propTypes = {
     onClick: PropTypes.func,
     downloadInFlight: PropTypes.bool,

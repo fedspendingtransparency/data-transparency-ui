@@ -1,0 +1,92 @@
+.usda-page-header__toolbar {
+  display: flex;
+  position: relative;
+  background: $color-gray-lightest;
+  align-items: flex-start;
+  margin: 0;
+  width: 100%;
+  border-bottom: rem(1) solid #D6D7D9;
+  @include for-tablet-landscape-up {
+    align-items: flex-end;
+    padding: rem(6.5); 
+    width: auto;
+    background: $color-base;
+    border-bottom: none;
+  }
+
+  span {
+    color: $color-gray-lightest;
+    font-size: rem(14);
+    display: flex;
+    justify-content: center;
+    height: rem(18);
+  }
+
+  @import "./fiscalYearPicker";
+
+  .usda-share-icon,
+  .usda-fy-picker {
+    .usa-dt-picker__list {
+      width: rem(141);
+      box-shadow: 0 rem(2) rem(2) 0 rgba(0,0,0,0.5);
+      border-radius: rem(3);
+      .usa-dt-picker__list-item {
+          border: none;
+          border-radius: rem(3);
+          height: rem(39);
+      }
+      .usa-dt-picker__item {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background: $color-white;
+          font-size: rem(14);
+          line-height: rem(16);
+          color: $color-gray;
+          span {
+            color: $color-gray;
+          }
+          &:hover, .active {
+              background: $color-gray-lightest;
+              border: rem(1) solid $color-gray-lightest;
+              cursor: pointer;
+          }
+          svg {
+              margin-right: rem(12);
+              font-size: rem(14);
+          }
+      }
+    }
+  }
+
+  @import "./shareIcon";
+  @import "./downloadIconButton";
+  
+  .usa-dt-picker {
+    background-color: $color-base;
+    display: flex;
+    justify-content: center;
+    .usa-dt-picker__dropdown-container .usa-dt-picker__button {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  .usda-download-btn,
+  .usda-share-icon {
+    display: none;
+    margin-top: auto;
+    // margin-bottom: auto;
+    @include for-tablet-landscape-up {
+      display: flex;
+      flex-direction: column;
+    }
+    // span {
+    //   margin-top: rem(5);
+    // }
+    .usa-dt-picker__button {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

@@ -6,6 +6,8 @@ import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 import Picker from './Picker';
 import { allFiscalYears } from '../helpers/fiscalYearHelper';
 
+require('../styles/components/_fiscalYearPicker.scss');
+
 const FiscalYearPicker = ({
     selectedFy = 2020,
     latestFy = 2021,

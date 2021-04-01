@@ -1,0 +1,61 @@
+@import "../global/index";
+
+.usda-fy-picker__container {
+    @include for-phone-only {
+      padding: rem(8) rem(10);
+    }
+    .usda-fy-picker {
+      padding: rem(1.5) rem(10);
+      background: $color-gray-lightest;
+      border: rem(2) solid #AEB0B5;
+      border-radius: rem(4);
+      @include for-tablet-landscape-up {
+        background: $color-base;
+        border: rem(2) solid #666666;
+      }
+      .usa-dt-picker__icon {
+        margin-right: rem(8);
+         svg {
+          width: rem(20);
+          height: rem(20);
+        }
+      }
+      .usa-dt-picker__button-text {
+        color: $color-base;
+        background: $color-gray-lightest;
+        font-weight: $font-semibold;
+        font-size: rem(14);
+        line-height: rem(17);
+        @include for-tablet-landscape-up {
+          font-size: rem(18);
+          line-height: rem(20);
+          height: rem(23);
+          color: #fff;
+          background: $color-base;
+        }
+      }
+      .usa-dt-picker__icon svg,
+      .usa-dt-picker__button-icon svg {
+        color: $color-base;
+        @include for-tablet-landscape-up {
+          color: #fff;
+        }
+      }
+      .usa-dt-picker__button {
+        align-items: center;
+        @include for-tablet-landscape-up {
+          align-items: flex-end;
+        }
+      }
+      .usa-dt-picker__button-text,
+      .usa-dt-picker__button-icon {
+        height: auto;
+      }
+    }
+    span:not(.usa-dt-picker__button-text):not(.usa-dt-picker__button-icon) {
+      display: none;
+      @include for-tablet-landscape-up {
+        display: flex;
+      }
+    }
+  }

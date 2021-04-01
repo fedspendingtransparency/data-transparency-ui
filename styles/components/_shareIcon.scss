@@ -1,0 +1,44 @@
+@import "../global/index";
+
+.usda-share-icon {
+  margin: 0 rem(40);
+  position: relative;
+  .usa-dt-picker__dropdown-container {
+    background-color: $color-base;
+    .usa-dt-picker__button {
+      color: $color-gray-lighter;
+      svg {
+        width: rem(20);
+        height: rem(23);
+      }
+    }
+    .usa-dt-picker__list {
+      width: rem(140);
+      z-index: 1;
+      .usa-dt-picker__item {
+        padding-right: rem(10);
+      }
+      span {
+        margin-left: rem(10);
+      }
+    }
+  }
+}
+.copy-confirmation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: absolute;
+  height: rem(39);
+  width: rem(140);
+  background: $color-gray-lightest;
+  border: rem(1) solid $color-gray-lightest;
+  border-radius: rem(3);
+  color: $color-gray;
+  margin-right: rem(15);
+  top: rem(36);
+  right: rem(-7);
+  svg {
+      margin: 0 rem(10);
+  }
+}
