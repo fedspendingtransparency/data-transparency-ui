@@ -32,13 +32,14 @@ const InformationBoxes = ({ boxes }) => {
                 boxes.map((box) => (
                     <div key={box.title} className="usa-dt-information-box">
                         <div className="usa-dt-information-box__divider">
-                            <div className="usa-dt-information-box__content">
+                            <div className={`usa-dt-information-box__content${box.subtitle ? ' with-subtitle' : ''}`}>
                                 <div className="usa-dt-information-box__title">
                                     {box.title}
                                 </div>
-                                <div className="usa-dt-information-box__subtitle">
-                                    {box.subtitle}
-                                </div>
+                                {box.subtitle &&
+                                    <div className="usa-dt-information-box__subtitle">
+                                        {box.subtitle}
+                                    </div>}
                                 <div className={`usa-dt-information-box__amount${box.isLoading ? ' loading' : ''}`}>
                                     {box.isLoading && <div className="dot-pulse" />}
                                     {!box.isLoading && formattedValue(box.amount, box.isMonetary, isForTabletPortaitUp)}
