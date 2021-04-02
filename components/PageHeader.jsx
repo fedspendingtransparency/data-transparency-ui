@@ -1,49 +1,13 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty, throttle } from 'lodash';
+import { isEmpty } from 'lodash';
 
+import { useDynamicStickyClass } from '../helpers/pageHeaderHelper';
 import ShareIcon from './ShareIcon';
 import DownloadIconButton from './DownloadIconButton';
 import FiscalYearPicker from './FiscalYearPicker';
 
 require('../styles/components/_section-title.scss');
-
-export const useDynamicStickyClass = (stickyRef, fixedStickyBreakpoint = 0) => {
-    const [dynamicStickyBreakpoint, setDynamicStickyBreakpoint] = useState(0);
-    const [isSticky, setIsSticky] = useState(false);
-    return [
-        isSticky,
-        // scrollPosition at which we apply the sticky-class
-        dynamicStickyBreakpoint,
-        // setSticky
-        setIsSticky,
-        // handleScroll
-        throttle(() => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
-            if (fixedStickyBreakpoint && scrollY >= fixedStickyBreakpoint && !isSticky) {
-                // we know which y position to apply the sticky class
-                setIsSticky(true);
-            }
-            else if (!fixedStickyBreakpoint && scrollY >= dynamicStickyBreakpoint && !isSticky) {
-                // we don't know which y position to apply the sticky class
-                setIsSticky(true);
-            }
-            else if (scrollY <= fixedStickyBreakpoint) {
-                setIsSticky(false);
-            }
-            else if (scrollY <= dynamicStickyBreakpoint) {
-                setIsSticky(false);
-            }
-        }, 100),
-        // measureScreen
-        throttle(() => {
-            const wrapperY = stickyRef.current
-                ? stickyRef.current.offsetTop
-                : 0;
-            setDynamicStickyBreakpoint(wrapperY);
-        }, 100)
-    ];
-};
 
 const ToolBar = ({
     fyProps = {},
@@ -83,7 +47,7 @@ ToolBar.propTypes = {
     })
 };
 
-const PageTitle = ({
+const PageHeader = ({
     title,
     children,
     id = '',
@@ -145,7 +109,7 @@ const PageTitle = ({
     );
 };
 
-PageTitle.propTypes = {
+PageHeader.propTypes = {
     id: PropTypes.string,
     classNames: PropTypes.string,
     stickyBreakPoint: PropTypes.number,
@@ -172,4 +136,4 @@ PageTitle.propTypes = {
     })
 };
 
-export default PageTitle;
+export default PageHeader;
