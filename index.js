@@ -11,6 +11,7 @@ import LoadingMessage from './components/messages/LoadingMessage';
 import NoResultsMessage from './components/messages/NoResultsMessage';
 import ErrorMessage from './components/messages/ErrorMessage';
 import ComingSoon from './components/messages/ComingSoon';
+import InformationBoxes from './components/InformationBoxes';
 import SectionTitle from './components/SectionTitle';
 import Carousel from './components/Carousel';
 
@@ -32,5 +33,6 @@ export {
     ErrorMessage,
     ComingSoon,
     SectionTitle,
-    Carousel
+    Carousel,
+    InformationBoxes
 };

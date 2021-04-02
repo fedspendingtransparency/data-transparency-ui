@@ -160,6 +160,10 @@ export interface CarouselProps {
     items: Array<JSX.Element>
 }
 
+export interface InformationBoxesProps {
+  boxes: Array<Object>
+}
+
 export interface ErrorMessageProps {
     description: string
 }
