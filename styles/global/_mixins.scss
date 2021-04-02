@@ -4,6 +4,9 @@
 @mixin for-tablet-portrait-up {
     @media (min-width: $tablet-screen) { @content; }
 }
+@mixin for-tablet-portrait-down {
+    @media (max-width: $medium-screen - 1) { @content; }
+}
 @mixin for-tablet-landscape-up {
     @media (min-width: $medium-screen) { @content; }
 }

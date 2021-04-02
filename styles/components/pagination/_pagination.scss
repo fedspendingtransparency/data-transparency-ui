@@ -6,20 +6,22 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 
-	@media (max-width: $medium-screen - 1) {
+	@include for-tablet-portrait-down {
 		.usa-dt-pagination__totals,
 		.usa-dt-pagination__limit-selector__wrapper,
 		.usa-dt-pagination__go-to {
 			display: none;
 		}
 	}
-	@media (min-width: $medium-screen) {
+
+	@include for-tablet-landscape-up {
 		.usa-dt-pagination__totals {
 			flex: 1 1 auto;
 			text-align: left;
 			font-size: $base-font-size;
 		}
 	}
+
 	.usa-dt-pagination__wrapper {
 		display: flex;
 		justify-content: flex-end;
