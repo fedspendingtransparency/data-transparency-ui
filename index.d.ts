@@ -156,6 +156,10 @@ export interface SectionTitleProps {
     className: string
 }
 
+export interface CarouselProps {
+    items: Array<JSX.Element>
+}
+
 export interface InformationBoxesProps {
   boxes: Array<Object>
 }
