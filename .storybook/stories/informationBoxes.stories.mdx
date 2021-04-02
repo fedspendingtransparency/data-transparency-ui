@@ -1,0 +1,102 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { TabsWrapper, TabsTooltip, InformationBoxesWrapper } from "../misc";
+
+import InformationBoxes from '../../components/InformationBoxes';
+
+<Meta
+    title="Information Boxes"
+    component={InformationBoxes}
+/>
+
+## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
+This means the component relies on its parent to pass the following props:
+ - `boxes`: An array of box objects with their properties below
+      - `title`: string, the title to display.
+      - `subtitle`: string, the subtitle to display.
+      - `amount`: number, the amount to display.
+      - `isMonetary`: boolean, if true will format the amount as monetary.
+      - `isLoading`: element, if true will display loading vizualisation.
+
+In this example:
+
+## Information Boxes, 2 Count
+<Canvas>
+    <Story name='Information Boxes, 2 Count'>
+        <InformationBoxes
+            boxes={[
+              {
+                title: 'Total Obligations',
+                amount: 819900000000,
+                isMonetary: true
+              },
+              {
+                title: 'Total Outlays',
+                amount: 1070000000000,
+                isLoading: true,
+                isMonetary: true
+              }
+            ]} />
+    </Story>
+</Canvas>
+
+## Information Boxes, 3 Count
+<Canvas>
+    <Story name='Information Boxes, 3 Count'>
+        <InformationBoxes
+        boxes={[
+          {
+            title: 'Award Obligations',
+            amount: 819900000000,
+            isMonetary: true
+          },
+          {
+            title: 'Number of Transactions',
+            amount: 2531
+          },
+          {
+            title: 'Number of New Awards',
+            amount: 125
+          }
+        ]} />
+    </Story>
+</Canvas>
+
+## Information Boxes, 4 Count
+<Canvas>
+    <Story name='Information Boxes, 4 Count'>
+        <InformationBoxes
+        boxes={[
+          {
+            title: 'Number of Object Classes',
+            subtitle: 'for FY 19',
+            amount: 13
+          },
+          {
+            title: 'Total Budgetary Resources',
+            subtitle: 'for FY 19',
+            amount: 819900000000,
+            isMonetary: true
+          },
+          {
+            title: 'Total Outlays',
+            subtitle: 'for FY 19',
+            amount: 1110000000000,
+            isMonetary: true
+          },
+          {
+            title: 'Total Obligations',
+            subtitle: 'for FY 19',
+            amount: 1070000000000,
+            isMonetary: true
+          }
+        ]} />
+    </Story>
+</Canvas>
+
+<ArgsTable of={InformationBoxes} />
+
+## Integration Status
+Answers the question, where is this component used?
+
+### USASpending
+- [x] COVID-19 Page
