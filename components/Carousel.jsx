@@ -52,7 +52,7 @@ const Carousel = ({ items }) => {
         }
     }, [isDragging]);
 
-    useEffect(() => {
+    useEffect(() => { // always display current content
         if (carouselList.current && carouselContainer.current) {
             const imageWidth = carouselContainer.current.offsetWidth;
             const offset = (page - 1) * imageWidth * -1;

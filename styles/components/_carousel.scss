@@ -47,7 +47,7 @@
   .usa-dt-carousel-pager {
       .usa-dt-carousel-pager__list {
           @include unstyled-list;
-          margin-top: rem(25);
+          margin-top: rem(5);
           
           display: flex;
           justify-content: center;
@@ -55,22 +55,17 @@
 
           .usa-dt-carousel-pager__list-item {
               flex: 0 0 auto;
-              &:not(:first-child) {
-                  margin-left: rem(7);
-              }
           }
 
           button.usa-dt-carousel-pager__dot-button {
             flex: 0 0 auto;
-            &:not(:first-child) {
-                margin-left: rem(7);
-            }
-              @include button-unstyled;
-              width: rem(10);
-              height: rem(10);
-
-              opacity: 0.4;
-              transition: opacity 150ms;
+            display: flex;
+            justify-content: center;
+            @include button-unstyled;
+            width: rem(30);
+            height: rem(30);
+            opacity: 0.4;
+            transition: opacity 150ms;
 
               .usa-dt-carousel-pager__dot-decorator {
                   width: rem(10);
@@ -78,6 +73,7 @@
                   border-radius: rem(5);
                   background-color:$color-gray-medium;
                   pointer-events: none;
+                  align-self: center;
               }
 
               &:hover, &:active, &.usa-dt-carousel-pager__dot-button_active {
