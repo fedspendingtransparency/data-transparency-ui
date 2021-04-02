@@ -26,12 +26,14 @@
           line-height: rem(16);
           padding-bottom: rem(3);
           color: $color-base;
+          align-self: center;
         }
         .usa-dt-information-box__subtitle {
           font-size: rem(12);
           letter-spacing: 0;
           line-height: rem(11);
           color: $color-base;
+          align-self: center;
         }
         .usa-dt-information-box__amount {
           font-size: rem(20);
@@ -39,6 +41,7 @@
           letter-spacing: 0;
           line-height: rem(25);
           color: $color-base;
+          align-self: center;
           &.loading {
             margin: 2.5rem 0 2rem 0;
             display: flex;
