@@ -10,9 +10,9 @@ import FiscalYearPicker from './FiscalYearPicker';
 require('../styles/components/_section-title.scss');
 
 const ToolBar = ({
-    fyProps = {},
-    downloadProps = {},
-    shareProps = {},
+    fyProps,
+    downloadProps,
+    shareProps,
     classNames
 }) => (
     <div className={classNames}>
@@ -33,12 +33,9 @@ ToolBar.propTypes = {
         handleFyChange: PropTypes.func.isRequired
     }),
     shareProps: PropTypes.shape({
-        slug: PropTypes.string.isRequired,
-        email: PropTypes.shape({
-            subject: PropTypes.string.isRequired,
-            body: PropTypes.string
-        }).isRequired,
-        classNames: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        classNames: PropTypes.string,
+        onShareOptionClick: PropTypes.func.isRequired
     }),
     downloadProps: PropTypes.shape({
         onClick: PropTypes.func.isRequired,
@@ -53,9 +50,9 @@ const PageHeader = ({
     id = '',
     classNames = '',
     overLine = "",
-    fyProps = {},
-    shareProps = {},
-    downloadProps = {},
+    fyProps,
+    shareProps,
+    downloadProps,
     stickyBreakPoint = 0
 }) => {
     const stickyHeader = useRef(null);
@@ -115,19 +112,16 @@ PageHeader.propTypes = {
     stickyBreakPoint: PropTypes.number,
     overLine: PropTypes.string,
     title: PropTypes.string.isRequired,
-    children: PropTypes.element.isRequired,
+    children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     fyProps: PropTypes.shape({
         selectedFy: PropTypes.number.isRequired,
         latestFy: PropTypes.number.isRequired,
         handleFyChange: PropTypes.func.isRequired
     }),
     shareProps: PropTypes.shape({
-        slug: PropTypes.string.isRequired,
-        email: PropTypes.shape({
-            subject: PropTypes.string.isRequired,
-            body: PropTypes.string
-        }).isRequired,
-        classNames: PropTypes.string.isRequired
+        url: PropTypes.string.isRequired,
+        classNames: PropTypes.string,
+        onShareOptionClick: PropTypes.func.isRequired
     }),
     downloadProps: PropTypes.shape({
         onClick: PropTypes.func.isRequired,

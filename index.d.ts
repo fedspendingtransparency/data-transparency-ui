@@ -179,12 +179,10 @@ export interface FiscalYearPickerProps {
     handleFyChange: (fy: string) => void
 }
 export interface ShareIconProps {
-    slug: string,
+    url: string,
     classNames: string,
-    email: {
-        subject: string,
-        body: string
-    }
+    onShareOptionClick: (name: string) => void,
+    includeDropdownOptions: Array<string>
 }
 
 export interface PageHeaderProps {
@@ -213,10 +211,10 @@ export function GenericMessage(props: GenericMessageProps): JSX.Element;
 export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
 export function SectionTitle(props: SectionTitleProps): JSX.Element;
-export function PageHeader(props: SectionTitleProps): JSX.Element;
-export function DownloadIconButton(props: SectionTitleProps): JSX.Element;
-export function FiscalYearPicker(props: SectionTitleProps): JSX.Element;
-export function ShareIcon(props: SectionTitleProps): JSX.Element;
+export function PageHeader(props: PageHeaderProps): JSX.Element;
+export function DownloadIconButton(props: DownloadIconButtonProps): JSX.Element;
+export function FiscalYearPicker(props: FiscalYearPickerProps): JSX.Element;
+export function ShareIcon(props: ShareIconProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
 export function useDynamicStickyClass(ref: object, fixedStickyBreakPoint: number): [boolean, number, () => void, () => void, () => void]
 /*~ If there are types, properties, or methods inside dotted names
