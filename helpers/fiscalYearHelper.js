@@ -6,7 +6,7 @@
 export const earliestFiscalYear = 2008;
 export const earliestExplorerYear = 2017;
 export const earliestFederalAccountYear = 2017;
-export const allFiscalYears = (earliestYear = earliestFiscalYear, latestYear = currentFiscalYear()) => {
+export const allFiscalYears = (earliestYear = earliestFiscalYear, latestYear) => {
     const years = [...new Array(latestYear - earliestYear)];
     return years
         .reduce((listOfYears, _, i) => {
