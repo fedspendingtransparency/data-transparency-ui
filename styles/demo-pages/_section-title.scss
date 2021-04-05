@@ -17,3 +17,13 @@
     }
   }
 }
+
+.docs-story {
+  .usda-page__container {
+    height: auto;
+    .usda-page-header.usda-page-header--sticky {
+      width: 100%;
+      position: static;
+    }
+  }
+}

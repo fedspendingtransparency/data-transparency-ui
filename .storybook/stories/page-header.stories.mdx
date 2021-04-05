@@ -1,8 +1,7 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 import PageHeader from '../../components/PageHeader';
 import ComingSoon from '../../components/messages/ComingSoon';
-
 
 <Meta
     title="Page Header"
@@ -35,6 +34,9 @@ import ComingSoon from '../../components/messages/ComingSoon';
             <ComingSoon />
         </PageHeader>
     </Story>
+</Canvas>
+
+<Canvas>
     <Story name='w/ Only Share'>
         <PageHeader
             title="Department of Homeland Security"
@@ -60,5 +62,6 @@ Answers the question where is this component used?
 - [ ] Award Page
 - [ ] Spending Explorer
 - [ ] Advanced Search
+- [ ] Keyword Search
 - [ ] Account Page
 - [ ] Landing Pages
