@@ -1,7 +1,7 @@
 @import "../global/index";
 
 .usda-fy-picker__container {
-    @include for-phone-only {
+    @include for-tablet-portrait-down {
       padding: rem(8) rem(10);
     }
     .usda-fy-picker {
@@ -20,6 +20,10 @@
           height: rem(20);
         }
       }
+      .fy-picker__list {
+        overflow-y: scroll;
+      }
+
       .usa-dt-picker__button-text {
         color: $color-base;
         background: $color-gray-lightest;
