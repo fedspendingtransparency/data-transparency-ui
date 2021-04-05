@@ -66,6 +66,7 @@
     background-color: $color-base;
     display: flex;
     justify-content: center;
+    z-index: 1;
     .usa-dt-picker__dropdown-container .usa-dt-picker__button {
       padding: 0;
       margin: 0;

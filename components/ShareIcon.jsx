@@ -10,13 +10,8 @@ import { socialShareOptions } from '../helpers/socialShare';
 require('../styles/components/_shareIcon.scss');
 
 const propTypes = {
-    slug: PropTypes.string,
     url: PropTypes.string.isRequired,
     classNames: PropTypes.string,
-    email: PropTypes.shape({
-        subject: PropTypes.string,
-        body: PropTypes.string
-    }),
     onShareOptionClick: PropTypes.func.isRequired,
     includedDropdownOptions: PropTypes.arrayOf(PropTypes.string)
 };
