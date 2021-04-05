@@ -65,6 +65,9 @@ $z-header: 100;
           padding: rem(10);
         }
       }
+      &.usda-section-title__header {
+        margin-left: rem(9);
+      }
       strong.usda-section-title__overline,
       .usda-page-header__overline {
         font-size: rem(12);
