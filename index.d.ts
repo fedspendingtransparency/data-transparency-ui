@@ -56,7 +56,7 @@ interface LoadingMessageProps {
 
 interface PickerPropsOptions {
     name: string | number,
-    value: string | number
+    value: string | number,
     onClick: (value: string | number) => void,
     classNames?: string
 }
@@ -173,10 +173,19 @@ export interface DownloadIconButtonProps {
     downloadInFlight: boolean,
     hoverComponent: JSX.Element
 }
+
+interface FiscalYearOptions {
+    name: string | number,
+    value: string | number
+}
+
 export interface FiscalYearPickerProps {
-    selectedFy: number,
+    selectedFy: number | string,
     latestFy: number,
-    handleFyChange: (fy: string) => void
+    earliestFy: number,
+    handleFyChange: (fy: string) => void,
+    options: Array<FiscalYearOptions>,
+    sortFn: (a: string | number, b: string | number) => int;
 }
 export interface ShareIconProps {
     url: string,
