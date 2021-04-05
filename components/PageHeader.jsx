@@ -28,9 +28,18 @@ const ToolBar = ({
 ToolBar.propTypes = {
     classNames: PropTypes.string,
     fyProps: PropTypes.shape({
-        selectedFy: PropTypes.number.isRequired,
-        latestFy: PropTypes.number.isRequired,
-        handleFyChange: PropTypes.func.isRequired
+        selectedFy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        earliestFy: PropTypes.number,
+        latestFy: PropTypes.number,
+        sortFn: PropTypes.func,
+
+        handleFyChange: PropTypes.func.isRequired,
+        options: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            classNames: PropTypes.string,
+            onClick: PropTypes.func
+        }))
     }),
     shareProps: PropTypes.shape({
         url: PropTypes.string.isRequired,
@@ -114,8 +123,15 @@ PageHeader.propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     fyProps: PropTypes.shape({
-        selectedFy: PropTypes.number.isRequired,
-        latestFy: PropTypes.number.isRequired,
+        selectedFy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        earliestFy: PropTypes.number,
+        latestFy: PropTypes.number,
+        sortFn: PropTypes.func,
+        options: PropTypes.arrayOf(PropTypes.shape({
+            name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+            classNames: PropTypes.string
+        })),
         handleFyChange: PropTypes.func.isRequired
     }),
     shareProps: PropTypes.shape({
