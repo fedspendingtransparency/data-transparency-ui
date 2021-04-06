@@ -32,13 +32,10 @@ ToolBar.propTypes = {
         earliestFy: PropTypes.number,
         latestFy: PropTypes.number,
         sortFn: PropTypes.func,
-
         handleFyChange: PropTypes.func.isRequired,
         options: PropTypes.arrayOf(PropTypes.shape({
             name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            classNames: PropTypes.string,
-            onClick: PropTypes.func
+            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         }))
     }),
     shareProps: PropTypes.shape({
