@@ -10,6 +10,12 @@ import ComingSoon from '../../components/messages/ComingSoon';
 ## Props
 <ArgsTable of={PageHeader} />
 
+### FYProps: Options
+This prop is used to override the default styling for the fiscal year picker in the page header. The default is a list of years prefixed with `FY`. This default list is built using the props `latestFy` and `earliestFy`.
+
+### Sticky Behavior
+The page header is sticky on scroll. You can pass `stickyBreakpoint` to specify the threshold where the header should become or lose it's stickiness. NOTE: the docs tab has this behavior disabled and it can be overriden via css.
+
 <Canvas>
     <Story name='w/ All Toolbar Options'>
         <PageHeader
