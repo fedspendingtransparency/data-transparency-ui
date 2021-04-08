@@ -134,22 +134,20 @@ export default class TooltipWrapper extends React.Component {
 
     getTooltipWidth = () => {
         const { right: spaceToRight, left: spaceToLeft, total } = this.getAvailableHorizontalSpace();
+        const greatestSpace = spaceToRight > spaceToLeft
+            ? spaceToRight
+            : spaceToLeft;
         if (total < 425) {
             // mobile tooltip stylez
             return total - (horizontalPadding * 2);
-        }
-        else if (this.props.wide && this.props.tooltipPosition === 'left') {
-            return (spaceToLeft > 800)
-                ? 700
-                : spaceToLeft - horizontalPadding;
         }
         else if (this.props.tooltipPosition === 'bottom') {
             return this.props.width;
         }
         else if (this.props.wide) {
-            return (spaceToRight > 800)
+            return (greatestSpace > 800)
                 ? 700
-                : spaceToRight - horizontalPadding;
+                : greatestSpace - horizontalPadding;
         }
         return this.props.width;
     };
@@ -195,7 +193,7 @@ export default class TooltipWrapper extends React.Component {
         else if (this.tooltipContainer) {
             const tooltipWidth = this.getTooltipWidth();
 
-            const { left: spaceToLeft, total } = this.getAvailableHorizontalSpace();
+            const { left: spaceToLeft, total, right: spaceToRight } = this.getAvailableHorizontalSpace();
             const offsetTop = this.tooltipContainer.offsetTop + this.props.offsetAdjustments.top;
             const isMobile = total < 700;
             if (this.props.tooltipPosition === 'bottom' || isMobile) {
@@ -203,6 +201,32 @@ export default class TooltipWrapper extends React.Component {
                     arrowDirection: 'bottom',
                     spacerStyle: {
                         ...this.getDimensionsForMobile(isMobile, tooltipWidth)
+                    }
+                });
+            }
+            else if (this.props.tooltipPosition === 'right' && spaceToRight < tooltipWidth) {
+                // going left b/c cant go right
+                const startingPositionLeft = (spaceToLeft - tooltipWidth) + this.tooltipContainer.clientWidth;
+                this.setState({
+                    arrowDirection: 'smart-bottom-left',
+                    spacerStyle: {
+                        top: this.tooltipContainer.offsetTop + 16 + this.tooltipContainer.clientHeight,
+                        // 20px of padding for the arrow
+                        left: startingPositionLeft + 20,
+                        width: tooltipWidth
+                    }
+                });
+            }
+            else if (this.props.tooltipPosition === 'left' && spaceToLeft < tooltipWidth) {
+                // going right b/c cant go left
+                const startingPositionLeft = spaceToLeft;
+                this.setState({
+                    arrowDirection: 'smart-bottom-right',
+                    spacerStyle: {
+                        top: this.tooltipContainer.offsetTop + 16 + this.tooltipContainer.clientHeight,
+                        // 20px of padding for the arrow
+                        left: startingPositionLeft - 20,
+                        width: tooltipWidth
                     }
                 });
             }

@@ -1,5 +1,12 @@
 .tooltip-story {
     height: 400px;
-    padding: 20px 0 0 0;
+    padding: 20px;
     align-items: flex-start;
+
+    &.smart-tooltip-left {
+        justify-content: flex-end;
+    }
+    &.smart-tooltip-right {
+        justify-content: flex-start;
+    }
 }

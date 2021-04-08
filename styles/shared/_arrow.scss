@@ -21,6 +21,19 @@ $color-tooltip-border: $color-gray-light;
         transform: rotate(45deg);
         pointer-events: none;
     }
+    &.smart-bottom-left,
+    &.smart-bottom-right {
+        transform: rotate(90deg);
+        top: -8px; 
+        &.smart-bottom-left {
+            // 20px of padding like below + 16px for arrow to be plush w/ end of tooltip, plus another 8 to center the arrow under the container
+            left: calc(100% - 44px);
+        }
+        &.smart-bottom-right {
+            // 20px of padding + 8px for half the arrow width
+            left: rem(28);
+        }
+    }
     &.right {
         left: auto;
         right: - rem(8);
