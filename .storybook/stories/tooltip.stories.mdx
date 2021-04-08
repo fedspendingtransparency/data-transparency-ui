@@ -10,9 +10,31 @@ import { Tooltip } from "../misc";
     component={TooltipWrapper}
 />
 
+<ArgsTable of={TooltipWrapper} />
+
+## Manual Position w/ Happy Path (enough room)
 <Canvas>
-    <Story name="Tooltip Wrapper">
+    <Story name="Default">
         <div className="story__container tooltip-story">
+            <TooltipWrapper
+                icon="info"
+                tooltipComponent={<Tooltip />}
+                wide={boolean("wide", false)}
+                tooltipPosition={text("tooltipPosition", "left")}
+                controlledProps={object("controlledTooltip", {
+                    isControlled: false,
+                    isVisible: false
+                })} />
+        </div>
+    </Story>
+</Canvas>
+
+When positioning the tooltip right/left, if there isn't enough room, it chooses the position for you.
+
+## Dynamic Right Positioned
+<Canvas>
+    <Story name="Smart Tooltip (left)">
+        <div className="story__container tooltip-story smart-tooltip-left">
             <TooltipWrapper
                 icon="info"
                 tooltipComponent={<Tooltip />}
@@ -26,7 +48,22 @@ import { Tooltip } from "../misc";
     </Story>
 </Canvas>
 
-<ArgsTable of={TooltipWrapper} />
+## Dynamically Left Positioned
+<Canvas>
+    <Story name="Smart Tooltip (right)">
+        <div className="story__container tooltip-story smart-tooltip-right">
+            <TooltipWrapper
+                icon="info"
+                tooltipComponent={<Tooltip />}
+                wide={boolean("wide", true)}
+                tooltipPosition={text("tooltipPosition", "left")}
+                controlledProps={object("controlledTooltip", {
+                    isControlled: false,
+                    isVisible: false
+                })} />
+        </div>
+    </Story>
+</Canvas>
 
 ## Integration Status
 Answers the question, where is this component used?
