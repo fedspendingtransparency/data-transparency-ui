@@ -1,65 +1,15 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { isEmpty } from 'lodash';
 
 import { useDynamicStickyClass } from '../helpers/pageHeaderHelper';
-import ShareIcon from './ShareIcon';
-import DownloadIconButton from './DownloadIconButton';
-import FiscalYearPicker from './FiscalYearPicker';
 
 require('../styles/components/_section-title.scss');
 
-const ToolBar = ({
-    fyProps,
-    downloadProps,
-    shareProps,
-    classNames
-}) => (
-    <div className={classNames}>
-        {/* FY Picker */}
-        {!isEmpty(fyProps) && <FiscalYearPicker {...fyProps} />}
-        {/* Share Icon */}
-        {!isEmpty(shareProps) && <ShareIcon {...shareProps} />}
-        {/* Download Icon */}
-        {!isEmpty(downloadProps) && <DownloadIconButton {...downloadProps} />}
-    </div>
-);
-
-ToolBar.propTypes = {
-    classNames: PropTypes.string,
-    fyProps: PropTypes.shape({
-        selectedFy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        earliestFy: PropTypes.number,
-        latestFy: PropTypes.number,
-        sortFn: PropTypes.func,
-        handleFyChange: PropTypes.func.isRequired,
-        options: PropTypes.arrayOf(PropTypes.shape({
-            name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-        }))
-    }),
-    shareProps: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        classNames: PropTypes.string,
-        onShareOptionClick: PropTypes.func.isRequired
-    }),
-    downloadProps: PropTypes.shape({
-        onClick: PropTypes.func.isRequired,
-        downloadInFlight: PropTypes.bool.isRequired,
-        hoverComponent: PropTypes.element
-    })
-};
-
 const PageHeader = ({
     title,
-    children,
-    id = '',
-    classNames = '',
     overLine = "",
-    fyProps,
-    shareProps,
-    downloadProps,
-    stickyBreakPoint = 0
+    stickyBreakPoint = 0,
+    toolBar
 }) => {
     const stickyHeader = useRef(null);
     const [
@@ -83,64 +33,47 @@ const PageHeader = ({
 
     const stickyClass = isSticky ? ' usda-page-header--sticky' : '';
 
-    const showToolbar = (
-        !isEmpty(fyProps) ||
-        !isEmpty(shareProps) ||
-        !isEmpty(downloadProps)
-    );
-
     return (
-        <main id={id} className={`usda-page__container${classNames ? ` ${classNames}` : ''}`}>
-            <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
-                <div className="usda-page-header__container">
-                    <div className="usda-page-header__header">
-                        {overLine && <strong className="usda-page-header__overline">{overLine}</strong>}
-                        <div className="usda-page-header__title">
-                            <h1>{title}</h1>
-                        </div>
+        <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
+            <div className="usda-page-header__container">
+                <div className="usda-page-header__header">
+                    {overLine && <strong className="usda-page-header__overline">{overLine}</strong>}
+                    <div className="usda-page-header__title">
+                        <h1>{title}</h1>
                     </div>
-                    {showToolbar && React.cloneElement(<ToolBar />, {
-                        classNames: 'usda-page-header__toolbar',
-                        fyProps,
-                        shareProps,
-                        downloadProps
-                    })}
                 </div>
-            </section>
-            {children}
-        </main>
+                {toolBar?.length > 0 && (
+                    <div className="usda-page-header__toolbar">
+                        {toolBar.map((component) => {
+                            const className = `${component.props?.className} ${component.props?.classNames}`;
+                            const classNames = `${component.props?.classNames}`;
+                            if (className) {
+                                return React.cloneElement(component, {
+                                    className: `${className} toolbar__item`
+                                });
+                            }
+                            if (classNames) {
+                                return React.cloneElement(component, {
+                                    classNames: `${classNames} toolbar__item`
+                                });
+                            }
+                            return React.cloneElement(component, {
+                                className: `toolbar__item`,
+                                classNames: `toolbar__item`
+                            });
+                        })}
+                    </div>
+                )}
+            </div>
+        </section>
     );
 };
 
 PageHeader.propTypes = {
-    id: PropTypes.string,
-    classNames: PropTypes.string,
     stickyBreakPoint: PropTypes.number,
     overLine: PropTypes.string,
     title: PropTypes.string.isRequired,
-    children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-    fyProps: PropTypes.shape({
-        selectedFy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        earliestFy: PropTypes.number,
-        latestFy: PropTypes.number,
-        sortFn: PropTypes.func,
-        options: PropTypes.arrayOf(PropTypes.shape({
-            name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-            value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-            classNames: PropTypes.string
-        })),
-        handleFyChange: PropTypes.func.isRequired
-    }),
-    shareProps: PropTypes.shape({
-        url: PropTypes.string.isRequired,
-        classNames: PropTypes.string,
-        onShareOptionClick: PropTypes.func.isRequired
-    }),
-    downloadProps: PropTypes.shape({
-        onClick: PropTypes.func.isRequired,
-        downloadInFlight: PropTypes.bool.isRequired,
-        hoverComponent: PropTypes.element
-    })
+    toolBar: PropTypes.arrayOf(PropTypes.element)
 };
 
 export default PageHeader;

@@ -2,6 +2,9 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 import PageHeader from '../../components/PageHeader';
 import ComingSoon from '../../components/messages/ComingSoon';
+import ShareIcon from '../../components/ShareIcon';
+import DownloadIconButton from '../../components/DownloadIconButton';
+import FiscalYearPicker from '../../components/FiscalYearPicker';
 
 <Meta
     title="Page Header"
@@ -19,41 +22,16 @@ The page header is sticky on scroll. You can pass `stickyBreakpoint` to specify 
 <Canvas>
     <Story name='w/ All Toolbar Options'>
         <PageHeader
+            overLine="Agency Profile"
             title="Department of Homeland Security"
-            fyProps={{
-                selectedFy: 2020,
-                latestFy: 2021,
-                handleFyChange: () => {}
-            }}
-            downloadProps={{
-                onClick: () => {},
-                downloadInFlight: false
-            }}
-            shareProps={{
-                url: 'this-is-a-test-url.com',
-                email: {
-                    subject: 'Example',
-                    body: ''
-                }
-            }}
-            overLine="Agency Profile">
-            <ComingSoon />
-        </PageHeader>
-    </Story>
-</Canvas>
-
-<Canvas>
-    <Story name='w/ Only Share'>
-        <PageHeader
-            title="Department of Homeland Security"
-            shareProps={{
-                url: 'this-is-a-test-url.com',
-                email: {
-                    subject: 'Example',
-                    body: ''
-                }
-            }}
-            overLine="Agency Profile">
+            toolBar={[
+                <FiscalYearPicker
+                    selectedFy={2020}
+                    latestFy={2021}
+                    handleFyChange={() => {}} />,
+                <ShareIcon url='this-is-a-test-url.com' />,
+                <DownloadIconButton onClick={() => {}} downloadInFlight={false} />
+            ]}>
             <ComingSoon />
         </PageHeader>
     </Story>
