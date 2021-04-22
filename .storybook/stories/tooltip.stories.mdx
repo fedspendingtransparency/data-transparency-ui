@@ -12,7 +12,10 @@ import { Tooltip } from "../misc";
 
 <ArgsTable of={TooltipWrapper} />
 
-## Manual Position w/ Happy Path (enough room)
+## w/ Room
+No overriding necessary in this case for position. Use the `wide` prop to expand the tooltip or the `tooltipPosition` prop to determine which direction for the tooltip to go.
+Currently, only supports right or left.
+
 <Canvas>
     <Story name="Default">
         <div className="story__container tooltip-story">
@@ -31,7 +34,9 @@ import { Tooltip } from "../misc";
 
 When positioning the tooltip right/left, if there isn't enough room, it chooses the position for you.
 
-## Dynamic Right Positioned
+## w/ No Room to Left: Dynamically Right Positioned
+A tooltip with the `tooltipPosition` prop set to `right` that instead goes left due to their not being enough room.
+
 <Canvas>
     <Story name="Smart Tooltip (left)">
         <div className="story__container tooltip-story smart-tooltip-left">
@@ -48,7 +53,9 @@ When positioning the tooltip right/left, if there isn't enough room, it chooses 
     </Story>
 </Canvas>
 
-## Dynamically Left Positioned
+## w/ No Room to Right: Dynamically Left Positioned
+A tooltip with the `tooltipPosition` prop set to `left` that instead goes right due to their not being enough room.
+
 <Canvas>
     <Story name="Smart Tooltip (right)">
         <div className="story__container tooltip-story smart-tooltip-right">
@@ -71,8 +78,8 @@ Answers the question, where is this component used?
 ### USASpending
 - [x] Award Summary Page
 - [x] Agency Submission Statistics
-- [ ] Home Page Hero
-- [ ] Advanced Search
+- [x] Home Page Hero
+- [x] Advanced Search
 - [ ] Spending Explorer
 - [ ] State Profile Page
 - [ ] Agency Profile Page
