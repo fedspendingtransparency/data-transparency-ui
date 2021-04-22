@@ -5,34 +5,31 @@ $sticky-header-height-mobile: rem(96);
 $z-header: 100;
 
 .usda-section__container,
-.usda-page__container {
+.usda-page-header {
   margin-top: rem(15);
   margin-bottom: rem(15);
   flex-wrap: wrap;
-  &.usda-page__container {
+  &.usda-page-header {
     margin: 0;
+    background: $color-base;
+    display: flex;
+    width: 100%;
   }
   .usda-section-title__container,
-  .usda-page-header,
-  .usda-page-header .usda-page-header__container {
+  .usda-page-header__container {
     flex-wrap: wrap;
     display: flex;
     align-items: center;
     width: 100%;
-    &.usda-page-header {
-      background: $color-base;
+    &.usda-page-header__container {
+      max-width: 160rem;
+      margin: auto;
       @include for-desktop-up {
         height: rem(60);
+        margin: 0 rem(40);
       }
-      .usda-page-header__container {
-        max-width: 160rem;
+      @include for-big-desktop-up {
         margin: auto;
-        @include for-desktop-up {
-          margin: 0 rem(40);
-        }
-        @include for-big-desktop-up {
-          margin: auto;
-        }
       }
     }
     &.usda-page-header--sticky {
