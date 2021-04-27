@@ -1,6 +1,15 @@
 @import "../global/index";
 
 .usda-download-btn {
+    .tooltip__hover-wrapper {
+        flex-direction: column;
+    }
+    &.disabled {
+        .usda-button,
+        span {
+            opacity: 0.5;
+        }
+    }
     .usda-button {
         background-color: $color-base;
         border: none;
