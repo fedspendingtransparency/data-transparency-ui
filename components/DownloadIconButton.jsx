@@ -3,57 +3,70 @@
  * Created by Lizzie Salita 7/9/20
  **/
 
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faFileDownload } from '@fortawesome/free-solid-svg-icons';
 
+import TooltipWrapper from './infoTooltip/TooltipWrapper';
+
 require('../styles/components/_downloadIconButton.scss');
 
 const propTypes = {
-    onClick: PropTypes.func,
+    onClick: PropTypes.func.isRequired,
     downloadInFlight: PropTypes.bool,
-    hoverComponent: PropTypes.element
+    tooltipComponent: PropTypes.element,
+    isEnabled: PropTypes.bool,
+    tooltipPosition: PropTypes.string
 };
 
-const DownloadIconButton = ({ onClick, downloadInFlight, hoverComponent = null }) => {
-    const [showHover, setShowHover] = useState(false);
+const DownloadIconButton = ({
+    onClick,
+    downloadInFlight,
+    tooltipComponent = null,
+    tooltipPosition = "left",
+    isEnabled = true
+}) => {
     const startDownload = (e) => {
         e.preventDefault();
-        if (!downloadInFlight) {
+        if (!downloadInFlight && isEnabled) {
             onClick();
         }
     };
 
-    const onMouseEnter = () => setShowHover(true);
-    const onMouseLeave = () => setShowHover(false);
-
-    let hover = null;
-    if (showHover && !downloadInFlight) {
-        hover = (hoverComponent);
-    }
-
-    const disabledClass = downloadInFlight ? ' sticky-header__button_disabled' : '';
+    const disabledClass = downloadInFlight || !isEnabled ? ' disabled' : '';
     const buttonText = downloadInFlight ? 'Preparing Download...' : 'Download';
     const icon = downloadInFlight ? faSpinner : faFileDownload;
 
+    if (tooltipComponent) {
+        return (
+            <TooltipWrapper
+                className={`usda-download-btn${disabledClass}`}
+                tooltipPosition={tooltipPosition}
+                tooltipComponent={tooltipComponent}>
+                <button
+                    className="usda-button"
+                    title={buttonText}
+                    aria-label={buttonText}
+                    disabled={downloadInFlight}
+                    onClick={startDownload}>
+                    <FontAwesomeIcon icon={icon} spin={downloadInFlight} />
+                </button>
+                <span>{buttonText}</span>
+            </TooltipWrapper>
+        );
+    }
     return (
-        <div
-            className="usda-download-btn"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            onFocus={onMouseEnter}
-            onBlur={onMouseLeave}>
-            {hover}
+        <div className={`usda-download-btn${disabledClass}`}>
             <button
-                className={`usda-button${disabledClass}`}
+                className="usda-button"
                 title={buttonText}
                 aria-label={buttonText}
                 disabled={downloadInFlight}
                 onClick={startDownload}>
-                <FontAwesomeIcon icon={icon} spin={!!downloadInFlight} />
+                <FontAwesomeIcon icon={icon} spin={downloadInFlight} />
             </button>
-            <span>Download</span>
+            <span>{buttonText}</span>
         </div>
     );
 };
