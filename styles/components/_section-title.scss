@@ -15,6 +15,11 @@ $z-header: 100;
     display: flex;
     width: 100%;
   }
+  &.usda-page-header--sticky {
+    position: fixed;
+    top: 0;
+    z-index: $z-header;
+  }
   .usda-section-title__container,
   .usda-page-header__container {
     flex-wrap: wrap;
@@ -26,16 +31,10 @@ $z-header: 100;
       margin: auto;
       @include for-desktop-up {
         height: rem(60);
-        margin: 0 rem(40);
       }
       @include for-big-desktop-up {
         margin: auto;
       }
-    }
-    &.usda-page-header--sticky {
-        position: fixed;
-        top: 0;
-        z-index: $z-header;
     }
     @include for-tablet-landscape-up {
       flex-wrap: nowrap;
