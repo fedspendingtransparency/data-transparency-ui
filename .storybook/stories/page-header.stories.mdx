@@ -23,19 +23,20 @@ The page header is sticky on scroll. You can pass `stickyBreakpoint` to specify 
 
 <Canvas>
     <Story name='w/ All Toolbar Options'>
-        <PageHeader
-            overLine="Agency Profile"
-            title="Department of Homeland Security"
-            toolBar={[
-                <FiscalYearPicker
-                    selectedFy={2020}
-                    latestFy={2021}
-                    handleFyChange={() => {}} />,
-                <ShareIcon url='this-is-a-test-url.com' />,
-                <DownloadIconButton onClick={() => {}} downloadInFlight={boolean("Download In Flight", false)} tooltipComponent={<Tooltip />} isEnabled={boolean("Download Enabled", true)} />
-            ]}>
+        <div className="page-header-story">
+            <PageHeader
+                overLine="Agency Profile"
+                title="Department of Homeland Security"
+                toolBar={[
+                    <FiscalYearPicker
+                        selectedFy={2020}
+                        latestFy={2021}
+                        handleFyChange={() => {}} />,
+                    <ShareIcon url='this-is-a-test-url.com' />,
+                    <DownloadIconButton onClick={() => {}} downloadInFlight={boolean("Download In Flight", false)} tooltipComponent={<Tooltip />} isEnabled={boolean("Download Enabled", true)} />
+                ]} />
             <ComingSoon />
-        </PageHeader>
+        </div>
     </Story>
 </Canvas>
 

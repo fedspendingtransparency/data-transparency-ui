@@ -2,7 +2,7 @@
   margin-top: rem(20);
 }
 
-.usda-page__container {
+.page-header-story {
   height: 1600px;
   .usda-page-header.usda-page-header--sticky {
     width: calc(100% - 20px);
@@ -19,7 +19,7 @@
 }
 
 .docs-story {
-  .usda-page__container {
+  .page-header-story {
     height: auto;
     .usda-page-header.usda-page-header--sticky {
       width: 100%;
