@@ -1,10 +1,12 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { boolean } from "@storybook/addon-knobs";
 
 import PageHeader from '../../components/PageHeader';
 import ComingSoon from '../../components/messages/ComingSoon';
 import ShareIcon from '../../components/ShareIcon';
 import DownloadIconButton from '../../components/DownloadIconButton';
 import FiscalYearPicker from '../../components/FiscalYearPicker';
+import { Tooltip } from '../misc';
 
 <Meta
     title="Page Header"
@@ -30,7 +32,7 @@ The page header is sticky on scroll. You can pass `stickyBreakpoint` to specify 
                     latestFy={2021}
                     handleFyChange={() => {}} />,
                 <ShareIcon url='this-is-a-test-url.com' />,
-                <DownloadIconButton onClick={() => {}} downloadInFlight={false} />
+                <DownloadIconButton onClick={() => {}} downloadInFlight={boolean("Download In Flight", false)} tooltipComponent={<Tooltip />} isEnabled={boolean("Download Enabled", true)} />
             ]}>
             <ComingSoon />
         </PageHeader>
