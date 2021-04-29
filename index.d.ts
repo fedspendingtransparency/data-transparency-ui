@@ -196,14 +196,9 @@ export interface ShareIconProps {
 
 export interface PageHeaderProps {
     title: string,
-    children: Array<JSX.Element>,
-    id: string,
-    classNames: string,
     overLine: string,
-    fyProps: FiscalYearPickerProps,
-    shareProps: ShareIconProps,
-    downloadProps: DownloadIconButtonProps,
-    stickyBreakPoint: number
+    stickyBreakPoint: number,
+    toolBar: Array<JSX.Element>
 }
 
 /*~ If this module has methods, declare them as functions like so.
