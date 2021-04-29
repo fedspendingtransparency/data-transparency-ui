@@ -18,6 +18,7 @@ $z-header: 100;
   &.usda-page-header--sticky {
     position: fixed;
     top: 0;
+    left: 0;
     z-index: $z-header;
   }
   .usda-section-title__container,
