@@ -47,6 +47,7 @@ const FiscalYearPicker = ({
     );
 };
 
+FiscalYearPicker.displayName = 'Fiscal Year Picker';
 FiscalYearPicker.propTypes = {
     selectedFy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     earliestFy: PropTypes.number,

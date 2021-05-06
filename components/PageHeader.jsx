@@ -9,7 +9,7 @@ const PageHeader = ({
     title,
     overLine = "",
     stickyBreakPoint = 0,
-    toolBar
+    toolBar = []
 }) => {
     const stickyHeader = useRef(null);
     const [
@@ -33,6 +33,14 @@ const PageHeader = ({
 
     const stickyClass = isSticky ? ' usda-page-header--sticky' : '';
 
+    const renderMobileShareIcon = () => {
+        const shareIcon = toolBar.find((o) => o.type.displayName === 'Share Icon');
+        if (shareIcon) {
+            return React.cloneElement(shareIcon);
+        }
+        return null;
+    };
+
     return (
         <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
             <div className="usda-page-header__container">
@@ -42,6 +50,7 @@ const PageHeader = ({
                         <h1>{title}</h1>
                     </div>
                 </div>
+                {renderMobileShareIcon()}
                 {toolBar?.length > 0 && (
                     <div className="usda-page-header__toolbar">
                         {toolBar.map((component) => {

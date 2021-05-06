@@ -36,6 +36,21 @@ $z-header: 100;
       @include for-big-desktop-up {
         margin: auto;
       }
+      > .usda-share-icon {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 2rem;
+        @include for-tablet-landscape-up {
+          display: none;
+        }
+        .usa-dt-picker__dropdown-container .usa-dt-picker__list {
+          z-index: 2;
+        }
+        > span {
+          display: none;
+        }
+        @import "../shared/dropDownList";
+      }
     }
     @include for-tablet-landscape-up {
       flex-wrap: nowrap;
@@ -58,8 +73,10 @@ $z-header: 100;
       &.usda-page-header__header {
         align-self: center;
         padding: rem(10) 0;
+        width: auto;
         @include for-phone-only {
           padding: rem(10);
+          width: 50%;
         }
       }
       &.usda-section-title__header {
