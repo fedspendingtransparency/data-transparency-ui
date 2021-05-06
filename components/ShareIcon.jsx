@@ -33,7 +33,10 @@ const ShareIcon = ({
     }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
 
     const copyLink = () => {
-        document.getElementById('slug').select();
+        Array
+            .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
+            .forEach((node) => node.select());
+
         document.execCommand("copy");
         setConfirmationText(true);
         onShareOptionClick('copy');
@@ -60,10 +63,9 @@ const ShareIcon = ({
     return (
         <div className={`${classNames ? `usda-share-icon ${classNames}` : 'usda-share-icon'}`}>
             <input
-                id="slug"
                 aria-label="Share Input Link"
                 type="text"
-                className="text"
+                className="js-dtui-url-for-share-icon text"
                 style={{ position: 'absolute', right: '9999px', opacity: 0 }}
                 value={url}
                 readOnly />
@@ -86,5 +88,5 @@ const ShareIcon = ({
 };
 
 ShareIcon.propTypes = propTypes;
-
+ShareIcon.displayName = 'Share Icon';
 export default ShareIcon;

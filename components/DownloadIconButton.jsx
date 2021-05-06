@@ -71,5 +71,6 @@ const DownloadIconButton = ({
     );
 };
 
+DownloadIconButton.displayName = 'Download Icon Button';
 DownloadIconButton.propTypes = propTypes;
 export default DownloadIconButton;

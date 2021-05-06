@@ -1,0 +1,35 @@
+.usa-dt-picker {
+    .usa-dt-picker__dropdown-container .usa-dt-picker__list {
+      width: rem(141);
+      box-shadow: 0 rem(2) rem(2) 0 rgba(0,0,0,0.5);
+      border-radius: rem(3);
+      max-height: rem(275);
+      .usa-dt-picker__list-item {
+          border: none;
+          border-radius: rem(3);
+          height: rem(39);
+      }
+      .usa-dt-picker__item {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          background: $color-white;
+          font-size: rem(14);
+          line-height: rem(16);
+          color: $color-gray;
+          span {
+            color: $color-gray;
+          }
+          &:hover, &.active {
+              background: $color-gray-lightest;
+              border: rem(1) solid $color-gray-lightest;
+              cursor: pointer;
+              color: $color-link;
+          }
+          svg {
+              margin-right: rem(12);
+              font-size: rem(14);
+          }
+      }
+    }
+}
