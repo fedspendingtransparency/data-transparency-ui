@@ -30,7 +30,7 @@ const InformationBoxes = ({ boxes }) => {
         <div className={`usa-dt-information-boxes ${numberToText[boxes.length]}-boxes`}>
             {
                 boxes.map((box) => (
-                    <div key={box.title} className="usa-dt-information-box">
+                    <div key={box.type} className="usa-dt-information-box">
                         <div className="usa-dt-information-box__divider">
                             <div className={`usa-dt-information-box__content${box.subtitle ? ' with-subtitle' : ''}`}>
                                 <div className="usa-dt-information-box__title">
