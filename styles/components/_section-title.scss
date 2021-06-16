@@ -46,7 +46,7 @@ $z-header: 100;
         .usa-dt-picker__dropdown-container .usa-dt-picker__list {
           z-index: 2;
         }
-        > span {
+        > span:not(.copy-confirmation) {
           display: none;
         }
         @import "../shared/dropDownList";
