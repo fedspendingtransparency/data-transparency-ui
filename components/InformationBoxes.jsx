@@ -8,7 +8,10 @@ require('../styles/components/_informationBoxes.scss');
 const defaultProps = {
     boxes: PropTypes.arrayOf(PropTypes.shape({
         type: PropTypes.string.isRequired,
-        title: PropTypes.string,
+        title: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.element
+        ]),
         amount: PropTypes.number,
         isMonetary: PropTypes.bool,
         subtitle: PropTypes.string,
