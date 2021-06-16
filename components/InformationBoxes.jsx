@@ -7,7 +7,11 @@ require('../styles/components/_informationBoxes.scss');
 
 const defaultProps = {
     boxes: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string,
+        type: PropTypes.string.isRequired,
+        title: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.element
+        ]),
         amount: PropTypes.number,
         isMonetary: PropTypes.bool,
         subtitle: PropTypes.string,
@@ -30,7 +34,7 @@ const InformationBoxes = ({ boxes }) => {
         <div className={`usa-dt-information-boxes ${numberToText[boxes.length]}-boxes`}>
             {
                 boxes.map((box) => (
-                    <div key={box.title} className="usa-dt-information-box">
+                    <div key={box.type} className="usa-dt-information-box">
                         <div className="usa-dt-information-box__divider">
                             <div className={`usa-dt-information-box__content${box.subtitle ? ' with-subtitle' : ''}`}>
                                 <div className="usa-dt-information-box__title">
