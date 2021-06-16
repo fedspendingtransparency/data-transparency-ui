@@ -11,7 +11,8 @@ import InformationBoxes from '../../components/InformationBoxes';
 ## This is Designed to be a [Controlled Component](https://reactjs.org/docs/forms.html#controlled-components)
 This means the component relies on its parent to pass the following props:
  - `boxes`: An array of box objects with their properties below
-      - `title`: string, the title to display.
+      - `title`: (string | element), the title to display.
+      - `type`: (string, required), the unique React key for each box.
       - `subtitle`: string, the subtitle to display.
       - `amount`: number, the amount to display.
       - `isMonetary`: boolean, if true will format the amount as monetary.
@@ -26,11 +27,13 @@ In this example:
             boxes={[
               {
                 title: 'Total Obligations',
+                type: 'totalObligations',
                 amount: 819900000000,
                 isMonetary: true
               },
               {
                 title: 'Total Outlays',
+                type: 'totalOutlays',
                 amount: 1070000000000,
                 isLoading: true,
                 isMonetary: true
@@ -46,15 +49,18 @@ In this example:
         boxes={[
           {
             title: 'Award Obligations',
+            type: 'totalObligations',
             amount: 819900000000,
             isMonetary: true
           },
           {
             title: 'Number of Transactions',
+            type: 'numberOfTransactions',
             amount: 2531
           },
           {
             title: 'Number of New Awards',
+            type: 'numberOfNewAwards',
             amount: 125
           }
         ]} />
@@ -68,23 +74,27 @@ In this example:
         boxes={[
           {
             title: 'Number of Object Classes',
+            type: 'numOfObjectClasses',
             subtitle: 'for FY 19',
             amount: 13
           },
           {
             title: 'Total Budgetary Resources',
+            type: 'totalBudget',
             subtitle: 'for FY 19',
             amount: 819900000000,
             isMonetary: true
           },
           {
             title: 'Total Outlays',
+            type: 'tOutlays',
             subtitle: 'for FY 19',
             amount: 1110000000000,
             isMonetary: true
           },
           {
             title: 'Total Obligations',
+            type: 'tObligations',
             subtitle: 'for FY 19',
             amount: 1070000000000,
             isMonetary: true
