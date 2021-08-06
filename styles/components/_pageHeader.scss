@@ -1,0 +1,142 @@
+@import "../global/index";
+
+$z-header: 100;
+
+.usda-page-header {
+  margin-top: rem(15);
+  margin-bottom: rem(15);
+  flex-wrap: wrap;
+
+  &.usda-page-header {
+    margin: 0;
+    background: $color-base;
+    display: flex;
+    width: 100%;
+  }
+
+  &.usda-page-header--sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-header;
+  }
+
+  .usda-page-header__container {
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &.usda-page-header__container {
+      max-width: 160rem;
+      margin: auto;
+      @include for-desktop-up {
+        height: rem(60);
+      }
+      @include for-big-desktop-up {
+        margin: auto;
+      }
+    }
+
+    @include for-tablet-landscape-up {
+      flex-wrap: nowrap;
+    }
+
+    .usda-page-header__header {
+      display: flex;
+      flex-direction: column;
+      margin-right: auto;
+      align-self: flex-end;
+      flex-wrap: wrap;
+
+      &.usda-page-header__header {
+        align-self: center;
+        padding: rem(10) 0;
+        width: auto;
+
+        @include for-phone-only {
+          padding: rem(10);
+        }
+      }
+    }
+
+    .usda-page-header__overline {
+      font-size: rem(12);
+      flex-wrap: wrap;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: $font-normal;
+    }
+
+    .usda-page-header__title {
+      display: flex;
+      align-items: flex-end;
+
+      h1 {
+        margin: 0;
+        font-size: rem(20);
+        color: $color-base;
+        font-weight: $font-semibold;
+        line-height: rem(20);
+        color: #fff;
+      }
+    }
+
+    .tooltip-wrapper {
+      display: none;
+
+      @include for-tablet-portrait-up {
+        font-size: rem(20);
+        display: block;
+        align-self: flex-end;
+
+        @include for-phone-only {
+          align-self: center;
+        }
+
+        .tooltip__hover-wrapper {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .usda-page-header__mobile-top {
+    flex: 1 0 auto;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    @include for-phone-only {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    .usda-share-icon {
+      margin: 0 rem(10) 0 0;
+
+      @include for-tablet-landscape-up {
+        display: none;
+      }
+
+      .usa-dt-picker__dropdown-container .usa-dt-picker__list {
+        z-index: 2;
+      }
+
+      > span:not(.copy-confirmation) {
+        display: none;
+      }
+
+      @import "../shared/dropDownList";
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: rem(2);
+    background: #494440;
+    border: none;
+  }
+}
+
+@import "./pageToolbar";
