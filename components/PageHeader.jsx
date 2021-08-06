@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useDynamicStickyClass } from '../helpers/pageHeaderHelper';
 
-require('../styles/components/_section-title.scss');
+require('../styles/components/_pageHeader.scss');
 
 const PageHeader = ({
     title,
@@ -44,13 +44,15 @@ const PageHeader = ({
     return (
         <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
             <div className="usda-page-header__container">
-                <div className="usda-page-header__header">
-                    {overLine && <strong className="usda-page-header__overline">{overLine}</strong>}
-                    <div className="usda-page-header__title">
-                        <h1>{title}</h1>
+                <div className="usda-page-header__mobile-top">
+                    <div className="usda-page-header__header">
+                        {overLine && <strong className="usda-page-header__overline">{overLine}</strong>}
+                        <div className="usda-page-header__title">
+                            <h1>{title}</h1>
+                        </div>
                     </div>
+                    {renderMobileShareIcon()}
                 </div>
-                {renderMobileShareIcon()}
                 {toolBar?.length > 0 && (
                     <div className="usda-page-header__toolbar">
                         {toolBar.map((component) => {
