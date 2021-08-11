@@ -67,9 +67,10 @@ To test components locally in the context in which they will be used we use `npm
 3. Run npm link
 4. Run npm link path/to/your/consumer-context/node_modules/react (example npm link ../consumer-context/node_modules/react)
 5. Navigate to the consumer context folder.
-6. Update nvm version if needed (example nvm use 12)
-7. Run npm link data-transparency-ui
-8. Change nvm version back (example nvm use 14)
-9. Start by running npm start
+6. Run npm link data-transparency-ui
 
 Now, when you start your local development server in your consumer context, you will be using your local clone of this repository. 🙌
+
+### Node Version
+
+Current node version is v14
