@@ -1,0 +1,18 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { boolean, object, text, number, array } from "@storybook/addon-knobs";
+
+import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
+
+<Meta
+    title="Components/Flex Grid/Flex Grid Container"
+    component={FlexGridContainer}
+/>
+
+## Flex Grid Container
+<Canvas>
+    <Story name='Flex Grid Container'>
+        <FlexGridContainer className="poo" />
+    </Story>
+</Canvas>
+
+<ArgsTable of={FlexGridContainer} />
