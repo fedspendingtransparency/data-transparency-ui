@@ -72,6 +72,11 @@
             font-weight: $font-light;
             padding-bottom: rem(3);
           }
+          .usa-dt-information-box__subtitle-count {
+            font-size: rem(17);
+            line-height: rem(22);
+            font-weight: $font-normal;
+          }
           .usa-dt-information-box__amount {
             font-size: rem(32);
             font-weight: $font-semibold;

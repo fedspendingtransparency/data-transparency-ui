@@ -15,6 +15,7 @@ const defaultProps = {
         amount: PropTypes.number,
         isMonetary: PropTypes.bool,
         subtitle: PropTypes.string,
+        countSubtitle: PropTypes.string,
         isLoading: PropTypes.bool
     }))
 };
@@ -48,6 +49,10 @@ const InformationBoxes = ({ boxes }) => {
                                     {box.isLoading && <div className="dot-pulse" />}
                                     {!box.isLoading && formattedValue(box.amount, box.isMonetary, isForTabletPortaitUp)}
                                 </div>
+                                {box.countSubtitle &&
+                                    <div className="usa-dt-information-box__subtitle-count">
+                                        {box.countSubtitle}
+                                    </div>}
                             </div>
                         </div>
                     </div>
