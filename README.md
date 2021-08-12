@@ -70,3 +70,7 @@ To test components locally in the context in which they will be used we use `npm
 6. Run npm link data-transparency-ui
 
 Now, when you start your local development server in your consumer context, you will be using your local clone of this repository. 🙌
+
+### Node Version
+
+Current node version is v14
