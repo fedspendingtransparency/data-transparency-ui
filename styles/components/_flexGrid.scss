@@ -1,0 +1,29 @@
+$theme-respect-user-font-size: false;
+$theme-root-font-size: 10px;
+$theme-grid-container-max-width: 1600px;
+$theme-site-margins-width: 2;
+$theme-site-margins-mobile-width: 1;
+$theme-column-gap-sm: 1;
+$theme-column-gap-md: 2;
+$theme-column-gap-lg: 4;
+
+// $theme-column-gap-mobile: 1;
+$theme-column-gap-desktop: 2;
+
+@import '~uswds/dist/scss/packages/required';
+
+// @import "~uswds/dist/scss/settings/settings-general";
+// @import "~uswds/dist/scss/settings/settings-typography";
+// @import "~uswds/dist/scss/settings/settings-color";
+// @import "~uswds/dist/scss/settings/settings-spacing";
+// @import "~uswds/dist/scss/settings/settings-utilities";
+
+// @import "~uswds/dist/scss/core/functions";
+// @import "~uswds/dist/scss/core/system-tokens";
+// @import "~uswds/dist/scss/core/variables";
+// @import "~uswds/dist/scss/core/properties";
+// @import "~uswds/dist/scss/core/mixins/all";
+
+@import '~uswds/dist/scss/packages/layout-grid';
+
+// @import '~uswds/dist/scss/elements/layout-grid';
