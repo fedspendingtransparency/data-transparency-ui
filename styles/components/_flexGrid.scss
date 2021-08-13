@@ -6,9 +6,19 @@ $theme-site-margins-mobile-width: 1;
 $theme-column-gap-sm: 1;
 $theme-column-gap-md: 2;
 $theme-column-gap-lg: 4;
-
 // $theme-column-gap-mobile: 1;
 $theme-column-gap-desktop: 2;
+// $theme-utility-breakpoints: (
+//   "card": false,
+//   "card-lg": false,
+//   "mobile": true,
+//   "mobile-lg": false,
+//   "tablet": true,
+//   "tablet-lg": false,
+//   "desktop": true,
+//   "desktop-lg": false,
+//   "widescreen": false
+// );
 
 @import '~uswds/dist/scss/packages/required';
 
@@ -25,5 +35,9 @@ $theme-column-gap-desktop: 2;
 // @import "~uswds/dist/scss/core/mixins/all";
 
 @import '~uswds/dist/scss/packages/layout-grid';
+
+@import '~uswds/dist/scss/utilities/palettes/all';
+@import '~uswds/dist/scss/utilities/rules/order';
+@include render-utilities-in($u-order);
 
 // @import '~uswds/dist/scss/elements/layout-grid';
