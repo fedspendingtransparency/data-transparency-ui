@@ -36,7 +36,7 @@ GridRow.propTypes = {
    * Size of the gaps.
    * The `hasGaps` prop must be `true` for this to have an effect.
    */
-  gapSize: PropTypes.oneOf(['sm', 'lg'])
+  gapSize: PropTypes.oneOf(["sm", "lg"])
 };
 
 GridRow.defaultProps = {
