@@ -50,3 +50,36 @@ html {
 @import "./tabs";
 @import "./section-title";
 @import "./pageHeader";
+
+.story-flex-grid {
+    font-size: $base-font-size;
+    line-height: 1.5;
+    text-align: center;
+    color: $color-base;
+
+    .grid-container {
+        background: #d0e2ff;
+        outline: 1px dashed #78a9ff;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .grid-row {
+        background: #d0e2ff;
+        outline: 1px dashed #78a9ff;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    .grid-col {
+        background: #d0e2ff;
+        outline: 1px dashed #78a9ff;
+        padding-top: 24px;
+        padding-bottom: 24px;
+
+        > div {
+            background: #fff;
+            outline: 1px dashed #78a9ff;
+        }
+    }
+}
