@@ -1,18 +1,241 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { boolean, object, text, number, array } from "@storybook/addon-knobs";
 
+import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
+import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 
 <Meta
     title="Components/Flex Grid/Flex Grid Col"
     component={FlexGridCol}
+    decorators={[(Story) => (<div className="story-flex-grid-col"><Story/></div>)]}
 />
 
-## Flex Grid Col
+# Flex Grid Col
+
+## Auto-layout columns
+
+Utilize breakpoint-specific column classes for easy column sizing without an explicit numbered class.
+
+### Equal-width
+
+When no column widths are specified the `FlexGridCol` component will render equal width columns.
+
 <Canvas>
-    <Story name='Flex Grid Col'>
-        <FlexGridCol className="poo" />
+    <Story name='Equal-width'>
+        <FlexGridRow>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+        </FlexGridRow>
     </Story>
 </Canvas>
 
+### Setting one column width
+
+Auto-layout for flex grid columns also means you can set the width of one column and have the sibling columns automatically resize around it.
+
+<Canvas>
+    <Story name='Setting one column width'>
+        <FlexGridRow>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol mobile={6}>
+                <div>.mobile:grid-col-6</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+### Variable width content
+
+Set the column width (or any breakpoint size) to `"auto"` to size columns based on the natural width of their content.
+
+<Canvas>
+    <Story name='Variable width content'>
+        <FlexGridRow>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol width="auto">
+                <div>.grid-col-auto</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+## Responsive classes
+
+### Same at all breakpoints
+
+For columns that should maintain the same proportion at any viewport width, use `<FlexGridCol>` and `<FlexGridCol width={[1-12]}>`. Specify a numbered width property when you need a column of a specific width; otherwise, default to `<FlexGridCol>`.
+
+`<FlexGridCol width={[1-12]}>` set a fixed width of [n] grid-columns in a 12-column grid.
+
+<Canvas>
+    <Story name='Same at all breakpoints'>
+        <FlexGridRow>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>.grid-col</div>
+            </FlexGridCol>
+        </FlexGridRow>
+        <FlexGridRow>
+            <FlexGridCol width={8}>
+                <div>.grid-col-8</div>
+            </FlexGridCol>
+            <FlexGridCol width={4}>
+                <div>.grid-col-4</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+### Stacked columns at narrow widths
+
+Columns are full-width until the narrowest breakpoint specified in a `mobile`, `tablet`, or `desktop` property. For instance, using `<FlexGridCol tablet="fill">`, you can create a basic grid system that starts out stacked before displaying as columns at the `tablet` breakpoint.
+
+<Canvas>
+    <Story name='Stacked columns at narrow widths'>
+        <FlexGridRow>
+            <FlexGridCol tablet="fill">
+                <div>.tablet:grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol tablet="fill">
+                <div>.tablet:grid-col</div>
+            </FlexGridCol>
+            <FlexGridCol tablet="fill">
+                <div>.tablet:grid-col</div>
+            </FlexGridCol>
+        </FlexGridRow>
+        <FlexGridRow>
+            <FlexGridCol tablet={8}>
+                <div>.tablet:grid-col-8</div>
+            </FlexGridCol>
+            <FlexGridCol tablet={4}>
+                <div>.tablet:grid-col-4</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+### Mix and match
+
+Don’t want your columns to simply stack in some breakpoints? Use a combination of different properties for each breakpoints as needed.
+
+<Canvas>
+    <Story name='Mix and match'>
+        <FlexGridRow>
+            <FlexGridCol tablet={8}>
+                <div>.tablet:grid-col-8</div>
+            </FlexGridCol>
+            <FlexGridCol width={6} tablet={4}>
+                <div>.col-6 .tablet:grid-col-4</div>
+            </FlexGridCol>
+        </FlexGridRow>
+        <FlexGridRow>
+            <FlexGridCol width={6} tablet={4}>
+                <div>.col-6 .tablet:grid-col-4</div>
+            </FlexGridCol>
+            <FlexGridCol width={6} tablet={4}>
+                <div>.col-6 .tablet:grid-col-4</div>
+            </FlexGridCol>
+            <FlexGridCol width={6} tablet={4}>
+                <div>.col-6 .tablet:grid-col-4</div>
+            </FlexGridCol>
+        </FlexGridRow>
+        <FlexGridRow>
+            <FlexGridCol width={6}>
+                <div>.col-6</div>
+            </FlexGridCol>
+            <FlexGridCol width={6}>
+                <div>.col-6</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+## Alignment
+
+### Column wrapping
+
+Items wrap when the sum of the grid columns is more than 12.
+
+<Canvas>
+    <Story name='Column wrapping'>
+        <FlexGridRow>
+            <FlexGridCol width={8}>
+                <div>.grid-col-8</div>
+            </FlexGridCol>
+            <FlexGridCol width={3}>
+                <div>.grid-col-3</div>
+            </FlexGridCol>
+            <FlexGridCol width={5}>
+                <div>.grid-col-5</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+## Reordering
+
+### Order classes
+
+Use `"order"` property for controlling the visual order of your content. These properties are responsive, so you can set the order by breakpoint (e.g., `<FlexGridCol tablet={{ span: 4, order: 'last'}}>`).
+
+<Canvas>
+    <Story name='Order classes'>
+        <FlexGridRow>
+            <FlexGridCol tablet={{ span: 4, order: 'last'}}>
+                <div>First, but last</div>
+            </FlexGridCol>
+            <FlexGridCol>
+                <div>Second, but unordered</div>
+            </FlexGridCol>
+            <FlexGridCol tablet={{ span: 4, order: 'first'}}>
+                <div>Third, but first</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+### Offsetting columns
+
+<Canvas>
+    <Story name='Offsetting columns'>
+        <FlexGridRow>
+            <FlexGridCol width={{ span: 8, offset: 4 }}>
+                <div>.grid-col-8.grid-offset-4</div>
+            </FlexGridCol>
+        </FlexGridRow>
+        <FlexGridRow>
+            <FlexGridCol tablet={4}>
+                <div>.tablet:grid-col-4</div>
+            </FlexGridCol>
+            <FlexGridCol tablet={{ span: 4, offset: 4 }}>
+                <div>.tablet:grid-col-10.tablet:grid-offset-2</div>
+            </FlexGridCol>
+        </FlexGridRow>
+    </Story>
+</Canvas>
+
+## Props
 <ArgsTable of={FlexGridCol} />
