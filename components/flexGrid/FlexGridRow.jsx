@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { createClassString } from '../../helpers/flexGridHelper';
 import cx from 'classnames';
 
+require('../../styles/components/_flexGrid.scss');
+
 export default function GridRow({
   children,
   className,
