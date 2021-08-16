@@ -1,3 +1,4 @@
+// Settings for project theme [https://designsystem.digital.gov/documentation/settings/]
 $theme-respect-user-font-size: false;
 $theme-root-font-size: 10px;
 $theme-grid-container-max-width: 1600px;
@@ -6,38 +7,15 @@ $theme-site-margins-mobile-width: 1;
 $theme-column-gap-sm: 1;
 $theme-column-gap-md: 2;
 $theme-column-gap-lg: 4;
-// $theme-column-gap-mobile: 1;
 $theme-column-gap-desktop: 2;
-// $theme-utility-breakpoints: (
-//   "card": false,
-//   "card-lg": false,
-//   "mobile": true,
-//   "mobile-lg": false,
-//   "tablet": true,
-//   "tablet-lg": false,
-//   "desktop": true,
-//   "desktop-lg": false,
-//   "widescreen": false
-// );
 
+// The USAspending flex grid component utilizes the USWDS layout-grid component [https://designsystem.digital.gov/utilities/layout-grid/]
+// Styles are imported as packages to allow us to import only the component the project needs. [https://designsystem.digital.gov/components/packages/]
 @import '~uswds/dist/scss/packages/required';
-
-// @import "~uswds/dist/scss/settings/settings-general";
-// @import "~uswds/dist/scss/settings/settings-typography";
-// @import "~uswds/dist/scss/settings/settings-color";
-// @import "~uswds/dist/scss/settings/settings-spacing";
-// @import "~uswds/dist/scss/settings/settings-utilities";
-
-// @import "~uswds/dist/scss/core/functions";
-// @import "~uswds/dist/scss/core/system-tokens";
-// @import "~uswds/dist/scss/core/variables";
-// @import "~uswds/dist/scss/core/properties";
-// @import "~uswds/dist/scss/core/mixins/all";
-
 @import '~uswds/dist/scss/packages/layout-grid';
 
+// USWDS flex order utility classes [https://designsystem.digital.gov/utilities/flex/#utility-order]
+// USWDS utility classes are not inherently exported out as packages, however can use USWDS render-utilities-in() mixin to generate utlity classes
 @import '~uswds/dist/scss/utilities/palettes/all';
 @import '~uswds/dist/scss/utilities/rules/order';
 @include render-utilities-in($u-order);
-
-// @import '~uswds/dist/scss/elements/layout-grid';
