@@ -1,19 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createClassString } from '../../helpers/flexGridHelper';
+import cx from 'classnames';
+
+require('../../styles/components/_flexGrid.scss');
 
 export default function GridRow({
   children,
   className,
-  gaps,
+  hasGaps,
   gapSize,
   ...props
 }) {
-  const gapClass = gaps ? `grid-gap-${gapSize}` : '';
+  const gapClass = hasGaps ? `grid-gap` : '';
+  const gapSizeClass = cx({
+    'grid-gap-sm': gapSize === 'sm',
+    'grid-gap-lg': gapSize === 'lg'
+  });
 
   return (
     <div
-      className={createClassString(['grid-row', gapClass, className])}
+      className={createClassString(['grid-row', gapClass, gapSizeClass, className])}
       {...props}
     >
       {children}
@@ -26,15 +33,14 @@ GridRow.propTypes = {
   /** Any additional classes to apply */
   className: PropTypes.string,
   /** Should the row have gaps between its columns? */
-  gaps: PropTypes.bool,
+  hasGaps: PropTypes.bool,
   /**
    * Size of the gaps.
-   * The `gaps` prop must be `true` for this to have an effect.
+   * The `hasGaps` prop must be `true` for this to have an effect.
    */
-  gapSize: PropTypes.number
+  gapSize: PropTypes.oneOf(["sm", "lg"])
 };
 
 GridRow.defaultProps = {
-  gaps: false,
-  gapSize: 4
+  hasGaps: false
 };
