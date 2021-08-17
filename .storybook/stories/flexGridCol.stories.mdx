@@ -25,13 +25,13 @@ When no column widths are specified the `FlexGridCol` component will render equa
     <Story name='Equal-width'>
         <FlexGridRow>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -45,13 +45,13 @@ Auto-layout for flex grid columns also means you can set the width of one column
     <Story name='Setting one column width'>
         <FlexGridRow>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
             <FlexGridCol mobile={6}>
-                <div>.mobile:grid-col-6</div>
+                <div>mobile:column-6</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -65,13 +65,13 @@ Set the column width (or any breakpoint size) to `"auto"` to size columns based 
     <Story name='Variable width content'>
         <FlexGridRow>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
             <FlexGridCol width="auto">
-                <div>.grid-col-auto</div>
+                <div>column-auto</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -89,21 +89,21 @@ For columns that should maintain the same proportion at any viewport width, use 
     <Story name='Same at all breakpoints'>
         <FlexGridRow>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>.grid-col</div>
+                <div>column</div>
             </FlexGridCol>
         </FlexGridRow>
         <FlexGridRow>
             <FlexGridCol width={8}>
-                <div>.grid-col-8</div>
+                <div>column-8</div>
             </FlexGridCol>
             <FlexGridCol width={4}>
-                <div>.grid-col-4</div>
+                <div>column-4</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -117,21 +117,21 @@ Columns are full-width until the narrowest breakpoint specified in a `mobile`, `
     <Story name='Stacked columns at narrow widths'>
         <FlexGridRow>
             <FlexGridCol tablet="fill">
-                <div>.tablet:grid-col</div>
+                <div>tablet:column</div>
             </FlexGridCol>
             <FlexGridCol tablet="fill">
-                <div>.tablet:grid-col</div>
+                <div>tablet:column</div>
             </FlexGridCol>
             <FlexGridCol tablet="fill">
-                <div>.tablet:grid-col</div>
+                <div>tablet:column</div>
             </FlexGridCol>
         </FlexGridRow>
         <FlexGridRow>
             <FlexGridCol tablet={8}>
-                <div>.tablet:grid-col-8</div>
+                <div>tablet:column-8</div>
             </FlexGridCol>
             <FlexGridCol tablet={4}>
-                <div>.tablet:grid-col-4</div>
+                <div>tablet:column-4</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -145,29 +145,29 @@ Don’t want your columns to simply stack in some breakpoints? Use a combination
     <Story name='Mix and match'>
         <FlexGridRow>
             <FlexGridCol tablet={8}>
-                <div>.tablet:grid-col-8</div>
+                <div>tablet:column-8</div>
             </FlexGridCol>
             <FlexGridCol width={6} tablet={4}>
-                <div>.col-6 .tablet:grid-col-4</div>
+                <div>column-6 tablet:column-4</div>
             </FlexGridCol>
         </FlexGridRow>
         <FlexGridRow>
             <FlexGridCol width={6} tablet={4}>
-                <div>.col-6 .tablet:grid-col-4</div>
+                <div>column-6 tablet:column-4</div>
             </FlexGridCol>
             <FlexGridCol width={6} tablet={4}>
-                <div>.col-6 .tablet:grid-col-4</div>
+                <div>column-6 tablet:column-4</div>
             </FlexGridCol>
             <FlexGridCol width={6} tablet={4}>
-                <div>.col-6 .tablet:grid-col-4</div>
+                <div>column-6 tablet:column-4</div>
             </FlexGridCol>
         </FlexGridRow>
         <FlexGridRow>
             <FlexGridCol width={6}>
-                <div>.col-6</div>
+                <div>column-6</div>
             </FlexGridCol>
             <FlexGridCol width={6}>
-                <div>.col-6</div>
+                <div>column-6</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -183,13 +183,13 @@ Items wrap when the sum of the grid columns is more than 12.
     <Story name='Column wrapping'>
         <FlexGridRow>
             <FlexGridCol width={8}>
-                <div>.grid-col-8</div>
+                <div>column-8</div>
             </FlexGridCol>
             <FlexGridCol width={3}>
-                <div>.grid-col-3</div>
+                <div>column-3</div>
             </FlexGridCol>
             <FlexGridCol width={5}>
-                <div>.grid-col-5</div>
+                <div>column-5</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -205,13 +205,13 @@ Use `"order"` property for controlling the visual order of your content. These p
     <Story name='Order classes'>
         <FlexGridRow>
             <FlexGridCol tablet={{ span: 4, order: 'last'}}>
-                <div>First, but last</div>
+                <div>first, but last</div>
             </FlexGridCol>
             <FlexGridCol>
-                <div>Second, but unordered</div>
+                <div>second, but unordered</div>
             </FlexGridCol>
             <FlexGridCol tablet={{ span: 4, order: 'first'}}>
-                <div>Third, but first</div>
+                <div>third, but first</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
@@ -223,15 +223,15 @@ Use `"order"` property for controlling the visual order of your content. These p
     <Story name='Offsetting columns'>
         <FlexGridRow>
             <FlexGridCol width={{ span: 8, offset: 4 }}>
-                <div>.grid-col-8.grid-offset-4</div>
+                <div>column-8 offset-4</div>
             </FlexGridCol>
         </FlexGridRow>
         <FlexGridRow>
             <FlexGridCol tablet={4}>
-                <div>.tablet:grid-col-4</div>
+                <div>tablet:column-4</div>
             </FlexGridCol>
             <FlexGridCol tablet={{ span: 4, offset: 4 }}>
-                <div>.tablet:grid-col-10.tablet:grid-offset-2</div>
+                <div>tablet:column-10 tablet:offset-2</div>
             </FlexGridCol>
         </FlexGridRow>
     </Story>
