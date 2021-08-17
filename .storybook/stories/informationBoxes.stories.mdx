@@ -15,6 +15,7 @@ This means the component relies on its parent to pass the following props:
       - `type`: (string, required), the unique React key for each box.
       - `subtitle`: string, the subtitle to display.
       - `amount`: number, the amount to display.
+      - `subtitleBottom`: string, optional subtitle to display at the bottom of box.
       - `isMonetary`: boolean, if true will format the amount as monetary.
       - `isLoading`: element, if true will display loading vizualisation.
 
@@ -73,10 +74,11 @@ In this example:
         <InformationBoxes
         boxes={[
           {
-            title: 'Number of Object Classes',
-            type: 'numOfObjectClasses',
+            title: 'Number of Agencies',
+            type: 'numOfAgencies',
             subtitle: 'for FY 19',
-            amount: 13
+            amount: 13,
+            subtitleBottom: 'with 32 offices'
           },
           {
             title: 'Total Budgetary Resources',
