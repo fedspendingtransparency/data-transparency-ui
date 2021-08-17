@@ -7,7 +7,7 @@ require('../../styles/components/_flexGrid.scss');
 export default function GridContainer({ children, className, ...props }) {
   return (
     <div
-      className={createClassString(['grid-container', className])}
+      className={createClassString(['usa-dt-flex-grid__container', className])}
       {...props}
     >
       {children}
