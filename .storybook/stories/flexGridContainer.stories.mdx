@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { boolean, object, text, number, array } from "@storybook/addon-knobs";
+
+import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
+import FlexGridRow from '../../components/flexGrid/FlexGridRow';
+import FlexGridCol from '../../components/flexGrid/FlexGridCol';
+
+<Meta
+    title="Components/Flex Grid/Flex Grid Container"
+    component={FlexGridContainer}
+    decorators={[(Story) => (<div className="story-flex-grid"><Story/></div>)]}
+/>
+
+# Flex Grid Container
+
+The `FlexGridContainer` centers the content within it and sets a maximum width. If you would like the grid to span the full width of the page, do not use `FlexGridContainer`.
+
+## Default Container
+
+```html
+<FlexGridContainer>
+  {/* Content Goes Here */}
+</FlexGridContainer>
+```
+
+<Canvas>
+    <Story name='Flex Grid Container'>
+        <div className="story-flex-grid-heading">Visual Example</div>
+        <FlexGridContainer
+            className={text('className', '')}>
+            container
+        </FlexGridContainer>
+    </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={FlexGridContainer} />

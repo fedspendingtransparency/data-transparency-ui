@@ -19,6 +19,9 @@ import DownloadIconButton from './components/DownloadIconButton';
 import FiscalYearPicker from './components/FiscalYearPicker';
 import ShareIcon from './components/ShareIcon';
 import { useDynamicStickyClass } from './helpers/pageHeaderHelper';
+import FlexGridContainer from './components/flexGrid/FlexGridContainer';
+import FlexGridRow from './components/flexGrid/FlexGridRow';
+import FlexGridCol from './components/flexGrid/FlexGridCol';
 
 import "./styles/dist.scss";
 
@@ -44,5 +47,8 @@ export {
     DownloadIconButton,
     FiscalYearPicker,
     ShareIcon,
-    useDynamicStickyClass
+    useDynamicStickyClass,
+    FlexGridContainer,
+    FlexGridRow,
+    FlexGridCol
 };
