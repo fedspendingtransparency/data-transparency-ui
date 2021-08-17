@@ -17,17 +17,17 @@ export default function GridCol({
     if (colWidth !== undefined) {
       // offsetting column classes - requires span and offset
       if(colWidth.span !== undefined && colWidth.offset !== undefined){
-        const spanClass = `${breakpoint ? `${breakpoint}:` : ''}grid-col-${colWidth.span}`;
-        const offsetClass = `${breakpoint ? `${breakpoint}:` : ''}grid-offset-${colWidth.offset}`;
+        const spanClass = `${breakpoint ? `${breakpoint}:` : ''}usa-dt-flex-grid__col-${colWidth.span}`;
+        const offsetClass = `${breakpoint ? `${breakpoint}:` : ''}usa-dt-flex-grid__offset-${colWidth.offset}`;
         return createClassString([spanClass, offsetClass]);
       }
       if(colWidth.order !== undefined){
-        const spanClass = `${breakpoint ? `${breakpoint}:` : ''}grid-col-${colWidth.span}`;
-        const orderClass = `${breakpoint ? `${breakpoint}:` : ''}order-${colWidth.order}`;
+        const spanClass = `${breakpoint ? `${breakpoint}:` : ''}usa-dt-flex-grid__col-${colWidth.span}`;
+        const orderClass = `${breakpoint ? `${breakpoint}:` : ''}usa-dt-flex-grid__order-${colWidth.order}`;
         return createClassString([spanClass, orderClass]);
       }
       // default column class
-      return `${breakpoint ? `${breakpoint}:` : ''}grid-col-${colWidth}`;
+      return `${breakpoint ? `${breakpoint}:` : ''}usa-dt-flex-grid__col-${colWidth}`;
     }
     return '';
   }
@@ -36,13 +36,13 @@ export default function GridCol({
     [null, width],
     ['desktop', desktop],
     ['tablet', tablet],
-    ['mobile-lg', mobile]
+    ['mobile', mobile]
   ].map(generateClass);
 
   const allClasses = createClassString([...baseClasses, className]);
 
   return (
-    <div className={allClasses ? allClasses : 'grid-col'} {...props}>
+    <div className={allClasses ? allClasses : 'usa-dt-flex-grid__col'} {...props}>
       {children}
     </div>
   );
