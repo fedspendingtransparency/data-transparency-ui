@@ -105,6 +105,9 @@ addParameters({
       const [className2, obj2] = b;
       if (obj.kind === 'Introduction') return -1;
       if (obj2.kind === 'Introduction') return 1;
+      if (obj.kind === 'Components/Flex Grid/Flex Grid Container') return 0;
+      if (obj.kind === 'Components/Flex Grid/Flex Grid Row') return 0;
+      if (obj2.kind === 'Components/Flex Grid/Flex Grid Col') return 0;
       return 1;
     },
     showAddonPanel: true
