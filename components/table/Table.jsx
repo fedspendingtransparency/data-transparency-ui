@@ -27,14 +27,18 @@ const propTypes = {
     divider: PropTypes.string,
     loading: PropTypes.bool,
     error: PropTypes.bool,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    isStacked: PropTypes.bool
 };
 
 const defaultProps = {
-    classNames: ''
+    classNames: '',
+    isStacked: false
 };
 
 const Table = (props) => {
+    const stackedClass = props.isStacked ? `usa-dt-table__stacked` : '';
+
     let body;
     if (props.loading) {
         body = (
@@ -67,7 +71,7 @@ const Table = (props) => {
         body = (<TableData {...props} />);
     }
     return (
-        <table className={`usda-table ${props.classNames}`}>
+        <table className={`usda-table ${stackedClass} ${props.classNames}`}>
             <thead className="usda-table__head">
                 <tr className="usda-table__row">
                     {props.columns.map((col) => (
