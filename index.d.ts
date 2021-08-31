@@ -201,6 +201,27 @@ export interface PageHeaderProps {
     toolBar: Array<JSX.Element>
 }
 
+export interface FlexGridContainerProps {
+    children: JSX.Element,
+    className: string
+}
+
+export interface FlexGridRowProps {
+    children: JSX.Element,
+    className: string,
+    hasGutter: boolean,
+    gutterSize: "sm" | "lg"
+}
+
+export interface FlexGridColProps {
+    children: JSX.Element,
+    className: string,
+    desktop: number | "auto" | "fill" | object,
+    tablet: number | "auto" | "fill" | object,
+    mobile: number | "auto" | "fill" | object,
+    width: number | "auto" | "fill" | object
+}
+
 /*~ If this module has methods, declare them as functions like so.
  */
 export class Pagination extends React.Component<PaginationProps>{}
@@ -216,6 +237,9 @@ export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
 export function SectionTitle(props: SectionTitleProps): JSX.Element;
 export function PageHeader(props: PageHeaderProps): JSX.Element;
+export function FlexGridContainer(props: FlexGridContainerProps): JSX.Element;
+export function FlexGridRow(props: FlexGridRowProps): JSX.Element;
+export function FlexGridCol(props: FlexGridColProps): JSX.Element;
 export function DownloadIconButton(props: DownloadIconButtonProps): JSX.Element;
 export function FiscalYearPicker(props: FiscalYearPickerProps): JSX.Element;
 export function ShareIcon(props: ShareIconProps): JSX.Element;
