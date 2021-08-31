@@ -72,7 +72,8 @@ const ExpandableRow = ({
                     return (
                         <td
                             key={uniqueId()}
-                            className={`usda-table__cell${col === 'name' ? ' usda-table__cell_name' : ''}${columns[i].right ? ' usda-table__cell_right' : ''}`}>
+                            className={`usda-table__cell${col === 'name' ? ' usda-table__cell_name' : ''}${columns[i].right ? ' usda-table__cell_right' : ''}`}
+                            data-label={columns[i].displayName}>
                             {data[col]}
                         </td>
                     );
