@@ -1,0 +1,64 @@
+// Responsive Stacked Table Variation
+table.usa-dt-table__stacked {
+  max-width: 100%;
+  width: 100%;
+
+  @media all and (max-width: $tablet-screen){
+    display: block;
+
+    thead.usda-table__head {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+
+    tbody.usda-table__body {
+      display: block;
+      border-bottom-width: 0;
+
+      tr.usda-table__row {
+        display: block;
+        margin-bottom: rem(8);
+  
+        td.usda-table__cell {
+          display: flex;
+          flex-wrap: wrap;
+          padding: rem(4) rem(8);
+          border-left-width: 0;
+          border-right-width: 0;
+          line-height: 1.5;
+
+          &:first-child {
+            padding-top: rem(8);
+          }
+
+          &:last-child {
+            padding-bottom: rem(8);
+          }
+
+          &:before {
+            content: attr(data-label) ' ';
+            font-weight: $font-semibold;
+            white-space: pre-wrap;
+            text-align: left;
+            word-break: break-all;
+            flex: 0 0 100%;
+            // flex: 0 0 50%;
+            // padding-right: rem(8);
+          }
+        }
+
+        &.usda-table__row_expandable {
+          td.usda-table__cell_name {
+              padding-left: rem(8);
+          }
+        }
+      }
+    }
+  }
+}
