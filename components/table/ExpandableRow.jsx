@@ -48,6 +48,21 @@ const ExpandableRow = ({
             {generateDividerCells()}
         </tr>
     );
+
+    const getDataLabel = (column, isChildRow) => {
+        if (column) {
+            // if a child row and the cell is under the 'name' column, return divider text as data-label
+            if (isChildRow && divider && column.title === 'name') {
+                return divider;
+            }
+            // if (typeof column.displayName === 'object') {
+               
+            // }
+            return column.displayName;
+        }
+        return null;
+    };
+
     return (
         <>
             <tr className={`usda-table__row${oddClass} usda-table__row_expandable`}>
@@ -56,7 +71,8 @@ const ExpandableRow = ({
                         return (
                             <td
                                 key={uniqueId()}
-                                className="usda-table__cell">
+                                className="usda-table__cell"
+                                data-label={getDataLabel(columns[i])}>
                                 <div className="usda-table__expandable-cell-content">
                                     <button
                                         className="usda-table__expand-button"
@@ -73,7 +89,7 @@ const ExpandableRow = ({
                         <td
                             key={uniqueId()}
                             className={`usda-table__cell${col === 'name' ? ' usda-table__cell_name' : ''}${columns[i].right ? ' usda-table__cell_right' : ''}`}
-                            data-label={columns[i].displayName}>
+                            data-label={getDataLabel(columns[i])}>
                             {data[col]}
                         </td>
                     );
@@ -91,7 +107,8 @@ const ExpandableRow = ({
                                 {columnTitles.map((col, k) => (
                                     <td
                                         key={uniqueId()}
-                                        className={`usda-table__cell ${columns[k].right ? ' usda-table__cell_right' : ''} usda-table__cell_child`}>
+                                        className={`usda-table__cell ${columns[k].right ? ' usda-table__cell_right' : ''} usda-table__cell_child`}
+                                        data-label={getDataLabel(columns[k], true)}>
                                         <div className="usda-table__child-cell-content">
                                             {childRow[col]}
                                         </div>
