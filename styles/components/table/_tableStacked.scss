@@ -1,55 +1,52 @@
 // Responsive Stacked Table Variation
 table.usa-dt-table__stacked {
   max-width: 100%;
-  width: 100%;
 
   @media all and (max-width: $tablet-screen){
     display: block;
+    width: 100%;
+
+    [class*="usda-table__cell"] {
+      box-sizing: border-box;
+    }
 
     thead.usda-table__head {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
+      // border: none;
+      // clip: rect(0 0 0 0);
+      // height: 1px;
+      // margin: -1px;
+      // overflow: hidden;
+      // padding: 0;
+      // position: absolute;
+      // width: 1px;
+      display: none;
     }
 
     tbody.usda-table__body {
       display: block;
-      border-bottom-width: 0;
+      width: 100%;
+      // border-bottom-width: 0;
 
       tr.usda-table__row {
         display: block;
-        margin-bottom: rem(8);
+        width: 100%;
   
         td.usda-table__cell {
-          display: flex;
-          flex-wrap: wrap;
+          // keep display block (vs. flex) for accessibility
+          display: block;
+          width: 100%;
           padding: rem(4) rem(8);
-          border-left-width: 0;
-          border-right-width: 0;
           line-height: 1.5;
-
-          &:first-child {
-            padding-top: rem(8);
-          }
-
-          &:last-child {
-            padding-bottom: rem(8);
-          }
+          word-break: break-all;
+          text-align: left;
 
           &:before {
             content: attr(data-label) ' ';
             font-weight: $font-semibold;
-            white-space: pre-wrap;
+            display: block;
+            width: 100%;
             text-align: left;
             word-break: break-all;
-            flex: 0 0 100%;
-            // flex: 0 0 50%;
-            // padding-right: rem(8);
           }
         }
 
@@ -57,8 +54,86 @@ table.usa-dt-table__stacked {
           td.usda-table__cell_name {
               padding-left: rem(8);
           }
+          td.usda-table__cell {
+            .usda-table__expandable-cell-content {
+              align-items: center;
+            }
+            .usda-table__expand-button {
+              padding: 0;
+              margin: 0;
+              width: rem(24);
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      tr.usda-table__child-row {
+        display: block;
+        width: 100%;
+
+        &.usda-table__child-row_divider {
+          // TODO: Cross-check this
+          display: none;
+        }
+
+        &.usda-table__row_odd{
+          td.usda-table__cell {
+            background-color: rgba(0, 0, 0, 0.10);
+          }
+        }
+
+        td.usda-table__cell {
+          // keep display block (vs. flex) for accessibility
+          display: block;
+          width: 100%;
+          padding: rem(4) rem(8);
+          line-height: 1.5;
+          word-break: break-all;
+          text-align: left;
+          background-color: rgba(0, 0, 0, 0.05);
+
+          &:before {
+            content: attr(data-label) ' ';
+            font-weight: $font-semibold;
+            display: block;
+            width: 100%;
+            text-align: left;
+            word-break: break-all;
+          }
+
+          &.usda-table__cell_child {
+            padding: rem(4) rem(8);
+            .usda-table__child-cell-content {
+              padding: 0;
+            }
+            &:first-of-type {
+              padding-left: rem(8);
+              .usda-table__child-cell-content {
+                padding: 0;
+                border-width: 0;
+              }
+            }
+          }
+        }
+        &.usda-table__child-row_last {
+          td.usda-table__cell {
+            &.usda-table__cell_child {
+              &:first-of-type {
+                padding-bottom: rem(4);
+                .usda-table__child-cell-content {
+                  padding-bottom: 0;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
+}
+
+.usa-dt-table__stacked-picker {
+  width: 100%;
+  z-index: 1;
 }
