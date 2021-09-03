@@ -107,6 +107,7 @@
         padding: rem(4) rem(12) rem(4) rem(12);
         .usa-dt-information-box__content {
           .usa-dt-information-box__amount {
+            white-space: nowrap;
             font-size: rem(16);
           }
         }
@@ -118,6 +119,7 @@
           padding: 0 rem(47) rem(23) rem(47);
           .usa-dt-information-box__content {
             .usa-dt-information-box__amount { 
+              white-space: nowrap;
               font-size: rem(32);
               line-height: rem(40);
             }
