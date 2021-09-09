@@ -89,10 +89,13 @@ const Table = (props) => {
     return (
         <>
         {props.isStacked && props.updateSort && (
-            <Picker
-                className="usa-dt-table__stacked-picker"
-                selectedOption={props.currentSort.field}
-                options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
+            <div className="usa-dt-table__stacked-picker">
+                <label htmlFor="stackedTableSort">Sort By</label>
+                <Picker
+                    id="stackedTableSort"
+                    selectedOption={props.currentSort.field}
+                    options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
+            </div>
         )}
         <table className={`usda-table ${stackedClass} ${props.classNames}`}>
             {props.screenReaderCaption && (
