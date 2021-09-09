@@ -63,9 +63,11 @@ const ExpandableRow = ({
         return null;
     };
 
+    const isExpandedClass = expanded ? 'usda-table__row_is-expanded' : '';
+
     return (
         <>
-            <tr className={`usda-table__row${oddClass} usda-table__row_expandable`}>
+            <tr className={`usda-table__row${oddClass} usda-table__row_expandable ${isExpandedClass}`}>
                 {columnTitles.map((col, i) => {
                     if (col === 'name' && data.children) {
                         return (
