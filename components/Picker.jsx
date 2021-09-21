@@ -145,27 +145,18 @@ const Picker = ({
     return (
         <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
             {icon && (
-                <div className="usa-dt-picker__icon">
+                <div className="usa-dt-picker__icon" onClick={toggleMenu}>
                     {icon}
                 </div>
             )}
             <div className="usa-dt-picker__dropdown-container">
-                {children
-                    ? (
-                        <button
-                            ref={buttonRef}
-                            aria-label="Dropdown Toggle Button"
-                            className="usa-dt-picker__button"
-                            onClick={toggleMenu}>
-                            {children}
-                        </button>
-                    )
-                    : (
-                        <button
-                            ref={buttonRef}
-                            aria-label="Dropdown Toggle Button"
-                            className="usa-dt-picker__button"
-                            onClick={toggleMenu}>
+                <button
+                    ref={buttonRef}
+                    aria-label="Dropdown Toggle Button"
+                    className="usa-dt-picker__button"
+                    onClick={toggleMenu}>
+                    {children ? <>{ children }</> : (
+                        <>
                             <span className="usa-dt-picker__button-text">
                                 {selectedOption}
                             </span>
@@ -177,8 +168,9 @@ const Picker = ({
                                     <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-up" alt="Toggle menu" color="#555" />
                                 )}
                             </span>
-                        </button>
+                        </>
                     )}
+                </button>
                 <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
                     {options
                         .sort(handleSort)
