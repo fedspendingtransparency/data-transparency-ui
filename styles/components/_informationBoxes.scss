@@ -102,10 +102,13 @@
     }
   }
   &.three-boxes {
+    border-bottom: none;
+    padding-bottom: 0;
     .usa-dt-information-box {
       .usa-dt-information-box__divider {
         padding: rem(4) rem(12) rem(4) rem(12);
         .usa-dt-information-box__content {
+          padding-top: rem(24);
           .usa-dt-information-box__amount {
             white-space: nowrap;
             font-size: rem(16);
