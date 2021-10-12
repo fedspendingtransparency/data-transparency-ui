@@ -78,29 +78,14 @@ interface SearchBarProps {
     minChars: number,
     isDisabled: boolean,
     throttleOnChange: number,
-    inputTitle: string
-}
-
-export interface SearchBarProps {
-  onSearch: (value: string) => void,
-  minChars: number,
-  isDisabled: boolean,
-  throttleOnChange: number,
-  inputTitle: string
+    inputTitle: string,
+    placeholder: string
 }
 
 interface TabsProps {
-  types: Array<[object]>
+  types: Array<[object]>,
   active: string,
-  switchTab: (value: string) => void
-  tabsClassName: string
-  tablessStyle: boolean
-}
-
-export interface TabsProps {
-  types: Array<[object]>
-  active: string,
-  switchTab: (value: string) => void
+  switchTab: (value: string) => void,
   tabsClassName: string,
   tablessStyle: boolean
 }
@@ -150,7 +135,7 @@ export interface SectionTitleProps {
     isCollapsible: boolean,
     isComingSoon: boolean,
     classNames: string,
-    id: string
+    id: string,
     title: string,
     icon: JSX.Element,
     className: string
