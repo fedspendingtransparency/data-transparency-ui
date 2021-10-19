@@ -15,8 +15,7 @@ const propTypes = {
         internal: PropTypes.string.isRequired,
         count: PropTypes.number,
         disabled: PropTypes.bool,
-        tooltip: PropTypes.element,
-        count: PropTypes.number
+        tooltip: PropTypes.element
     })).isRequired,
     active: PropTypes.string.isRequired,
     switchTab: PropTypes.func.isRequired,
