@@ -18,6 +18,7 @@ This means the component relies on its parent to pass the following props:
  - `isDisabled`: A boolean that will decide whether to disable the input.
  - `throttleOnChange`:  A number in milliseconds that only invokes onChange at most once per every milliseconds.
  - `inputTitle`: A string that will serve as the input title.
+ - `placeholder`: An optional string for placeholder text
 
 <Canvas>
     <Story name='SearchBar'>
@@ -26,7 +27,8 @@ This means the component relies on its parent to pass the following props:
             minChars={number('minChars', 2)}
             isDisabled={boolean('isDisabled', false)}
             throttleOnChange={number('throttleOnChange', 500)}
-            inputTitle={text('inputTitle', 'Search Input')} />
+            inputTitle={text('inputTitle', 'Search Input')}
+            placeholder="Placeholder" />
     </Story>
 </Canvas>
 
@@ -37,3 +39,4 @@ Answers the question, where is this component used?
 
 ### USASpending
 - [x] COVID-19 Page
+- [x] Data Dictionary
