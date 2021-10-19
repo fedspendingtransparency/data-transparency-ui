@@ -3,7 +3,7 @@
  * Created by Lizzie Salita 7/16/20
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { throttle } from 'lodash';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +16,8 @@ const propTypes = {
     minChars: PropTypes.number,
     isDisabled: PropTypes.bool,
     throttleOnChange: PropTypes.number,
-    inputTitle: PropTypes.string
+    inputTitle: PropTypes.string,
+    placeholder: PropTypes.string
 };
 
 // the minimum number of characters a user is required to enter before they can perform a search
@@ -25,10 +26,13 @@ const defaultProps = {
     minChars: 2,
     throttleOnChange: 500,
     inputTitle: 'Search Input',
-    isDisabled: false
+    isDisabled: false,
+    placeholder: ''
 };
 
-const SearchBar = ({ onSearch, minChars, isDisabled, throttleOnChange, inputTitle }) => {
+const SearchBar = ({
+    onSearch, minChars, isDisabled, throttleOnChange, inputTitle, placeholder
+}) => {
     // value of the input
     const [value, setValue] = useState('');
     // The searchTerm is the current submitted search term.
@@ -71,7 +75,8 @@ const SearchBar = ({ onSearch, minChars, isDisabled, throttleOnChange, inputTitl
                 value={value}
                 type="text"
                 disabled={isDisabled}
-                onChange={onChange} />
+                onChange={onChange}
+                placeholder={placeholder} />
             <button
                 disabled={(value.length < minChars && !searchTerm) || isDisabled}
                 aria-label="Search Button"
