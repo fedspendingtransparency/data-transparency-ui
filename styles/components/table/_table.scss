@@ -29,7 +29,7 @@ table.usda-table {
             td.usda-table__cell {
                 padding: rem(15);
             }
-            &.usda-table__row_odd{
+            &.usda-table__row_odd {
                 td.usda-table__cell {
                     background-color: $color-gray-lightest;
                 }
@@ -41,7 +41,6 @@ table.usda-table {
                     margin-right: rem(8);
                 }
                 td.usda-table__cell {
-                    text-align: right;
                     padding-right: rem(35);
                     .usda-table__expandable-cell-content {
                         display: flex;
@@ -51,7 +50,6 @@ table.usda-table {
                 td.usda-table__cell_name {
                     // add extra padding when no arrow is present because there are no children
                     padding-left: rem(30);
-                    text-align: left;
                 }
             }
             .table-header_body-header {
@@ -80,7 +78,6 @@ table.usda-table {
                     .usda-table__child-cell-content {
                         padding: rem(10) rem(15);
                         margin-right: rem(20);
-                        text-align: right;
                     }
                     &:first-of-type {
                         // add extra padding to the first cell of every child row
@@ -88,7 +85,6 @@ table.usda-table {
                         .usda-table__child-cell-content {
                             padding-left: rem(30);
                             border-left: solid rem(1) $color-gray-light;
-                            text-align: left;
                         }
                     }
                 }
