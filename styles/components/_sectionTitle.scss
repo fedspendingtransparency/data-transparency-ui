@@ -16,7 +16,7 @@
 
     .usda-section-title__title-icon {
       align-self: flex-end;
-      width: rem(36);
+      width: rem(32);
       @include for-phone-only {
         align-self: center;
       }
