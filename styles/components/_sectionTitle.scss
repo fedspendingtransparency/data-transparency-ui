@@ -15,10 +15,9 @@
     }
 
     .usda-section-title__title-icon {
-      margin-left: rem(15);
       align-self: flex-end;
+      width: rem(32);
       @include for-phone-only {
-        margin-left: rem(5);
         align-self: center;
       }
     }
@@ -31,7 +30,7 @@
       flex-wrap: wrap;
 
       &.usda-section-title__header {
-        margin-left: rem(9);
+        margin-left: rem(8);
       }
 
       strong.usda-section-title__overline {
