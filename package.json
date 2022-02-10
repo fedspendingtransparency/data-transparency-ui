@@ -60,7 +60,7 @@
     "jest": "^24.6.0",
     "jest-cli": "^24.6.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "postcss-loader": "^3.0.0",
     "react-is": "^16.11.0",
     "resolve-url-loader": "^3.1.2",
