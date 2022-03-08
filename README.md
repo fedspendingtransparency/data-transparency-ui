@@ -15,7 +15,7 @@ Import our components like this:
 To see our exported components, [see our type definition file.](https://github.com/fedspendingtransparency/data-transparency-ui/blob/master/index.d.ts).
 
 The purpose of this project is to give visibility into the patterns built into the 
-[Broker](https://broker.usaspending.gov/) and [USASpending](https://usaspending.gov/) UI and their corresponding techincal implementations.
+[Broker](https://broker.usaspending.gov/) and [USASpending](https://usaspending.gov/) UI and their corresponding technical implementations.
 These implementations, referred to as UI Components, exist outside of the USASpending
 and Broker codebase.
 
