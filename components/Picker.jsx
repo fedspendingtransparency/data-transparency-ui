@@ -26,7 +26,8 @@ const propTypes = {
     })),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
     isFixedWidth: PropTypes.bool,
-    children: PropTypes.node
+    children: PropTypes.node,
+    backgroundColor: PropTypes.string
 };
 
 const defaultSort = (a, b, selectedOption) => {
@@ -48,7 +49,8 @@ const Picker = ({
     sortFn = defaultSort,
     isFixedWidth = false,
     children,
-    dropdownDirection = 'right'
+    dropdownDirection = 'right',
+    backgroundColor = '#4A4A4A'
 }) => {
     const pickerRef = useRef(null);
     const buttonRef = useRef(null);
@@ -144,8 +146,9 @@ const Picker = ({
 
     return (
         <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
-            <div className="usa-dt-picker__dropdown-container">
+            <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor }}>
                 <button
+                    style={{ backgroundColor }}
                     ref={buttonRef}
                     aria-label="Dropdown Toggle Button"
                     className="usa-dt-picker__button"

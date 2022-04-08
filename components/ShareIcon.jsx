@@ -13,14 +13,19 @@ const propTypes = {
     url: PropTypes.string.isRequired,
     classNames: PropTypes.string,
     onShareOptionClick: PropTypes.func.isRequired,
-    includedDropdownOptions: PropTypes.arrayOf(PropTypes.string)
+    includedDropdownOptions: PropTypes.arrayOf(PropTypes.string),
+    colors: PropTypes.object
 };
 
 const ShareIcon = ({
     includedDropdownOptions = [],
     classNames = '',
     url = '',
-    onShareOptionClick = () => {}
+    onShareOptionClick = () => {},
+    colors = {
+        color: "#3A8250",
+        backgroundColor: "#4A4A4A"
+    }
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
@@ -73,14 +78,14 @@ const ShareIcon = ({
                 dropdownDirection="left"
                 options={socialSharePickerOptions}
                 selectedOption="copy"
-                backgroundColor="#4A4A4A"
+                backgroundColor={colors.backgroundColor}
                 sortFn={() => 1}>
-                <FontAwesomeIcon icon="share-alt" size="lg" />
+                <FontAwesomeIcon icon="share-alt" size="lg" color={colors.color} />
             </Picker>
             <span>Share</span>
             {showConfirmationText && (
                 <span className="copy-confirmation">
-                    <FontAwesomeIcon icon={faCheckCircle} color="#3A8250" /> Copied!
+                    <FontAwesomeIcon icon={faCheckCircle} /> Copied!
                 </span>
             )}
         </div>
