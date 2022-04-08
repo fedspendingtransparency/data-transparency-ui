@@ -23,8 +23,8 @@ const ShareIcon = ({
     url = '',
     onShareOptionClick = () => {},
     colors = {
-        color: "#3A8250",
-        backgroundColor: "#4A4A4A"
+        color: "#D6D7D9",
+        backgroundColor: "#555"
     }
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
