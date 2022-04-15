@@ -70,7 +70,8 @@ export interface PickerProps {
     options: PickerPropsOptions,
     dropdownDirection: string,
     isFixedWidth: boolean,
-    children: Array<JSX.Element> | JSX.Element
+    children: Array<JSX.Element> | JSX.Element,
+    backgroundColor: string
 }
 
 interface SearchBarProps {
@@ -165,6 +166,7 @@ interface FiscalYearOptions {
 }
 
 export interface FiscalYearPickerProps {
+    backgroundColor: string,
     selectedFy: number | string,
     latestFy: number,
     earliestFy: number,

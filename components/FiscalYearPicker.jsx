@@ -14,6 +14,7 @@ const defaultSort = (a, b) => {
 };
 
 const FiscalYearPicker = ({
+    backgroundColor,
     latestFy,
     selectedFy = 2020,
     earliestFy = 2017,
@@ -34,6 +35,7 @@ const FiscalYearPicker = ({
     return (
         <div className="usda-fy-picker__container">
             <Picker
+                backgroundColor={backgroundColor}
                 className="usda-fy-picker"
                 icon={<FontAwesomeIcon icon={faCalendarAlt} size="xs" alt="FY Loading ..." />}
                 selectedOption={options.length
@@ -49,6 +51,7 @@ const FiscalYearPicker = ({
 
 FiscalYearPicker.displayName = 'Fiscal Year Picker';
 FiscalYearPicker.propTypes = {
+    backgroundColor: PropTypes.string,
     selectedFy: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     earliestFy: PropTypes.number,
     latestFy: PropTypes.number,
