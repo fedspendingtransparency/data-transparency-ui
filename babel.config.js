@@ -26,7 +26,7 @@ const plugins = [
     "@babel/plugin-proposal-optional-chaining",
     ["@babel/plugin-transform-react-jsx", {
         pragmaFrag: "React.Fragment"
-    }]
+    }],
 ];
 
 module.exports = {
