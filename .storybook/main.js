@@ -5,6 +5,8 @@ module.exports = {
         '@storybook/addon-docs',
         '@storybook/addon-a11y',
         '@storybook/addon-viewport',
-        '@storybook/addon-actions'
+        '@storybook/addon-actions',
+        '@storybook/addon-essentials',
+        '@storybook/addon-controls'
     ],
   };
