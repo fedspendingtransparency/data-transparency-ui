@@ -6,6 +6,7 @@
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
     "build-sb": "build-storybook -c .storybook -o docs -s ./assets,./assets/fonts",
@@ -36,7 +37,7 @@
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-docs": "^6.5.9",
-    "@storybook/addon-knobs": "^6.1.21",
+    "@storybook/addon-knobs": "^6.4.0",
     "@storybook/addon-viewport": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/source-loader": "^6.5.9",
@@ -94,6 +95,10 @@
     "require-from-string": "^2.0.2",
     "sass": "^1.53.0",
     "typescript": "^4.7.4"
+  },
+  "resolutions": {
+    "**/trim": "^1.0.1",
+    "**/glob-parent": "^5.1.2"
   },
   "browserslist": [
     "last 2 versions",
