@@ -51,7 +51,7 @@ module.exports = async ({ config, mode }) => {
         test: /\.(eot|ttf|woff|woff2|png|svg|ico|gif|jpg)$/,
         use: [{
           loader: 'file-loader',
-          query: {
+          options: {
             name: '[name].[ext]'
           },
         }],
