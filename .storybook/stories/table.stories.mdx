@@ -48,7 +48,7 @@ const updateSort = (field, direction) => {
 
 ### Other props:
  - `expandable`: a boolean indicating whether this table will have nested rows that can be expanded and collapsed
- - `columns`: an array of objects each with a `title` and a `displayName`
+ - `columns`: an array of objects each with a `title` and a `displayName`. Optional boolean `right` to right-align text in the column.
  - `rows`: _either_ an array of row arrays, each containing data elements _or_ an array of row objects with top level properties matching the column `title`s and an array of `children`
  - `classNames`: way to customize table styles.
  - `loading`: a boolean indicating that the table data is loading

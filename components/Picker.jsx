@@ -26,7 +26,8 @@ const propTypes = {
     })),
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
     isFixedWidth: PropTypes.bool,
-    children: PropTypes.node
+    children: PropTypes.node,
+    backgroundColor: PropTypes.string
 };
 
 const defaultSort = (a, b, selectedOption) => {
@@ -48,7 +49,8 @@ const Picker = ({
     sortFn = defaultSort,
     isFixedWidth = false,
     children,
-    dropdownDirection = 'right'
+    dropdownDirection = 'right',
+    backgroundColor = '#4A4A4A'
 }) => {
     const pickerRef = useRef(null);
     const buttonRef = useRef(null);
@@ -144,28 +146,23 @@ const Picker = ({
 
     return (
         <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
-            {icon && (
-                <div className="usa-dt-picker__icon">
-                    {icon}
-                </div>
-            )}
-            <div className="usa-dt-picker__dropdown-container">
-                {children
-                    ? (
-                        <button
-                            ref={buttonRef}
-                            aria-label="Dropdown Toggle Button"
-                            className="usa-dt-picker__button"
-                            onClick={toggleMenu}>
-                            {children}
-                        </button>
-                    )
-                    : (
-                        <button
-                            ref={buttonRef}
-                            aria-label="Dropdown Toggle Button"
-                            className="usa-dt-picker__button"
-                            onClick={toggleMenu}>
+            <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor }}>
+                <button
+                    style={{ backgroundColor }}
+                    ref={buttonRef}
+                    aria-label="Dropdown Toggle Button"
+                    className="usa-dt-picker__button"
+                    onClick={toggleMenu}>
+
+                    {icon && (
+                        <div className="usa-dt-picker__icon">
+                            {icon}
+                        </div>
+                    )}
+
+                    {children ?
+                        <>{ children }</> :
+                        <>
                             <span className="usa-dt-picker__button-text">
                                 {selectedOption}
                             </span>
@@ -177,8 +174,9 @@ const Picker = ({
                                     <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-up" alt="Toggle menu" color="#555" />
                                 )}
                             </span>
-                        </button>
-                    )}
+                        </>
+                    }
+                </button>
                 <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
                     {options
                         .sort(handleSort)

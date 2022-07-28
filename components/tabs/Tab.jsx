@@ -30,7 +30,7 @@ const Tab = (props) => {
         if (!props.enabled) return;
         if (tab?.current && tab.current?.scrollIntoView) tab.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         props.switchTab(props.internal);
-    }
+    };
 
     const onKeyDownHandler = createOnKeyDownHandler(clickedTab);
 
@@ -49,9 +49,10 @@ const Tab = (props) => {
                 <div className="usa-dt-tab__content">
                     <div className="usa-dt-tab__label">
                         <div className="usa-dt-tab__label-text">{props.label}</div>
-                        {props.count && <div aria-label={`Count of ${formatNumber(props.count)} for ${props.label}`} className={`count${props.active ? ' active' : ''}`}>
-                            {formatNumber(props.count)}
-                        </div>
+                        {props.count >= 0 && (
+                            <div aria-label={`Count of ${formatNumber(props.count)} for ${props.label}`} className={`count${props.active ? ' active' : ''}`}>
+                                {formatNumber(props.count)}
+                            </div>)
                         }
                         {props.tooltip && <TooltipWrapper
                             tooltipComponent={(<TooltipComponent title={props.label}>{props.tooltip}</TooltipComponent>)}

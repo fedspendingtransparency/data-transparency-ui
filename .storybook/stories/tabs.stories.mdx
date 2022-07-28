@@ -26,46 +26,6 @@ In this example:
  - `tabsClassName`: A class name for the tabs
  - `tablessStyle`: A property to show tabs in a tabless style
 
-
-## Tabs with a Mix of Labels, Counts, and Tooltips
-<Canvas>
-    <Story name='Tabs'>
-      <TabsWrapperShowTooltip>
-        <Tabs
-        types={[
-          {
-            internal: 'name',
-            label: 'Names',
-            count: 22,
-            tooltip: (<div>hi</div>)
-          },
-          {
-            internal: 'dates',
-            label: 'Dates',
-            count: 33
-          },
-                    {
-            internal: 'cars',
-            label: 'Cars',
-            tooltip: (<div>:wave:</div>)
-          },
-          {
-            internal: 'coffeemugs',
-            label: 'Coffee Mugs'
-          },
-          {
-            internal: 'colorado',
-            label: 'Colorado'
-          },
-                    {
-            internal: 'whistler',
-            label: 'Whistler'
-          }
-        ]} />
-      </TabsWrapperShowTooltip>
-    </Story>
-</Canvas>
-
 ## Tabs with Scroll
 <Canvas>
     <Story name='Tabs with Scroll'>
@@ -96,7 +56,8 @@ In this example:
           },
           {
             internal: 'whistler',
-            label: 'Whistler'
+            label: 'Whistler',
+            disabled: true
           },
           {
             internal: 'yellowstone',
@@ -128,47 +89,9 @@ In this example:
     </Story>
 </Canvas>
 
-## Tabs with a Tabless Style
-<Canvas>
-    <Story name='Tabless Style'>
-      <TabsWrapper>
-        <Tabs
-        tablessStyle
-        types={[
-          {
-            internal: 'name',
-            label: 'Names',
-            count: 22
-          },
-          {
-            internal: 'dates',
-            label: 'Dates',
-            count: 33
-          },
-                    {
-            internal: 'cars',
-            label: 'Cars'
-          },
-          {
-            internal: 'coffeemugs',
-            label: 'Coffee Mugs'
-          },
-          {
-            internal: 'colorado',
-            label: 'Colorado'
-          },
-                    {
-            internal: 'whistler',
-            label: 'Whistler'
-          }
-        ]} />
-      </TabsWrapper>
-    </Story>
-</Canvas>
-
 ## Tabs with a Tabless Style Disabled
 <Canvas>
-    <Story name='Tabless Style with Disabled'>
+    <Story name='Tabless Style'>
       <TabsWrapper>
         <Tabs
         tablessStyle
@@ -205,26 +128,6 @@ In this example:
     </Story>
 </Canvas>
 
-## Tabs with a Disabled Tab
-<Canvas>
-    <Story name='Tabs with Disabled'>
-      <TabsWrapper>
-        <Tabs
-        types={[
-          {
-            internal: 'name',
-            label: 'Names'
-          },
-          {
-            internal: 'dates',
-            label: 'Dates',
-            disabled: true
-          }
-        ]} />
-      </TabsWrapper>
-    </Story>
-</Canvas>
-
 <ArgsTable of={Tabs} />
 
 ## Integration Status
@@ -234,3 +137,9 @@ Answers the question, where is this component used?
 - [x] Agency Submission Statistics
 - [x] COVID-19 Page
 - [x] Agency Profile
+- [x] Advanced Search
+- [ ] Keyword Search
+- [x] Federal Account Profile
+- [x] Recipient Landing Page
+- [x] State Profile
+- [x] Award Summary

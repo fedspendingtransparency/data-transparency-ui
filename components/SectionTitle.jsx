@@ -6,7 +6,7 @@ import TooltipWrapper from './infoTooltip/TooltipWrapper';
 import ComingSoon from './messages/ComingSoon';
 import { createOnKeyDownHandler } from '../helpers/keyboardEventsHelper';
 
-require('../styles/components/_section-title.scss');
+require('../styles/components/_sectionTitle.scss');
 
 const defaultControlledProps = {
     isControlled: false,
