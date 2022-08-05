@@ -5,12 +5,13 @@
 
 import React from 'react';
 import PropTypes, { shape, oneOf, oneOfType } from 'prop-types';
-import { uniqueId } from 'lodash';
+import { uniqueId, union } from 'lodash';
 import ErrorMessage from '../messages/ErrorMessage';
 import LoadingMessage from '../messages/LoadingMessage';
 import NoResultsMessage from '../messages/NoResultsMessage';
 import TableData from './TableData';
 import TableHeader from './TableHeader';
+import Picker from '../Picker';
 
 require('../../styles/components/table/_table.scss');
 
@@ -27,14 +28,33 @@ const propTypes = {
     divider: PropTypes.string,
     loading: PropTypes.bool,
     error: PropTypes.bool,
-    message: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    isStacked: PropTypes.bool,
+    screenReaderCaption: PropTypes.string
 };
 
 const defaultProps = {
-    classNames: ''
+    classNames: '',
+    isStacked: false
 };
 
 const Table = (props) => {
+    const stackedClass = props.isStacked ? `usa-dt-table__stacked` : '';
+    const getTablePickerOptionsAsc = props.columns.map((col) => ({
+        name: col.displayName + ' ' + '(ascending)',
+        value: col.title,
+        onClick: () => {
+            props.updateSort(col.title, 'asc');
+        }
+    }));
+    const getTablePickerOptionsDesc = props.columns.map((col) => ({
+        name: col.displayName + ' ' + '(descending)',
+        value: col.title,
+        onClick: () => {
+            props.updateSort(col.title, 'desc');
+        }
+    }));
+
     let body;
     if (props.loading) {
         body = (
@@ -67,7 +87,20 @@ const Table = (props) => {
         body = (<TableData {...props} />);
     }
     return (
-        <table className={`usda-table ${props.classNames}`}>
+        <>
+        {props.isStacked && props.updateSort && (
+            <div className="usa-dt-table__stacked-picker">
+                <label htmlFor="stackedTableSort">Sort By</label>
+                <Picker
+                    id="stackedTableSort"
+                    selectedOption={props.currentSort.field}
+                    options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
+            </div>
+        )}
+        <table className={`usda-table ${stackedClass} ${props.classNames}`}>
+            {props.screenReaderCaption && (
+                <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>     
+            )}
             <thead className="usda-table__head">
                 <tr className="usda-table__row">
                     {props.columns.map((col) => (
@@ -102,6 +135,7 @@ const Table = (props) => {
                 {body}
             </tbody>
         </table>
+        </>
     );
 };
 

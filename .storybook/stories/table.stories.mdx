@@ -266,6 +266,63 @@ const updateSort = (field, direction) => {
     </Story>
 </Canvas>
 
+## Stacked Responsive Table
+<Canvas>
+    <Story name='Stacked Responsive Table'>
+        <TableWrapper>
+            <Table
+                isStacked
+                rows={[
+                    ['Transportation', '$100', '20%'],
+                    ['Health', '$150', '30%'],
+                    ['General Science', '$250', '50%']
+                ]} />
+        </TableWrapper>
+        <TableWrapper>
+            <Table
+                isStacked
+                rows={[
+                    {
+                        name: 'Transportation',
+                        amount: '$100',
+                        percent: '20%'
+                    },
+                    {
+                        name: 'Health',
+                        amount: '$150',
+                        percent: '30%',
+                        children: [
+                            {
+                                name: 'Health care services',
+                                amount: '$150',
+                                percent: '30%'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'General Science',
+                        amount: '$250',
+                        percent: '50%',
+                        children: [
+                            {
+                                name: 'Space flight',
+                                amount: '$200',
+                                percent: '40%'
+                            },
+                            {
+                                name: 'Basic research',
+                                amount: '$50',
+                                percent: '10%'
+                            }
+                        ]
+                    }
+                ]}
+                expandable
+                divider="Budget Sub-Function" />
+        </TableWrapper>
+    </Story>
+</Canvas>
+
 ## Integration Status
 Answers the question, where is this component used?
 

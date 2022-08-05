@@ -50,7 +50,8 @@ const TableData = ({
                             :
                             <td
                                 key={uniqueId()}
-                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
+                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}
+                                data-label={columns[j] ? columns[j].displayName : null}>
                                 {data}
                             </td>
                     ))}

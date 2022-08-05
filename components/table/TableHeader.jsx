@@ -95,7 +95,8 @@ const TableHeaderCell = ({
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''}`}
             colSpan={columnSpan}
-            rowSpan={rowsSpan()}>
+            rowSpan={rowsSpan()}
+            scope="col">
             <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
                     {displayName}
