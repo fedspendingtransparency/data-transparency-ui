@@ -1,6 +1,6 @@
 {
   "name": "data-transparency-ui",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
@@ -84,7 +84,7 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.4.5",
-    "glob-parent": "5.1.2",
+    "glob-parent": "6.0.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -100,7 +100,7 @@
     "trim": "1.0.1",
     "trim-newlines": "3.0.1",
     "got": "11.8.5",
-    "glob-parent": "5.1.2",
+    "glob-parent": "6.0.1",
     "minimist": "1.2.6",
     "shelljs": "0.8.5"
   },
