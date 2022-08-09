@@ -100,7 +100,9 @@
     "trim": "1.0.1",
     "trim-newlines": "3.0.1",
     "got": "11.8.5",
-    "glob-parent": "5.1.2"
+    "glob-parent": "5.1.2",
+    "minimist": "1.2.6",
+    "shelljs": "0.8.5"
   },
   "browserslist": [
     "last 2 versions",
