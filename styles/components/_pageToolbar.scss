@@ -1,6 +1,5 @@
 .usda-page-header__toolbar {
   display: flex;
-  background: $color-gray-lightest;
   align-items: flex-start;
   margin: 0;
   width: 100%;
@@ -9,7 +8,6 @@
     align-items: flex-end;
     padding: rem(6.5); 
     width: auto;
-    background: $color-base;
     border-bottom: none;
   }
 
@@ -31,7 +29,6 @@
   @import "./downloadIconButton";
   
   .usa-dt-picker {
-    background-color: $color-base;
     display: flex;
     justify-content: center;
     z-index: 1;

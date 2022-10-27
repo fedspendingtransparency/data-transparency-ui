@@ -11,13 +11,12 @@
         }
     }
     .usda-button {
-        background-color: $color-base;
         border: none;
         padding: 0;
         svg {
             width: rem(18);
             height: rem(23);
-            color: $color-gray-lighter;
+            color: $gray-cool-10;
         }
     }
 }

@@ -9,7 +9,8 @@ const PageHeader = ({
     title,
     overLine = "",
     stickyBreakPoint = 0,
-    toolBar = []
+    toolBar = [],
+    backgroundColor = '#1a4480'
 }) => {
     const stickyHeader = useRef(null);
     const [
@@ -42,7 +43,7 @@ const PageHeader = ({
     };
 
     return (
-        <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
+        <section className={`usda-page-header${stickyClass}`} ref={stickyHeader} style={{backgroundColor: backgroundColor}}>
             <div className="usda-page-header__container">
                 <div className="usda-page-header__mobile-top">
                     <div className="usda-page-header__header">
@@ -54,7 +55,7 @@ const PageHeader = ({
                     {renderMobileShareIcon()}
                 </div>
                 {toolBar?.length > 0 && (
-                    <div className="usda-page-header__toolbar">
+                    <div className="usda-page-header__toolbar" style={{backgroundColor: backgroundColor}}>
                         {toolBar.map((component) => {
                             const className = `${component.props?.className} ${component.props?.classNames}`;
                             const classNames = `${component.props?.classNames}`;

@@ -10,8 +10,8 @@
       border: rem(2) solid #AEB0B5;
       border-radius: rem(4);
       @include for-tablet-landscape-up {
-        background: $color-base;
-        border: rem(2) solid #666666;
+        background: $blue-warm-70v;
+        border: solid 2px rgba(223, 225, 226, 0.25);
       }
       .usa-dt-picker__icon {
         margin-right: rem(8);
@@ -35,7 +35,7 @@
           line-height: rem(20);
           height: rem(23);
           color: #fff;
-          background: $color-base;
+          background: $blue-warm-70v;
         }
       }
       .usa-dt-picker__icon svg,

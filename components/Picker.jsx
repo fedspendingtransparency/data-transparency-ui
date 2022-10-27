@@ -50,7 +50,7 @@ const Picker = ({
     isFixedWidth = false,
     children,
     dropdownDirection = 'right',
-    backgroundColor = '#4A4A4A'
+    backgroundColor = '#1a4480'
 }) => {
     const pickerRef = useRef(null);
     const buttonRef = useRef(null);
@@ -145,17 +145,17 @@ const Picker = ({
     };
 
     return (
-        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef}>
-            <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor }}>
+        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{backgroundColor: backgroundColor}}>
+            <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor: backgroundColor }}>
                 <button
-                    style={{ backgroundColor }}
+                    style={{ backgroundColor: backgroundColor }}
                     ref={buttonRef}
                     aria-label="Dropdown Toggle Button"
                     className="usa-dt-picker__button"
                     onClick={toggleMenu}>
 
                     {icon && (
-                        <div className="usa-dt-picker__icon">
+                        <div className="usa-dt-picker__icon" >
                             {icon}
                         </div>
                     )}
@@ -163,7 +163,7 @@ const Picker = ({
                     {children ?
                         <>{ children }</> :
                         <>
-                            <span className="usa-dt-picker__button-text">
+                            <span className="usa-dt-picker__button-text" style={{ backgroundColor: backgroundColor  }}>
                                 {selectedOption}
                             </span>
                             <span className="usa-dt-picker__button-icon">
