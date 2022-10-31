@@ -6,6 +6,14 @@
   .usa-dt-picker__dropdown-container {
     .usa-dt-picker__button {
       color: $color-gray-lighter;
+      :hover{
+        color: #EDEFF0;
+
+        }
+      :active {
+        color: #FBFCFD;
+
+        }
       svg {
         width: rem(20);
         height: rem(23);

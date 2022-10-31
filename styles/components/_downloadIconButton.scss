@@ -17,6 +17,14 @@
             width: rem(18);
             height: rem(23);
             color: $gray-cool-10;
+            :hover{
+                color: #EDEFF0;
+        
+                }
+            :active {
+                color: #FBFCFD;
+        
+                }
         }
     }
 }
