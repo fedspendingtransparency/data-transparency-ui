@@ -55,7 +55,7 @@ const PageHeader = ({
                     {renderMobileShareIcon()}
                 </div>
                 {toolBar?.length > 0 && (
-                    <div className="usda-page-header__toolbar" style={{backgroundColor: backgroundColor}}>
+                    <div className="usda-page-header__toolbar">
                         {toolBar.map((component) => {
                             const className = `${component.props?.className} ${component.props?.classNames}`;
                             const classNames = `${component.props?.classNames}`;

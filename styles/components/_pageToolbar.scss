@@ -4,6 +4,7 @@
   margin: 0;
   width: 100%;
   border-bottom: rem(1) solid #D6D7D9;
+  background-color: $blue-warm-70v;
   @include for-tablet-landscape-up {
     align-items: flex-end;
     padding: rem(6.5); 
@@ -52,5 +53,10 @@
       padding: 0;
       margin: 0;
     }
+  }
+}
+@media(max-width: $medium-screen){
+  .usda-page-header__toolbar {
+    background-color: $gray-cool-5;
   }
 }
