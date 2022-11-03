@@ -11,6 +11,9 @@
     width: auto;
     border-bottom: none;
   }
+  @include for-tablet-portrait-down {
+    background-color: $gray-cool-5;
+  }
 
   span {
     color: $color-gray-lightest;
@@ -53,10 +56,5 @@
       padding: 0;
       margin: 0;
     }
-  }
-}
-@media(max-width: $medium-screen - 1){
-  .usda-page-header__toolbar {
-    background-color: $gray-cool-5;
   }
 }
