@@ -35,9 +35,17 @@ const PageHeader = ({
     const stickyClass = isSticky ? ' usda-page-header--sticky' : '';
 
     const renderMobileShareIcon = () => {
-        const shareIcon = toolBar.find((o) => o.type.displayName === 'Share Icon');
+        const shareIcon = toolBar?.find((o) => o?.type.displayName === 'Share Icon');
         if (shareIcon) {
             return React.cloneElement(shareIcon);
+        }
+        return null;
+    };
+
+    const renderMobileAboutTheDataIcon = () => {
+        const atdIcon = toolBar?.find((o) => o?.type.displayName === 'ATDButton');
+        if (atdIcon) {
+            return React.cloneElement(atdIcon);
         }
         return null;
     };
@@ -53,6 +61,7 @@ const PageHeader = ({
                         </div>
                     </div>
                     {renderMobileShareIcon()}
+                    {renderMobileAboutTheDataIcon()}
                 </div>
                 {toolBar?.length > 0 && (
                     <div className="usda-page-header__toolbar">

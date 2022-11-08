@@ -13,6 +13,10 @@
   }
   @include for-tablet-portrait-down {
     background-color: $gray-cool-5;
+
+    .sticky-toolbar__atd-icon {
+      display: none;
+    }
   }
 
   span {
