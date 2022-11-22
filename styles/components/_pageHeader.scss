@@ -54,7 +54,7 @@ $z-header: 100;
     font-size: rem(12);
     flex-wrap: wrap;
     text-transform: uppercase;
-    color: #fff;
+    color: $gray-10;
     font-weight: $font-normal;
   }
 
@@ -68,7 +68,7 @@ $z-header: 100;
       color: $color-base;
       font-weight: $font-semibold;
       line-height: rem(20);
-      color: #fff;
+      color: $gray-2;
     }
   }
 
@@ -114,6 +114,7 @@ $z-header: 100;
 
       > span:not(.copy-confirmation) {
         display: none;
+        color: $gray-cool-10;
       }
 
       @import "../shared/dropDownList";
