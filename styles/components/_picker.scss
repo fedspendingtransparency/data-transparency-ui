@@ -26,6 +26,13 @@
         align-self: flex-end;
         width: auto;
         flex-wrap: wrap;
+
+        &:hover{
+            color: $gray-cool-5;
+        }
+        &:active {
+            color: $gray-cool-1;
+        }
         .usa-dt-picker__button {
             @include button-unstyled;
             display: flex;
@@ -48,14 +55,12 @@
                 button {
                     @include button-unstyled;
                 }
-                      :hover{
-        color: #EDEFF0;
-
-        }
-      active {
-        color: #FBFCFD;
-
-        }
+                &:hover{
+                    color: $gray-cool-5;
+                }
+                &:active {
+                    color: $gray-cool-1;
+                }
                 flex: 0 0 rem(20);
                 svg {
                     width: rem(20);

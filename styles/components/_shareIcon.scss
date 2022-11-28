@@ -5,23 +5,31 @@
   position: relative;
 
   .usa-dt-picker {
+    margin-bottom: 2px;
     .usa-dt-picker__dropdown-container {
+      &:hover{
+        color: $gray-cool-5;
+        }
+      &:active {
+        color: $gray-cool-1;
+      }
       .usa-dt-picker__button {
         color: $gray-cool-10;
 
-        :hover {
-          color: #EDEFF0;
-
-        }
-
-        :active {
-          color: #FBFCFD;
-
-        }
 
         svg {
           width: rem(20);
           height: rem(23);
+          
+        &:hover {
+          color: $gray-cool-5;
+
+        }
+
+        &:active {
+          color: $gray-cool-1;
+
+        }
         }
       }
 
