@@ -1,6 +1,7 @@
 @import "../global/index";
 
 .usda-fy-picker__container {
+  max-height: 46px;
   &:hover{
     color: $gray-cool-5;
     }
@@ -11,12 +12,11 @@
       padding: rem(8) rem(10);
     }
     .usa-dt-picker.usda-fy-picker {
-      padding: rem(1.5) rem(10);
       background: $gray-cool-5;
       border: solid 2px rgba(26, 68, 128, 0.25);
-      height: 24px;
+      height: 28px;
       margin-bottom: 2px;
-      border-radius: rem(4);
+      border-radius: rem(3.8);
       @include for-tablet-landscape-up {
         background: $blue-warm-70v;
         border: solid 2px rgba(223, 225, 226, 0.25);
@@ -27,8 +27,12 @@
           color: $gray-cool-1;
         }
       }
+      .usa-dt-picker__dropdown-container {
+        height: 25px;
+      }
       .usa-dt-picker__icon {
-        margin-right: rem(8);
+        margin: 4px 8px 4.6px 8px;
+
          svg {
           color: $gray-cool-10;
           width: rem(14);
@@ -50,11 +54,13 @@
         background: $color-gray-lightest;
         font-weight: $font-semibold;
         font-size: rem(16);
-        line-height: rem(17);
+        height: 24px;
+        line-height: 1.5;
+        margin: 0;
+        min-width: 53px;
         @include for-tablet-landscape-up {
-          font-size: rem(18);
-          line-height: rem(20);
-          height: rem(23);
+          font-size: rem(16);
+          line-height: 1.5;
           color: $gray-cool-10;
           background: $blue-warm-70v;
 
@@ -68,9 +74,9 @@
       }
       .usa-dt-picker__icon svg,
       .usa-dt-picker__button-icon svg {
-        color: $blue-warm-70v;
+        height: 15.4px;
         width: 14px;
-        height: 8.5px;
+        color: $blue-warm-70v;
         @include for-tablet-landscape-up {
           color: $gray-cool-10;
 
@@ -82,15 +88,16 @@
             }
         }
       }
+      .usa-dt-picker__button-icon {
+        margin: 4px 8px 4.6px 8px;
+        width: 14px;
+        height: 15.4px;
+      }
       .usa-dt-picker__button {
         align-items: center;
         @include for-tablet-landscape-up {
           align-items: flex-end;
         }
-      }
-      .usa-dt-picker__button-text,
-      .usa-dt-picker__button-icon {
-        height: auto;
       }
     }
     span:not(.usa-dt-picker__button-text):not(.usa-dt-picker__button-icon) {
