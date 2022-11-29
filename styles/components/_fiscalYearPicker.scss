@@ -14,6 +14,8 @@
       padding: rem(1.5) rem(10);
       background: $gray-cool-5;
       border: solid 2px rgba(26, 68, 128, 0.25);
+      height: 24px;
+      margin-bottom: 2px;
       border-radius: rem(4);
       @include for-tablet-landscape-up {
         background: $blue-warm-70v;
@@ -29,8 +31,8 @@
         margin-right: rem(8);
          svg {
           color: $gray-cool-10;
-          width: rem(20);
-          height: rem(20);
+          width: rem(14);
+          height: rem(15.4);
         }
         &:hover{
           color: $gray-cool-5;
@@ -67,6 +69,8 @@
       .usa-dt-picker__icon svg,
       .usa-dt-picker__button-icon svg {
         color: $blue-warm-70v;
+        width: 14px;
+        height: 8.5px;
         @include for-tablet-landscape-up {
           color: $gray-cool-10;
 
