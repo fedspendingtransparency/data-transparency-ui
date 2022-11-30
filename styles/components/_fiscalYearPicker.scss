@@ -16,7 +16,7 @@
       border: solid 2px rgba(26, 68, 128, 0.25);
       height: 28px;
       margin-bottom: 2px;
-      border-radius: rem(3.8);
+      border-radius: rem(4);
       @include for-tablet-landscape-up {
         background: $blue-warm-70v;
         border: solid 2px rgba(223, 225, 226, 0.25);
