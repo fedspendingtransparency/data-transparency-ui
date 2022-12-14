@@ -72,7 +72,7 @@ const ShareIcon = ({
                     ...option,
                     onClick: copyLink
                 };
-            } else if (url.includes('about-the-data')) {
+            } else if (option.name === 'copy' && url.includes('about-the-data')) {
                 return {
                     ...option,
                     onClick: copyLinkSecond
