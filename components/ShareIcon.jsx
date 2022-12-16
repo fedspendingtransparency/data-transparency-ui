@@ -14,7 +14,8 @@ const propTypes = {
     classNames: PropTypes.string,
     onShareOptionClick: PropTypes.func.isRequired,
     includedDropdownOptions: PropTypes.arrayOf(PropTypes.string),
-    colors: PropTypes.object
+    colors: PropTypes.object,
+    dropdownDirection: PropTypes.string
 };
 
 const ShareIcon = ({
@@ -25,7 +26,8 @@ const ShareIcon = ({
     colors = {
         color: "#dfe1e2",
         backgroundColor: "#1a4480"
-    }
+    },
+    dropdownDirection = 'left'
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
@@ -94,7 +96,7 @@ const ShareIcon = ({
                 value={url}
                 readOnly />
             <Picker
-                dropdownDirection="left"
+                dropdownDirection={dropdownDirection}
                 options={socialSharePickerOptions}
                 selectedOption="copy"
                 backgroundColor={colors.backgroundColor}
