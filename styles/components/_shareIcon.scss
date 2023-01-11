@@ -1,29 +1,55 @@
 @import "../global/index";
 
 .usda-share-icon {
-  margin: 0 rem(40);
+  margin: 0 rem(40) 0 rem(32);
   position: relative;
-  .usa-dt-picker__dropdown-container {
-    background-color: $color-base;
-    .usa-dt-picker__button {
-      color: $color-gray-lighter;
-      svg {
-        width: rem(20);
-        height: rem(23);
+
+  .usa-dt-picker {
+    margin-bottom: 2px;
+    .usa-dt-picker__dropdown-container {
+      &:hover{
+        color: $gray-cool-5;
+        }
+      &:active {
+        color: $gray-cool-1;
       }
-    }
-    .usa-dt-picker__list {
-      width: rem(140);
-      z-index: 1;
-      .usa-dt-picker__item {
-        padding-right: rem(10);
+      .usa-dt-picker__button {
+        color: $gray-cool-10;
+
+
+        svg {
+          width: rem(24);
+          height: rem(24);
+          
+        &:hover {
+          color: $gray-cool-5;
+
+        }
+
+        &:active {
+          color: $gray-cool-1;
+
+        }
+        }
       }
-      span {
-        margin-left: rem(10);
+
+      .usa-dt-picker__list {
+        width: rem(140);
+        z-index: 1;
+
+        .usa-dt-picker__item {
+          padding-right: rem(10);
+        }
+
+        span {
+          margin-left: rem(10);
+          color: $gray-cool-10;
+        }
       }
     }
   }
 }
+
 .copy-confirmation {
   display: flex;
   justify-content: flex-start;
@@ -38,7 +64,10 @@
   margin-right: rem(15);
   top: rem(36);
   right: rem(-7);
+  font-size: rem(16);
+
   svg {
-      margin: 0 rem(10);
+    margin: 0 rem(10);
+    color: $green-cool-50;
   }
 }

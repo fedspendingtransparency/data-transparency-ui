@@ -9,7 +9,8 @@ const PageHeader = ({
     title,
     overLine = "",
     stickyBreakPoint = 0,
-    toolBar = []
+    toolBar = [],
+    backgroundColor = '#1a4480'
 }) => {
     const stickyHeader = useRef(null);
     const [
@@ -34,15 +35,23 @@ const PageHeader = ({
     const stickyClass = isSticky ? ' usda-page-header--sticky' : '';
 
     const renderMobileShareIcon = () => {
-        const shareIcon = toolBar.find((o) => o.type.displayName === 'Share Icon');
+        const shareIcon = toolBar?.find((o) => o?.type.displayName === 'Share Icon');
         if (shareIcon) {
             return React.cloneElement(shareIcon);
         }
         return null;
     };
 
+    const renderMobileAboutTheDataIcon = () => {
+        const atdIcon = toolBar?.find((o) => o?.type.displayName === 'ATDButton');
+        if (atdIcon) {
+            return React.cloneElement(atdIcon);
+        }
+        return null;
+    };
+
     return (
-        <section className={`usda-page-header${stickyClass}`} ref={stickyHeader}>
+        <section className={`usda-page-header${stickyClass}`} ref={stickyHeader} style={{backgroundColor: backgroundColor}}>
             <div className="usda-page-header__container">
                 <div className="usda-page-header__mobile-top">
                     <div className="usda-page-header__header">
@@ -52,6 +61,7 @@ const PageHeader = ({
                         </div>
                     </div>
                     {renderMobileShareIcon()}
+                    {renderMobileAboutTheDataIcon()}
                 </div>
                 {toolBar?.length > 0 && (
                     <div className="usda-page-header__toolbar">

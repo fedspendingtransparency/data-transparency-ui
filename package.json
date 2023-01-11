@@ -1,12 +1,11 @@
 {
   "name": "data-transparency-ui",
-  "version": "5.0.2",
+  "version": "5.2.1",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
     "build-sb": "build-storybook -c .storybook -o docs -s ./assets,./assets/fonts",
@@ -74,6 +73,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
     "@storybook/addon-controls": "^6.5.9",
@@ -85,7 +85,7 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.4.5",
-    "glob-parent": "5.1.2",
+    "glob-parent": "6.0.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -101,7 +101,9 @@
     "trim": "1.0.1",
     "trim-newlines": "3.0.1",
     "got": "11.8.5",
-    "glob-parent": "5.1.2"
+    "glob-parent": "6.0.1",
+    "minimist": "1.2.6",
+    "shelljs": "0.8.5"
   },
   "browserslist": [
     "last 2 versions",

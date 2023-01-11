@@ -25,7 +25,8 @@ const DownloadIconButton = ({
     downloadInFlight,
     tooltipComponent = null,
     tooltipPosition = "left",
-    isEnabled = true
+    isEnabled = true,
+    backgroundColor = '#1a4480'
 }) => {
     const startDownload = (e) => {
         e.preventDefault();
@@ -49,10 +50,11 @@ const DownloadIconButton = ({
                     title={buttonText}
                     aria-label={buttonText}
                     disabled={downloadInFlight}
-                    onClick={startDownload}>
-                    <FontAwesomeIcon icon={icon} spin={downloadInFlight} />
+                    onClick={startDownload}
+                    style={{backgroundColor: backgroundColor}}>
+                    <FontAwesomeIcon icon={icon} spin={downloadInFlight} color='#dfe1e2'/>
                 </button>
-                <span>{buttonText}</span>
+                <span style={{color: '#dfe1e2'}}>{buttonText}</span>
             </TooltipWrapper>
         );
     }
@@ -63,7 +65,8 @@ const DownloadIconButton = ({
                 title={buttonText}
                 aria-label={buttonText}
                 disabled={downloadInFlight}
-                onClick={startDownload}>
+                onClick={startDownload}
+                style={{backgroundColor: backgroundColor}}>
                 <FontAwesomeIcon icon={icon} spin={downloadInFlight} />
             </button>
             <span>{buttonText}</span>

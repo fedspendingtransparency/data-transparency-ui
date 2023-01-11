@@ -5,7 +5,6 @@ $z-header: 100;
 .usda-page-header {
   flex-wrap: wrap;
   margin: 0;
-  background: $color-base;
   display: flex;
   width: 100%;
 
@@ -52,10 +51,10 @@ $z-header: 100;
   }
 
   .usda-page-header__overline {
-    font-size: rem(12);
+    font-size: rem(14);
     flex-wrap: wrap;
     text-transform: uppercase;
-    color: #fff;
+    color: $gray-10;
     font-weight: $font-normal;
   }
 
@@ -69,7 +68,7 @@ $z-header: 100;
       color: $color-base;
       font-weight: $font-semibold;
       line-height: rem(20);
-      color: #fff;
+      color: $gray-2;
     }
   }
 
@@ -113,11 +112,26 @@ $z-header: 100;
         z-index: 2;
       }
 
-      > span:not(.copy-confirmation) {
+      > div:not(.copy-confirmation) {
         display: none;
+        color: $gray-cool-10;
       }
 
       @import "../shared/dropDownList";
+    }
+
+    .sticky-toolbar__atd-icon {
+      margin: 0 rem(10) 0 0;
+
+      @include for-tablet-landscape-up {
+        display: none;
+      }
+
+      .sticky-toolbar__atd-span {
+        @media(max-width: 992px) {
+          display:none;
+        }
+      }
     }
   }
 

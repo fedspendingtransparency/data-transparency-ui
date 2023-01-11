@@ -58,16 +58,24 @@ When adding a new component to this library, please follow the below guide:
 - Export the new component in `index.js`
 - Consult the storybook documentation
 
-### Integration Testing w/ your Local Environment using NPM Link
+### Integration Testing w/ your Local Environment using NPM Link or NPM pack
 
-To test components locally in the context in which they will be used we use `npm link`:
+To test components locally in the context it will be used either use `npm link`:
 
 1. Navigate to the `data-transparency-ui/` root.
 2. Change "main": "dist/index.js" in the package.json file to "main": "index.js"
 3. Run npm link
-4. Run npm link path/to/your/consumer-context/node_modules/react (example npm link ../consumer-context/node_modules/react)
+4. Run npm link path/to/your/<consumer-context>/node_modules/react (example npm link ../<consumer-context>/node_modules/react; to integrate with usaspending.gov use `npm link ../usaspending-website/node_modules/react`)
 5. Navigate to the consumer context folder.
 6. Run npm link data-transparency-ui
+
+OR use `npm pack`:
+
+1. Navigate to the `data-transparency-ui/` root.
+2. Run npm pack (a .tgz package will be created in the root directory)
+3. Navigate to your consumer-context directory (for usaspending.gov, navigate to `usaspending-website/` root)
+4. npm install `../data-transparency-ui/<nameofzippeddtuipackage.tgz`)
+
 
 Now, when you start your local development server in your consumer context, you will be using your local clone of this repository. 🙌
 

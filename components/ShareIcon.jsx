@@ -14,7 +14,8 @@ const propTypes = {
     classNames: PropTypes.string,
     onShareOptionClick: PropTypes.func.isRequired,
     includedDropdownOptions: PropTypes.arrayOf(PropTypes.string),
-    colors: PropTypes.object
+    colors: PropTypes.object,
+    dropdownDirection: PropTypes.string
 };
 
 const ShareIcon = ({
@@ -23,9 +24,10 @@ const ShareIcon = ({
     url = '',
     onShareOptionClick = () => {},
     colors = {
-        color: "#D6D7D9",
-        backgroundColor: "#555"
-    }
+        color: "#dfe1e2",
+        backgroundColor: "#1a4480"
+    },
+    dropdownDirection = 'left'
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
@@ -40,7 +42,26 @@ const ShareIcon = ({
     const copyLink = () => {
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
-            .forEach((node) => node.select());
+            .forEach((node) => {
+                if (node.value.includes(url)) {
+                    return node.select();
+                }
+            });
+
+
+        document.execCommand("copy");
+        setConfirmationText(true);
+        onShareOptionClick('copy');
+    };
+
+    const copyLinkSecond = () => {
+        Array
+            .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
+            .forEach((node) => {
+                if(node.getAttribute('value').includes('about-the-data') || node.getAttribute('value').includes('glossary')) {
+                    return node.select();
+                }
+            });
 
         document.execCommand("copy");
         setConfirmationText(true);
@@ -53,10 +74,15 @@ const ShareIcon = ({
             return includedDropdownOptions.includes(name);
         })
         .map((option) => {
-            if (option.name === 'copy') {
+            if (option.name === 'copy' && !url.includes('about-the-data')) {
                 return {
                     ...option,
                     onClick: copyLink
+                };
+            } else if (option.name === 'copy' && url.includes('about-the-data')) {
+                return {
+                    ...option,
+                    onClick: copyLinkSecond
                 };
             }
             return {
@@ -75,7 +101,7 @@ const ShareIcon = ({
                 value={url}
                 readOnly />
             <Picker
-                dropdownDirection="left"
+                dropdownDirection={dropdownDirection}
                 options={socialSharePickerOptions}
                 selectedOption="copy"
                 backgroundColor={colors.backgroundColor}
@@ -84,9 +110,9 @@ const ShareIcon = ({
             </Picker>
             <span>Share</span>
             {showConfirmationText && (
-                <span className="copy-confirmation">
+                <div className="copy-confirmation">
                     <FontAwesomeIcon icon={faCheckCircle} /> Copied!
-                </span>
+                </div>
             )}
         </div>
     );

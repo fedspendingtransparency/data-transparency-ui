@@ -7,6 +7,7 @@ require('../../styles/components/_flexGrid.scss');
 export default function GridCol({
   children,
   className,
+  desktopxl,
   desktop,
   mobile,
   tablet,
@@ -34,6 +35,7 @@ export default function GridCol({
 
   const baseClasses = [
     [null, width],
+    ['desktopxl', desktopxl],
     ['desktop', desktop],
     ['tablet', tablet],
     ['mobile', mobile]
@@ -52,6 +54,24 @@ GridCol.propTypes = {
   children: PropTypes.node,
   /** Any additional classes to apply */
   className: PropTypes.string,
+  desktopxl: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf(["auto", "fill"]),
+    PropTypes.shape({
+      span: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(["auto", "fill"])
+      ]),
+      offset: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+      ]),
+      order: PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.oneOf(["first", "last"])
+      ])
+    })
+  ]),
   /** Width to use at the desktop breakpoint */
   desktop: PropTypes.oneOfType([
     PropTypes.number,

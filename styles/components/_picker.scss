@@ -16,7 +16,7 @@
         svg {
             width: rem(30);
             height: rem(30);
-            fill: $color-white;
+            fill: $gray-cool-10;
         }
     }
 
@@ -26,6 +26,13 @@
         align-self: flex-end;
         width: auto;
         flex-wrap: wrap;
+
+        &:hover{
+            color: $gray-cool-5;
+        }
+        &:active {
+            color: $gray-cool-1;
+        }
         .usa-dt-picker__button {
             @include button-unstyled;
             display: flex;
@@ -37,16 +44,22 @@
             width: 100%;
             .usa-dt-picker__button-text {
                 flex: 1 1 auto;
-                margin-right: rem(15);
+                margin-right: rem(8);
                 font-weight: $font-light;
                 font-size: rem(20);
                 line-height: rem(25);
-                color: $color-gray;
+                color: $gray-cool-10;
             }
         
             .usa-dt-picker__button-icon {
                 button {
                     @include button-unstyled;
+                }
+                &:hover{
+                    color: $gray-cool-5;
+                }
+                &:active {
+                    color: $gray-cool-1;
                 }
                 flex: 0 0 rem(20);
                 svg {

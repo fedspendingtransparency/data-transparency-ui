@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-
+import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import Picker from './Picker';
 import { allFiscalYears } from '../helpers/fiscalYearHelper';
 
