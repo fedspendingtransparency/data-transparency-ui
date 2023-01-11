@@ -40,6 +40,8 @@ const ShareIcon = ({
     }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
 
     const copyLink = (url) => {
+        console.log("copy link")
+
         // console.log("here ", Array.from(document.querySelectorAll('.js-dtui-url-for-share-icon')));
         //
         // Array
@@ -54,6 +56,7 @@ const ShareIcon = ({
     };
 
     const copyLinkSecond = () => {
+        console.log("copy link second")
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
             .forEach((node) => {
@@ -73,6 +76,8 @@ const ShareIcon = ({
             return includedDropdownOptions.includes(name);
         })
         .map((option) => {
+            console.log("in social share picker options");
+            console.log(url);
             if (option.name === 'copy' && !url.includes('about-the-data')) {
                 return {
                     ...option,
