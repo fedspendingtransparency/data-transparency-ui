@@ -39,20 +39,19 @@ const ShareIcon = ({
         return hideConfirmationText.cancel;
     }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
 
-    const copyLink = (url) => {
-        console.log("copy link")
+    const copyLink = () => {
+        Array
+            .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
+            .forEach((node) => {
+                if (node.value.includes(url)) {
+                    return node.select();
+                }
+            });
 
-        // console.log("here ", Array.from(document.querySelectorAll('.js-dtui-url-for-share-icon')));
-        //
-        // Array
-        //     .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
-        //     .forEach((node) => node.select());
-        //
-        //
+
         document.execCommand("copy");
         setConfirmationText(true);
         onShareOptionClick('copy');
-        return encodeURIComponent(url);
     };
 
     const copyLinkSecond = () => {
@@ -76,12 +75,10 @@ const ShareIcon = ({
             return includedDropdownOptions.includes(name);
         })
         .map((option) => {
-            console.log("in social share picker options");
-            console.log(url);
             if (option.name === 'copy' && !url.includes('about-the-data')) {
                 return {
                     ...option,
-                    onClick: copyLink(url)
+                    onClick: copyLink
                 };
             } else if (option.name === 'copy' && url.includes('about-the-data')) {
                 return {
