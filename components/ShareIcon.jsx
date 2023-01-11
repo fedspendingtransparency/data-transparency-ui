@@ -33,10 +33,10 @@ const ShareIcon = ({
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
 
     useEffect(() => {
-        if (showConfirmationText) {
-            hideConfirmationText();
-        }
-        return hideConfirmationText.cancel;
+        // if (showConfirmationText) {
+        //     hideConfirmationText();
+        // }
+        // return hideConfirmationText.cancel;
     }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
 
     const copyLink = () => {
@@ -55,7 +55,6 @@ const ShareIcon = ({
     };
 
     const copyLinkSecond = () => {
-        console.log("copy link second")
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
             .forEach((node) => {
@@ -111,9 +110,9 @@ const ShareIcon = ({
             </Picker>
             <span>Share</span>
             {showConfirmationText && (
-                <span className="copy-confirmation">
+                <div className="copy-confirmation">
                     <FontAwesomeIcon icon={faCheckCircle} /> Copied!
-                </span>
+                </div>
             )}
         </div>
     );

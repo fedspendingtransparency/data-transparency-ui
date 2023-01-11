@@ -112,7 +112,7 @@ $z-header: 100;
         z-index: 2;
       }
 
-      > span:not(.copy-confirmation) {
+      > div:not(.copy-confirmation) {
         display: none;
         color: $gray-cool-10;
       }
