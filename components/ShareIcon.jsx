@@ -43,6 +43,7 @@ const ShareIcon = ({
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
             .forEach((node) => node.select());
+        console.log("here ", Arrar.from(document.querySelectorAll('.js-dtui-url-for-share-icon')));
 
         document.execCommand("copy");
         setConfirmationText(true);
