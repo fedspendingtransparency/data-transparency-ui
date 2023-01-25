@@ -13,15 +13,24 @@ const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
     expandable: PropTypes.bool,
-    divider: PropTypes.string
+    divider: PropTypes.string,
+    setLevel: PropTypes.func
 };
 
 const TableData = ({
     columns,
     rows,
     expandable,
-    divider
-}) => (
+    divider,
+    setLevel
+}) => {
+    // const handleClick = (e, data) => {
+    //     e.stopPropagation();
+    //     console.log('TableData handleClick data:');
+    //     setLevel(1, data);
+    // };
+
+    return (
     <>
         {rows.map((row, i) => {
             // Use a class name for alternating gray/white rows
@@ -51,15 +60,16 @@ const TableData = ({
                             <td
                                 key={uniqueId()}
                                 className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}
+                                onClick={setLevel(columns[j] ? columns[j].displayName : '')}
                                 data-label={columns[j] ? columns[j].displayName : null}>
-                                {data}
+                                {data}HERE
                             </td>
                     ))}
                 </tr>
             );
         })}
     </>
-);
+)};
 
 TableData.propTypes = propTypes;
 export default TableData;
