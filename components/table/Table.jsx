@@ -31,7 +31,7 @@ const propTypes = {
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     isStacked: PropTypes.bool,
     screenReaderCaption: PropTypes.string,
-    setLevel: PropTypes.func
+    onClickHandler: PropTypes.func
 };
 
 const defaultProps = {

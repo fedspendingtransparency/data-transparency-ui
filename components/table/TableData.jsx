@@ -14,7 +14,7 @@ const propTypes = {
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
     expandable: PropTypes.bool,
     divider: PropTypes.string,
-    setLevel: PropTypes.func
+    onClickHandler: PropTypes.string
 };
 
 const TableData = ({
@@ -22,14 +22,8 @@ const TableData = ({
     rows,
     expandable,
     divider,
-    setLevel
+    onClickHandler
 }) => {
-    // const handleClick = (e, data) => {
-    //     e.stopPropagation();
-    //     console.log('TableData handleClick data:');
-    //     setLevel(1, data);
-    // };
-
     return (
     <>
         {rows.map((row, i) => {
@@ -49,7 +43,8 @@ const TableData = ({
             return (
                 <tr
                     key={uniqueId()}
-                    className={`usda-table__row${oddClass}`}>
+                    onClick={() => onClickHandler(row)}
+                    className={`usda-table__row-item usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
                             <TableHeader
@@ -60,9 +55,8 @@ const TableData = ({
                             <td
                                 key={uniqueId()}
                                 className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}
-                                onClick={setLevel(columns[j] ? columns[j].displayName : '')}
                                 data-label={columns[j] ? columns[j].displayName : null}>
-                                {data}HERE
+                                {data}
                             </td>
                     ))}
                 </tr>
