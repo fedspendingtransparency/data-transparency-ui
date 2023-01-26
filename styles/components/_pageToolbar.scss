@@ -4,19 +4,13 @@
   margin: 0;
   width: 100%;
   border-bottom: rem(1) solid #D6D7D9;
-  background-color: $blue-warm-70v;
+  background-color: $gray-cool-5;
   @include for-tablet-landscape-up {
     align-items: flex-end;
+    background-color: $blue-warm-70v;
     padding: rem(6.5); 
     width: auto;
     border-bottom: none;
-  }
-  @include for-tablet-portrait-down {
-    background-color: $gray-cool-5;
-
-    .sticky-toolbar__atd-icon {
-      display: none;
-    }
   }
 
   span {
