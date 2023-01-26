@@ -30,7 +30,8 @@ const propTypes = {
     error: PropTypes.bool,
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     isStacked: PropTypes.bool,
-    screenReaderCaption: PropTypes.string
+    screenReaderCaption: PropTypes.string,
+    onClickHandler: PropTypes.func
 };
 
 const defaultProps = {
@@ -99,7 +100,7 @@ const Table = (props) => {
         )}
         <table className={`usda-table ${stackedClass} ${props.classNames}`}>
             {props.screenReaderCaption && (
-                <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>     
+                <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
             )}
             <thead className="usda-table__head">
                 <tr className="usda-table__row">
