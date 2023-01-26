@@ -13,15 +13,18 @@ const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
     expandable: PropTypes.bool,
-    divider: PropTypes.string
+    divider: PropTypes.string,
+    onClickHandler: PropTypes.string
 };
 
 const TableData = ({
     columns,
     rows,
     expandable,
-    divider
-}) => (
+    divider,
+    onClickHandler
+}) => {
+    return (
     <>
         {rows.map((row, i) => {
             // Use a class name for alternating gray/white rows
@@ -40,7 +43,8 @@ const TableData = ({
             return (
                 <tr
                     key={uniqueId()}
-                    className={`usda-table__row${oddClass}`}>
+                    onClick={() => onClickHandler(row)}
+                    className={`usda-table__row-item usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
                             <TableHeader
@@ -59,7 +63,7 @@ const TableData = ({
             );
         })}
     </>
-);
+)};
 
 TableData.propTypes = propTypes;
 export default TableData;
