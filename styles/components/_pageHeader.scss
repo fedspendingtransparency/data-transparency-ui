@@ -95,6 +95,8 @@ $z-header: 100;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+    display: flex;
+    color: $gray-cool-5;
 
     @include for-phone-only {
       flex: 0 0 auto;
@@ -112,26 +114,12 @@ $z-header: 100;
         z-index: 2;
       }
 
-      > div:not(.copy-confirmation) {
+      > span:not(.copy-confirmation) {
         display: none;
         color: $gray-cool-10;
       }
 
       @import "../shared/dropDownList";
-    }
-
-    .sticky-toolbar__atd-icon {
-      margin: 0 rem(10) 0 0;
-
-      @include for-tablet-landscape-up {
-        display: none;
-      }
-
-      .sticky-toolbar__atd-span {
-        @media(max-width: 992px) {
-          display:none;
-        }
-      }
     }
   }
 
