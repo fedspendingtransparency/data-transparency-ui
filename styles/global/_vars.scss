@@ -1,4 +1,128 @@
-// Colors:
+// Typography
+// $em-base must be declared before using the rem() function
+$em-base: 10px;
+
+$font-size-56: rem(56px);
+$font-size-48: rem(48px);
+$font-size-40: rem(40px);
+
+$font-size-32: rem(32px);
+$font-size-28: rem(28px);
+$font-size-24: rem(24px);
+$font-size-20: rem(20px);
+$font-size-16: rem(16px);
+$font-size-12: rem(12px);
+
+$font-size-14: rem(14px);
+
+$base-font-size:      $font-size-16;
+$small-font-size:     $font-size-14;
+$smallest-font-size:  rem(11px);
+$lead-font-size:      $font-size-20;
+$title-font-size:     rem(52px);
+
+$h1-font-size:        $font-size-56;
+$h2-font-size:        $font-size-40;
+$h3-font-size:        $font-size-32;
+$h4-font-size:        $font-size-28;
+$h5-font-size:        $font-size-20;
+$h6-font-size:        rem(19px);
+
+$base-line-height:    1.5;
+$heading-line-height: 1.2;
+$lead-line-height:    1.7;
+
+$font-sans:           'Source Sans Pro', $helvetica;
+$font-serif:          'Merriweather', $georgia;
+$font-path:           './fonts';
+
+$font-light:       200;
+$font-normal:      400;
+$font-semibold:    600;
+$font-bold:        700;
+
+$image-path: './img';
+
+// USWDS Color Tokens
+$orange-30v: #FA9441;
+$orange-warm-40v: #FF580A;
+$orange-warm-10v: #ffe2d1;
+$mint-5: #dbf6ed;
+$mint-40: #34A37E;
+$cyan-5v: #e5faff;
+$cyan-10: #ccecf2;
+$cyan-30v: #00BDE3;
+$cyan-40: #449dac;
+$cyan-40v: #009ec1;
+$cyan-50: #168092;
+$cyan-60v: #00687d;
+$cyan-vivid-70: #0e4f5c;
+$cyan-vivid-80: #093b44;
+$blue-5: #eff6fb;
+$blue-50: #2378C3;
+$blue-60v: #005ea2;
+$blue-70v: #0B4778;
+$blue-80v: #002d3f;
+$blue-vivid-5v: #e8f5ff;
+$blue-warm-5v: #edf5ff;
+$blue-warm-40v: #5994f6;
+$blue-warm-60v: #0050d8;
+$blue-warm-70v: #1A4480;
+$indigo-5v: #f0f0ff;
+$indigo-50v: #656bd7;
+$indigo-60v: #4a50c4;
+$indigo-70v: #3333a3;
+$indigo-cool-80v: #1B2B85;
+$violet-50v: #9355DC;
+$violet-60v: #783cb9;
+
+$gray-cool-1: #FBFCFD;
+$gray-2: #F9F9F9;
+$gray-10: #E6E6E6;
+$gray-90: #1B1B1B;
+$gray-cool-60: #565C65;
+$gray-60: #5C5C5C;
+$gray-cool-3: #f5f6f7;
+$gray-cool-5: #edeff0;
+$gray-cool-10: #dfe1e2;
+$gray-cool-20: #c6cace;
+$gray-cool-90: #1c1d1f;
+
+// Theme Colors
+$theme-color-1: $blue-50;
+$theme-color-2: $cyan-50;
+$theme-color-3: $blue-warm-70v;
+$theme-color-4: $indigo-cool-80v;
+$theme-color-5: $blue-warm-5v;
+$theme-color-6: $blue-60v;
+$theme-color-7: $cyan-10;
+$theme-color-accent-1: $mint-40;
+$theme-color-accent-2: $cyan-30v;
+$theme-color-accent-3: $violet-50v;
+$theme-color-accent-4: $orange-warm-40v;
+$theme-color-accent-4-light: $orange-warm-10v;
+$theme-color-accent-5: $orange-30v;
+$theme-color-accent-6: $cyan-40;
+$theme-color-accent-7: $blue-vivid-5v;
+$theme-color-accent-8: $blue-60v;
+$theme-color-accent-9: $mint-5;
+$theme-color-accent-10: $cyan-5v;
+$theme-color-accent-11: $indigo-5v;
+$theme-color-accent-12: $cyan-40v;
+$theme-color-accent-13: $violet-60v;
+$theme-color-accent-14: $indigo-60v;
+$theme-color-accent-15: $blue-warm-60v;
+$theme-color-accent-16: $indigo-50v;
+
+$theme-color-headline: $gray-90;
+$theme-color-headline-inverse: $gray-2;
+$theme-color-body: $gray-60;
+$theme-color-body-inverse: $gray-10;
+
+$theme-color-underline: $gray-cool-20;
+
+
+// Color
 $color-primary:              #0071bc;
 $color-primary-darker:       #205493;
 $color-primary-darkest:      #112e51;
@@ -22,8 +146,7 @@ $color-secondary-lightest:   #f9dede; // lighten($color-secondary, 90%)
 $color-white:                #fff;
 $color-black:                #000;
 $color-base:                 #555;
-$color-link:                 #0071bc;
-
+$color-link:                 $color-primary;
 $color-gray-dark:            #323a45;
 $color-gray:                 #5b616b; // lighten($color-gray-dark, 20%)
 $color-gray-medium:          #757575; // lightest gray that passes color contrast
@@ -66,13 +189,94 @@ $font-serif:          'Merriweather', $georgia;
 // Spacing:
 $global-pad-mrg: rem(15);
 
+$color-disaster-covid-19:    #6E338E;
+$color-covid-19-obligations: #B699C6;
+$color-covid-dark-purple:    #3B005B;
+
+$colors-grants-nff: #47AAA7;
+$colors-loans-subsidy: #8c6e86;
+$colors-loans-face-value: #ded5db;
+
+$colors-obligated: $color-cool-blue-light;
+$colors-current: #8ba6c9;
+$colors-potential: #dce4ee;
+$colors-outlayed: #0b2e5a;
+
+$color-infrastructure-obligations: #afcdd5;
+$color-infrastructure-outlays:    #2d6878;
+
+$headline-color: $gray-90;
+$body-color: $gray-60;
+$card-outline-color: $gray-cool-10;
+
+// Shadows
+$shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.1);
+
+
+// Global Padding and Margins
+// (example usage {padding: ($global-pad * 4);} = 60px of padding.)
+$global-pad-mrg: rem(15);
+$global-pad: $global-pad-mrg;
+$global-mrg: $global-pad-mrg;
+
+// Global Padding and Margins (new units for 2022 homepage redesign)
+// (example usage {padding: ($global-padding * 4);} = 32px of padding.)
+$global-spacing-unit: rem(8);
+$global-padding: $global-spacing-unit;
+$global-margin: $global-spacing-unit;
+
+// Grid Sizes
+$grid-column: 8.33%;
+
 // Mobile First Breakpoints
 $small-screen:      320px;
 $tablet-screen:     768px;
 $medium-screen:     992px;
 $large-screen:      1200px;
+$m-large-screen:    1400px;
 $x-large-screen:    1640px;
+
+// Spacing:
+$global-pad-mrg: rem(15);
 
 // Misc:
 $color-shadow:               rgba(#000, 0.3);
 $box-shadow:                 0 0 2px $color-shadow;
+
+// Magic Numbers
+$text-max-width:      rem(530);
+$lead-max-width:      rem(770);
+$site-max-width:      rem(1600);
+// Homepage max-width
+$homepage-max-width:  rem(1400);
+$site-margins:        rem(30);
+$site-margins-mobile: rem(15);
+$article-max-width:   rem(600);
+$input-max-width:     rem(460);
+$border-radius:       rem(3px);
+$box-shadow:          0 0 2px $color-shadow;
+$focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus;
+$container-shadow:    0 1px 2px rgba(43,59,93,.29);
+$nav-width:           rem(951);
+$outer-gutter:        rem(40);
+
+// 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
+$hit-area:          4.4rem;
+
+// z-indices (to use, add a number 0-9 to the layer you want to use)
+// this keeps out z-indices in check without going to absurdly high numbers
+$z-base: 0;
+$z-header: 100;
+$z-guide: 200;
+$z-modal: 300;
+$z-mobile-filter: 400;
+$z-mobile-nav: 800;
+
+// new colors w/ same names as design
+$color-grass-light:                 #78BF8F;
+$color-grass-lighter:               #BBDFC7;
+
+// drop shadow
+$shadow-3: 0 8px 16px 0 rgba(0,0,0,0.1);
