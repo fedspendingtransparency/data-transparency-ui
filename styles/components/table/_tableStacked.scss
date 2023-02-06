@@ -11,26 +11,17 @@ table.usa-dt-table__stacked {
     }
 
     thead.usda-table__head {
-      // border: none;
-      // clip: rect(0 0 0 0);
-      // height: 1px;
-      // margin: -1px;
-      // overflow: hidden;
-      // padding: 0;
-      // position: absolute;
-      // width: 1px;
       display: none;
     }
 
     tbody.usda-table__body {
       display: block;
       width: 100%;
-      // border-bottom-width: 0;
 
       tr.usda-table__row {
         display: block;
         width: 100%;
-  
+
         td.usda-table__cell {
           // keep display block (vs. flex) for accessibility
           display: block;
@@ -40,13 +31,27 @@ table.usa-dt-table__stacked {
           word-break: break-all;
           text-align: left;
 
-          &:before {
-            content: attr(data-label) ' ';
-            font-weight: $font-semibold;
-            display: block;
-            width: 100%;
-            text-align: left;
-            word-break: break-all;
+          .usda-table__cell-heading-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            .usda-table__cell-heading {
+              font-weight: $font-semibold;
+            }
+
+            .usda-table__cell-message {
+              font-size: $small-font-size;
+              font-weight: $font-semibold;
+              line-height: 1.5;
+              color: $blue-50;
+
+              svg {
+                font-size: $small-font-size;
+                padding-top: rem(2);
+                color: $blue-50;
+              }
+            }
           }
 
           &:first-child {
@@ -56,7 +61,7 @@ table.usa-dt-table__stacked {
         }
 
         &.usda-table__row_expandable {
-          
+
           td.usda-table__cell_name {
             padding-left: rem(32);
           }
@@ -68,7 +73,7 @@ table.usa-dt-table__stacked {
               align-items: center;
               position: relative;
             }
-            
+
             .usda-table__expand-button {
               padding: 0;
               margin: 0;
@@ -117,7 +122,7 @@ table.usa-dt-table__stacked {
 
         &.usda-table__row_odd{
           td.usda-table__cell {
-            
+
           }
         }
 
@@ -141,7 +146,6 @@ table.usa-dt-table__stacked {
 
           &.usda-table__cell_child {
             padding: 0 rem(16) rem(12);
-            // border-left: solid rem(2) $color-gray-light;
             padding-left: rem(48);
             position: relative;
 
@@ -159,7 +163,6 @@ table.usa-dt-table__stacked {
             }
 
             &:first-of-type {
-              padding-left: rem(16);
               padding-left: rem(48);
 
               .usda-table__child-cell-content {
@@ -215,17 +218,17 @@ table.usa-dt-table__stacked {
       margin: 0;
       display: flex;
       align-items: center;
-  
+
       .usa-dt-picker__button-text {
         font-size: $base-font-size;
         margin-right: rem(8);
         line-height: 1.5;
         font-weight: $font-normal;
       }
-  
+
       .usa-dt-picker__button-icon {
         flex: 0 0 auto;
-  
+
         svg {
           width: rem(12);
           height: rem(12);
