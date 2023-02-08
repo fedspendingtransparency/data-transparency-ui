@@ -1,4 +1,4 @@
-@import "../global/index";
+@import "../../global/index";
 
 @mixin outline-style {
   border: solid 1px $card-outline-color;
@@ -73,6 +73,11 @@
     box-shadow: $shadow-lg;
   }
 }
+
+a {
+  text-decoration: none;
+}
+
 a:hover, a:active {
   text-decoration: none;
 

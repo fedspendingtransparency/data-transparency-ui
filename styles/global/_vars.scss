@@ -2,39 +2,39 @@
 // $em-base must be declared before using the rem() function
 $em-base: 10px;
 
-$font-size-56: rem(56px);
-$font-size-48: rem(48px);
-$font-size-40: rem(40px);
+$font-size-56: 5.6rem;
+$font-size-48: 4.8rem;
+$font-size-40: 4rem;
 
-$font-size-32: rem(32px);
-$font-size-28: rem(28px);
-$font-size-24: rem(24px);
-$font-size-20: rem(20px);
-$font-size-16: rem(16px);
-$font-size-12: rem(12px);
+$font-size-32: 3.2rem;
+$font-size-28: 2.8rem;
+$font-size-24: 2.4rem;
+$font-size-20: 2rem;
+$font-size-16: 1.6rem;
+$font-size-12: 1.2rem;
 
-$font-size-14: rem(14px);
+$font-size-14: 1.4rem;
 
 $base-font-size:      $font-size-16;
 $small-font-size:     $font-size-14;
-$smallest-font-size:  rem(11px);
+$smallest-font-size:  1.1rem;
 $lead-font-size:      $font-size-20;
-$title-font-size:     rem(52px);
+$title-font-size:     5.2rem;
 
 $h1-font-size:        $font-size-56;
 $h2-font-size:        $font-size-40;
 $h3-font-size:        $font-size-32;
 $h4-font-size:        $font-size-28;
 $h5-font-size:        $font-size-20;
-$h6-font-size:        rem(19px);
+$h6-font-size:        1.9rem;
 
 $base-line-height:    1.5;
 $heading-line-height: 1.2;
 $lead-line-height:    1.7;
-
-$font-sans:           'Source Sans Pro', $helvetica;
-$font-serif:          'Merriweather', $georgia;
-$font-path:           './fonts';
+//
+//$font-sans:           'Source Sans Pro', $helvetica;
+//$font-serif:          'Merriweather', $georgia;
+//$font-path:           './fonts';
 
 $font-light:       200;
 $font-normal:      400;
@@ -161,33 +161,46 @@ $gray-2:                     #f9f9f9;
 $gray-10:                    #e6e6e6;
 $green-cool-50:              #4d8055;
 
+$color-gray-warm-dark:       #494440;
+$color-gray-warm-light:      #e4e2e0;
+$color-gray-cool-light:      #dce4ef;
+
 $color-gold:                 #fdb81e;
 $color-gold-light:           #f9c642; //  lighten($color-gold, 20%)
 $color-gold-lighter:         #fad980; //  lighten($color-gold, 60%)
 $color-gold-lightest:        #fff1d2; //  lighten($color-gold, 83%)
+$color-green:                #2e8540;
+$color-green-light:          #4aa564;
+$color-green-lighter:        #94bfa2;
+$color-green-lightest:       #e7f4e4;
+$green-cool-50:              #4d8055;
+$color-cool-blue:            $color-primary-darker;
+$color-cool-blue-light:      #4773aa;
+$color-cool-blue-lighter:    #8ba6ca;
+$color-cool-blue-lightest:   $color-gray-cool-light;
 
-$color-base:                 #555;
+$color-warning:              #FCF8E3;
+$color-warning-dark:         #F0AD4E;
 
-// Font Sizes
-$em-base:             10px;
-$small-font-size:     rem(14);
-$base-font-size:      rem(16);
+$color-vis-lightest:		 #d0e9ef;
+$color-vis-lighter:		 	 #a7c2ca;
+$color-vis-light:		 	 #7f9ba7;
+$color-vis-dark:		 	 #597785;
+$color-vis-darker:		 	 #335565;
+$color-vis-darkest:		 	 #083546;
 
-// Font Weights:
-$font-light:		  200;
-$font-normal:         400;
-$font-semibold:  	  600;
-$font-bold:           700;
+$color-vis-green-light:      #45bb8c;
+$color-vis-green-dark:       #0d817c;
+$color-vis-green-darkest:    #1b4956;
 
-// Font Families:
-$helvetica:           "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-$georgia:             "Georgia", "Cambria", "Times New Roman", "Times", serif;
-// $font-sans:           'Source Sans Pro', $helvetica;
-$font-sans:           'Source Sans Pro';
-$font-serif:          'Merriweather', $georgia;
+$color-active:				 #F2B733;
+$color-focus:                #3e94cf;
+$color-visited:              #4c2c92;
+$color-shadow:               rgba(#000, 0.3);
+$color-tab-inactive:	     $color-gray-lightest;
+$color-gray-border:          #D8D8D8;
 
-// Spacing:
-$global-pad-mrg: rem(15);
+$color-placeholder:          #747474;
 
 $color-disaster-covid-19:    #6E338E;
 $color-covid-19-obligations: #B699C6;
@@ -208,6 +221,45 @@ $color-infrastructure-outlays:    #2d6878;
 $headline-color: $gray-90;
 $body-color: $gray-60;
 $card-outline-color: $gray-cool-10;
+$color-base:                 #555;
+
+// Font Sizes
+$em-base:             10px;
+$small-font-size:     1.4rem;
+$base-font-size:      1.6rem;
+
+// Font Weights:
+$font-light:		  200;
+$font-normal:         400;
+$font-semibold:  	  600;
+$font-bold:           700;
+
+// Font Families:
+$helvetica:           "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+$georgia:             "Georgia", "Cambria", "Times New Roman", "Times", serif;
+// $font-sans:           'Source Sans Pro', $helvetica;
+$font-sans:           'Source Sans Pro';
+$font-serif:          'Merriweather', $georgia;
+
+$color-disaster-covid-19:    #6E338E;
+$color-covid-19-obligations: #B699C6;
+$color-covid-dark-purple:    #3B005B;
+
+$colors-grants-nff: #47AAA7;
+$colors-loans-subsidy: #8c6e86;
+$colors-loans-face-value: #ded5db;
+
+//$colors-obligated: $color-cool-blue-light;
+$colors-current: #8ba6c9;
+$colors-potential: #dce4ee;
+$colors-outlayed: #0b2e5a;
+
+$color-infrastructure-obligations: #afcdd5;
+$color-infrastructure-outlays:    #2d6878;
+
+$headline-color: $gray-90;
+$body-color: $gray-60;
+$card-outline-color: $gray-cool-10;
 
 // Shadows
 $shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -217,13 +269,13 @@ $shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.1);
 
 // Global Padding and Margins
 // (example usage {padding: ($global-pad * 4);} = 60px of padding.)
-$global-pad-mrg: rem(15);
+$global-pad-mrg: 1.5rem;
 $global-pad: $global-pad-mrg;
 $global-mrg: $global-pad-mrg;
 
 // Global Padding and Margins (new units for 2022 homepage redesign)
 // (example usage {padding: ($global-padding * 4);} = 32px of padding.)
-$global-spacing-unit: rem(8);
+$global-spacing-unit: 0.8rem;
 $global-padding: $global-spacing-unit;
 $global-margin: $global-spacing-unit;
 
@@ -238,29 +290,26 @@ $large-screen:      1200px;
 $m-large-screen:    1400px;
 $x-large-screen:    1640px;
 
-// Spacing:
-$global-pad-mrg: rem(15);
-
 // Misc:
 $color-shadow:               rgba(#000, 0.3);
 $box-shadow:                 0 0 2px $color-shadow;
 
 // Magic Numbers
-$text-max-width:      rem(530);
-$lead-max-width:      rem(770);
-$site-max-width:      rem(1600);
-// Homepage max-width
-$homepage-max-width:  rem(1400);
-$site-margins:        rem(30);
-$site-margins-mobile: rem(15);
-$article-max-width:   rem(600);
-$input-max-width:     rem(460);
-$border-radius:       rem(3px);
-$box-shadow:          0 0 2px $color-shadow;
-$focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus;
-$container-shadow:    0 1px 2px rgba(43,59,93,.29);
-$nav-width:           rem(951);
-$outer-gutter:        rem(40);
+//$text-max-width:      rem(530);
+//$lead-max-width:      rem(770);
+//$site-max-width:      rem(1600);
+//// Homepage max-width
+//$homepage-max-width:  rem(1400);
+//$site-margins:        rem(30);
+//$site-margins-mobile: rem(15);
+//$article-max-width:   rem(600);
+//$input-max-width:     rem(460);
+//$border-radius:       rem(3px);
+//$box-shadow:          0 0 2px $color-shadow;
+//$focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus;
+//$container-shadow:    0 1px 2px rgba(43,59,93,.29);
+//$nav-width:           rem(951);
+//$outer-gutter:        rem(40);
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area:          4.4rem;

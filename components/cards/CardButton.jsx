@@ -5,7 +5,6 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const propTypes = {
     link: PropTypes.string,
@@ -65,15 +64,15 @@ const CardButton = ({
             )
                 :
                 (
-                    <Link
+                    <a
                         className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
                         role="button"
                         tabIndex={disabled ? "-1" : ""}
                         aria-label={`${text}`}
-                        to={link}
+                        href={link}
                         onClick={action}>
                         {text || children}
-                    </Link>
+                    </a>
                 )}
         </div>
     );

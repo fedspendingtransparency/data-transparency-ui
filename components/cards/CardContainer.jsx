@@ -12,7 +12,10 @@ const propTypes = {
     variant: PropTypes.string, // elevated, outline, or none
     size: PropTypes.string, // sm, md, or lg
     fill: PropTypes.string,
-    height: PropTypes.number,
+    height: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     onClick: PropTypes.func,
     onKeyUp: PropTypes.func,
     className: PropTypes.oneOfType([
