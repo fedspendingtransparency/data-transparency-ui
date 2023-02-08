@@ -31,10 +31,6 @@ $h6-font-size:        1.9rem;
 $base-line-height:    1.5;
 $heading-line-height: 1.2;
 $lead-line-height:    1.7;
-//
-//$font-sans:           'Source Sans Pro', $helvetica;
-//$font-serif:          'Merriweather', $georgia;
-//$font-path:           './fonts';
 
 $font-light:       200;
 $font-normal:      400;
@@ -237,7 +233,6 @@ $font-bold:           700;
 // Font Families:
 $helvetica:           "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
 $georgia:             "Georgia", "Cambria", "Times New Roman", "Times", serif;
-// $font-sans:           'Source Sans Pro', $helvetica;
 $font-sans:           'Source Sans Pro';
 $font-serif:          'Merriweather', $georgia;
 
@@ -293,23 +288,6 @@ $x-large-screen:    1640px;
 // Misc:
 $color-shadow:               rgba(#000, 0.3);
 $box-shadow:                 0 0 2px $color-shadow;
-
-// Magic Numbers
-//$text-max-width:      rem(530);
-//$lead-max-width:      rem(770);
-//$site-max-width:      rem(1600);
-//// Homepage max-width
-//$homepage-max-width:  rem(1400);
-//$site-margins:        rem(30);
-//$site-margins-mobile: rem(15);
-//$article-max-width:   rem(600);
-//$input-max-width:     rem(460);
-//$border-radius:       rem(3px);
-//$box-shadow:          0 0 2px $color-shadow;
-//$focus-shadow:        0 0 3px $color-focus, 0 0 7px $color-focus;
-//$container-shadow:    0 1px 2px rgba(43,59,93,.29);
-//$nav-width:           rem(951);
-//$outer-gutter:        rem(40);
 
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines
 $hit-area:          4.4rem;
