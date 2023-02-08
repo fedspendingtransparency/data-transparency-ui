@@ -1,5 +1,9 @@
 # Data Transparency User Interface (UI) Component Library
 
+## Storybook Documentation
+[https://fedspendingtransparency.github.io/data-transparency-ui/?path=/story/introduction--page](https://fedspendingtransparency.github.io/data-transparency-ui/?path=/story/introduction--page)
+
+## Installation Instructions
 Install our library using npm:
 
 ```shell
@@ -59,6 +63,8 @@ When adding a new component to this library, please follow the below guide:
 - Consult the storybook documentation
 
 ### Integration Testing w/ your Local Environment using NPM Link or NPM pack
+
+Please note in the directions below, the "consumer-context" is the application that you're using with the Data Transparency User Interface Component Library.  So if you are using this library with the USAspending application, the consumer context is usaspending.
 
 To test components locally in the context it will be used either use `npm link`:
 
