@@ -29,9 +29,11 @@ const TableData = ({
     isMobile
 }) => {
     const [firstClick, setFirstClick] = useState(false);
-    const localClickHandler = (row) => {
+    const [rowIndexForMessage, setRowIndexForMessage] = useState();
+    const localClickHandler = (row, index) => {
         if (!firstClick && isMobile) {
             setFirstClick(true);
+            setRowIndexForMessage(index);
         } else {
             onClickHandler(row);
             setFirstClick(false);
@@ -56,7 +58,7 @@ const TableData = ({
             return (
                 <tr
                     key={uniqueId()}
-                    onClick={() => localClickHandler(row)}
+                    onClick={() => localClickHandler(row, i)}
                     className={`usda-table__row-item usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
@@ -73,8 +75,8 @@ const TableData = ({
                                         {isMobile &&
                                             <div className='usda-table__cell-heading'>{columns[j].displayName}</div>
                                         }
-                                        {(isMobile && firstClick && j === 0) &&
-                                        <div className="usda-table__cell-message">View next level{' '}
+                                            {(isMobile && firstClick && j === 0 && rowIndexForMessage === i) &&
+                                            <div className="usda-table__cell-message">View next level{' '}
                                             <FontAwesomeIcon icon={faAngleDoubleRight} color='#2378c3'/>
                                         </div>
                                         }
