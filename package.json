@@ -90,7 +90,7 @@
     "express": "^4.18.2",
     "glob-parent": "6.0.1",
     "json5": "^2.2.3",
-    "loader-utils": "^2.0.4",
+    "loader-utils": "^3.2.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "qs": "^6.11.0",
