@@ -52,7 +52,7 @@ export interface QuarterPickerProps {
 
 interface LoadingMessageProps {
     loadingText: string
-};
+}
 
 interface PickerPropsOptions {
     name: string | number,
@@ -172,7 +172,7 @@ export interface FiscalYearPickerProps {
     earliestFy: number,
     handleFyChange: (fy: string) => void,
     options: Array<FiscalYearOptions>,
-    sortFn: (a: string | number, b: string | number) => int;
+    sortFn: (a: string | number, b: string | number) => number;
 }
 export interface ShareIconProps {
     url: string,
@@ -209,6 +209,24 @@ export interface FlexGridColProps {
     width: number | "auto" | "fill" | object
 }
 
+export interface CardContainerProps {
+    children: JSX.Element,
+    className: string | object,
+    variant: "elevated" | "outline",
+    size: "sm" | "md" | "lg",
+    fill: string,
+    height: string | number
+}
+
+export interface FlexGridColProps {
+    children: JSX.Element,
+    className: string,
+    desktop: number | "auto" | "fill" | object,
+    tablet: number | "auto" | "fill" | object,
+    mobile: number | "auto" | "fill" | object,
+    width: number | "auto" | "fill" | object
+}
+
 /*~ If this module has methods, declare them as functions like so.
  */
 export class Pagination extends React.Component<PaginationProps>{}
@@ -230,6 +248,7 @@ export function FlexGridCol(props: FlexGridColProps): JSX.Element;
 export function DownloadIconButton(props: DownloadIconButtonProps): JSX.Element;
 export function FiscalYearPicker(props: FiscalYearPickerProps): JSX.Element;
 export function ShareIcon(props: ShareIconProps): JSX.Element;
+export function CardContainer(props: CardContainerProps): JSX.Element;
 export function useCumulativeQuarterPicker(initialState: Array<string>): [Array<string>, () => void]
 export function useDynamicStickyClass(ref: object, fixedStickyBreakPoint: number): [boolean, number, () => void, () => void, () => void]
 /*~ If there are types, properties, or methods inside dotted names

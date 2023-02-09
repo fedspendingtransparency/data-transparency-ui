@@ -1,7 +1,7 @@
 import React from 'react';
 import { withConsole } from '@storybook/addon-console';
 import { addParameters, addDecorator } from '@storybook/react';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
 
