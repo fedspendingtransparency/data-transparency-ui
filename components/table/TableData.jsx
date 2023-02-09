@@ -30,7 +30,7 @@ const TableData = ({
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const localClickHandler = (row) => {
-        if (!firstClick) {
+        if (!firstClick && isMobile) {
             setFirstClick(true);
         } else {
             onClickHandler(row);
