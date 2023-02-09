@@ -1,6 +1,6 @@
 {
   "name": "data-transparency-ui",
-  "version": "5.2.4",
+  "version": "5.2.5",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
@@ -90,7 +90,7 @@
     "express": "^4.18.2",
     "glob-parent": "6.0.1",
     "json5": "^2.2.3",
-    "loader-utils": "^2.0.4",
+    "loader-utils": "^3.2.1",
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "qs": "^6.11.0",
@@ -109,7 +109,10 @@
     "got": "11.8.5",
     "glob-parent": "6.0.1",
     "minimist": "1.2.6",
-    "shelljs": "0.8.5"
+    "shelljs": "0.8.5",
+    "minimatch": "3.1.2",
+    "http-cache-semantics": "4.1.1"
+
   },
   "browserslist": [
     "last 2 versions",
