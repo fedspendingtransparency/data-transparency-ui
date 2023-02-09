@@ -31,12 +31,23 @@ const TableData = ({
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
     const localClickHandler = (row, index) => {
-        if (!firstClick && isMobile) {
+        // user taps a row in mobile
+        if (isMobile && !firstClick) {
             setFirstClick(true);
             setRowIndexForMessage(index);
-        } else {
+        }
+        // user taps the same row again, go to next level
+        else if (isMobile && firstClick && rowIndexForMessage === index) {
             onClickHandler(row);
             setFirstClick(false);
+        }
+        // user taps a row after already tapping a different row first
+        else if (isMobile && firstClick && rowIndexForMessage !== index ) {
+            setRowIndexForMessage(index);
+        }
+        // desktop or tablet, just go to next level
+        else if (!isMobile) {
+            onClickHandler(row);
         }
     }
     return (
