@@ -18,6 +18,9 @@
         font-size: $base-font-size;
     }
     &.usda-message_loading {
+        @include for-phone-only {
+            margin-top: rem(24);
+        }
         .usda-message__icon {
             color: $color-primary;
         }
@@ -31,17 +34,13 @@
 
 .usda-loading-animation__container {
     flex: 1 1 auto;
-    margin-top: rem(50);
     max-width: rem(200);
-    padding-left: rem(10);
-    padding-right: rem(10);
     margin-left: auto;
     margin-right: auto;
 
     @include for-tablet-portrait-up {
         flex: 0 0 auto;
         max-width: rem(600);
-        margin-top: rem(100);
     }
     .usda-loading-animation {
         width: rem(50);
