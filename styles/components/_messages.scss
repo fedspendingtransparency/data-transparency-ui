@@ -18,9 +18,6 @@
         font-size: $base-font-size;
     }
     &.usda-message_loading {
-        @include for-phone-only {
-            margin-top: rem(24);
-        }
         .usda-message__icon {
             color: $color-primary;
         }
