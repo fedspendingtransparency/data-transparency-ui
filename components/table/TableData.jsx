@@ -71,7 +71,7 @@ const TableData = ({
                     key={uniqueId()}
                     tabIndex={0}
                     onClick={() => localClickHandler(row, i)}
-                    onKeyPress={() => localClickHandler(row, i)}
+                    onKeyUp={(e) => e.key === 'Enter' ? localClickHandler(row, i) : ''}
                     className={`usda-table__row-item usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
