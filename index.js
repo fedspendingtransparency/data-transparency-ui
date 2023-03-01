@@ -22,6 +22,10 @@ import { useDynamicStickyClass } from './helpers/pageHeaderHelper';
 import FlexGridContainer from './components/flexGrid/FlexGridContainer';
 import FlexGridRow from './components/flexGrid/FlexGridRow';
 import FlexGridCol from './components/flexGrid/FlexGridCol';
+import CardContainer from './components/cards/CardContainer';
+import CardBody from './components/cards/CardBody';
+import CardHero from './components/cards/CardHero';
+import CardButton from './components/cards/CardButton';
 
 import "./styles/dist.scss";
 
@@ -50,5 +54,9 @@ export {
     useDynamicStickyClass,
     FlexGridContainer,
     FlexGridRow,
-    FlexGridCol
+    FlexGridCol,
+    CardContainer,
+    CardHero,
+    CardBody,
+    CardButton
 };
