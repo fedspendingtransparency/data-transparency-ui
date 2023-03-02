@@ -16,7 +16,7 @@ const propTypes = {
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
     expandable: PropTypes.bool,
     divider: PropTypes.string,
-    onClickHandler: PropTypes.string,
+    onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool
 };
 
@@ -30,11 +30,13 @@ const TableData = ({
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
-    const localClickHandler = (row, index) => {
+    const localClickHandler = (e, row, index) => {
         // user taps a row in mobile
         if (isMobile && !firstClick) {
             setFirstClick(true);
             setRowIndexForMessage(index);
+            e.target.focus();
+            console.log('focus?', document.activeElement);
         }
         // user taps the same row again, go to next level
         else if (isMobile && firstClick && rowIndexForMessage === index) {
@@ -44,12 +46,15 @@ const TableData = ({
         // user taps a row after already tapping a different row first
         else if (isMobile && firstClick && rowIndexForMessage !== index ) {
             setRowIndexForMessage(index);
+            e.target.focus();
+            console.log('focus?', document.activeElement);
         }
         // desktop or tablet, just go to next level
         else if (!isMobile) {
             onClickHandler(row);
         }
     }
+
     return (
     <>
         {rows.map((row, i) => {
@@ -70,8 +75,14 @@ const TableData = ({
                 <tr
                     key={uniqueId()}
                     tabIndex={0}
+                    id={`table-row-${i}`}
                     onClick={() => localClickHandler(row, i)}
-                    onKeyUp={(e) => e.key === 'Enter' ? localClickHandler(row, i) : ''}
+                    onKeyUp={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            localClickHandler(e, row, i);
+                        }
+                     }}
                     className={`usda-table__row-item usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
