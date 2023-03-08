@@ -16,7 +16,7 @@ const propTypes = {
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
     expandable: PropTypes.bool,
     divider: PropTypes.string,
-    onClickHandler: PropTypes.string,
+    onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool
 };
 
@@ -50,6 +50,7 @@ const TableData = ({
             onClickHandler(row);
         }
     }
+
     return (
     <>
         {rows.map((row, i) => {
@@ -69,7 +70,14 @@ const TableData = ({
             return (
                 <tr
                     key={uniqueId()}
+                    tabIndex={0}
                     onClick={() => localClickHandler(row, i)}
+                    onKeyUp={(e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            localClickHandler(row, i);
+                        }
+                     }}
                     className={`usda-table__row-item usda-table__row${oddClass}`}>
                     {row.map((data, j) => (
                         columns[j]?.bodyHeader ?
