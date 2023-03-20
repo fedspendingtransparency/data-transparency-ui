@@ -44,7 +44,6 @@ const CardButton = ({
             <div className="card__button">
                 <button
                     className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
-                    tabIndex="0"
                     aria-label={`${text}`}
                     disabled={disabled}
                     onKeyUp={(e) => handleKeyUp(e)}
