@@ -28,7 +28,12 @@ const CardContainer = ({
     variant = '', size = "md", children, fill, height, className = "", onClick, onKeyUp
 }) => (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-    <div className={`card-column ${className}`} onClick={onClick} role="presentation" tabIndex="0" onKeyUp={onKeyUp}>
+    <div
+        className={`card-column ${className}`}
+        onClick={onClick}
+        role="presentation"
+        tabIndex="0"
+        onKeyUp={onKeyUp}>
         <div className={`${variant} ${size} card-container`} style={{ backgroundColor: `${fill}`, height: `${height}` }}>
             { children }
         </div>

@@ -33,6 +33,12 @@ const CardButton = ({
         text: "card__button--borderless"
     };
 
+    const handleKeyUp = (e) => {
+        if (e.key === "Enter") {
+            action();
+        }
+    };
+
     if (onlyPerformAction === true) {
         return (
             <div className="card__button">
@@ -40,6 +46,7 @@ const CardButton = ({
                     className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
                     aria-label={`${text}`}
                     disabled={disabled}
+                    onKeyUp={(e) => handleKeyUp(e)}
                     onClick={action}>
                     {text || children}
                 </button>
@@ -52,10 +59,12 @@ const CardButton = ({
                 <div
                     className={`card__button--secondary ${variantMapper[variant]}`}
                     role="button"
+                    tabIndex="0"
                     aria-label={`${text}`}>
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
+                        onKeyUp={(e) => handleKeyUp(e)}
                         onClick={action}
                         href={link}>
                         {text}
@@ -67,9 +76,10 @@ const CardButton = ({
                     <a
                         className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
                         role="button"
-                        tabIndex={disabled ? "-1" : ""}
+                        tabIndex={disabled ? "-1" : "0"}
                         aria-label={`${text}`}
                         href={link}
+                        onKeyUp={(e) => handleKeyUp(e)}
                         onClick={action}>
                         {text || children}
                     </a>
