@@ -1,11 +1,12 @@
 {
   "name": "data-transparency-ui",
-  "version": "5.2.7",
+  "version": "5.3.0",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions@0.0.3",
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
     "build-sb": "build-storybook -c .storybook -o docs -s ./assets,./assets/fonts",
@@ -82,6 +83,8 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "accounting": "^0.4.1",
     "acorn": "^8.7.1",
+    "ajv": "^8.11.0",
+    "ajv-keywords": "^5.1.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.4.5",
@@ -89,6 +92,7 @@
     "deep-object-diff": "^1.1.9",
     "express": "^4.18.2",
     "glob-parent": "6.0.1",
+    "http-cache-semantics": "^4.1.1",
     "json5": "^2.2.3",
     "loader-utils": "^3.2.1",
     "lodash": "^4.17.15",
@@ -105,14 +109,15 @@
   },
   "resolutions": {
     "trim": "1.0.1",
-    "trim-newlines": "3.0.1",
+    "trim-newlines": "4.0.2",
     "got": "11.8.5",
-    "glob-parent": "6.0.1",
+    "glob-parent": "6.0.2",
     "minimist": "1.2.6",
     "shelljs": "0.8.5",
-    "minimatch": "3.1.2",
-    "http-cache-semantics": "4.1.1"
-
+    "minimatch": "7.4.2",
+    "http-cache-semantics": "4.1.1",
+    "npm-registry-fetch": "14.0.3",
+    "json5": "2.2.3"
   },
   "browserslist": [
     "last 2 versions",
