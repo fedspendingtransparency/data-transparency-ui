@@ -1,12 +1,11 @@
 {
   "name": "data-transparency-ui",
-  "version": "5.3.0",
+  "version": "5.3.1",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions@0.0.3",
     "prepare": "npm run build-cl",
     "build-cl": "webpack --progress --config webpack.config.js",
     "build-sb": "build-storybook -c .storybook -o docs -s ./assets,./assets/fonts",
@@ -117,7 +116,8 @@
     "minimatch": "7.4.2",
     "http-cache-semantics": "4.1.1",
     "npm-registry-fetch": "14.0.3",
-    "json5": "2.2.3"
+    "json5": "2.2.3",
+    "ajv-keywords": "5.1.0"
   },
   "browserslist": [
     "last 2 versions",
