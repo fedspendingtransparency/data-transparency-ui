@@ -178,7 +178,7 @@
 .button-type__text-light,
 .button-type__intext-light {
     background-color: transparent;
-    border-radius: none;
+    border-radius: unset;
     color: $blue-50;
     font-weight: $font-normal;
     line-height: 1.5;
@@ -206,7 +206,7 @@
 
 .button-type__text-left-icon-light {
     background-color: transparent;
-    border-radius: none;
+    border-radius: unset;
     color: $blue-50;
     line-height: 1.5;
     &:hover {
@@ -237,7 +237,7 @@
 
 .button-type__text-right-icon-light {
     background-color: transparent;
-    border-radius: none;
+    border-radius: unset;
     color: $blue-50;
     line-height: 1.5;
     &:hover {
@@ -401,7 +401,7 @@
 
 .button-type__inline-right-icon-light {
     background-color: transparent;
-    border-radius: none;
+    border-radius: unset;
     font-weight: $font-semibold;
     font-stretch: normal;
     font-style: normal;
