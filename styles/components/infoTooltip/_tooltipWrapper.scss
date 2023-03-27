@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../../global/index";
 
 .tooltip-wrapper {
@@ -12,7 +13,7 @@
     .tooltip__hover-wrapper {
         .tooltip__icon {
             color: $color-gray-lighter;
-            margin: 0 $global-pad-mrg / 2;
+            margin: 0 math.div($global-pad-mrg, 2);
             &:hover {
                 color: $color-gray;
             }
