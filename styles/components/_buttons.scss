@@ -346,6 +346,7 @@
 .button-type__stacked-icon-light {
     height: unset;
     color: $blue-50;
+    border-radius: unset;
     display: block;
     background-color: transparent;
     &:hover {
@@ -380,6 +381,7 @@
     height: unset;
     color: $gray-cool-10;
     fill: none;
+    border-radius: unset;
     background-color: transparent;
     display: block;
     &:hover {
@@ -454,6 +456,7 @@
 .button-type__icon-light {
     color: $blue-50;
     background-color: transparent;
+    border-radius: unset;
     
     &:hover {
         color: $blue-70v;
@@ -475,6 +478,7 @@
     color: $gray-cool-10;
     fill: none;
     background-color: transparent;
+    border-radius: unset;
     &:hover {
         color: $gray-cool-5;
         background-color: transparent;
