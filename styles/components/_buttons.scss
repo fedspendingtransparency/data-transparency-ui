@@ -68,7 +68,7 @@
     }
 
     &:active {
-        background-color: $blue-cool-80v;
+        background-color: $blue-80v;
     }
 
     &:disabled {
@@ -179,6 +179,7 @@
 .button-type__intext-light {
     background-color: transparent;
     border-radius: unset;
+    border: none;
     color: $blue-50;
     font-weight: $font-normal;
     line-height: 1.5;
@@ -188,7 +189,7 @@
     }
 
     &:active {
-        color: $blue-cool-80v;
+        color: $blue-80v;
         background-color: transparent;
     }
 
@@ -207,6 +208,7 @@
 .button-type__text-left-icon-light {
     background-color: transparent;
     border-radius: unset;
+    border: none;
     color: $blue-50;
     line-height: 1.5;
     &:hover {
@@ -215,7 +217,7 @@
     }
 
     &:active {
-        color: $blue-cool-80v;
+        color: $blue-80v;
         background-color: transparent;
     }
 
@@ -238,6 +240,7 @@
 .button-type__text-right-icon-light {
     background-color: transparent;
     border-radius: unset;
+    border: none;
     color: $blue-50;
     line-height: 1.5;
     &:hover {
@@ -246,7 +249,7 @@
     }
 
     &:active {
-        color: $blue-cool-80v;
+        color: $blue-80v;
         background-color: transparent;
     }
 
@@ -347,6 +350,7 @@
     height: unset;
     color: $blue-50;
     border-radius: unset;
+    border: none;
     display: block;
     background-color: transparent;
     &:hover {
@@ -355,7 +359,7 @@
     }
 
     &:active {
-        color: $blue-cool-80v;
+        color: $blue-80v;
         background-color: transparent;
     }
 
@@ -382,6 +386,7 @@
     color: $gray-cool-10;
     fill: none;
     border-radius: unset;
+    border: none;
     background-color: transparent;
     display: block;
     &:hover {
@@ -404,6 +409,7 @@
 .button-type__inline-right-icon-light {
     background-color: transparent;
     border-radius: unset;
+    border: none;
     font-weight: $font-semibold;
     font-stretch: normal;
     font-style: normal;
@@ -457,6 +463,7 @@
     color: $blue-50;
     background-color: transparent;
     border-radius: unset;
+    border: none;
     
     &:hover {
         color: $blue-70v;
@@ -464,7 +471,7 @@
     }
 
     &:active {
-        color: $blue-cool-80v;
+        color: $blue-80v;
         background-color: transparent;
     }
 
@@ -479,6 +486,7 @@
     fill: none;
     background-color: transparent;
     border-radius: unset;
+    border: none;
     &:hover {
         color: $gray-cool-5;
         background-color: transparent;

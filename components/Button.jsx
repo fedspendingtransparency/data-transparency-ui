@@ -5,6 +5,7 @@
 
 import React from 'react';
 import PropTypes from "prop-types";
+require('../styles/components/_buttons.scss');
 
 const propTypes = {
     buttonSize: PropTypes.oneOf(['large', 'medium', 'small', 'lg', 'md', 'sm']).isRequired,
