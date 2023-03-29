@@ -31,7 +31,8 @@ With this visibility & independence, the following benefits arise:
 in a single place and then see those changes propagated throughout the website immediately.
 
 [Here is a current status report on USASpending and Broker Integration](https://github.com/fedspendingtransparency/data-act-documentation/blob/data-transparency-ui/frontend_apps/component-library-integration-status.md).
-
+## Pre-install advisory
+- It is advised that consumers of this project add `"preinstall": "npx npm-force-resolutions@0.0.3"` to the package.json of the project that uses this library. Users must also add the appropriate `"resolutions"` section to their package.json as well. Doing the aforementioned steps will help resolve any security vulnerabilities from `npm audit`
 ## UI/UX & Development Collaboration Process
 
 The below info-graphic displays how the UI/UX and Development Teams will iteratively work together to identify new components for this library.

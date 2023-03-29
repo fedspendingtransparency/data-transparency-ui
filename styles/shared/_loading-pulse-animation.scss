@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../global/index";
 /**
  * ==============================================
@@ -7,14 +8,14 @@
 
  $dot-width: 10px !default;
  $dot-height: 10px !default;
- $dot-radius: $dot-width/2 !default;
+ $dot-radius: math.div($dot-width, 2) !default;
  
  $dot-color: $color-gray-light !default;
  $dot-bg-color: $dot-color !default;
  $dot-before-color: $dot-color !default;
  $dot-after-color: $dot-color !default;
  
- $dot-spacing: $dot-width + $dot-width/2 !default;
+ $dot-spacing: $dot-width + math.div($dot-width, 2) !default;
  $left-pos: -9999px;
  $x1: -$left-pos - $dot-spacing;
  $x2: -$left-pos;

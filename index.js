@@ -26,6 +26,7 @@ import CardContainer from './components/cards/CardContainer';
 import CardBody from './components/cards/CardBody';
 import CardHero from './components/cards/CardHero';
 import CardButton from './components/cards/CardButton';
+import Button from './components/Button';
 
 import "./styles/dist.scss";
 
@@ -58,5 +59,6 @@ export {
     CardContainer,
     CardHero,
     CardBody,
-    CardButton
+    CardButton,
+    Button
 };
