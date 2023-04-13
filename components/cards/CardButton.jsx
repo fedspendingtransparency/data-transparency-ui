@@ -5,6 +5,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import Button from "../Button";
 
 const propTypes = {
     link: PropTypes.string,
@@ -42,14 +43,14 @@ const CardButton = ({
     if (onlyPerformAction === true) {
         return (
             <div className="card__button">
-                <button
+                {/* <button
                     className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
                     aria-label={`${text}`}
                     disabled={disabled}
                     onKeyUp={(e) => handleKeyUp(e)}
                     onClick={action}>
                     {text || children}
-                </button>
+                </button> */}
                 <Button onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType="primary" backgroundColor="light" /> 
             </div>);
     }
