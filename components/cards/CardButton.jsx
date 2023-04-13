@@ -51,7 +51,7 @@ const CardButton = ({
                     onClick={action}>
                     {text || children}
                 </button> */}
-                <Button onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType="primary" backgroundColor="light" /> 
+                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType="primary" backgroundColor="light" /> 
             </div>);
     }
 
