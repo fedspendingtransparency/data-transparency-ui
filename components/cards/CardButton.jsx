@@ -26,7 +26,7 @@ const propTypes = {
 };
 
 const CardButton = ({
-    link, govLink, onlyPerformAction = "false", action, text, variant = "secondary", customClassName = '', children, disabled
+    link, govLink, onlyPerformAction = "false", action, text, variant = "secondary", customClassName = '', children, disabled, buttonType,
 }) => {
     const variantMapper = {
         primary: "card__button--primary",
@@ -43,15 +43,7 @@ const CardButton = ({
     if (onlyPerformAction === true) {
         return (
             <div className="card__button">
-                {/* <button
-                    className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
-                    aria-label={`${text}`}
-                    disabled={disabled}
-                    onKeyUp={(e) => handleKeyUp(e)}
-                    onClick={action}>
-                    {text || children}
-                </button> */}
-                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType="primary" backgroundColor="light" /> 
+                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={buttonType} backgroundColor="light" /> 
             </div>);
     }
 
