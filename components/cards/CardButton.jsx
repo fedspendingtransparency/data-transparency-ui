@@ -63,20 +63,27 @@ const CardButton = ({
                         href={link}>
                         {text}
                     </a>
+                    <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={buttonType} backgroundColor="light" /> 
                 </div>
             )
                 :
                 (
+                    <>                    
                     <a
-                        className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
-                        role="button"
-                        tabIndex={disabled ? "-1" : "0"}
-                        aria-label={`${text}`}
-                        href={link}
-                        onKeyUp={(e) => handleKeyUp(e)}
-                        onClick={action}>
-                        {text || children}
-                    </a>
+                    className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
+                    role="button"
+                    tabIndex={disabled ? "-1" : "0"}
+                    aria-label={`${text}`}
+                    href={link}
+                    onKeyUp={(e) => handleKeyUp(e)}
+                    onClick={action}>
+                    {text || children}
+                </a>
+                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={buttonType} backgroundColor="light" />
+                </>
+
+
+                    
                 )}
         </div>
     );
