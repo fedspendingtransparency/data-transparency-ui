@@ -9,7 +9,7 @@ import Button from "../Button";
 
 const propTypes = {
     link: PropTypes.string,
-    govLink: PropTypes.bool,
+        govLink: PropTypes.bool,
     onlyPerformAction: PropTypes.bool,
     action: PropTypes.func,
     text: PropTypes.oneOfType([
@@ -29,9 +29,9 @@ const CardButton = ({
     link, govLink, onlyPerformAction = "false", action, text, variant = "secondary", customClassName = '', children, disabled, buttonType,
 }) => {
     const variantMapper = {
-        primary: "card__button--primary",
-        secondary: "",
-        text: "card__button--borderless"
+        primary: "primary",
+        secondary: "secondary",
+        text: "text"
     };
 
     const handleKeyUp = (e) => {
@@ -39,11 +39,15 @@ const CardButton = ({
             action();
         }
     };
+    const handleOnClick = () => {
+        window.location.href = link;
+        action();
+    }
 
     if (onlyPerformAction === true) {
         return (
             <div className="card__button">
-                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={buttonType} backgroundColor="light" /> 
+                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType="primary" backgroundColor="light" /> 
             </div>);
     }
 
@@ -63,27 +67,20 @@ const CardButton = ({
                         href={link}>
                         {text}
                     </a>
-                    <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={buttonType} backgroundColor="light" /> 
                 </div>
             )
                 :
                 (
-                    <>                    
-                    <a
-                    className={`card__button--secondary ${variantMapper[variant]} ${customClassName}`}
-                    role="button"
-                    tabIndex={disabled ? "-1" : "0"}
-                    aria-label={`${text}`}
-                    href={link}
-                    onKeyUp={(e) => handleKeyUp(e)}
-                    onClick={action}>
-                    {text || children}
-                </a>
-                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={buttonType} backgroundColor="light" />
-                </>
-
-
-                    
+                <>                    
+                <Button
+                onClick={handleOnClick}
+                onKeyUp={(e) => handleKeyUp(e)}
+                copy={text || children}
+                buttonTitle={text || children}
+                buttonSize="md"
+                buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]}
+                backgroundColor="light" />
+                </>                  
                 )}
         </div>
     );
