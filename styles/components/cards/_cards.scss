@@ -154,14 +154,14 @@ a:hover, a:active {
   .card__button {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     margin-bottom: 16px;
     @media (min-width: $medium-screen) {
       flex-direction: row;
     }
 
     .card__button--secondary {
-      display: flex;
+      display: contents !important;
       justify-content: center;
       align-items: center;
       flex-wrap: nowrap;
@@ -178,8 +178,8 @@ a:hover, a:active {
      &.card__button--borderless {
        height: unset;
        border: unset;
-       text-align: left;
-       justify-content: start;
+       font-weight: $font-semibold;
+       justify-content: left;
      }
       @media (min-width: $medium-screen) {
         border-radius: rem(6);
@@ -193,7 +193,10 @@ a:hover, a:active {
     }
 
     .card__button--primary {
+      justify-content: center;
       color: $color-white;
+      width: 100%;
+      display: inline;
       background-color: $color-primary;
       @media (min-width: $medium-screen) {
         background-color: $color-primary;
