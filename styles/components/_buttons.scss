@@ -87,6 +87,7 @@
     border: solid 1px $blue-50;
     background-color: transparent;
     color: $blue-50;
+    font-weight: $font-semibold;
     line-height: 1.5;
     &:hover {
         color: $blue-70v;
@@ -118,6 +119,7 @@
     fill: none;
     background-color: transparent;
     border: solid 1px $gray-cool-10;
+    font-weight: $font-semibold;
     line-height: 1.5;
     &:hover {
         color: $gray-cool-5;
@@ -203,6 +205,10 @@
         background-color: transparent;
         color: $violet-70v;
     }
+}
+
+.button-type__text-light {
+    font-weight: $font-semibold !important;
 }
 
 .button-type__text-left-icon-light {
