@@ -4,6 +4,18 @@
   margin: 0 rem(40) 0 rem(32);
   position: relative;
 
+  &.disabled {
+    .usa-dt-picker__dropdown-container {
+      button {
+        cursor: default;
+      }
+    }
+    .usa-dt-picker__dropdown-container,
+    span {
+      opacity: 0.5;
+    }
+  }
+
   .usa-dt-picker {
     margin-bottom: 2px;
     .usa-dt-picker__dropdown-container {
@@ -20,7 +32,7 @@
         svg {
           width: rem(24);
           height: rem(24);
-          
+
         &:hover {
           color: $gray-cool-5;
 

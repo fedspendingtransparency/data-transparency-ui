@@ -27,7 +27,8 @@ const propTypes = {
     dropdownDirection: PropTypes.oneOf(['left', 'right']),
     isFixedWidth: PropTypes.bool,
     children: PropTypes.node,
-    backgroundColor: PropTypes.string
+    backgroundColor: PropTypes.string,
+    notEnabled: PropTypes.bool
 };
 
 const defaultSort = (a, b, selectedOption) => {
@@ -50,7 +51,8 @@ const Picker = ({
     isFixedWidth = false,
     children,
     dropdownDirection = 'right',
-    backgroundColor = '#1a4480'
+    backgroundColor = '#1a4480',
+    notEnabled
 }) => {
     const pickerRef = useRef(null);
     const buttonRef = useRef(null);
@@ -64,7 +66,9 @@ const Picker = ({
 
     const toggleMenu = (e) => {
         e.preventDefault();
-        setExpanded(!expanded);
+        if (!notEnabled) {
+            setExpanded(!expanded);
+        }
     };
 
     const handleSort = (a, b) => sortFn(a, b, selectedOption);
