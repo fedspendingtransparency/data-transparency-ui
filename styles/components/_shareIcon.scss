@@ -48,6 +48,7 @@
       .usa-dt-picker__list {
         width: rem(140);
         z-index: 1;
+        overflow: hidden;
 
         .usa-dt-picker__item {
           padding-right: rem(10);
