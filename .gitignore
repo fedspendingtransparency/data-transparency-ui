@@ -1,3 +1,7 @@
 node_modules
 coverage
 .DS_Store
+# JetBrains IDEs
+**/.idea/
+# any .tgz
+*.tgz
