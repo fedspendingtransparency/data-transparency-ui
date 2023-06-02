@@ -15,7 +15,9 @@ const propTypes = {
     onShareOptionClick: PropTypes.func.isRequired,
     includedDropdownOptions: PropTypes.arrayOf(PropTypes.string),
     colors: PropTypes.object,
-    dropdownDirection: PropTypes.string
+    dropdownDirection: PropTypes.string,
+    downloadInFlight: PropTypes.bool,
+    isEnabled: PropTypes.bool,
 };
 
 const ShareIcon = ({
@@ -27,10 +29,13 @@ const ShareIcon = ({
         color: "#dfe1e2",
         backgroundColor: "#1a4480"
     },
-    dropdownDirection = 'left'
+    dropdownDirection = 'left',
+    downloadInFlight,
+    isEnabled = true
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
+    const disabledClass = downloadInFlight || !isEnabled ? ' disabled' : '';
 
     useEffect(() => {
         if (showConfirmationText) {
@@ -92,7 +97,7 @@ const ShareIcon = ({
         });
 
     return (
-        <div className={`${classNames ? `usda-share-icon ${classNames}` : 'usda-share-icon'}`}>
+        <div className={`${classNames ? `usda-share-icon${disabledClass} ${classNames}` : `usda-share-icon${disabledClass}`}`}>
             <input
                 aria-label="Share Input Link"
                 type="text"
@@ -105,6 +110,7 @@ const ShareIcon = ({
                 options={socialSharePickerOptions}
                 selectedOption="copy"
                 backgroundColor={colors.backgroundColor}
+                notEnabled={downloadInFlight || !isEnabled}
                 sortFn={() => 1}>
                 <FontAwesomeIcon icon="share-alt" size="lg" color={colors.color} />
             </Picker>
