@@ -48,10 +48,10 @@ const TableData = ({
             else if (isMobile && firstClick && rowIndexForMessage !== index ) {
                 setRowIndexForMessage(index);
             }
-        }
-        // desktop or tablet, just go to next level
-        else if (!isMobile) {
-            onClickHandler(row);
+            // desktop or tablet, just go to next level
+            else if (!isMobile) {
+                onClickHandler(row);
+            }
         }
     }
 
