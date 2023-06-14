@@ -26,7 +26,18 @@ const propTypes = {
 };
 
 const CardButton = ({
-    link, govLink, onlyPerformAction = "false", action, text, variant = "secondary", customClassName = '', children, disabled, backgroundColor, buttonSize, textAlignment
+    link,
+    govLink,
+    onlyPerformAction = "false",
+    action,
+    text,
+    variant = "secondary",
+    customClassName = '',
+    children,
+    disabled,
+    backgroundColor,
+    buttonSize,
+    textAlignment
 }) => {
     const variantMapper = {
         primary: "primary",
@@ -50,9 +61,19 @@ const CardButton = ({
     }
 
     if (onlyPerformAction === true) {
+        console.log('customClassName', customClassName);
         return (
             <div className="card__button">
-                <Button onKeyUp={(e) => handleKeyUp(e)} onClick={action} copy={text || children} buttonTitle={text || children} buttonSize="md" buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]} backgroundColor="light" textAlignment="center" /> 
+                <Button
+                    additionalClassnames={customClassName}
+                    onKeyUp={(e) => handleKeyUp(e)}
+                    onClick={action}
+                    copy={text || children}
+                    buttonTitle={text || children}
+                    buttonSize="md"
+                    buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]}
+                    backgroundColor="light"
+                    textAlignment="center" />
             </div>);
     }
 
@@ -65,6 +86,7 @@ const CardButton = ({
                     tabIndex="0"
                     aria-label={`${text}`}>
                     <Button
+                        additionalClassnames={customClassName}
                         onClick={handleOnClick}
                         onKeyUp={(e) => handleKeyUp(e)}
                         copy={text || children}
@@ -77,13 +99,14 @@ const CardButton = ({
             )
                 :
                 (
-                    <>                    
+                    <>
                     <div
                     className={`${variantMapperStyle[variant]}`}
                     role="button"
                     tabIndex="0"
                     aria-label={`${text}`}>
                         <Button
+                            additionalClassnames={customClassName}
                             onClick={handleOnClick}
                             onKeyUp={(e) => handleKeyUp(e)}
                             copy={text || children}
@@ -91,9 +114,9 @@ const CardButton = ({
                             buttonSize={buttonSize}
                             textAlignment={textAlignment}
                             buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]}
-                            backgroundColor={backgroundColor} />  
+                            backgroundColor={backgroundColor} />
                     </div>
-                </>                    
+                </>
                 )}
         </div>
     );

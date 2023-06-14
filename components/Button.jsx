@@ -149,7 +149,7 @@ const Button = (props) => {
     }
 
     // ANY ADDITIONAL CLASS NAMES
-    if (!props.additionalClassnames === '' && props.additionalClassnames !== null && props.additionalClassnames !== undefined) {
+    if (props.additionalClassnames) {
         classNameList += ' ';
         classNameList += props.additionalClassnames;
     }
