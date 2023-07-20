@@ -61,7 +61,6 @@ const CardButton = ({
     }
 
     if (onlyPerformAction === true) {
-        console.log('customClassName', customClassName);
         return (
             <div className="card__button">
                 <Button
