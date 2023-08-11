@@ -34,6 +34,16 @@ $z-header: 100;
     @include for-tablet-landscape-up {
       flex-wrap: nowrap;
     }
+    hr {
+      display: blocks;
+      background-color: rgba(223, 225, 226, 0.25);
+      height: rem(1);
+      margin: 0 rem(20);
+      @media(min-width: $medium-screen) {
+          display: none;
+      }
+
+  }
   }
 
   .usda-page-header__header {
