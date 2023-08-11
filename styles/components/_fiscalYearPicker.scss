@@ -50,8 +50,8 @@
       }
 
       .usa-dt-picker__button-text {
-        color: $blue-warm-70v;
-        background: $color-gray-lightest;
+        color: $gray-cool-10;
+        background: $blue-warm-70v;
         font-weight: $font-semibold;
         font-size: rem(16);
         height: 24px;
@@ -76,7 +76,7 @@
       .usa-dt-picker__button-icon svg {
         height: 15.4px;
         width: 14px;
-        color: $blue-warm-70v;
+        color: $gray-cool-5;
         @include for-tablet-landscape-up {
           color: $gray-cool-10;
 
