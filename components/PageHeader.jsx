@@ -63,6 +63,7 @@ const PageHeader = ({
                     {renderMobileShareIcon()}
                     {renderMobileAboutTheDataIcon()}
                 </div>
+                <hr />
                 {toolBar?.length > 0 && (
                     <div className="usda-page-header__toolbar">
                         {toolBar.map((component) => {
