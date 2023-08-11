@@ -3,16 +3,16 @@
 .usda-fy-picker__container {
   max-height: 46px;
   &:hover{
-    color: $gray-cool-5;
+    color: $blue-warm-70v;
     }
   &:active {
-    color: $gray-cool-1;
+    color: $blue-warm-70v;
   }
     @include for-tablet-portrait-down {
       padding: rem(8) rem(10);
     }
     .usa-dt-picker.usda-fy-picker {
-      background: $gray-cool-5;
+      background:$blue-warm-70v;
       border: solid 2px rgba(26, 68, 128, 0.25);
       height: 28px;
       margin-bottom: 2px;
