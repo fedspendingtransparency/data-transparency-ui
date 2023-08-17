@@ -14,7 +14,7 @@
     }
     .usa-dt-picker.usda-fy-picker {
       background:$blue-warm-70v;
-      border: solid 2px rgba(223, 225, 226, 0.25);
+      border: solid 2px $gray-cool-10 .25;
       height: 28px;
       border-radius: rem(4);
       @include for-tablet-landscape-up {
