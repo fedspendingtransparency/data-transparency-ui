@@ -3,23 +3,23 @@
 .usda-fy-picker__container {
   max-height: 46px;
   &:hover{
-    color: $gray-cool-5;
+    color: $blue-warm-70v;
     }
   &:active {
-    color: $gray-cool-1;
+    color: $blue-warm-70v;
   }
     @include for-tablet-portrait-down {
-      padding: rem(8) rem(10);
+      padding: rem(12) rem(10);
+      max-height: 52px;
     }
     .usa-dt-picker.usda-fy-picker {
-      background: $gray-cool-5;
-      border: solid 2px rgba(26, 68, 128, 0.25);
+      background:$blue-warm-70v;
+      border: solid 2px $gray-cool-10 .25;
       height: 28px;
-      margin-bottom: 2px;
       border-radius: rem(4);
       @include for-tablet-landscape-up {
         background: $blue-warm-70v;
-        border: solid 2px rgba(223, 225, 226, 0.25);
+        border: solid 2px $gray-cool-10 .25;
         &:hover{
           color: $gray-cool-5;
           }
@@ -33,7 +33,7 @@
       .usa-dt-picker__icon {
         margin: 4px 8px 4.6px 8px;
 
-         svg {
+        svg {
           color: $gray-cool-10;
           width: rem(14);
           height: rem(15.4);
@@ -50,8 +50,8 @@
       }
 
       .usa-dt-picker__button-text {
-        color: $blue-warm-70v;
-        background: $color-gray-lightest;
+        color: $gray-cool-10;
+        background: $blue-warm-70v;
         font-weight: $font-semibold;
         font-size: rem(16);
         height: 24px;
@@ -76,7 +76,7 @@
       .usa-dt-picker__button-icon svg {
         height: 15.4px;
         width: 14px;
-        color: $blue-warm-70v;
+        color: $gray-cool-5;
         @include for-tablet-landscape-up {
           color: $gray-cool-10;
 
