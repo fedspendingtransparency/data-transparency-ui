@@ -19,7 +19,7 @@
       border-radius: rem(4);
       @include for-tablet-landscape-up {
         background: $blue-warm-70v;
-        border: solid 2px rgba(223, 225, 226, 0.25);
+        border: solid 2px $gray-cool-10 .25;
         &:hover{
           color: $gray-cool-5;
           }
