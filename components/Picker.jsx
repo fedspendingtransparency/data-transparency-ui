@@ -196,6 +196,11 @@ const Picker = ({
                                     onClick={(e) => {
                                         e.preventDefault();
                                         option.onClick(option.value);
+                                    }}
+                                    onKeyDown={(e) => {
+                                        if (option.name === 'reddit' && e.key === 'Tab') {
+                                            setExpanded(!expanded);
+                                        }
                                     }}>
                                     {option.component ? option.component : option.name}
                                 </button>
