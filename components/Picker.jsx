@@ -63,6 +63,12 @@ const Picker = ({
         left: 0,
         right: 0
     });
+    const [pickerStyle, setPickerStyle] = useState({
+        top: `${dimensions?.top}px`,
+        width: `${dimensions?.width}px`,
+        left: `${dimensions?.left}px`,
+        right: `${dimensions?.right}px`,
+    })
 
     const toggleMenu = (e) => {
         e.preventDefault();
@@ -70,7 +76,6 @@ const Picker = ({
             setExpanded(!expanded);
         }
     };
-
     const handleSort = (a, b) => sortFn(a, b, selectedOption);
 
     const handleSetDimensions = () => {
@@ -84,8 +89,8 @@ const Picker = ({
             });
         }
     };
-
     useEffect(() => {
+
         if (dimensions.width !== 0 && isFixedWidth) {
             // only reset the dimensions when we're setting the width dimension
             if (buttonRef.current && buttonRef.current.offsetWidth !== dimensions.width) {
@@ -93,6 +98,7 @@ const Picker = ({
             }
         }
     });
+
 
     useEffect(() => {
         const closeMenu = (e) => {
@@ -108,6 +114,7 @@ const Picker = ({
         };
 
         handleSetDimensions();
+        getDropdownListStyles();
         document.addEventListener('click', closeMenu);
 
         return () => {
@@ -121,35 +128,70 @@ const Picker = ({
     };
 
     const getDropdownListStyles = () => {
-        const styles = {
+        setPickerStyle({
+            ...pickerStyle,
             top: `${dimensions.top}px`,
             left: `${dimensions.left}px`
-        };
+        })
 
-        if (isFixedWidth && dropdownDirection === 'right') {
-            return {
-                ...styles,
-                width: `${dimensions.width}px`
-            };
+        const currentPickerList = pickerRef.current?.querySelector('.usa-dt-picker__list');
+
+        console.log('innerHeight: ', window.innerHeight);
+        console.log('currentPickerList: ', currentPickerList?.getBoundingClientRect().bottom);
+        console.log('top/offsetHeight: ', buttonRef.current.offsetHeight)
+
+        const distanceToBottom = window.innerHeight - currentPickerList?.getBoundingClientRect().bottom;
+
+        // if the pickerList is outside the bottom of the view port THEN
+        if (distanceToBottom < 0) {
+            // calculate the height of the parent
+            // set the dimension.top to the height of the parent PLUS the height of the pickerList
+            setPickerStyle({
+                ...pickerStyle,
+                top: `${-1 * (buttonRef.current.offsetHeight + currentPickerList.offsetHeight)}px`
+            })
+            // console.log("Check bottom fix");
+        } else {
+            if (isFixedWidth && dropdownDirection === 'right') {
+                setPickerStyle({
+                    ...pickerStyle,
+                    width: `${dimensions.width}px`
+                })
+                // console.log("isFixedWidth & right");
+            }
+
+            if (isFixedWidth && dropdownDirection === 'left') {
+                setPickerStyle({
+                    ...pickerStyle,
+                    top: `${dimensions.top}px`,
+                    right: `${dimensions.right}px`,
+                    width: `${dimensions.width}px`,
+                })
+                // console.log("isFixedWidth & left");
+            }
+            if (dropdownDirection === 'left') {
+                setPickerStyle({
+                    ...pickerStyle,
+                    top: `${dimensions.top}px`,
+                    right: `${dimensions.right}px`,
+                })
+                // console.log("!isFixedWidth & left");
+            }
         }
-        if (isFixedWidth && dropdownDirection === 'left') {
-            return {
-                top: styles.top,
-                right: `${dimensions.right}`,
-                width: `${dimensions.width}px`
-            };
-        }
-        if (dropdownDirection === 'left') {
-            return {
-                top: styles.top,
-                right: `${dimensions.right}px`
-            };
-        }
-        return styles;
+
+        // console.log('pickerStyle: ', pickerStyle);
+        // console.log('dimensions: ', dimensions);
     };
 
-    return (
-        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{backgroundColor: backgroundColor}}>
+    // console.log('pickerStyle: ', pickerStyle);
+
+    return(
+        <div
+            id={id}
+            className={`usa-dt-picker ${className}`}
+            ref={pickerRef}
+            style={{backgroundColor: backgroundColor}}
+        >
             <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor: backgroundColor }}>
                 <button
                     style={{ backgroundColor: backgroundColor }}
@@ -181,7 +223,7 @@ const Picker = ({
                         </>
                     }
                 </button>
-                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
+                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={pickerStyle}>
                     {options
                         .sort(handleSort)
                         .map((option) => ({

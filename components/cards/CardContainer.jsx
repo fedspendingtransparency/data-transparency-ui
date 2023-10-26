@@ -25,7 +25,14 @@ const propTypes = {
 };
 
 const CardContainer = ({
-    variant = '', size = "md", children, fill, height, className = "", onClick, onKeyUp
+   variant = '',
+   size = "md",
+   children,
+   fill,
+   height,
+   className = "",
+   onClick,
+   onKeyUp
 }) => (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
     <div
@@ -33,8 +40,12 @@ const CardContainer = ({
         onClick={onClick}
         role="presentation"
         tabIndex="0"
-        onKeyUp={onKeyUp}>
-        <div className={`${variant} ${size} card-container`} style={{ backgroundColor: `${fill}`, height: `${height}` }}>
+        onKeyUp={onKeyUp}
+    >
+        <div
+            className={`${variant} ${size} card-container`}
+            style={{ backgroundColor: `${fill}`, height: `${height}` }}
+        >
             { children }
         </div>
     </div>

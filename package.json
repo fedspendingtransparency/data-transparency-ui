@@ -12,7 +12,8 @@
     "start": "start-storybook --port 3001 -s ./assets,./assets/fonts",
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
     "test": "./node_modules/.bin/jest; exit 0;",
-    "build": "npm run build-cl && npm run build-sb"
+    "build": "npm run build-cl && npm run build-sb",
+    "hot": "npm run build && npm pack"
   },
   "repository": {
     "type": "git",
