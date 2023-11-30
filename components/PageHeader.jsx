@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { useDynamicStickyClass } from '../helpers/pageHeaderHelper';
+import InPageNav from './InPageNav';
 
 require('../styles/components/_pageHeader.scss');
 
@@ -10,7 +11,12 @@ const PageHeader = ({
     overLine = "",
     stickyBreakPoint = 0,
     toolBar = [],
-    backgroundColor = '#1a4480'
+    backgroundColor = '#1a4480',
+    pageName,
+    sections,
+    activeSection,
+    jumpToSection,
+    inPageNav = false
 }) => {
     const stickyHeader = useRef(null);
     const [
@@ -87,6 +93,12 @@ const PageHeader = ({
                     </div>
                 )}
             </div>
+            {inPageNav && <InPageNav
+                detectActiveSection
+                pageName={pageName}
+                sections={sections}
+                activeSection={activeSection}
+                jumpToSection={jumpToSection} />}
         </section>
     );
 };
@@ -95,7 +107,11 @@ PageHeader.propTypes = {
     stickyBreakPoint: PropTypes.number,
     overLine: PropTypes.string,
     title: PropTypes.string.isRequired,
-    toolBar: PropTypes.arrayOf(PropTypes.element)
+    toolBar: PropTypes.arrayOf(PropTypes.element),
+    pageName: PropTypes.string,
+    sections: PropTypes.array,
+    activeSection: PropTypes.string,
+    jumpToSection: PropTypes.func
 };
 
 export default PageHeader;
