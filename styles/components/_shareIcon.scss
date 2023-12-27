@@ -18,7 +18,9 @@
 
   .usa-dt-picker {
     margin-bottom: 2px;
+    z-index: 30;
     .usa-dt-picker__dropdown-container {
+      z-index: 30;
       &:hover{
         color: $gray-cool-5;
         }
