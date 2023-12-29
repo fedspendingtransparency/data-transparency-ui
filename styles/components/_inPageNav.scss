@@ -17,10 +17,10 @@
     max-width: 100%;
 
     @media(min-width: $medium-screen) {
-      margin: 0 rem(4);
+      margin: 0 rem(20);
     }
     @media(min-width: $large-screen) {
-      margin: 0 rem(4);
+      margin: 0 rem(40);
     }
     @media(min-width: $x-large-screen) {
       margin: 0 auto;
@@ -30,18 +30,26 @@
     // for some reason IntelliJ thinks this linear-gradient is not valid, but it does compile and it does work
     &.left-fade-effect {
       @media(min-width: $medium-screen) {
-        ul {
-          -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 8px);
-          mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 8px);
+        margin: 0 rem(2);
+      }
+      @media(min-width: $large-screen) {
+        margin: 0 rem(8);
+      }
+      @media(min-width: $x-large-screen) {
+        margin: 0 auto;
+        width: rem(1600);
+      }
+      ul {
+        -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 8px);
+        mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 8px);
 
-          @media(min-width: $medium-screen) {
-            -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 20px);
-            mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 20px);
-          }
-          @media(min-width: $large-screen) {
-            -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 40px);
-            mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 40px);
-          }
+        @media(min-width: $medium-screen) {
+          -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 20px);
+          mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 20px);
+        }
+        @media(min-width: $large-screen) {
+          -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 40px);
+          mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 40px);
         }
       }
     }
@@ -83,6 +91,9 @@
     }
 
     .usda-in-page-nav__paginator {
+      @media(max-width: 991px) {
+        display: none;
+      }
       display: flex;
       justify-content: center;
       align-items: center;
@@ -137,7 +148,7 @@
       @media (max-width: 991px) {
         display: flex;
         align-items: center;
-        margin: 0;
+        margin: 0 0 0 rem(20);
         width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
