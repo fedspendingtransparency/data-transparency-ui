@@ -40,9 +40,6 @@
         width: rem(1600);
       }
       ul {
-        -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 8px);
-        mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 8px);
-
         @media(min-width: $medium-screen) {
           -webkit-mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 20px);
           mask-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 1) 20px);
@@ -73,10 +70,11 @@
     // when both classes are present we need to apply the fade effect to both sides
     // but listing both linear-gradient rules from above did not work
     // so we're approximating the px values with percentages here, and slightly different syntax
+    // we're removing the left fade effect up to 992px
     &.left-fade-effect.right-fade-effect {
       ul {
-        -webkit-mask-image: linear-gradient(to left, transparent, black 4%, black 96%, transparent 100%);
-        mask-image: linear-gradient(to left, transparent, black 4%, black 96%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 8px);
+        mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 8px);
 
         @media(min-width: $medium-screen) {
           -webkit-mask-image: linear-gradient(to left, transparent, black 6%, black 94%, transparent 100%);
