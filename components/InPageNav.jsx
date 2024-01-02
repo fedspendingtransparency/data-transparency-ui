@@ -226,7 +226,7 @@ const InPageNav = (props) => {
     }, 100);
 
     const highlightCurrentSection = throttle(() => {
-        const windowTop = window.scrollY || document.documentElement.scrollTop;
+        const windowTop = window.pageYOffset || document.documentElement.scrollTop;
         const windowBottom = windowTop + window.innerHeight;
 
         // determine the section to highlight
