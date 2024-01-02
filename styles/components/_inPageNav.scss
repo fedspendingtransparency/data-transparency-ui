@@ -53,8 +53,8 @@
 
     &.right-fade-effect {
       ul {
-        -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 8px);
-        mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 8px);
+        -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
+        mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
 
         @media(min-width: $medium-screen) {
           -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 20px);
@@ -73,8 +73,13 @@
     // we're removing the left fade effect up to 992px
     &.left-fade-effect.right-fade-effect {
       ul {
-        -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 8px);
-        mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 8px);
+        -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
+        mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
+
+        @media(min-width: $tablet-screen) {
+          -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 32px);
+          mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 32px);
+        }
 
         @media(min-width: $medium-screen) {
           -webkit-mask-image: linear-gradient(to left, transparent, black 6%, black 94%, transparent 100%);
