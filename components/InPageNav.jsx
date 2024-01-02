@@ -179,10 +179,10 @@ const InPageNav = (props) => {
         if (windowWidth) {
             setIsMobile(windowWidth < mediumScreen);
 
-            if (windowWidth > mediumScreen) {
+            if (windowWidth >= mediumScreen) {
                 setPadding(20 + 24);
             }
-            else if (windowWidth > largeScreen) {
+            else if (windowWidth >= largeScreen) {
                 setPadding(40 + 24);
             }
 
@@ -329,7 +329,7 @@ const InPageNav = (props) => {
         <div className="usda-in-page-nav__container">
             <nav
                 ref={navBar}
-                className={`usda-in-page-nav__wrapper ${isOverflowLeft ? 'left-fade-effect' : ''} ${isOverflowRight ? 'right-fade-effect' : ''} `}>
+                className={`usda-in-page-nav__wrapper ${(isOverflowLeft && !isMobile) ? 'left-fade-effect' : ''} ${isOverflowRight ? 'right-fade-effect' : ''} `}>
                 {isOverflowLeft && !isMobile &&
                     <div
                         aria-label="In-page navigation left paginator"
@@ -342,7 +342,6 @@ const InPageNav = (props) => {
                         <FontAwesomeIcon icon="chevron-left" alt="Back" />
                     </div>
                 }
-
                 <ul>
                     {sections.map((section) => (
                         <li className={`usda-in-page-nav__element ${section.section === activeSection ? 'active' : ''}`} key={`in-page-nav-li-${section.label}`}>
@@ -356,7 +355,6 @@ const InPageNav = (props) => {
                             </a>
                         </li>))}
                 </ul>
-
                 {isOverflowRight && !isMobile &&
                     <div
                         aria-label="In-page navigation right paginator"
