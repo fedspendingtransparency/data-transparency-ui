@@ -56,6 +56,11 @@
         -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
         mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
 
+        @media(min-width: $tablet-screen) {
+          -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 32px);
+          mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 32px);
+        }
+
         @media(min-width: $medium-screen) {
           -webkit-mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 20px);
           mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 20px);
