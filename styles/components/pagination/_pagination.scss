@@ -19,6 +19,12 @@
 			justify-content: flex-start;
 		}
 		@import './pager';
+		.pager__item {
+			margin-bottom: 0;
+		}
+		.pager__ellipsis {
+			margin-bottom: 0;
+		}
 		@import './limitSelector';
 		@import './goTo';
 	}
