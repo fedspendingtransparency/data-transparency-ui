@@ -60,6 +60,13 @@
           margin-left: rem(10);
           color: $gray-cool-10;
         }
+        
+        .usa-dt-picker__list-item {
+          .share-dropdown__twiter-logo {
+            width: rem(14);
+            height: rem(14);
+          }
+        }
       }
     }
   }
