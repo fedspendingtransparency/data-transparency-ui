@@ -6,7 +6,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { throttle } from "lodash";
-import { mediumScreen, largeScreen } from '../dataMapping/mobileBreakpoints';
+import { mediumScreen, largeScreen, xLargeScreen } from '../dataMapping/mobileBreakpoints';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 require('../styles/components/_inPageNav.scss');
@@ -23,13 +23,13 @@ const InPageNav = (props) => {
         sections, jumpToSection, pageName, detectActiveSection
     } = props;
     const [activeSection, setActiveSection] = useState(props.activeSection);
-    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [ulElement, setUlElement] = useState(null);
     const [elementData, setElementData] = useState([]);
     const [isOverflowLeft, setIsOverflowLeft] = useState(false);
     const [isOverflowRight, setIsOverflowRight] = useState(false);
     const [padding, setPadding] = useState(32);
-    const [isMobile, setIsMobile] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < mediumScreen);
     const navBar = useRef(null);
     const [sectionPositions, setSectionPositions] = useState([]);
 
@@ -118,7 +118,6 @@ const InPageNav = (props) => {
                 }
             });
 
-
             const index = firstRtHiddenEl.index;
 
             if (index - 2 >= 0) {
@@ -145,7 +144,6 @@ const InPageNav = (props) => {
 
         setUlElement(ulEl);
         setElementData(tempElementData);
-        checkIsOverflowHidden();
     });
 
     const onKeyPress = useCallback((e, direction) => {
@@ -160,35 +158,38 @@ const InPageNav = (props) => {
         }
     });
 
-    const handleResize = throttle(() => {
+    const handleResize = () => {
         const newWidth = window.innerWidth;
+
         if (windowWidth !== newWidth) {
             setWindowWidth(newWidth);
         }
-    }, 50);
+
+        setIsMobile(windowWidth < mediumScreen);
+
+        if (mediumScreen < windowWidth && windowWidth <= largeScreen) {
+            setPadding(20 + 32);
+        }
+        if (largeScreen < windowWidth && windowWidth <= xLargeScreen) {
+            setPadding(40 + 32);
+        }
+        if (xLargeScreen < windowWidth) {
+            setPadding(160 + 32);
+        }
+
+        checkIsOverflowHidden();
+    }
 
     useEffect(() => {
-        handleResize();
         getInitialElements();
+        handleResize();
+
         window.addEventListener('resize', () => handleResize());
         return () => window.removeEventListener('resize', () => handleResize());
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
-        if (windowWidth) {
-            setIsMobile(windowWidth < mediumScreen);
-
-            if (windowWidth >= mediumScreen) {
-                setPadding(20 + 24);
-            }
-            else if (windowWidth >= largeScreen) {
-                setPadding(40 + 24);
-            }
-
-            checkIsOverflowHidden();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        handleResize();
     }, [windowWidth]);
 
     useEffect(() => {
@@ -197,7 +198,6 @@ const InPageNav = (props) => {
         return () => ulElement?.removeEventListener('scrollend', (e) => handleHorizontalScroll(e));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ulElement]);
-
 
     const cacheSectionPositions = throttle(() => {
         // Measure section positions on windowResize and first render
