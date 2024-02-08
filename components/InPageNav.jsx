@@ -189,10 +189,6 @@ const InPageNav = (props) => {
     }, []);
 
     useEffect(() => {
-        handleResize();
-    }, [windowWidth]);
-
-    useEffect(() => {
         checkIsOverflowHidden();
         ulElement?.addEventListener('scrollend', (e) => handleHorizontalScroll(e));
         return () => ulElement?.removeEventListener('scrollend', (e) => handleHorizontalScroll(e));
