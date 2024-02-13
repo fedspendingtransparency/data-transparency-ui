@@ -69,7 +69,7 @@ const InPageNav = (props) => {
         });
 
         const lastVisibleIndex = lastVisibleEl.index;
-        // check for last visible item
+        // check for last 2 visible items
         if (lastVisibleIndex + 2 < elementData.length) {
             const newLeftPosition = (ulEl.scrollLeft - ulEl.clientWidth) + 20 + elementData[lastVisibleIndex + 1].width + elementData[lastVisibleIndex + 2].width;
             ulEl.scrollTo({ left: newLeftPosition, behavior: 'smooth' });
@@ -104,6 +104,7 @@ const InPageNav = (props) => {
 
             const index = firstRtHiddenEl.index;
 
+            // check for 2 items
             if (index - 2 >= 0) {
                 const leftPosition = elementData[index - 2]?.originalLeftOffset + (padding / 2);
                 ulEl.scrollTo({ left: leftPosition, behavior: 'smooth' });

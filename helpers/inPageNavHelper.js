@@ -2,16 +2,12 @@
  * inPageNavHelper.js
  * Created by Andrea Blackwell 01/16/24
  */
-import {useCallback} from "react";
 
 export const checkIsOverflow = (ulEl, padding) => {
     let left = false;
     let right = false;
-    console.log(ulEl, padding);
     const elArray = [...ulEl?.childNodes];
-    console.log(elArray, elArray[0]?.getBoundingClientRect())
     const firstElPosition = elArray[0]?.getBoundingClientRect();
-    console.log(elArray, elArray[elArray.length - 1]?.getBoundingClientRect())
     const lastElPosition = elArray[elArray.length - 1]?.getBoundingClientRect();
 
     if (firstElPosition.left < 0 || ulEl.scrollLeft > 0) {
