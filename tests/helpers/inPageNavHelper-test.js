@@ -7,53 +7,69 @@ import { checkIsOverflow } from '../../helpers/inPageNavHelper';
 import { JSDOM } from 'jsdom';
 
 let dom = new JSDOM('<!DOCTYPE html>'), doc = dom.window.document;
+let mockElement = doc.createElement('div');
+mockElement.innerHTML = `
+   <ul style="width: 100px">
+       <li><a>Apple</a></li>
+       <li><a>Banana</a></li>
+       <li><a>Orange</a></li>
+   </ul>
+`;
 
-let text = doc.createTextNode('here is some text');
-
-let div = doc.createElement('div');
-const getMockElement = (width) => {
-   div.innerHTML = `
-<ul style=${width}>
-    <li className="usda-in-page-nav__element active"><a role="button" tabIndex="0">Overview</a></li>
-    <li className="usda-in-page-nav__element "><a role="button" tabIndex="0">Status of Funds</a></li>
-    <li className="usda-in-page-nav__element "><a role="button" tabIndex="0">Award Spending</a></li>
-</ul>
-`
-
-   return div;
-};
-
-
-
+const setGetBoundingRect = (elArray, index, left, right, x) => {
+   return elArray[index].getBoundingClientRect = jest.fn(() => {
+      return {
+         width: 50,
+         height: 120,
+         top: 0,
+         left: left,
+         bottom: 60,
+         right: right,
+         x: x,
+         y: 150
+      }
+   });
+}
 describe("In Page Nav Helper functions", () => {
-   it("should return the left and right overflow status of the ul element", () => {
-      const testMockElement = getMockElement('width: 100px');
-      const elArray = [...testMockElement.childNodes];
-      elArray[0].getBoundingClientRect = jest.fn(() => {
-          return {
-             width: 120,
-             height: 120,
-             top: 0,
-             left: 0,
-             bottom: 60,
-             right: 40,
-          }
-       }); //100px wide, 500px tall
-
-      elArray[elArray.length - 1].getBoundingClientRect = jest.fn(() => {
-         return {
-            width: 120,
-            height: 120,
-            top: 0,
-            left: 80,
-            bottom: 60,
-            right: 100,
-         }
-      }); //100px wide, 500px tall
-
+   it("should return the left as overflow true and right is not in overflow", () => {
+      const elArray = [...mockElement.childNodes];
+      setGetBoundingRect(elArray,0, -20, 30, 40);
+      setGetBoundingRect(elArray, elArray.length - 1, 300, 350, 200);
+      jest.spyOn(mockElement, "clientWidth", "get").mockImplementation(() => 1000);
+      jest.spyOn(mockElement, "scrollLeft", "get").mockImplementation(() => -10);
+      jest.spyOn(mockElement, "scrollWidth", "get").mockImplementation(() => 400);
       const padding = 10;
-      const result = checkIsOverflow(testMockElement, padding);
+      const result = checkIsOverflow(mockElement, padding);
+      expect(result.left).toEqual(true);
+      expect(result.right).toEqual(false);
+   });
+
+   it("should return the left is not in overflow and right is not in overflow", () => {
+      const elArray = [...mockElement.childNodes];
+      setGetBoundingRect(elArray,0, 20, 30, 40);
+      setGetBoundingRect(elArray, elArray.length - 1, 300, 350, 200);
+      jest.spyOn(mockElement, "clientWidth", "get").mockImplementation(() => 1000);
+      jest.spyOn(mockElement, "scrollLeft", "get").mockImplementation(() => 0);
+      jest.spyOn(mockElement, "scrollWidth", "get").mockImplementation(() => 400);
+      const padding = 10;
+      const result = checkIsOverflow(mockElement, padding);
+      expect(result.left).toEqual(false);
+      expect(result.right).toEqual(false);
+   });
+
+   it("should return the left in not in overflow and right is in overflow", () => {
+      const elArray = [...mockElement.childNodes];
+      setGetBoundingRect(elArray,0, 20, 30, 40);
+      setGetBoundingRect(elArray, elArray.length - 1, 300, 350, 200);
+      jest.spyOn(mockElement, "clientWidth", "get").mockImplementation(() => 1000);
+      jest.spyOn(mockElement, "scrollLeft", "get").mockImplementation(() => 0);
+      jest.spyOn(mockElement, "scrollWidth", "get").mockImplementation(() => 0);
+      const padding = 10;
+      const result = checkIsOverflow(mockElement, padding);
       expect(result.left).toEqual(false);
       expect(result.right).toEqual(true);
    });
 });
+
+
+
