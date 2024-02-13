@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { throttle } from "lodash";
 import { mediumScreen, largeScreen, xLargeScreen } from '../dataMapping/mobileBreakpoints';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { checkIsOverflow, getElementData, reset } from '../helpers/inPageNavHelper';
 
 require('../styles/components/_inPageNav.scss');
 
@@ -35,20 +36,8 @@ const InPageNav = (props) => {
 
     // detect if the element is overflowing on the left or the right
     const checkIsOverflowHidden = () => {
-        let left = false;
-        let right = false;
         const ulEl = navBar?.current?.querySelector("ul");
-        const elArray = [...ulEl?.childNodes];
-        const firstElPosition = elArray[0]?.getBoundingClientRect();
-        const lastElPosition = elArray[elArray.length - 1]?.getBoundingClientRect();
-
-        if (firstElPosition.left < 0 || ulEl.scrollLeft > 0) {
-            left = true;
-        }
-
-        if (lastElPosition.right > ulEl.clientWidth + padding || lastElPosition.right > ulEl.scrollWidth) {
-            right = true;
-        }
+        const { left, right } = checkIsOverflow(ulEl, padding);
 
         setIsOverflowLeft(left);
         setIsOverflowRight(right);
@@ -58,11 +47,6 @@ const InPageNav = (props) => {
         e.stopPropagation();
         checkIsOverflowHidden();
     });
-
-    const reset = () => {
-        const ulEl = navBar.current.querySelector("ul");
-        ulEl.scrollTo({ left: "0", behavior: 'smooth' });
-    };
 
     const scrollLeft = useCallback((e) => {
         e.stopPropagation();
@@ -85,13 +69,13 @@ const InPageNav = (props) => {
         });
 
         const lastVisibleIndex = lastVisibleEl.index;
-        // check for last visible item
+        // check for last 2 visible items
         if (lastVisibleIndex + 2 < elementData.length) {
             const newLeftPosition = (ulEl.scrollLeft - ulEl.clientWidth) + 20 + elementData[lastVisibleIndex + 1].width + elementData[lastVisibleIndex + 2].width;
             ulEl.scrollTo({ left: newLeftPosition, behavior: 'smooth' });
         }
         else {
-            reset();
+            reset(navBar);
         }
     });
 
@@ -120,27 +104,20 @@ const InPageNav = (props) => {
 
             const index = firstRtHiddenEl.index;
 
+            // check for 2 items
             if (index - 2 >= 0) {
                 const leftPosition = elementData[index - 2]?.originalLeftOffset + (padding / 2);
                 ulEl.scrollTo({ left: leftPosition, behavior: 'smooth' });
             }
             else {
-                reset();
+                reset(navBar);
             }
         }
     });
 
     const getInitialElements = useCallback(() => {
-        const tempElementData = [];
         const ulEl = navBar.current.querySelector("ul");
-        ulEl.childNodes.forEach((el) => {
-            const box = el.getBoundingClientRect();
-            tempElementData.push({
-                name: el.innerHTML,
-                originalLeftOffset: box.left,
-                width: box.width
-            });
-        });
+        const tempElementData = getElementData(ulEl);
 
         setUlElement(ulEl);
         setElementData(tempElementData);
