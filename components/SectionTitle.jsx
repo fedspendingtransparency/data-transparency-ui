@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import TooltipWrapper from './infoTooltip/TooltipWrapper';
+import SectionHeader from './SectionHeader';
 import ComingSoon from './messages/ComingSoon';
 import { createOnKeyDownHandler } from '../helpers/keyboardEventsHelper';
 
@@ -14,7 +13,7 @@ const defaultControlledProps = {
     isExpanded: false
 };
 
-const SectionTitle = ({
+function SectionTitle({
     title,
     icon,
     children,
@@ -34,7 +33,7 @@ const SectionTitle = ({
         props: {}
     },
     description
-}) => {
+}) {
     const [isExpanded, setExpanded] = useState(defaultExpandedState);
     const toggleExpand = () => {
         if (controlledProps.isControlled) {
@@ -49,28 +48,13 @@ const SectionTitle = ({
     return (
         <section id={id} className={`usda-section__container${classNames ? ` ${classNames}` : ''}`}>
             <div className="usda-section-title__container">
-                {icon && React.cloneElement(icon, { className: 'usda-section-title__title-icon' })}
-                <div className="usda-section-title__header">
-                    {overLine && <strong className="usda-section-title__overline">{overLine}</strong>}
-                    <div className="usda-section-title__title">
-                        <h3>{title}</h3>
-                        {titleTooltip.component && (
-                            <TooltipWrapper
-                                tooltipComponent={titleTooltip.component}
-                                icon="info"
-                                className={`${overLine ? 'has-overline' : ''}`}
-                                {...titleTooltip.props} />
-                        )}
-                    </div>
-                </div>
-                {description && React.cloneElement(description, { className: 'usda-section-title__desc has-overline' })}
-                {descTooltip.component && (
-                    <TooltipWrapper
-                        tooltipComponent={descTooltip.component}
-                        icon="info"
-                        tooltipPosition="left"
-                        {...descTooltip.props} />
-                )}
+                <SectionHeader
+                    icon={icon}
+                    title={title}
+                    overLine={overLine}
+                    description={description}
+                    titleTooltip={titleTooltip}
+                    descTooltip={descTooltip} />
                 {isCollapsible && (
                     <FontAwesomeIcon
                         tabIndex={0}
@@ -86,7 +70,7 @@ const SectionTitle = ({
             {showChildren && !isComingSoon && children}
         </section>
     );
-};
+}
 
 SectionTitle.propTypes = {
     icon: PropTypes.element.isRequired,
