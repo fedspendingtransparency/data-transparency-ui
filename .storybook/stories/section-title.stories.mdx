@@ -1,21 +1,21 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SectionTitle from '../../components/SectionTitle';
+import SectionWrapper from '../../components/SectionWrapper';
 import ComingSoon from '../../components/messages/ComingSoon';
 import { ExampleTooltip } from '../misc';
 
 <Meta
     title="Section Title"
-    component={SectionTitle} />
+    component={SectionWrapper} />
 
 ## Props
-<ArgsTable of={SectionTitle} />
+<ArgsTable of={SectionWrapper} />
 
 ## Collapsible Section
 <Canvas>
     <Story name='Collapsible Section'>
-        <SectionTitle
+        <SectionWrapper
             title="Award"
             isCollapsible
             overLine="Award Spending"
@@ -30,14 +30,14 @@ import { ExampleTooltip } from '../misc';
             }}
             description={<span className="usda-section-title__desc">This section covers <strong>Award Spending</strong></span>}>
             <ComingSoon />
-        </SectionTitle>
+        </SectionWrapper>
     </Story>
 </Canvas>
 
 ## Always Expanded
 <Canvas>
     <Story name='Always Expanded'>
-        <SectionTitle
+        <SectionWrapper
             title="Award"
             overLine="Award Spending"
             icon ={<FontAwesomeIcon icon="map-marker" size="3x" />}
@@ -51,7 +51,7 @@ import { ExampleTooltip } from '../misc';
             }}
             description={<span className="usda-section-title__desc">This section covers <strong>Award Spending</strong></span>}>
             <ComingSoon />
-        </SectionTitle>
+        </SectionWrapper>
     </Story>
 </Canvas>
 

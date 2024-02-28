@@ -125,7 +125,7 @@ export interface GenericMessageProps {
     className: string
 }
 
-export interface SectionTitleProps {
+export interface SectionWrapperProps {
     children: JSX.Element,
     defaultExpandedState: boolean,
     overLine: string,
@@ -257,7 +257,7 @@ export function Table(props: TableProps): JSX.Element;
 export function GenericMessage(props: GenericMessageProps): JSX.Element;
 export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
-export function SectionTitle(props: SectionTitleProps): JSX.Element;
+export function SectionWrapper(props: SectionWrapperProps): JSX.Element;
 export function PageHeader(props: PageHeaderProps): JSX.Element;
 export function FlexGridContainer(props: FlexGridContainerProps): JSX.Element;
 export function FlexGridRow(props: FlexGridRowProps): JSX.Element;

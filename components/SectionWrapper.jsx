@@ -5,7 +5,7 @@ import SectionHeader from './SectionHeader';
 import ComingSoon from './messages/ComingSoon';
 import { createOnKeyDownHandler } from '../helpers/keyboardEventsHelper';
 
-require('../styles/components/_sectionTitle.scss');
+require('../styles/components/_sectionWrapper.scss');
 
 const defaultControlledProps = {
     isControlled: false,
@@ -13,7 +13,7 @@ const defaultControlledProps = {
     isExpanded: false
 };
 
-function SectionTitle({
+function SectionWrapper({
     title,
     icon,
     children,
@@ -72,7 +72,7 @@ function SectionTitle({
     );
 }
 
-SectionTitle.propTypes = {
+SectionWrapper.propTypes = {
     icon: PropTypes.element.isRequired,
     children: PropTypes.element.isRequired,
     title: PropTypes.string.isRequired,
@@ -98,4 +98,4 @@ SectionTitle.propTypes = {
     id: PropTypes.string
 };
 
-export default SectionTitle;
+export default SectionWrapper;
