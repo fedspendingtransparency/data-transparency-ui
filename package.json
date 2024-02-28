@@ -1,8 +1,8 @@
 {
   "name": "data-transparency-ui",
-  "version": "6.2.7",
+  "version": "6.2.8",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "dist/index.js",
+  "main": "index.js",
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
@@ -43,7 +43,7 @@
     "@storybook/theming": "^6.5.9",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.0.0",
-    "babel-eslint": "^10.0.3",
+    "@babel/eslint-parser": "^7.17.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-module-resolver": "^5.0.0",
     "css-loader": "^3.2.0",

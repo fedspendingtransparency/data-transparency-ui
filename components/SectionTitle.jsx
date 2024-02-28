@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +13,7 @@ const defaultControlledProps = {
     isExpanded: false
 };
 
-const SectionTitle = ({
+function SectionTitle({
     title,
     icon,
     children,
@@ -34,7 +33,7 @@ const SectionTitle = ({
         props: {}
     },
     description
-}) => {
+}) {
     const [isExpanded, setExpanded] = useState(defaultExpandedState);
     const toggleExpand = () => {
         if (controlledProps.isControlled) {
@@ -53,7 +52,9 @@ const SectionTitle = ({
                 <div className="usda-section-title__header">
                     {overLine && <strong className="usda-section-title__overline">{overLine}</strong>}
                     <div className="usda-section-title__title">
-                        <h3>{title}</h3>
+                        <h3>
+                            {title}
+                        </h3>
                         {titleTooltip.component && (
                             <TooltipWrapper
                                 tooltipComponent={titleTooltip.component}
@@ -86,7 +87,7 @@ const SectionTitle = ({
             {showChildren && !isComingSoon && children}
         </section>
     );
-};
+}
 
 SectionTitle.propTypes = {
     icon: PropTypes.element.isRequired,
