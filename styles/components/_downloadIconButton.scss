@@ -24,6 +24,19 @@
     }
 
     .usda-button {
+        border: none;
+        padding: 0;
         margin: 0;
+        svg {
+            width: rem(24);
+            height: rem(24);
+            color: $gray-cool-10;
+            &:hover{
+                color: $gray-cool-5;
+            }
+            &:active {
+                color: $gray-cool-1;
+            }
+        }
     }
 }
