@@ -18,6 +18,13 @@
   @import "./shareIcon";
   @import "./downloadIconButton";
 
+  span {
+    color: $gray-cool-10;
+    font-size: rem(14);
+    display: flex;
+    justify-content: center;
+  }
+
   .usa-dt-picker {
     display: flex;
     justify-content: center;
