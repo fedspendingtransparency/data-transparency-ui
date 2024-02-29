@@ -142,6 +142,15 @@ export interface SectionWrapperProps {
     className: string
 }
 
+export interface SectionHeaderProps {
+    icon: JSX.Element,
+    title: string,
+    overLine: string,
+    description: JSX.Element,
+    titleTooltip: object,
+    descToolTip: object
+}
+
 export interface CarouselProps {
     items: Array<JSX.Element>
 }
@@ -258,6 +267,7 @@ export function GenericMessage(props: GenericMessageProps): JSX.Element;
 export function LoadingMessage(props: LoadingMessageProps): JSX.Element;
 export function ErrorMessage(props: ErrorMessageProps): JSX.Element;
 export function SectionWrapper(props: SectionWrapperProps): JSX.Element;
+export function SectionHeader(props: SectionHeaderProps): JSX.Element;
 export function PageHeader(props: PageHeaderProps): JSX.Element;
 export function FlexGridContainer(props: FlexGridContainerProps): JSX.Element;
 export function FlexGridRow(props: FlexGridRowProps): JSX.Element;
