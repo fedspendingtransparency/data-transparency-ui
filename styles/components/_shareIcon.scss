@@ -1,8 +1,16 @@
 @import "../global/index";
 
 .usda-share-icon {
-  margin: 0 rem(40) 0 rem(32);
+  margin: 0 0 0 rem(40);
   position: relative;
+
+  &.margin-right {
+    margin-right: rem(32);
+  }
+
+  &.no-margin-left {
+    margin-left: 0;
+  }
 
   &.disabled {
     .usa-dt-picker__dropdown-container {
@@ -17,54 +25,66 @@
   }
 
   .usa-dt-picker {
-    margin-bottom: 2px;
+    margin: 0;
     z-index: 30;
+
     .usa-dt-picker__dropdown-container {
-      z-index: 30;
-      &:hover{
-        color: $gray-cool-5;
-        }
-      &:active {
-        color: $gray-cool-1;
-      }
       .usa-dt-picker__button {
         color: $gray-cool-10;
-
 
         svg {
           width: rem(24);
           height: rem(24);
 
-        &:hover {
-          color: $gray-cool-5;
+          &:hover {
+            color: $gray-cool-5;
+          }
 
-        }
-
-        &:active {
-          color: $gray-cool-1;
-
-        }
+          &:active {
+            color: $gray-cool-1;
+          }
         }
       }
 
       .usa-dt-picker__list {
-        width: rem(140);
-        z-index: 1;
+        width: rem(148);
         overflow: hidden;
 
-        .usa-dt-picker__item {
-          padding-right: rem(10);
+        .usa-dt-picker__list-item {
+          border-top: none;
+          margin-bottom: rem(2);
+        }
+
+        .usa-dt-picker__list-item:focus {
+          border-top: unset;
+        }
+
+        svg {
+          color: $gray-cool-60;
+          width: rem(16);
+          height: rem(16);
+          margin-top: rem(4);
         }
 
         span {
-          margin-left: rem(10);
-          color: $gray-cool-10;
+          color: $gray-cool-60;
+          font-weight: $font-semibold;
+          font-size: rem(16);
+          line-height: rem(24);
+          margin-left: rem(16);
         }
-        
-        .usa-dt-picker__list-item {
-          .share-dropdown__twiter-logo {
-            width: rem(14);
-            height: rem(14);
+
+        .usa-dt-picker__item {
+          padding-left: rem(16);
+          padding-right: unset;
+          padding-top: rem(8);
+          padding-bottom: rem(8);
+          width: 100%;
+          display: flex;
+          left: 0;
+
+          &:hover {
+            background-color: $gray-cool-3;
           }
         }
       }
@@ -87,6 +107,7 @@
   top: rem(36);
   right: rem(-7);
   font-size: rem(16);
+  z-index: 31;
 
   svg {
     margin: 0 rem(10);

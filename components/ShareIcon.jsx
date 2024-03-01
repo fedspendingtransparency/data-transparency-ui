@@ -18,9 +18,10 @@ const propTypes = {
     dropdownDirection: PropTypes.string,
     downloadInFlight: PropTypes.bool,
     isEnabled: PropTypes.bool,
+    noShareText: PropTypes.bool
 };
 
-const ShareIcon = ({
+function ShareIcon({
     includedDropdownOptions = [],
     classNames = '',
     url = '',
@@ -31,8 +32,9 @@ const ShareIcon = ({
     },
     dropdownDirection = 'left',
     downloadInFlight,
-    isEnabled = true
-}) => {
+    isEnabled = true,
+    noShareText
+}) {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
     const disabledClass = downloadInFlight || !isEnabled ? ' disabled' : '';
@@ -53,7 +55,6 @@ const ShareIcon = ({
                 }
             });
 
-
         document.execCommand("copy");
         setConfirmationText(true);
         onShareOptionClick('copy');
@@ -63,7 +64,7 @@ const ShareIcon = ({
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
             .forEach((node) => {
-                if(node.getAttribute('value').includes('about-the-data') || node.getAttribute('value').includes('glossary')) {
+                if (node.getAttribute('value').includes('about-the-data') || node.getAttribute('value').includes('glossary')) {
                     return node.select();
                 }
             });
@@ -84,7 +85,7 @@ const ShareIcon = ({
                     ...option,
                     onClick: copyLink
                 };
-            } else if (option.name === 'copy' && url.includes('about-the-data')) {
+            } if (option.name === 'copy' && url.includes('about-the-data')) {
                 return {
                     ...option,
                     onClick: copyLinkSecond
@@ -114,15 +115,17 @@ const ShareIcon = ({
                 sortFn={() => 1}>
                 <FontAwesomeIcon icon="share-alt" size="lg" color={colors.color} />
             </Picker>
-            <span>Share</span>
+            {!noShareText && <span>Share</span>}
             {showConfirmationText && (
                 <div className="copy-confirmation">
-                    <FontAwesomeIcon icon={faCheckCircle} /> Copied!
+                    <FontAwesomeIcon icon={faCheckCircle} />
+                    {' '}
+                    Copied!
                 </div>
             )}
         </div>
     );
-};
+}
 
 ShareIcon.propTypes = propTypes;
 ShareIcon.displayName = 'Share Icon';

@@ -1,10 +1,13 @@
 @import "../global/index";
 
 .usda-download-btn {
-    margin-bottom: 2px;
+    padding-bottom: rem(2);
+    display: flex;
+    flex-direction: column;
     .tooltip__hover-wrapper {
         flex-direction: column;
     }
+
     &.disabled {
         .usda-button {
             cursor: default;
@@ -14,19 +17,26 @@
             opacity: 0.5;
         }
     }
+
+    span {
+        line-height: 0.8;
+        padding-top: rem(4);
+    }
+
     .usda-button {
         border: none;
         padding: 0;
+        margin: 0;
         svg {
             width: rem(24);
             height: rem(24);
             color: $gray-cool-10;
             &:hover{
                 color: $gray-cool-5;
-                }
+            }
             &:active {
                 color: $gray-cool-1;
-                }
+            }
         }
     }
 }

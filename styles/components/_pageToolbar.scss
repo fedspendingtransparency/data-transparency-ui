@@ -3,15 +3,20 @@
   align-items: flex-start;
   margin: 0;
   width: 100%;
+  height: rem(60);
   border-bottom: rem(1) solid #D6D7D9;
   background-color: $blue-warm-70v;
   @include for-tablet-landscape-up {
     align-items: flex-end;
     background-color: $blue-warm-70v;
-    padding: rem(6.5); 
+    padding: rem(6);
     width: auto;
     border-bottom: none;
   }
+
+  @import "./fiscalYearPicker";
+  @import "./shareIcon";
+  @import "./downloadIconButton";
 
   span {
     color: $gray-cool-10;
@@ -20,16 +25,6 @@
     justify-content: center;
   }
 
-  @import "./fiscalYearPicker";
-
-  .usda-share-icon,
-  .usda-fy-picker__container {
-    @import "../shared/dropDownList";
-  }
-
-  @import "./shareIcon";
-  @import "./downloadIconButton";
-  
   .usa-dt-picker {
     display: flex;
     justify-content: center;
@@ -44,15 +39,9 @@
   .usda-download-btn.tooltip-wrapper,
   .usda-share-icon {
     display: none;
-    margin-top: auto;
     @include for-tablet-landscape-up {
       display: flex;
       flex-direction: column;
-    }
-    .usa-dt-picker__button,
-    .usda-button {
-      padding: 0;
-      margin: 0 0 2px 0;
     }
   }
 }
