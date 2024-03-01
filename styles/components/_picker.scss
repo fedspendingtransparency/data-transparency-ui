@@ -50,7 +50,7 @@
                 line-height: rem(25);
                 color: $gray-cool-10;
             }
-        
+
             .usa-dt-picker__button-icon {
                 button {
                     @include button-unstyled;
@@ -79,21 +79,21 @@
             overflow-y: scroll;
             .usa-dt-picker__list-item {
                 border-top: 1px solid $color-gray-light;
-    
+
                 &:first-child {
                     border-top: none;
                 }
             }
-    
+
             .usa-dt-picker__item {
                 @include button-unstyled;
                 color: $color-gray;
                 font-size: rem(18);
                 text-align: left;
-                
+
                 padding: rem(10) rem(15);
                 width: 100%;
-    
+
                 &:hover {
                     color: $color-link;
                     background-color: $color-gray-lightest;
