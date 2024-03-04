@@ -16,11 +16,11 @@ Import our components like this:
     import { Table } from 'data-transparency-ui';
 ```
 
-To see our exported components, [see our type definition file](https://github.com/fedspendingtransparency/data-transparency-ui/blob/master/index.d.ts).
+To see our exported components, [see our type definition file.](https://github.com/fedspendingtransparency/data-transparency-ui/blob/master/index.d.ts).
 
 The purpose of this project is to give visibility into the patterns built into the 
 [Broker](https://broker.usaspending.gov/) and [USASpending](https://usaspending.gov/) UI and their corresponding technical implementations.
-These implementations, referred to as UI Components, exist outside the USASpending
+These implementations, referred to as UI Components, exist outside of the USASpending
 and Broker codebase.
 
 With this visibility & independence, the following benefits arise:
@@ -35,7 +35,7 @@ in a single place and then see those changes propagated throughout the website i
 - It is advised that consumers of this project add `"preinstall": "npx npm-force-resolutions@0.0.3"` to the package.json of the project that uses this library. Users must also add the appropriate `"resolutions"` section to their package.json as well. Doing the aforementioned steps will help resolve any security vulnerabilities from `npm audit`
 ## UI/UX & Development Collaboration Process
 
-The below infographic displays how the UI/UX and Development Teams will iteratively work together to identify new components for this library.
+The below info-graphic displays how the UI/UX and Development Teams will iteratively work together to identify new components for this library.
 
 <img src={infoGraphic} alt="Data Transparency USASpending.gov logo" />
 
@@ -71,16 +71,9 @@ To test components locally in the context it will be used either use `npm link`:
 
 1. Navigate to the `data-transparency-ui/` root.
 2. Change "main": "dist/index.js" in the package.json file to "main": "index.js"
-3. Run npm link
-4. Run npm link path/to/your/<consumer-context>/node_modules/react (example npm link ../<consumer-context>/node_modules/react; to integrate with usaspending.gov use `npm link ../usaspending-website/node_modules/react`)
-5. Navigate to the consumer context directory (i.e. for usaspending.gov the consumer context directory is "usaspending-website")
-6. Run `npm link data-transparency-ui`
-7. NOTE: After work is finished with the linked consumer context, it will be necessary to then unlink this library by doing the following:
-   1. Navigate to the consumer context directory again.
-   2. Run `npm unlink --no-save data-transparency-ui`
-   3. Navigate to the `data-transparency-ui/` root.
-   4. Run npm unlink path/to/your/<consumer-context/node-modules/react (example npm unlink ../<consumer-context>/node_modules/react; to integrate with usaspending.gov use `npm unlink ../usaspending-website/node_modules/react`).
-   5. As an additional precaution, delete & reinstall the node modules in the consumer context and clear the cache to ensure a clean consumer context.
+3. Run npm link path/to/your/<consumer-context>/node_modules/react (example npm link ../<consumer-context>/node_modules/react; to integrate with usaspending.gov use `npm link ../usaspending-website/node_modules/react`)
+4. Navigate to the consumer context directory (ie. for usaspending.gov the consumer context directory is "usaspending-website")
+5. Run npm link data-transparency-ui
 
 OR use `npm pack`:
 
