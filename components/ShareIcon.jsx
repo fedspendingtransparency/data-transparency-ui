@@ -115,7 +115,7 @@ function ShareIcon({
                 sortFn={() => 1}>
                 <FontAwesomeIcon icon="share-alt" size="lg" color={colors.color} />
             </Picker>
-            {!noShareText && <span>Share</span>}
+            {!noShareText && <span className="usda-share-icon__share-text">Share</span>}
             {showConfirmationText && (
                 <div className="copy-confirmation">
                     <FontAwesomeIcon icon={faCheckCircle} />

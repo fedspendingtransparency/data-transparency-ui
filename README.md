@@ -73,7 +73,7 @@ To test components locally in the context it will be used either use `npm link`:
 2. Change "main": "dist/index.js" in the package.json file to "main": "index.js"
 3. Run npm link path/to/your/<consumer-context>/node_modules/react (example npm link ../<consumer-context>/node_modules/react; to integrate with usaspending.gov use `npm link ../usaspending-website/node_modules/react`)
 4. Navigate to the consumer context directory (i.e. for usaspending.gov the consumer context directory is "usaspending-website")
-5. Run npm link data-transparency-ui
+5. Run `npm link data-transparency-ui`
 6. NOTE: After work is finished with the linked consumer context, it will be necessary to then unlink this library by doing the following:
    1. Navigate to the consumer context directory again.
    2. Run `npm unlink --no-save data-transparency-ui`
