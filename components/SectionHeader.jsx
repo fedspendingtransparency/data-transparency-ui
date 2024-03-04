@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TooltipWrapper from './infoTooltip/TooltipWrapper';
 
+require('../styles/components/_sectionHeader.scss');
+
 function SectionHeader({
     icon, title, overLine, description, titleTooltip, descTooltip
 }) {
