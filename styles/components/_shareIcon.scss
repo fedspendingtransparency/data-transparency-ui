@@ -24,6 +24,13 @@
     }
   }
 
+  @media(max-width: $medium-screen) {
+    margin-right: rem(10);
+    span {
+      display: none;
+    }
+  }
+
   .usa-dt-picker {
     margin: 0;
     z-index: 30;
