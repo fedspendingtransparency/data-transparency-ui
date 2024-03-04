@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { debounce } from "lodash";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-
 import Picker from "./Picker";
 import { socialShareOptions } from '../helpers/socialShare';
 
@@ -39,13 +38,6 @@ function ShareIcon({
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
     const disabledClass = downloadInFlight || !isEnabled ? ' disabled' : '';
 
-    useEffect(() => {
-        if (showConfirmationText) {
-            hideConfirmationText();
-        }
-        return hideConfirmationText.cancel;
-    }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
-
     const copyLink = () => {
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
@@ -63,6 +55,7 @@ function ShareIcon({
     const copyLinkSecond = () => {
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
+            // eslint-disable-next-line consistent-return
             .forEach((node) => {
                 if (node.getAttribute('value').includes('about-the-data') || node.getAttribute('value').includes('glossary')) {
                     return node.select();
@@ -96,6 +89,13 @@ function ShareIcon({
                 onClick: () => onShareOptionClick(option.name)
             };
         });
+
+    useEffect(() => {
+        if (showConfirmationText) {
+            hideConfirmationText();
+        }
+        return hideConfirmationText.cancel;
+    }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
 
     return (
         <div className={`${classNames ? `usda-share-icon${disabledClass} ${classNames}` : `usda-share-icon${disabledClass}`}`}>
