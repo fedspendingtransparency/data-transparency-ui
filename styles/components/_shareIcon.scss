@@ -86,10 +86,7 @@
           padding-top: rem(8);
           padding-bottom: rem(8);
           width: 100%;
-          //display: flex;
-          // todo - is this needed?
-          //position: relative;
-          //left: 0;
+          display: flex;
 
           &:hover {
             background-color: $gray-cool-3;
