@@ -6,10 +6,10 @@ export default {
     title: 'Table new props',
     component: Table,
   };
-  export const Default = (args) => 
+  const Default = (args) => 
   <div style={{width:'400px',overflowX: 'scroll'}}>
     <Table {...args} />
-  </div>;
+</div>;
   export const Primary = Default.bind({});
   Primary.args = { stickyFirstColumn: true,
     columns:

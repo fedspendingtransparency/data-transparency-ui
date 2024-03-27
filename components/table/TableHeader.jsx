@@ -97,7 +97,6 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
-    console.debug("header cell: ", stickyFirstColumn);
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''}`}
