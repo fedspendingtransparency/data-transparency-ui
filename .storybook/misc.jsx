@@ -216,3 +216,34 @@ export const ExampleTooltip = () => (
     <p>Here is some sample content.</p>
   </TooltipComponent>
 );
+
+export const InPageNavWrapper = (props) => {
+  const sections = [
+    {
+      section: 'mission',
+      label: 'Start: Mission1'
+    },
+    {
+      section: 'background',
+      label: 'Background2'
+    },
+    {
+      section: 'development',
+      label: 'Development and Releases3'
+    }
+  ];
+
+  const jumpToSection = (section) => console.log(section);
+
+  return (
+      <div>
+        {React.cloneElement(props.children, {
+          sections,
+          activeSection: sections[0].section,
+          jumpToSection,
+          detectActiveSection: true,
+          pageName: 'about'
+        })}
+      </div>
+  )
+}
