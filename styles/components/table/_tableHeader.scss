@@ -66,3 +66,7 @@ th.table-header {
         border: 0;
     }
 }
+
+.stickyColumn:first-of-type {
+    position: sticky;
+}

@@ -59,6 +59,9 @@ table.usa-dt-table__stacked {
             padding-top: rem(12);
           }
         }
+        td.usda-table__cell.stickyColumn {
+          position: sticky;
+        }
 
         &.usda-table__row_expandable {
 
@@ -86,6 +89,9 @@ table.usa-dt-table__stacked {
               font-size: rem(14);
               z-index: 1;
             }
+          }
+          td.usda-table__cell.stickyColumn {
+            position: sticky;
           }
         }
 
@@ -121,8 +127,8 @@ table.usa-dt-table__stacked {
         }
 
         &.usda-table__row_odd{
-          td.usda-table__cell {
-
+          td.usda-table__cell.stickyColumn {
+            position: sticky;
           }
         }
 
@@ -172,6 +178,9 @@ table.usa-dt-table__stacked {
             }
           }
         }
+        td.usda-table__cell.stickyColumn {
+          position: sticky;
+        }
 
         &.usda-table__child-row_last {
 
@@ -187,6 +196,10 @@ table.usa-dt-table__stacked {
                 }
               }
             }
+          }
+
+          td.usda-table__cell.stickyColumn {
+            position: sticky;
           }
         }
       }

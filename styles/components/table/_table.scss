@@ -5,6 +5,8 @@ table.usda-table {
     border-collapse: collapse;
     font-family: $font-sans;
     color: $color-gray;
+    width: 400px;
+    overflow-x: scroll;
     thead.usda-table__head {
         @import './tableHeader';
         -webkit-box-shadow: 0 rem(4) rem(5) rem(-5) $color-gray;
@@ -25,13 +27,22 @@ table.usda-table {
                 text-align: right;
             }
         }
+        td.usda-table__cell.stickyColumn {
+            position: sticky;
+        }
         tr.usda-table__row {
             td.usda-table__cell {
                 padding: rem(15);
             }
+            td.usda-table__cell.stickyColumn {
+                position: sticky;
+            }
             &.usda-table__row_odd {
                 td.usda-table__cell {
                     background-color: $color-gray-lightest;
+                }
+                td.usda-table__cell.stickyColumn {
+                    position: sticky;
                 }
             }
             &.usda-table__row_expandable {
@@ -46,6 +57,9 @@ table.usda-table {
                         display: flex;
                         align-items: flex-start;
                     }
+                }
+                td.usda-table__cell.stickyColumn {
+                    position: sticky;
                 }
                 td.usda-table__cell_name {
                     // add extra padding when no arrow is present because there are no children
@@ -68,6 +82,9 @@ table.usda-table {
                 td.usda-table__cell {
                     background-color: $color-gray-lightest;
                 }
+                td.usda-table__cell.stickyColumn {
+                    position: sticky;
+                }
             }
             &.usda-table__child-row_divider {
                 font-weight: $font-semibold;
@@ -89,6 +106,9 @@ table.usda-table {
                     }
                 }
             }
+            td.usda-table__cell.stickyColumn {
+                position: sticky;
+            }
             &.usda-table__child-row_last {
                 // on the last row's first cell, add space below the line
                 td.usda-table__cell {
@@ -100,6 +120,9 @@ table.usda-table {
                             }
                         }
                     }
+                }
+                td.usda-table__cell.stickyColumn {
+                    position: sticky;
                 }
             }
         }
