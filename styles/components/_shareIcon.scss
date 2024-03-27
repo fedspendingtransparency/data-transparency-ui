@@ -1,6 +1,7 @@
 @import "../global/index";
 
 .usda-share-icon {
+  position: relative;
   margin: 0 0 0 rem(40);
 
   &.margin-right {
@@ -97,6 +98,7 @@
   }
 
   .copy-confirmation {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
