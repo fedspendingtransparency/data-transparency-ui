@@ -79,7 +79,8 @@ To test components locally in the context it will be used either use `npm link`:
    2. Run `npm unlink --no-save data-transparency-ui`
    3. Navigate to the `data-transparency-ui/` root.
    4. Run npm unlink path/to/your/<consumer-context/node-modules/react (example npm unlink ../<consumer-context>/node_modules/react; to integrate with usaspending.gov use `npm unlink ../usaspending-website/node_modules/react`).
-   5. As an additional precaution, delete & reinstall the node modules in the consumer context and clear the cache to ensure a clean consumer context.
+   5. Undo the change in dtui package.json, back to "main" : "dist/index.js"
+   6. As an additional precaution, delete & reinstall the node modules in the consumer context and clear the cache to ensure a clean consumer context.
 
 OR use `npm pack`:
 
