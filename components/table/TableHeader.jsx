@@ -20,7 +20,6 @@ const SortIcon = ({
     const activeDesc = (currentSort?.field === title && currentSort?.direction === 'desc')
         ? ' table-header__icon_active' : '';
 
-    console.debug("sort icon thing: ", stickyFirstColumn);
     
     return (
         <div className="table-header__sort">

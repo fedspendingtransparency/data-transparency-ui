@@ -58,7 +58,6 @@ const Table = (props) => {
             props.updateSort(col.title, 'desc');
         }
     }));
-    console.debug("in table props: ", props.stickyFirstColumn);
     let body;
     if (props.loading) {
         body = (
