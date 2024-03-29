@@ -70,4 +70,5 @@ th.table-header {
 .stickyColumn:first-of-type {
     position: sticky;
     left: 0;
+    z-index:30;
 }

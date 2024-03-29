@@ -30,6 +30,8 @@ table.usda-table {
         td.usda-table__cell.stickyColumn {
             position: sticky;
             left: 0;
+            z-index:30;
+
         }
         tr.usda-table__row {
             td.usda-table__cell {
@@ -38,6 +40,8 @@ table.usda-table {
             td.usda-table__cell.stickyColumn {
                 position: sticky;
                 left: 0;
+                z-index:30;
+                background-color: #fff;
             }
             &.usda-table__row_odd {
                 td.usda-table__cell {
@@ -46,6 +50,8 @@ table.usda-table {
                 td.usda-table__cell.stickyColumn {
                     position: sticky;
                     left: 0;
+                    z-index:30;
+
                 }
             }
             &.usda-table__row_expandable {
@@ -64,6 +70,8 @@ table.usda-table {
                 td.usda-table__cell.stickyColumn {
                     position: sticky;
                     left: 0;
+                    z-index:30;
+
                 }
                 td.usda-table__cell_name {
                     // add extra padding when no arrow is present because there are no children
@@ -89,6 +97,8 @@ table.usda-table {
                 td.usda-table__cell.stickyColumn {
                     position: sticky;
                     left: 0;
+                    z-index:30;
+
                 }
             }
             &.usda-table__child-row_divider {
@@ -114,6 +124,8 @@ table.usda-table {
             td.usda-table__cell.stickyColumn {
                 position: sticky;
                 left: 0;
+                z-index:30;
+
             }
             &.usda-table__child-row_last {
                 // on the last row's first cell, add space below the line
@@ -130,6 +142,8 @@ table.usda-table {
                 td.usda-table__cell.stickyColumn {
                     position: sticky;
                     left: 0;
+                    z-index:30;
+
                 }
             }
         }
