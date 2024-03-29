@@ -1,7 +1,6 @@
 import React from 'react';
 import Table from '../../components/table/Table';
 
-
 export default {
     title: 'Table new props',
     component: Table,
