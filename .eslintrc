@@ -16,7 +16,7 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "moduleDirectory": ["node_modules"]
+                "moduleDirectory": ["node_modules", "src/js", "src/_scss"]
             }
         }
     },
@@ -28,10 +28,11 @@
             "SwitchCase": 1
         }],
         // require 4 spaces in JSX as well
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
+        "react/jsx-indent": [0],
+        "react/jsx-indent-props": [0],
         // closing brackets should be aligned with the final prop (props.. />)
-        "react/jsx-closing-bracket-location": [2, "after-props"],
+        "react/jsx-closing-bracket-location": [2, {"location": "after-props"}],
+        "react/prop-types":[1],
         // downgrading to warning when using props purely within componentWillReceiveProps
         "react/no-unused-prop-types": [1],
         // also set the tab width for the max line width with a max length of 100
@@ -95,6 +96,8 @@
         // allow await in for-await-in loops
         "no-await-in-loop": [0],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+        "jsx-a11y/anchor-is-valid": "warn",
+        "react/function-component-definition": ["function-declaration","function-expression"]
     }
 }
