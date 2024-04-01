@@ -1,8 +1,8 @@
 @import "../global/index";
 
 .usda-share-icon {
-  margin: 0 0 0 rem(40);
   position: relative;
+  margin: 0 0 0 rem(40);
 
   &.margin-right {
     margin-right: rem(32);
@@ -88,7 +88,6 @@
           padding-bottom: rem(8);
           width: 100%;
           display: flex;
-          left: 0;
 
           &:hover {
             background-color: $gray-cool-3;
@@ -97,27 +96,32 @@
       }
     }
   }
-}
 
-.copy-confirmation {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: absolute;
-  height: rem(39);
-  width: rem(140);
-  background: $color-gray-lightest;
-  border: rem(1) solid $color-gray-lightest;
-  border-radius: rem(3);
-  color: $color-gray;
-  margin-right: rem(15);
-  top: rem(36);
-  right: rem(-7);
-  font-size: rem(16);
-  z-index: 31;
+  .copy-confirmation {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: rem(40);
+    width: rem(140);
+    background: $color-gray-lightest;
+    border-radius: rem(3);
+    color: $color-gray;
+    font-size: rem(16);
+    margin-right: 0;
+    z-index: 31;
 
-  svg {
-    margin: 0 rem(10);
-    color: $green-cool-50;
+    // top and right are to position the msg over the copy item in the dropdown;
+    // these are set for the instances in the sticky bar;
+    // other instances not in stickyBar may need to override in their usas css
+    top: rem(26);
+    right: rem(8);
+
+    svg {
+      margin: 0 rem(8) 0 0;
+      color: $green-cool-50;
+    }
   }
 }
+
+
