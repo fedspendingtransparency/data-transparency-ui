@@ -218,31 +218,17 @@ export const ExampleTooltip = () => (
 );
 
 export const InPageNavWrapper = (props) => {
-  const sections = [
-    {
-      section: 'mission',
-      label: 'Start: Mission1'
-    },
-    {
-      section: 'background',
-      label: 'Background2'
-    },
-    {
-      section: 'development',
-      label: 'Development and Releases3'
-    }
-  ];
+  const [activeSection, setActiveSection] = useState('mission')
 
-  const jumpToSection = (section) => console.log(section);
+  const jumpToSection = (section) => {
+    setActiveSection(section)
+  }
 
   return (
       <div>
         {React.cloneElement(props.children, {
-          sections,
-          activeSection: sections[0].section,
+          activeSection: activeSection,
           jumpToSection,
-          detectActiveSection: true,
-          pageName: 'about'
         })}
       </div>
   )

@@ -303,7 +303,6 @@ function InPageNav(props) {
 
     return (
         <div className="usda-in-page-nav__container">
-            {console.log(sections)}
             <nav
                 ref={navBar}
                 className={`usda-in-page-nav__wrapper ${(isOverflowLeft && !isMobile) ? 'left-fade-effect' : ''} ${isOverflowRight ? 'right-fade-effect' : ''} `}>
