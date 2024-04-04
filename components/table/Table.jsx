@@ -32,12 +32,14 @@ const propTypes = {
     isStacked: PropTypes.bool,
     screenReaderCaption: PropTypes.string,
     onClickHandler: PropTypes.func,
-    isMobile: PropTypes.bool
+    isMobile: PropTypes.bool,
+    stickyFirstColumn: PropTypes.bool
 };
 
 const defaultProps = {
     classNames: '',
-    isStacked: false
+    isStacked: false,
+    stickyFirstColumn: false
 };
 
 const Table = (props) => {
@@ -56,7 +58,6 @@ const Table = (props) => {
             props.updateSort(col.title, 'desc');
         }
     }));
-
     let body;
     if (props.loading) {
         body = (
@@ -90,7 +91,7 @@ const Table = (props) => {
     }
     return (
         <>
-        {props.isStacked && props.updateSort && (
+            {props.isStacked && props.updateSort && (
             <div className="usa-dt-table__stacked-picker">
                 <label htmlFor="stackedTableSort">Sort By</label>
                 <Picker
@@ -99,17 +100,18 @@ const Table = (props) => {
                     options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
             </div>
         )}
-        <table className={`usda-table ${stackedClass} ${props.classNames}`}>
+            <table className={`usda-table ${stackedClass} ${props.classNames}`}>
             {props.screenReaderCaption && (
                 <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
             )}
             <thead className="usda-table__head">
                 <tr className="usda-table__row">
-                    {props.columns.map((col) => (
+                    {props.columns.map((col, index) => (
                         <TableHeader
                             key={uniqueId()}
                             currentSort={props.currentSort}
                             updateSort={props.updateSort}
+                            stickyFirstColumn={props.stickyFirstColumn}
                             {...col} />
                     ))}
                 </tr>
@@ -128,6 +130,7 @@ const Table = (props) => {
                                 className={col?.title ? 'nested-header' : 'empty'}
                                 currentSort={props.currentSort}
                                 updateSort={props.updateSort}
+                                stickyFirstColumn={props.stickyFirstColumn}
                                 {...col} />
                         ))
                     }
@@ -136,7 +139,7 @@ const Table = (props) => {
             <tbody className="usda-table__body">
                 {body}
             </tbody>
-        </table>
+            </table>
         </>
     );
 };

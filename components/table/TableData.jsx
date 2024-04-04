@@ -18,7 +18,8 @@ const propTypes = {
     divider: PropTypes.string,
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
-    atMaxLevel: PropTypes.bool
+    atMaxLevel: PropTypes.bool,
+    stickyFirstColumn: PropTypes.bool
 };
 
 const TableData = ({
@@ -28,7 +29,8 @@ const TableData = ({
     divider,
     onClickHandler,
     isMobile,
-    atMaxLevel
+    atMaxLevel,
+    stickyFirstColumn = false
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
@@ -88,11 +90,13 @@ const TableData = ({
                             <TableHeader
                                 className="table-header_body-header"
                                 key={uniqueId()}
+                                stickyFirstColumn={stickyFirstColumn}
                                 {...data} />
                             :
                             <td
                                 key={uniqueId()}
-                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}`}>
+                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
+                                ${ (j===0 && stickyFirstColumn) ? ' stickyColumn' : ''}`}>
                                 {columns[j] &&
                                     <div className="usda-table__cell-heading-container">
                                         {isMobile &&

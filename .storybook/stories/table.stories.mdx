@@ -61,9 +61,39 @@ const updateSort = (field, direction) => {
     <Story name='Table without Sorting'>
         <BasicTableWrapper>
             <Table
+                stickyFirstColumn={true}
+                columns={
+                    [
+                        {
+                            title: 'name',
+                            displayName: 'Budget Function'
+                        },
+                        {
+                            title: 'amount',
+                            displayName: 'Amount'
+                        },
+                        {
+                            title: 'percent',
+                            displayName: '% of Total Amount',
+                            right: true
+                        },
+                        {
+                            title: 'test',
+                            displayName: 'test',
+                        },
+                        {
+                            title: 'mock1',
+                            displayName: 'Mock Data 1',
+                        },
+                        {
+                            title: 'mock2',
+                            displayName: 'Mock Data 2',
+                        },
+                    ]
+                }
                 rows={[
-                    [<a href="/">Link</a>, 'mock data', '25%'],
-                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data']
+                    [<a href="/">Link</a>, 'mock data', '25%', 'test', 'mock1', 'mock2'],
+                    [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'test', 'mock1', 'mock2']
                 ]} />
         </BasicTableWrapper>
     </Story>
