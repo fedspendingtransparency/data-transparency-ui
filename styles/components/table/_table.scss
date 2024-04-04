@@ -5,6 +5,8 @@ table.usda-table {
     border-collapse: collapse;
     font-family: $font-sans;
     color: $color-gray;
+    width: 400px;
+    overflow-x: scroll;
     thead.usda-table__head {
         @import './tableHeader';
         -webkit-box-shadow: 0 rem(4) rem(5) rem(-5) $color-gray;
@@ -25,9 +27,17 @@ table.usda-table {
                 text-align: right;
             }
         }
+        td.usda-table__cell.stickyColumn {
+            position: sticky;
+            left: 0;
+            z-index:30;
+        }
         tr.usda-table__row {
             td.usda-table__cell {
                 padding: rem(15);
+            }
+            td.usda-table__cell.stickyColumn {
+                background-color: #fff;
             }
             &.usda-table__row_odd {
                 td.usda-table__cell {
