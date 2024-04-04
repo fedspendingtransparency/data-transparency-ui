@@ -11,13 +11,16 @@ const SortIcon = ({
     clickedSort,
     displayName,
     currentSort,
-    title
+    title,
+    stickyFirstColumn = false
 }) => {
     // highlight the active arrow
     const activeAsc = (currentSort?.field === title && currentSort?.direction === 'asc')
         ? ' table-header__icon_active' : '';
     const activeDesc = (currentSort?.field === title && currentSort?.direction === 'desc')
         ? ' table-header__icon_active' : '';
+
+    
     return (
         <div className="table-header__sort">
             <button
@@ -47,7 +50,8 @@ SortIcon.propTypes = {
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
     }).isRequired,
-    clickedSort: PropTypes.func.isRequired
+    clickedSort: PropTypes.func.isRequired,
+    stickyFirstColumn: PropTypes.bool
 };
 
 const propTypes = {
@@ -65,7 +69,8 @@ const propTypes = {
     subColumnNames: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.object])),
     className: PropTypes.string,
     icon: PropTypes.element,
-    bodyHeader: PropTypes.bool
+    bodyHeader: PropTypes.bool,
+    stickyFirstColumn: PropTypes.bool
 };
 
 const TableHeaderCell = ({
@@ -79,7 +84,8 @@ const TableHeaderCell = ({
     rowSpan,
     subColumnNames = [],
     icon = (<></>),
-    bodyHeader = false
+    bodyHeader = false,
+    stickyFirstColumn = false
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -90,10 +96,9 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
-
     return (
         <th
-            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''}`}
+            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''}`}
             colSpan={columnSpan}
             rowSpan={rowsSpan()}
             scope="col">

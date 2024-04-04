@@ -2,7 +2,7 @@
 table.usa-dt-table__stacked {
   max-width: 100%;
 
-  @media all and (max-width: $tablet-screen - 1){
+  @media all and (max-width: ($tablet-screen - 1)){
     display: block;
     width: 100%;
 
@@ -118,12 +118,6 @@ table.usa-dt-table__stacked {
         &.usda-table__child-row_divider {
           // TODO: Cross-check this
           display: none;
-        }
-
-        &.usda-table__row_odd{
-          td.usda-table__cell {
-
-          }
         }
 
         td.usda-table__cell {
