@@ -71,7 +71,7 @@ table.usda-table {
         .usda-table__message-cell {
             border: solid rem(1) $color-gray-lighter;
         }
-        
+
         tr.usda-table__child-row {
             background-color: $color-white;
             &.usda-table__row_odd {
@@ -109,6 +109,35 @@ table.usda-table {
                                 padding-bottom: rem(5);
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    &.search-results {
+        .usda-table__head {
+            @import './tableHeader';
+            box-shadow: unset;
+            border: solid 1px #dfe1e2;
+
+            th.table-header {
+                background-color: $gray-cool-3;
+                border: solid 1px #dfe1e2;
+            }
+        }
+
+        tbody.usda-table__body {
+            border: solid 1px #dfe1e2;
+
+            td.usda-table__cell {
+                border: solid 1px #dfe1e2;
+            }
+
+            tr.usda-table__row {
+                &.usda-table__row_odd {
+                    td.usda-table__cell {
+                        background-color: #fff;
                     }
                 }
             }
