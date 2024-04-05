@@ -3,11 +3,13 @@
  * Created by Andrea Blackwell 08/09/2023
  **/
 
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, {
+    useEffect, useState, useRef, useCallback
+} from 'react';
 import PropTypes from 'prop-types';
 import { throttle } from "lodash";
-import { mediumScreen, largeScreen, xLargeScreen } from '../dataMapping/mobileBreakpoints';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { mediumScreen, largeScreen, xLargeScreen } from '../dataMapping/mobileBreakpoints';
 import { checkIsOverflow, getElementData, reset } from '../helpers/inPageNavHelper';
 
 require('../styles/components/_inPageNav.scss');
@@ -16,10 +18,11 @@ const propTypes = {
     sections: PropTypes.array,
     activeSection: PropTypes.string,
     jumpToSection: PropTypes.func,
-    detectActiveSection: PropTypes.oneOfType([PropTypes.bool, PropTypes.func])
+    detectActiveSection: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+    pageName: PropTypes.string
 };
 
-const InPageNav = (props) => {
+function InPageNav(props) {
     const {
         sections, jumpToSection, pageName, detectActiveSection
     } = props;
@@ -155,7 +158,7 @@ const InPageNav = (props) => {
         }
 
         checkIsOverflowHidden();
-    }
+    };
 
     useEffect(() => {
         getInitialElements();
@@ -217,8 +220,8 @@ const InPageNav = (props) => {
             if (section.top <= visibleBottom && section.bottom >= visibleTop) {
                 // 2. get % of section in view
                 const height = section.bottom - section.top;
-                const visibleHeight = Math.min(section.bottom, visibleBottom) -
-                    Math.max(visibleTop, section.top);
+                const visibleHeight = Math.min(section.bottom, visibleBottom)
+                    - Math.max(visibleTop, section.top);
                 const percentageVisible = visibleHeight / height;
                 visibleSections.push({
                     section: section.section,
@@ -303,18 +306,19 @@ const InPageNav = (props) => {
             <nav
                 ref={navBar}
                 className={`usda-in-page-nav__wrapper ${(isOverflowLeft && !isMobile) ? 'left-fade-effect' : ''} ${isOverflowRight ? 'right-fade-effect' : ''} `}>
-                {isOverflowLeft && !isMobile &&
-                    <div
-                        aria-label="In-page navigation left paginator"
-                        title="In-page navigation left paginator"
-                        className="usda-in-page-nav__paginator left"
-                        tabIndex="0"
-                        role="button"
-                        onKeyDown={(e) => onKeyPress(e, "left")}
-                        onClick={(e) => scrollLeft(e)}>
-                        <FontAwesomeIcon icon="chevron-left" alt="Back" />
-                    </div>
-                }
+                {isOverflowLeft && !isMobile
+                    && (
+                        <div
+                            aria-label="In-page navigation left paginator"
+                            title="In-page navigation left paginator"
+                            className="usda-in-page-nav__paginator left"
+                            tabIndex="0"
+                            role="button"
+                            onKeyDown={(e) => onKeyPress(e, "left")}
+                            onClick={(e) => scrollLeft(e)}>
+                            <FontAwesomeIcon icon="chevron-left" alt="Back" />
+                        </div>
+                    )}
                 <ul>
                     {sections.map((section) => (
                         <li className={`usda-in-page-nav__element ${section.section === activeSection ? 'active' : ''}`} key={`in-page-nav-li-${section.label}`}>
@@ -326,23 +330,26 @@ const InPageNav = (props) => {
                                 onClick={() => jumpToSection(section.section)}>
                                 {section.label}
                             </a>
-                        </li>))}
+                        </li>
+                    ))}
                 </ul>
-                {isOverflowRight && !isMobile &&
-                    <div
-                        aria-label="In-page navigation right paginator"
-                        title="In-page navigation right paginator"
-                        className="usda-in-page-nav__paginator right"
-                        tabIndex="0"
-                        role="button"
-                        onKeyDown={(e) => onKeyPress(e, "right")}
-                        onClick={(e) => scrollRight(e)}>
-                        <FontAwesomeIcon icon="chevron-right" alt="Forward" />
-                    </div>}
+                {isOverflowRight && !isMobile
+                    && (
+                        <div
+                            aria-label="In-page navigation right paginator"
+                            title="In-page navigation right paginator"
+                            className="usda-in-page-nav__paginator right"
+                            tabIndex="0"
+                            role="button"
+                            onKeyDown={(e) => onKeyPress(e, "right")}
+                            onClick={(e) => scrollRight(e)}>
+                            <FontAwesomeIcon icon="chevron-right" alt="Forward" />
+                        </div>
+                    )}
             </nav>
         </div>
     );
-};
+}
 
 InPageNav.propTypes = propTypes;
 export default InPageNav;
