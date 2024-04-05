@@ -75,6 +75,7 @@
             "exceptions": ["*"]
         }],
         // for now, don't do destructuring
+        "prefer-destructuring": [0],
         "react/destructuring-assignment": [0],
         // allow some globals
         "no-restricted-globals": [0],
@@ -101,6 +102,10 @@
         // prefer arrow functions, but only set to warning
         "react/function-component-definition": [1, {"namedComponents": "arrow-function"}],
         // do not enforce error for string concat
-        "prefer-template": [0]
+        "prefer-template": [0],
+        // do not enforce error for 'useless concat'
+        "no-useless-concat": [0],
+        // allow props spreading
+        "react/jsx-props-no-spreading": [0]
     }
 }
