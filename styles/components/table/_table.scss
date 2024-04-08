@@ -5,8 +5,7 @@ table.usda-table {
     border-collapse: collapse;
     font-family: $font-sans;
     color: $color-gray;
-    //width: 400px;
-    //overflow-x: scroll;
+
     thead.usda-table__head {
         @import './tableHeader';
         border-bottom: solid rem(1) $gray-cool-10;
@@ -16,12 +15,6 @@ table.usda-table {
         font-size: rem(14);
 
         td.usda-table__cell {
-            border-right: solid rem(1) $gray-cool-10;
-            &:last-of-type {
-                border-right: unset;
-            }
-            border-bottom: 0;
-            border-top: 0;
             text-align: left;
             vertical-align: baseline;
 
@@ -39,6 +32,10 @@ table.usda-table {
         tr.usda-table__row {
             td.usda-table__cell {
                 padding: rem(15);
+                border-right: solid rem(1) $gray-cool-10;
+                &:last-of-type {
+                    border-right: unset;
+                }
                 border-bottom: solid rem(1) $gray-cool-10;
             }
 
@@ -81,7 +78,7 @@ table.usda-table {
         }
 
         .usda-table__message-cell {
-            border: solid rem(1) $color-gray-lighter;
+            border: solid rem(1) $gray-cool-10;
         }
 
         tr.usda-table__child-row {
@@ -112,7 +109,7 @@ table.usda-table {
 
                         .usda-table__child-cell-content {
                             padding-left: rem(30);
-                            border-left: solid rem(1) $color-gray-light;
+                            border-left: solid rem(1) $gray-cool-10;
                         }
                     }
                 }
