@@ -5,63 +5,75 @@ table.usda-table {
     border-collapse: collapse;
     font-family: $font-sans;
     color: $color-gray;
-    width: 400px;
-    overflow-x: scroll;
+    //width: 400px;
+    //overflow-x: scroll;
     thead.usda-table__head {
         @import './tableHeader';
-        -webkit-box-shadow: 0 rem(4) rem(5) rem(-5) $color-gray;
-        -moz-box-shadow: 0 rem(4) rem(5) rem(-5) $color-gray;
-        box-shadow: 0 rem(4) rem(5) rem(-5) $color-gray;
+        border-bottom: solid rem(1) $gray-cool-10;
     }
+
     tbody.usda-table__body {
         font-size: rem(14);
-        border-bottom: solid rem(1) $color-gray-lighter;
+
         td.usda-table__cell {
-            border-left: solid rem(1) $color-gray-lighter;
-            border-right: solid rem(1) $color-gray-lighter;
+            border-right: solid rem(1) $gray-cool-10;
+            &:last-of-type {
+                border-right: unset;
+            }
             border-bottom: 0;
             border-top: 0;
             text-align: left;
             vertical-align: baseline;
+
             &.usda-table__cell_right {
                 text-align: right;
             }
         }
+
         td.usda-table__cell.stickyColumn {
             position: sticky;
             left: 0;
-            z-index:30;
+            z-index: 30;
         }
+
         tr.usda-table__row {
             td.usda-table__cell {
                 padding: rem(15);
+                border-bottom: solid rem(1) $gray-cool-10;
             }
+
             td.usda-table__cell.stickyColumn {
                 background-color: #fff;
             }
+
             &.usda-table__row_odd {
                 td.usda-table__cell {
                     background-color: $color-gray-lightest;
                 }
             }
+
             &.usda-table__row_expandable {
                 button.usda-table__expand-button {
                     @include button-unstyled;
                     color: $color-primary;
                     margin-right: rem(8);
                 }
+
                 td.usda-table__cell {
                     padding-right: rem(35);
+
                     .usda-table__expandable-cell-content {
                         display: flex;
                         align-items: flex-start;
                     }
                 }
+
                 td.usda-table__cell_name {
                     // add extra padding when no arrow is present because there are no children
                     padding-left: rem(30);
                 }
             }
+
             .table-header_body-header {
                 // First column headers
                 padding: rem(15);
@@ -74,24 +86,30 @@ table.usda-table {
 
         tr.usda-table__child-row {
             background-color: $color-white;
+
             &.usda-table__row_odd {
                 td.usda-table__cell {
                     background-color: $color-gray-lightest;
                 }
             }
+
             &.usda-table__child-row_divider {
                 font-weight: $font-semibold;
             }
+
             td.usda-table__cell {
                 &.usda-table__cell_child {
                     padding: 0;
+
                     .usda-table__child-cell-content {
                         padding: rem(10) rem(15);
                         margin-right: rem(20);
                     }
+
                     &:first-of-type {
                         // add extra padding to the first cell of every child row
                         padding-left: rem(20);
+
                         .usda-table__child-cell-content {
                             padding-left: rem(30);
                             border-left: solid rem(1) $color-gray-light;
@@ -99,12 +117,14 @@ table.usda-table {
                     }
                 }
             }
+
             &.usda-table__child-row_last {
                 // on the last row's first cell, add space below the line
                 td.usda-table__cell {
                     &.usda-table__cell_child {
                         &:first-of-type {
                             padding-bottom: rem(5);
+
                             .usda-table__child-cell-content {
                                 padding-bottom: rem(5);
                             }
@@ -116,24 +136,7 @@ table.usda-table {
     }
 
     &.search-results {
-        .usda-table__head {
-            @import './tableHeader';
-            box-shadow: unset;
-            border: solid 1px #dfe1e2;
-
-            th.table-header {
-                background-color: $gray-cool-3;
-                border: solid 1px #dfe1e2;
-            }
-        }
-
         tbody.usda-table__body {
-            border: solid 1px #dfe1e2;
-
-            td.usda-table__cell {
-                border: solid 1px #dfe1e2;
-            }
-
             tr.usda-table__row {
                 &.usda-table__row_odd {
                     td.usda-table__cell {

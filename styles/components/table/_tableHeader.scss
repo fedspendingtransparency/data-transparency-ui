@@ -2,8 +2,15 @@ tr.usda-table__row {
     vertical-align: baseline;
 }
 th.table-header {
-    background-color: $color-gray-lightest;
-    border: rem(1) solid $color-gray-lighter;
+    background-color: $gray-cool-3;
+    border-right: solid rem(1) $gray-cool-10;
+    border-left: solid rem(1) $gray-cool-10;
+        &:first-of-type {
+            border-left: unset;
+        }
+        &:last-of-type {
+            border-right: unset;
+        }
     padding: 0;
     &.nested-header {
         .table-header__content {

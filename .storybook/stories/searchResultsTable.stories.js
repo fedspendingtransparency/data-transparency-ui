@@ -6,7 +6,7 @@ export default {
     component: Table,
 };
 const Default = (args) =>
-    <div style={{width:'1100px',overflowX: 'scroll', borderRadius: '8px', border: 'unset'}}>
+    <div style={{width:'400px', overflowX: 'scroll', borderRadius: '8px', border: 'solid 1px #dfe1e2'}}>
         <Table {...args} />
     </div>;
 export const ExampleOne = Default.bind({});
@@ -59,94 +59,10 @@ ExampleOne.args = {
             {
                 title: 'mock2',
                 displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
-            {
-                title: 'mock2',
-                displayName: 'Mock Data 2',
-            },
+            }
         ]
     ,
     rows: [
-        [<a href="/">Link</a>, 'mock data', '25%', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2'],
-        [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 1234, 'mock data', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2']
+        [<a href="/">Link</a>, 'first row', '25%', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData'],
+        [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 'second row', 'mock data', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData']
     ]};
