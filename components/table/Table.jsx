@@ -34,6 +34,9 @@ const propTypes = {
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool
+    // columnHeight: PropTypes.number,
+    // columnWidth: PropTypes.number,
+    // rowHeight: PropTypes.number
 };
 
 const defaultProps = {

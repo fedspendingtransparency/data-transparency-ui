@@ -17,7 +17,10 @@ ExampleOne.args = {
         [
             {
                 title: 'award',
-                displayName: 'Prime Award ID'
+                displayName: 'Prime Award ID',
+                // columnHeight: 45,
+                columnWidth: 200,
+                // columnSpan: 4
             },
             {
                 title: 'amount',

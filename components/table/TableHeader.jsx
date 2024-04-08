@@ -20,7 +20,6 @@ const SortIcon = ({
     const activeDesc = (currentSort?.field === title && currentSort?.direction === 'desc')
         ? ' table-header__icon_active' : '';
 
-    
     return (
         <div className="table-header__sort">
             <button
@@ -70,7 +69,8 @@ const propTypes = {
     className: PropTypes.string,
     icon: PropTypes.element,
     bodyHeader: PropTypes.bool,
-    stickyFirstColumn: PropTypes.bool
+    stickyFirstColumn: PropTypes.bool,
+    columnWidth: PropTypes.number
 };
 
 const TableHeaderCell = ({
@@ -85,7 +85,8 @@ const TableHeaderCell = ({
     subColumnNames = [],
     icon = (<></>),
     bodyHeader = false,
-    stickyFirstColumn = false
+    stickyFirstColumn = false,
+    columnWidth
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -96,22 +97,28 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
+    console.log('columnWidth', columnWidth);
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''}`}
             colSpan={columnSpan}
             rowSpan={rowsSpan()}
+
+            // not working
+            width={columnWidth}
+
             scope="col">
             <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
                     {displayName}
                     {icon && icon}
-                    {(updateSort && !subColumnNames.length && displayName) && <SortIcon
-                        clickedSort={handleClickedSort}
-                        currentSort={currentSort}
-                        title={title}
-                        displayName={displayName} />
-                    }
+                    {(updateSort && !subColumnNames.length && displayName) && (
+                        <SortIcon
+                            clickedSort={handleClickedSort}
+                            currentSort={currentSort}
+                            title={title}
+                            displayName={displayName} />
+                    )}
                 </div>
             </div>
         </th>

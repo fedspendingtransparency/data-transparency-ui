@@ -134,7 +134,10 @@ table.usda-table {
 
     &.search-results {
         tbody.usda-table__body {
-            tr.usda-table__row {
+            .usda-table__row {
+                &:hover {
+                    background-color: $gray-cool-2;
+                }
                 &.usda-table__row_odd {
                     td.usda-table__cell {
                         background-color: #fff;
