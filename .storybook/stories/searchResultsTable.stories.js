@@ -5,10 +5,12 @@ export default {
     title: 'Search Results Table',
     component: Table,
 };
+
 const Default = (args) =>
     <div style={{width:'800px', overflowX: 'scroll', borderRadius: '8px', border: 'solid 1px #dfe1e2'}}>
         <Table {...args} />
     </div>;
+
 export const ExampleOne = Default.bind({});
 ExampleOne.args = {
     stickyFirstColumn: true,

@@ -91,57 +91,59 @@ const Table = (props) => {
         body = (<TableData {...props} />);
     }
     return (
-        <>
-            {props.isStacked && props.updateSort && (
-                <div className="usa-dt-table__stacked-picker">
-                    {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                    <label htmlFor="stackedTableSort">Sort By</label>
-                    <Picker
-                        id="stackedTableSort"
-                        selectedOption={props.currentSort.field}
-                        options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
-                </div>
-            )}
-            <table className={`usda-table ${stackedClass} ${props.classNames}`}>
-                {props.screenReaderCaption && (
-                    <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
+        <div className="everything">
+            <div className="shadow">
+                {props.isStacked && props.updateSort && (
+                    <div className="usa-dt-table__stacked-picker">
+                        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+                        <label htmlFor="stackedTableSort">Sort By</label>
+                        <Picker
+                            id="stackedTableSort"
+                            selectedOption={props.currentSort.field}
+                            options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
+                    </div>
                 )}
-                <thead className="usda-table__head">
-                    <tr className="usda-table__row">
-                        {props.columns.map((col) => (
-                            <TableHeader
-                                key={uniqueId()}
-                                currentSort={props.currentSort}
-                                updateSort={props.updateSort}
-                                stickyFirstColumn={props.stickyFirstColumn}
-                                {...col} />
-                        ))}
-                    </tr>
-                    <tr className="usda-table__row">
-                        {props.columns
-                            .filter((col) => col?.subColumnNames?.length)
-                            .reduce((acc, col) => {
-                                if (col?.subColumnNames?.length) {
-                                    return acc.concat(col.subColumnNames);
-                                }
-                                return acc.concat([{ ...col, displayName: '', className: 'empty-subheader' }]);
-                            }, [])
-                            .map((col) => (
+                <table className={`usda-table ${stackedClass} ${props.classNames}`}>
+                    {props.screenReaderCaption && (
+                        <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
+                    )}
+                    <thead className="usda-table__head">
+                        <tr className="usda-table__row">
+                            {props.columns.map((col) => (
                                 <TableHeader
                                     key={uniqueId()}
-                                    className={col?.title ? 'nested-header' : 'empty'}
                                     currentSort={props.currentSort}
                                     updateSort={props.updateSort}
                                     stickyFirstColumn={props.stickyFirstColumn}
                                     {...col} />
                             ))}
-                    </tr>
-                </thead>
-                <tbody className="usda-table__body">
-                    {body}
-                </tbody>
-            </table>
-        </>
+                        </tr>
+                        <tr className="usda-table__row">
+                            {props.columns
+                                .filter((col) => col?.subColumnNames?.length)
+                                .reduce((acc, col) => {
+                                    if (col?.subColumnNames?.length) {
+                                        return acc.concat(col.subColumnNames);
+                                    }
+                                    return acc.concat([{ ...col, displayName: '', className: 'empty-subheader' }]);
+                                }, [])
+                                .map((col) => (
+                                    <TableHeader
+                                        key={uniqueId()}
+                                        className={col?.title ? 'nested-header' : 'empty'}
+                                        currentSort={props.currentSort}
+                                        updateSort={props.updateSort}
+                                        stickyFirstColumn={props.stickyFirstColumn}
+                                        {...col} />
+                                ))}
+                        </tr>
+                    </thead>
+                    <tbody className="usda-table__body">
+                        {body}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     );
 };
 
