@@ -4,10 +4,6 @@ tr.usda-table__row {
 th.table-header {
     background-color: $gray-cool-3;
     border-right: solid rem(1) $gray-cool-10;
-    border-left: solid rem(1) $gray-cool-10;
-        &:first-of-type {
-            border-left: unset;
-        }
         &:last-of-type {
             border-right: unset;
         }
@@ -78,6 +74,5 @@ th.table-header {
     position: sticky;
     left: 0;
     z-index:30;
-    // todo - why does this border move when scrolling right?
-    border-right: solid 1px red !important;
+    border-right: solid 1px $gray-cool-10;
 }
