@@ -2,7 +2,8 @@
 
 table.usda-table {
     border-spacing: 0;
-    border-collapse: collapse;
+    //border-collapse: collapse;
+    border-collapse: separate;
     font-family: $font-sans;
     color: $color-gray;
 
@@ -27,6 +28,8 @@ table.usda-table {
             position: sticky;
             left: 0;
             z-index: 30;
+            // todo - why does this border move when scrolling right?
+            border-right: solid 1px red !important;
         }
 
         tr.usda-table__row {
@@ -133,23 +136,32 @@ table.usda-table {
     }
 
     &.search-results {
+        thead.usda-table__head {
+            th.table-header {
+                // doing it this way we have to make a new class and rule for every width
+                &.column-width-200 {
+                    min-width: 200px;
+                    // this is not applying
+                    height: 45px !important;
+                }
+            }
+        }
         tbody.usda-table__body {
-            [class*="usda-table__row"] {
+            .usda-table__row {
                 &:hover {
                     background-color: $gray-cool-2;
                 }
-            }
-            .usda-table__row {
+
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
-                    width: 100px;
-                    height: 45px;
+
                     a {
                         display: block;
                         width: 100%;
                         height: 100%;
                     }
                 }
+
                 &.usda-table__row_odd {
                     td.usda-table__cell {
                         background-color: unset;

@@ -70,7 +70,8 @@ const propTypes = {
     icon: PropTypes.element,
     bodyHeader: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    columnWidth: PropTypes.number
+    columnWidth: PropTypes.number,
+    rowHeight: PropTypes.number
 };
 
 const TableHeaderCell = ({
@@ -97,16 +98,13 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
-    console.log('columnWidth', columnWidth);
     return (
         <th
-            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''}`}
-            colSpan={columnSpan}
+            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''} column-width-${columnWidth} `}
+            // this style prop is not applying, because the thead is set to display: table-header-group
+            // style={{ width: columnWidth, height: rowHeight }}
+            colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}
-
-            // not working
-            width={columnWidth}
-
             scope="col">
             <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
                 <div className="table-header__label">
