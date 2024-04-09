@@ -98,7 +98,7 @@ const TableData = ({
                                     <td
                                         key={uniqueId()}
                                         className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
-                                    ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''}`}>
+                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''}`}>
                                         {columns[j]
                                         && (
                                             <div className="usda-table__cell-heading-container">

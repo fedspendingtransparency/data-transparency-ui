@@ -67,5 +67,7 @@ ExampleOne.args = {
     ,
     rows: [
         [<a href="/">Link</a>, 'first row', '25%', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData'],
-        [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 'second row', 'mock data', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData']
+        [<React.Fragment><strong>jsx</strong> content</React.Fragment>, 'second row', 'mock data', 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData'],
+        [<a href="/">Link</a>, 'third row', <a href="/">Link</a>, 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData'],
+        [<a href="/">Link</a>, 'fourth row', <a href="/">Link</a>, 'test', 'mock1', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2', 'mock2LongerData']
     ]};

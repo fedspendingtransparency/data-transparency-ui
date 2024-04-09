@@ -40,7 +40,7 @@ table.usda-table {
             }
 
             td.usda-table__cell.stickyColumn {
-                background-color: #fff;
+                background-color: $color-white;
             }
 
             &.usda-table__row_odd {
@@ -134,13 +134,19 @@ table.usda-table {
 
     &.search-results {
         tbody.usda-table__body {
-            .usda-table__row {
+            [class*="usda-table__row"] {
                 &:hover {
                     background-color: $gray-cool-2;
                 }
+            }
+            .usda-table__row {
                 &.usda-table__row_odd {
                     td.usda-table__cell {
-                        background-color: #fff;
+                        background-color: unset;
+
+                        &.stickyColumn {
+                            background-color: $color-white;
+                        }
                     }
                 }
             }
