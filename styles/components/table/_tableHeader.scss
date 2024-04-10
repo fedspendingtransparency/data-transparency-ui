@@ -4,6 +4,7 @@ tr.usda-table__row {
 th.table-header {
     background-color: $gray-cool-3;
     border-right: solid rem(1) $gray-cool-10;
+    border-bottom: solid rem(1) $gray-cool-10;
         &:last-of-type {
             border-right: unset;
         }
