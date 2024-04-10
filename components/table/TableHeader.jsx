@@ -70,8 +70,7 @@ const propTypes = {
     icon: PropTypes.element,
     bodyHeader: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    columnWidth: PropTypes.number,
-    rowHeight: PropTypes.number
+    columnWidth: PropTypes.number
 };
 
 const TableHeaderCell = ({
@@ -101,7 +100,6 @@ const TableHeaderCell = ({
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''} column-width-${columnWidth} `}
-            // this style prop is not applying, because the thead is set to display: table-header-group
             style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}

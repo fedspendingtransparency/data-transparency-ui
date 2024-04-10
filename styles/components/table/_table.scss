@@ -2,7 +2,7 @@
 
 table.usda-table {
     border-spacing: 0;
-    border-collapse: separate;
+    border-collapse: collapse;
     font-family: $font-sans;
     color: $color-gray;
     overflow-x: scroll;
@@ -10,13 +10,17 @@ table.usda-table {
 
     thead.usda-table__head {
         @import './tableHeader';
-        border-bottom: solid rem(1) $gray-cool-10;
     }
 
     tbody.usda-table__body {
         font-size: rem(14);
+        border-bottom: solid rem(1) $gray-cool-10;
 
         td.usda-table__cell {
+            border-left: solid rem(1) $gray-cool-10;
+            border-right: solid rem(1) $gray-cool-10;
+            border-bottom: 0;
+            border-top: 0;
             text-align: left;
             vertical-align: baseline;
 
@@ -36,13 +40,6 @@ table.usda-table {
         tr.usda-table__row {
             td.usda-table__cell {
                 padding: rem(15);
-                border-right: solid rem(1) $gray-cool-10;
-
-                &:last-of-type {
-                    border-right: unset;
-                }
-
-                border-bottom: solid rem(1) $gray-cool-10;
             }
 
             td.usda-table__cell.stickyColumn {
@@ -139,7 +136,22 @@ table.usda-table {
     }
 
     &.search-results {
+        // this is needed to make the right border and the box shadow appear on the sticky column
+        border-collapse: separate;
+
+        thead.usda-table__head {
+            th.table-header {
+                border-top: 0;
+                border-left: 0;
+                border-bottom: solid rem(1) $gray-cool-10;
+                &:last-of-type {
+                    border-right: 0;
+                }
+            }
+        }
+
         tbody.usda-table__body {
+            border-bottom: 0;
             .usda-table__row {
                 &:hover {
                     background-color: $gray-cool-2;
@@ -147,6 +159,13 @@ table.usda-table {
 
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
+                    border-top: 0;
+                    border-left: 0;
+                    border-bottom: solid rem(1) $gray-cool-10;
+                    &:last-of-type {
+                        border-right: 0;
+                    }
+
                 }
 
                 // if the td contains an a tag, we want the entire cell to be clickable
