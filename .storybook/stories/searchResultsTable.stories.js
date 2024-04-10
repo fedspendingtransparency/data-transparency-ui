@@ -31,7 +31,7 @@ ExampleOne.args = {
                 title: 'percent',
                 displayName: '% of Total Amount',
                 right: true,
-                columnWidth: 200,
+                columnWidth: 400,
             },
             {
                 title: 'test',

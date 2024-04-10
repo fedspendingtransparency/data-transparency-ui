@@ -102,7 +102,7 @@ const TableHeaderCell = ({
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''} column-width-${columnWidth} `}
             // this style prop is not applying, because the thead is set to display: table-header-group
-            // style={{ width: columnWidth, height: rowHeight }}
+            style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}
             scope="col">

@@ -43,7 +43,6 @@ const defaultProps = {
 };
 
 const Table = (props) => {
-    console.log('props', props);
     const stackedClass = props.isStacked ? `usa-dt-table__stacked` : '';
     const getTablePickerOptionsAsc = props.columns.map((col) => ({
         name: col.displayName + ' ' + '(ascending)',
