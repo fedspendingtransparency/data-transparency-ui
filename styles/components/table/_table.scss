@@ -20,6 +20,7 @@
         border-collapse: separate;
         font-family: $font-sans;
         color: $color-gray;
+        overflow-x: scroll;
 
         thead.usda-table__head {
             @import './tableHeader';
@@ -43,6 +44,7 @@
                 left: 0;
                 z-index: 30;
                 border-right: solid 1px $gray-cool-10;
+                box-shadow: 2px 1px 4px rgba(0, 0, 0, 0.2);
             }
 
             tr.usda-table__row {
