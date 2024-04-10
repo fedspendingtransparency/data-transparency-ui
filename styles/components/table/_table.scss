@@ -7,7 +7,6 @@ table.usda-table {
     color: $color-gray;
     overflow-x: scroll;
 
-
     thead.usda-table__head {
         @import './tableHeader';
     }
