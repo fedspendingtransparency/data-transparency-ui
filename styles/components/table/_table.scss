@@ -150,6 +150,7 @@ table.usda-table {
         }
 
         tbody.usda-table__body {
+            line-height: 1.5;
             border-bottom: 0;
             .usda-table__row {
                 &:hover {
