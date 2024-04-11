@@ -1,0 +1,14 @@
+@import "../global/index";
+
+.everything {
+  position: relative;
+
+  .shadow {
+    position: relative;
+    width: rem(800);
+    overflow-x: scroll;
+    border: solid 1px #dfe1e2;
+    border-radius: rem(8);
+    mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
+  }
+}

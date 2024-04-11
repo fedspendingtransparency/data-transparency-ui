@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from '../../components/table/Table';
+import SearchResultsTableWrapper from '../../components/SearchResultsTableWrapper';
 
 export default {
     title: 'Search Results Table',
@@ -82,10 +83,13 @@ const Default = (args) =>
         <Table {...args} />
     </div>;
 
-const Default2 = (args) =>
-    <div style={{width:'400px', overflowX: 'scroll', borderRadius: '8px', border: 'solid 1px #dfe1e2'}}>
-        <Table {...args} />
-    </div>;
+// const Default2 = (args) =>
+//     <div style={{width:'400px', overflowX: 'scroll', borderRadius: '8px', border: 'solid 1px #dfe1e2'}}>
+//         <Table {...args} />
+//     </div>;
+
+const Default2 = () =>
+    <SearchResultsTableWrapper />;
 
 export const ResultsTableWithFadeEffect = Default2.bind({});
 ResultsTableWithFadeEffect.args = searchResultsTableData;
