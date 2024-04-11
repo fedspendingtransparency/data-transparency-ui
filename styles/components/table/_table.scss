@@ -151,6 +151,7 @@ table.usda-table {
 
         tbody.usda-table__body {
             border-bottom: 0;
+            line-height: 1.5;
             .usda-table__row {
                 &:hover {
                     background-color: $gray-cool-2;
