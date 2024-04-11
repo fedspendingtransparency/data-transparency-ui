@@ -11,8 +11,8 @@ const Default = (args) =>
         <Table {...args} />
     </div>;
 
-export const ExampleOne = Default.bind({});
-ExampleOne.args = {
+export const ResultsTableWithStickyColumnAndBorderRadius = Default.bind({});
+ResultsTableWithStickyColumnAndBorderRadius.args = {
     stickyFirstColumn: true,
     classNames: 'search-results',
     columns:
