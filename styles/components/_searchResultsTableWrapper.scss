@@ -1,9 +1,9 @@
 @import "../global/index";
 
-.everything {
+.search-results-table-wrapper__outer-container {
   position: relative;
 
-  .shadow {
+  .search-results-table-wrapper__table-container {
     position: relative;
     width: rem(800);
     overflow-x: scroll;
