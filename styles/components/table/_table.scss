@@ -33,7 +33,7 @@ table.usda-table {
             left: 0;
             z-index: 30;
             border-right: solid 1px $gray-cool-10;
-            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: $shadow-sm;
         }
 
         tr.usda-table__row {
@@ -140,6 +140,7 @@ table.usda-table {
 
         thead.usda-table__head {
             th.table-header {
+                color: $theme-color-headline;
                 border-top: 0;
                 border-left: 0;
                 border-bottom: solid rem(1) $gray-cool-10;
@@ -150,6 +151,7 @@ table.usda-table {
         }
 
         tbody.usda-table__body {
+            color: $theme-color-body;
             border-bottom: 0;
             line-height: 1.5;
             .usda-table__row {
