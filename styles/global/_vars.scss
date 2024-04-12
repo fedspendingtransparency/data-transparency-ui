@@ -73,18 +73,19 @@ $violet-50v: #9355DC;
 $violet-60v: #783cb9;
 $violet-70v: #54278f;
 
-$gray-cool-1: #FBFCFD;
 $gray-2: #F9F9F9;
 $gray-10: #E6E6E6;
-$gray-90: #1B1B1B;
-$gray-cool-60: #565C65;
 $gray-60: #5C5C5C;
+$gray-90: #1B1B1B;
+$gray-cool-1: #FBFCFD;
+$gray-cool-2: #f7f9fa;
 $gray-cool-3: #f5f6f7;
 $gray-cool-5: #edeff0;
 $gray-cool-10: #dfe1e2;
 $gray-cool-20: #c6cace;
 $gray-cool-30: #a9aeb1;
 $gray-cool-50: #71767a;
+$gray-cool-60: #565C65;
 $gray-cool-90: #1c1d1f;
 
 // Theme Colors
@@ -260,7 +261,7 @@ $body-color: $gray-60;
 $card-outline-color: $gray-cool-10;
 
 // Shadows
-$shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-sm: 0 4px 8px rgba(0, 0, 0, 0.1); //USWDS Shadow 2
 $shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.1);
 

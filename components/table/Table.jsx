@@ -107,7 +107,7 @@ const Table = (props) => {
                 )}
                 <thead className="usda-table__head">
                     <tr className="usda-table__row">
-                        {props.columns.map((col, index) => (
+                        {props.columns.map((col) => (
                             <TableHeader
                                 key={uniqueId()}
                                 currentSort={props.currentSort}

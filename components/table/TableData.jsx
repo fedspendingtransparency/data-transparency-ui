@@ -6,10 +6,10 @@
 import React, { useState } from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 import { uniqueId } from 'lodash';
-import ExpandableRow from './ExpandableRow';
-import TableHeader from './TableHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
+import ExpandableRow from './ExpandableRow';
+import TableHeader from './TableHeader';
 
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -47,7 +47,7 @@ const TableData = ({
                 setFirstClick(false);
             }
             // user taps a row after already tapping a different row first
-            else if (isMobile && firstClick && rowIndexForMessage !== index ) {
+            else if (isMobile && firstClick && rowIndexForMessage !== index) {
                 setRowIndexForMessage(index);
             }
             // desktop or tablet, just go to next level
@@ -55,69 +55,75 @@ const TableData = ({
                 onClickHandler(row);
             }
         }
-    }
+    };
 
     return (
-    <>
-        {rows.map((row, i) => {
-            // Use a class name for alternating gray/white rows
-            // because child rows should match their parent
-            const oddClass = i % 2 === 0 ? '' : ' usda-table__row_odd';
-            if (expandable) {
+        <>
+            {rows.map((row, i) => {
+                // Use a class name for alternating gray/white rows
+                // because child rows should match their parent
+                const oddClass = i % 2 === 0 ? '' : ' usda-table__row_odd';
+                if (expandable) {
+                    return (
+                        <ExpandableRow
+                            key={uniqueId()}
+                            data={row}
+                            oddClass={oddClass}
+                            columns={columns}
+                            divider={divider} />
+                    );
+                }
                 return (
-                    <ExpandableRow
+                    <tr
                         key={uniqueId()}
-                        data={row}
-                        oddClass={oddClass}
-                        columns={columns}
-                        divider={divider} />
+                        tabIndex={0}
+                        onClick={() => localClickHandler(row, i)}
+                        onKeyUp={(e) => {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                                localClickHandler(row, i);
+                            }
+                        }}
+                        className={`usda-table__row-item usda-table__row${oddClass}`}>
+                        {row.map((data, j) => (
+                            columns[j]?.bodyHeader
+                                ? (
+                                    <TableHeader
+                                        className="table-header_body-header"
+                                        key={uniqueId()}
+                                        stickyFirstColumn={stickyFirstColumn}
+                                        {...data} />
+                                )
+                                : (
+                                    <td
+                                        key={uniqueId()}
+                                        className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
+                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''}`}>
+                                        {columns[j]
+                                        && (
+                                            <div className="usda-table__cell-heading-container">
+                                                {isMobile
+                                                && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
+                                                {(isMobile && firstClick && j === 0 && rowIndexForMessage === i)
+                                                && (
+                                                    <div className="usda-table__cell-message">
+                                                        View next level
+                                                        {' '}
+                                                        <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                        {data}
+                                    </td>
+                                )
+                        ))}
+                    </tr>
                 );
-            }
-            return (
-                <tr
-                    key={uniqueId()}
-                    tabIndex={0}
-                    onClick={() => localClickHandler(row, i)}
-                    onKeyUp={(e) => {
-                        if (e.key === 'Enter') {
-                            e.preventDefault();
-                            localClickHandler(row, i);
-                        }
-                     }}
-                    className={`usda-table__row-item usda-table__row${oddClass}`}>
-                    {row.map((data, j) => (
-                        columns[j]?.bodyHeader ?
-                            <TableHeader
-                                className="table-header_body-header"
-                                key={uniqueId()}
-                                stickyFirstColumn={stickyFirstColumn}
-                                {...data} />
-                            :
-                            <td
-                                key={uniqueId()}
-                                className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
-                                ${ (j===0 && stickyFirstColumn) ? ' stickyColumn' : ''}`}>
-                                {columns[j] &&
-                                    <div className="usda-table__cell-heading-container">
-                                        {isMobile &&
-                                            <div className='usda-table__cell-heading'>{columns[j].displayName}</div>
-                                        }
-                                            {(isMobile && firstClick && j === 0 && rowIndexForMessage === i) &&
-                                            <div className="usda-table__cell-message">View next level{' '}
-                                            <FontAwesomeIcon icon={faAngleDoubleRight} color='#2378c3'/>
-                                        </div>
-                                        }
-                                    </div>
-                                }
-                                {data}
-                            </td>
-                    ))}
-                </tr>
-            );
-        })}
-    </>
-)};
+            })}
+        </>
+    );
+};
 
 TableData.propTypes = propTypes;
 export default TableData;
-
