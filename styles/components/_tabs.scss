@@ -56,8 +56,8 @@
           vertical-align: middle;
           margin-bottom: -0.2rem;
           width: auto;
-          padding: rem(11) rem(20) rem(11) rem(20);
-          margin-right: rem(5);
+          padding: rem(8) rem(16);
+          margin-right: rem(8);
           border-top-left-radius: rem(8);
           border-top-right-radius: rem(8);
           border-bottom-right-radius: 0;
@@ -98,17 +98,18 @@
 
                   .count {
                     flex: 1 1 auto;
-                    background-color: rgba(117, 117, 117, 0.2);;
-                    font-size: rem(12);
-                    line-height: rem(16);
+                    background-color: $gray-cool-5;
+                    font-size: rem(10);
+                    line-height: 1.5;
                     padding: rem(0) rem(5);
-                    color: $color-base;
+                    color: $gray-cool-90;
                     margin-left: rem(5);
+                    border-radius: 2px;
 
                     &.active {
-                        text-align: center;
-                        background-color: $color-gold;
-                        color: $color-base;
+                      text-align: center;
+                      background-color: #face00;
+                      color: $gray-cool-90;
                     }
                   }
               }
