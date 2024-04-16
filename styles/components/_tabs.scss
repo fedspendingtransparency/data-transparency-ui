@@ -45,13 +45,16 @@
       }
 
       .usa-dt-tab {
-          border: 2px solid transparent;
-          background-color: rgba(220,220,220, 0.5);
+          border-top: 1px solid $gray-cool-10;
+          border-right: 1px solid $gray-cool-10;
+          border-bottom: none;
+          border-left: 1px solid $gray-cool-10;
+          background-color: $gray-cool-3;
           color: $color-gray-dark;
           font-size: $base-font-size;
           font-weight: normal;
           vertical-align: middle;
-          margin-bottom: -0.2rem;          
+          margin-bottom: -0.2rem;
           width: auto;
           padding: rem(11) rem(20) rem(11) rem(20);
           margin-right: rem(5);
@@ -69,7 +72,7 @@
               cursor: pointer;
           }
           &.active {
-              background-color: rgba(255, 255, 255, 0.5);
+              background-color: $color-white;
               border-top: 2px solid $color-gray-lighter;
               border-right: 2px solid $color-gray-lighter;
               border-bottom: 2px solid $color-white;
@@ -92,7 +95,7 @@
                   font-size: rem(14);
                   line-height: rem(18);
                   white-space: nowrap;
- 
+
                   .count {
                     flex: 1 1 auto;
                     background-color: rgba(117, 117, 117, 0.2);;
@@ -101,10 +104,10 @@
                     padding: rem(0) rem(5);
                     color: $color-base;
                     margin-left: rem(5);
-    
+
                     &.active {
                         text-align: center;
-                        background-color: $color-gold; 
+                        background-color: $color-gold;
                         color: $color-base;
                     }
                   }
@@ -126,7 +129,7 @@
                   }
                 }
           }
-  
+
           &[disabled] {
               pointer-events: none;
               color: $color-gray;
@@ -173,7 +176,7 @@
                 background-color: rgba(117, 117, 117, 0.1);
                 &.active {
                   text-align: center;
-                  background-color: $color-gold; 
+                  background-color: $color-gold;
                   color: $color-base;
                 }
               }
