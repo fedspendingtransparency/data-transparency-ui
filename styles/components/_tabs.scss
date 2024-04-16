@@ -38,7 +38,7 @@
   }
 
   .usa-dt-tab__wrapper {
-      border-bottom: 2px solid $color-gray-lighter;
+      border-bottom: 1px solid $gray-cool-10;
       scroll-snap-align: center;
       &.disabled {
           cursor: not-allowed;
@@ -47,7 +47,7 @@
       .usa-dt-tab {
           border-top: 1px solid $gray-cool-10;
           border-right: 1px solid $gray-cool-10;
-          border-bottom: none;
+          border-bottom: 2px solid $gray-cool-10;
           border-left: 1px solid $gray-cool-10;
           background-color: $gray-cool-3;
           color: $color-gray-dark;
@@ -73,11 +73,11 @@
           }
           &.active {
               background-color: $color-white;
-              border-top: 2px solid $color-gray-lighter;
-              border-right: 2px solid $color-gray-lighter;
-              border-bottom: 2px solid $color-white;
-              border-left: 2px solid $color-gray-lighter;
-              color: $color-base;
+              border-top: 1px solid $gray-cool-10;
+              border-right: 1px solid $gray-cool-10;
+              border-bottom: 1px solid $color-white;
+              border-left: 1px solid $gray-cool-10;
+              color: $gray-cool-90;
               .usa-dt-tab__content {
                 font-weight: 600;
               }
@@ -93,7 +93,7 @@
                   justify-content: center;
                   align-items: center;
                   font-size: rem(14);
-                  line-height: rem(18);
+                  line-height: 1.5;
                   white-space: nowrap;
 
                   .count {
