@@ -19,21 +19,21 @@
 
   .usa-dt-tab-list__border-pre-filler {
     width: rem(15);
-    border-bottom: 2px solid $color-gray-lighter;
+    border-bottom: 1px solid $gray-cool-10;
   }
   .usa-dt-tab-list__border-post-filler {
     width: 100%;
-    border-bottom: 2px solid $color-gray-lighter;
+    border-bottom: 1px solid $gray-cool-10;
   }
   &.tabless-tabs {
     padding: 1.5rem 0 1rem 0;
     .usa-dt-tab-list__border-pre-filler {
       width: rem(15);
-      border-bottom: 1px solid $color-gray-lighter;
+      border-bottom: 1px solid $gray-cool-10;
     }
     .usa-dt-tab-list__border-post-filler {
       width: 100%;
-      border-bottom: 1px solid $color-gray-lighter;
+      border-bottom: 1px solid $gray-cool-10;
     }
   }
 
