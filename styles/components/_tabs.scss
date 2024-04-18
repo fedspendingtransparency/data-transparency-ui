@@ -50,7 +50,7 @@
           border-bottom: 2px solid $gray-cool-10;
           border-left: 1px solid $gray-cool-10;
           background-color: $gray-cool-3;
-          color: $color-gray-dark;
+          color: $gray-cool-90;
           font-size: $base-font-size;
           font-weight: normal;
           vertical-align: middle;
@@ -108,8 +108,9 @@
 
                     &.active {
                       text-align: center;
-                      background-color: #face00;
+                      background-color: $yellow-20v;
                       color: $gray-cool-90;
+                      font-weight: normal;
                     }
                   }
               }
