@@ -19,44 +19,47 @@
 
   .usa-dt-tab-list__border-pre-filler {
     width: rem(15);
-    border-bottom: 2px solid $color-gray-lighter;
+    border-bottom: 1px solid $gray-cool-10;
   }
   .usa-dt-tab-list__border-post-filler {
     width: 100%;
-    border-bottom: 2px solid $color-gray-lighter;
+    border-bottom: 1px solid $gray-cool-10;
   }
   &.tabless-tabs {
     padding: 1.5rem 0 1rem 0;
     .usa-dt-tab-list__border-pre-filler {
       width: rem(15);
-      border-bottom: 1px solid $color-gray-lighter;
+      border-bottom: 1px solid $gray-cool-10;
     }
     .usa-dt-tab-list__border-post-filler {
       width: 100%;
-      border-bottom: 1px solid $color-gray-lighter;
+      border-bottom: 1px solid $gray-cool-10;
     }
   }
 
   .usa-dt-tab__wrapper {
-      border-bottom: 2px solid $color-gray-lighter;
+      border-bottom: 1px solid $gray-cool-10;
       scroll-snap-align: center;
       &.disabled {
           cursor: not-allowed;
       }
 
       .usa-dt-tab {
-          border: 2px solid transparent;
-          background-color: rgba(220,220,220, 0.5);
-          color: $color-gray-dark;
+          border-top: 1px solid $gray-cool-10;
+          border-right: 1px solid $gray-cool-10;
+          border-bottom: 2px solid $gray-cool-10;
+          border-left: 1px solid $gray-cool-10;
+          background-color: $gray-cool-3;
+          color: $gray-cool-90;
           font-size: $base-font-size;
           font-weight: normal;
           vertical-align: middle;
-          margin-bottom: -0.2rem;          
+          margin-bottom: -0.2rem;
           width: auto;
-          padding: rem(11) rem(20) rem(11) rem(20);
-          margin-right: rem(5);
-          border-top-left-radius: rem(8);
-          border-top-right-radius: rem(8);
+          padding: rem(8) rem(16);
+          margin-right: rem(8);
+          border-top-left-radius: rem(4);
+          border-top-right-radius: rem(4);
           border-bottom-right-radius: 0;
           border-bottom-left-radius: 0;
 
@@ -69,12 +72,12 @@
               cursor: pointer;
           }
           &.active {
-              background-color: rgba(255, 255, 255, 0.5);
-              border-top: 2px solid $color-gray-lighter;
-              border-right: 2px solid $color-gray-lighter;
-              border-bottom: 2px solid $color-white;
-              border-left: 2px solid $color-gray-lighter;
-              color: $color-base;
+              background-color: $color-white;
+              border-top: 1px solid $gray-cool-10;
+              border-right: 1px solid $gray-cool-10;
+              border-bottom: 1px solid $color-white;
+              border-left: 1px solid $gray-cool-10;
+              color: $gray-cool-90;
               .usa-dt-tab__content {
                 font-weight: 600;
               }
@@ -90,22 +93,24 @@
                   justify-content: center;
                   align-items: center;
                   font-size: rem(14);
-                  line-height: rem(18);
+                  line-height: 1.5;
                   white-space: nowrap;
- 
+
                   .count {
                     flex: 1 1 auto;
-                    background-color: rgba(117, 117, 117, 0.2);;
-                    font-size: rem(12);
-                    line-height: rem(16);
+                    background-color: $gray-cool-5;
+                    font-size: rem(10);
+                    line-height: 1.5;
                     padding: rem(0) rem(5);
-                    color: $color-base;
+                    color: $gray-cool-90;
                     margin-left: rem(5);
-    
+                    border-radius: 2px;
+
                     &.active {
-                        text-align: center;
-                        background-color: $color-gold; 
-                        color: $color-base;
+                      text-align: center;
+                      background-color: $yellow-20v;
+                      color: $gray-cool-90;
+                      font-weight: normal;
                     }
                   }
               }
@@ -126,7 +131,7 @@
                   }
                 }
           }
-  
+
           &[disabled] {
               pointer-events: none;
               color: $color-gray;
@@ -173,7 +178,7 @@
                 background-color: rgba(117, 117, 117, 0.1);
                 &.active {
                   text-align: center;
-                  background-color: $color-gold; 
+                  background-color: $color-gold;
                   color: $color-base;
                 }
               }
