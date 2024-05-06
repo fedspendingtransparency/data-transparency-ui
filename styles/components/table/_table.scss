@@ -157,6 +157,10 @@ table.usda-table {
             .usda-table__row {
                 &:hover {
                     background-color: $gray-cool-2;
+
+                    td.usda-table__cell.stickyColumn {
+                        background-color: $gray-cool-2;
+                    }
                 }
 
                 td.usda-table__cell {
@@ -190,6 +194,14 @@ table.usda-table {
 
                         &.stickyColumn {
                             background-color: $color-white;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $gray-cool-2;
+
+                        td.usda-table__cell.stickyColumn {
+                            background-color: $gray-cool-2;
                         }
                     }
                 }
