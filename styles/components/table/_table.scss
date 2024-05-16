@@ -13,13 +13,8 @@ table.usda-table {
 
     tbody.usda-table__body {
         font-size: rem(14);
-        border-bottom: solid rem(1) $gray-cool-10;
 
         td.usda-table__cell {
-            border-left: solid rem(1) $gray-cool-10;
-            border-right: solid rem(1) $gray-cool-10;
-            border-bottom: 0;
-            border-top: 0;
             text-align: left;
             vertical-align: baseline;
 
@@ -134,44 +129,35 @@ table.usda-table {
         }
     }
 
-    &.search-results {
-        // this is needed to make the right border and the box shadow appear on the sticky column
-        border-collapse: separate;
+    &.table-for-new-search-page {
 
         thead.usda-table__head {
             th.table-header {
                 color: $theme-color-headline;
-                border-top: 0;
-                border-left: 0;
-                border-bottom: solid rem(1) $gray-cool-10;
+                &:first-of-type {
+                    border-top-left-radius: 8px;
+                }
                 &:last-of-type {
-                    border-right: 0;
+                    border-top-right-radius: 8px;
                 }
             }
         }
 
         tbody.usda-table__body {
             color: $theme-color-body;
-            border-bottom: 0;
             line-height: 1.5;
             .usda-table__row {
+                border-bottom: solid rem(1) $gray-cool-10;
                 &:hover {
                     background-color: $gray-cool-2;
-
-                    td.usda-table__cell.stickyColumn {
-                        background-color: $gray-cool-2;
-                    }
                 }
 
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
-                    border-top: 0;
-                    border-left: 0;
-                    border-bottom: solid rem(1) $gray-cool-10;
-                    &:last-of-type {
-                        border-right: 0;
-                    }
 
+                    &:last-of-type {
+                        //border-right: 0;
+                    }
                 }
 
                 // if the td contains an a tag, we want the entire cell to be clickable
@@ -189,12 +175,28 @@ table.usda-table {
                 }
 
                 &.usda-table__row_odd {
+                    border-bottom: solid rem(1) $gray-cool-10;
+                    &:hover {
+                        background-color: $gray-cool-2;
+                    }
+
                     td.usda-table__cell {
                         background-color: unset;
+                    }
+                }
+            }
+        }
+        &.award-results-table-dtui {
+            // this is needed to make the right border and the box shadow appear on the sticky column
+            border-collapse: separate;
 
-                        &.stickyColumn {
-                            background-color: $color-white;
-                        }
+            tbody.usda-table__body {
+
+                .usda-table__row {
+
+                    td.usda-table__cell {
+                        border-right: 0;
+                        border-bottom: solid rem(1) $gray-cool-10;
                     }
 
                     &:hover {
@@ -202,6 +204,22 @@ table.usda-table {
 
                         td.usda-table__cell.stickyColumn {
                             background-color: $gray-cool-2;
+                        }
+                    }
+
+                    &.usda-table__row_odd {
+
+                        td.usda-table__cell {
+                            &.stickyColumn {
+                                background-color: $color-white;
+                            }
+                        }
+
+                        &:hover {
+
+                            td.usda-table__cell.stickyColumn {
+                                background-color: $gray-cool-2;
+                            }
                         }
                     }
                 }
