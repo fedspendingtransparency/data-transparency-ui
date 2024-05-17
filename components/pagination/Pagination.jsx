@@ -22,7 +22,8 @@ const propTypes = {
     limitSelector: PropTypes.bool,
     changeLimit: PropTypes.func,
     goToPage: PropTypes.bool,
-    id: PropTypes.string
+    id: PropTypes.string,
+    hideLast: PropTypes.bool
 };
 
 const defaultProps = {
@@ -32,7 +33,8 @@ const defaultProps = {
     customResultsText: null,
     limitSelector: false,
     changeLimit: () => {},
-    goToPage: false
+    goToPage: false,
+    hideLast: false
 };
 
 require('../../styles/components/pagination/_pagination.scss');
@@ -49,7 +51,7 @@ export default class Pagination extends React.Component {
         if (React.isValidElement(resultsText)) {
             return resultsText;
         }
-        else if (resultsText) {
+        if (resultsText) {
             const pageRange = calculatePageRange(currentPage, pageSize, totalItems);
             const start = formatNumberWithPrecision(pageRange.start, 0);
             const end = formatNumberWithPrecision(pageRange.end, 0);
@@ -72,7 +74,8 @@ export default class Pagination extends React.Component {
             currentPage,
             pageSize,
             totalItems,
-            id
+            id,
+            hideLast
         } = this.props;
 
         const totalPages = Math.ceil(totalItems / pageSize);
@@ -107,7 +110,8 @@ export default class Pagination extends React.Component {
                         changePage={changePage}
                         totalItems={totalItems}
                         currentPage={currentPage}
-                        pageSize={pageSize} />
+                        pageSize={pageSize}
+                        hideLast={hideLast} />
                     {goTo}
                 </div>
             </div>
