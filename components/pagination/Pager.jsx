@@ -130,7 +130,7 @@ export default class Pager extends React.Component {
     }
 
     render() {
-        const { currentPage, changePage, hideLast } = this.props;
+        const { currentPage, changePage } = this.props;
         const pager = this.getPager();
         const pageButtons = this.generatePageButtons(pager.pages, pager.totalPages);
 
