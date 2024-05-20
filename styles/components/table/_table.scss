@@ -150,6 +150,7 @@ table.usda-table {
             color: $theme-color-body;
             line-height: 1.5;
             .usda-table__row {
+                //height: 200px;
                 //border-bottom: solid rem(1) $gray-cool-10;
                 &:hover {
                     background-color: $gray-cool-2;

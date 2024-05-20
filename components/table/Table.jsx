@@ -18,6 +18,8 @@ require('../../styles/components/table/_table.scss');
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])),
+    rowHeight: PropTypes.number,
+    headerRowHeight: PropTypes.number,
     currentSort: shape({
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
@@ -106,7 +108,7 @@ const Table = (props) => {
                     <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
                 )}
                 <thead className="usda-table__head">
-                    <tr className="usda-table__row">
+                    <tr className="usda-table__row" style={{ height: props.headerRowHeight }}>
                         {props.columns.map((col) => (
                             <TableHeader
                                 key={uniqueId()}
