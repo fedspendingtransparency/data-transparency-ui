@@ -150,7 +150,6 @@ table.usda-table {
             color: $theme-color-body;
             line-height: 1.5;
             .usda-table__row {
-                //height: 200px;
                 //border-bottom: solid rem(1) $gray-cool-10;
                 &:hover {
                     background-color: $gray-cool-2;
@@ -158,6 +157,7 @@ table.usda-table {
 
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
+                    height: inherit;
 
                     &:last-of-type {
                         //border-right: 0;
@@ -172,9 +172,8 @@ table.usda-table {
                     a {
                         padding: rem(8) rem(16);
                         display: block;
-                        // 84% based on 200px header width minus 32px padding inside a tag
-                        width: 84%;
-                        height: 100%;
+                        width: 100%;
+                        height: inherit;
                     }
                 }
 
