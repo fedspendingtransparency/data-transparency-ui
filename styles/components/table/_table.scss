@@ -134,6 +134,10 @@ table.usda-table {
 
     &.table-for-new-search-page {
 
+        .usda-table__body-special-color {
+            background-color: $blue-warm-5;
+        }
+
         thead.usda-table__head {
             th.table-header {
                 color: $theme-color-headline;
@@ -153,6 +157,10 @@ table.usda-table {
                 //border-bottom: solid rem(1) $gray-cool-10;
                 &:hover {
                     background-color: $gray-cool-2;
+
+                    &.special-hover-color td:nth-last-of-type(-n + 2) {
+                            background-color: $blue-warm-10;
+                    }
                 }
 
                 td.usda-table__cell {
