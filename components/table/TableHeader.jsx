@@ -70,7 +70,8 @@ const propTypes = {
     icon: PropTypes.element,
     bodyHeader: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    columnWidth: PropTypes.number
+    columnWidth: PropTypes.number,
+    subAward: PropTypes.bool
 };
 
 const TableHeaderCell = ({
@@ -86,7 +87,8 @@ const TableHeaderCell = ({
     icon = (<></>),
     bodyHeader = false,
     stickyFirstColumn = false,
-    columnWidth
+    columnWidth,
+    subAward
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -99,7 +101,8 @@ const TableHeaderCell = ({
     };
     return (
         <th
-            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''} `}
+            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} 
+            ${stickyFirstColumn === true ? ' stickyColumn' : ''} ${subAward ? 'table-header__subaward-color' : ''} `}
             style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}
@@ -122,5 +125,4 @@ const TableHeaderCell = ({
 };
 
 TableHeaderCell.propTypes = propTypes;
-
 export default TableHeaderCell;
