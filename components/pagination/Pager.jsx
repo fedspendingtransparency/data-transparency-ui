@@ -14,12 +14,15 @@ const propTypes = {
     changePage: PropTypes.func.isRequired,
     totalItems: PropTypes.number.isRequired,
     currentPage: PropTypes.number.isRequired,
-    pageSize: PropTypes.number.isRequired
+    pageSize: PropTypes.number.isRequired,
+    hideLast: PropTypes.bool
 };
 
 export default class Pager extends React.Component {
     getPager() {
-        const { totalItems, currentPage, pageSize, changePage } = this.props;
+        const {
+            totalItems, currentPage, pageSize, changePage, hideLast
+        } = this.props;
 
         // calculate total pages
         const totalPages = Math.ceil(totalItems / pageSize);
@@ -39,7 +42,7 @@ export default class Pager extends React.Component {
             </li>
         );
         let lastButton = (
-            <li className="pager__item">
+            <li className={`pager__item ${hideLast ? 'hideLast' : ''}`}>
                 <button
                     className="pager__button"
                     type="button"
