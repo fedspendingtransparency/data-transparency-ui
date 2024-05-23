@@ -70,7 +70,8 @@ const propTypes = {
     icon: PropTypes.element,
     bodyHeader: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    columnWidth: PropTypes.number
+    columnWidth: PropTypes.number,
+    index: PropTypes.number
 };
 
 const TableHeaderCell = ({
@@ -86,7 +87,8 @@ const TableHeaderCell = ({
     icon = (<></>),
     bodyHeader = false,
     stickyFirstColumn = false,
-    columnWidth
+    columnWidth,
+    index
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -97,9 +99,10 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
+    console.debug("INDEX/props: ", index === 0 && displayName);
     return (
         <th
-            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${stickyFirstColumn === true ? ' stickyColumn' : ''} `}
+            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${(stickyFirstColumn && index === 0) ? ' stickyColumn' : ''} `}
             style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}

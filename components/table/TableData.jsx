@@ -92,7 +92,8 @@ const TableData = ({
                                         className="table-header_body-header"
                                         key={uniqueId()}
                                         stickyFirstColumn={stickyFirstColumn}
-                                        {...data} />
+                                        {...data}
+                                        index={j} />
                                 )
                                 : (
                                     <td
