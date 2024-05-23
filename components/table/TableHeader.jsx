@@ -99,7 +99,6 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
-    console.debug("INDEX/props: ", index === 0 && displayName);
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} ${(stickyFirstColumn && index === 0) ? ' stickyColumn' : ''} `}
