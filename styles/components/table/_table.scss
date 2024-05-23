@@ -193,6 +193,14 @@ table.usda-table {
             // this is needed to make the right border and the box shadow appear on the sticky column
             border-collapse: separate;
 
+            thead.usda-table__head {
+                th {
+                    position: -webkit-sticky; /* Safari */
+                    position: sticky;
+                    top: 0;
+                }
+            }
+
             tbody.usda-table__body {
 
                 .usda-table__row {
@@ -219,7 +227,6 @@ table.usda-table {
                         }
 
                         &:hover {
-
                             td.usda-table__cell.stickyColumn {
                                 background-color: $gray-cool-2;
                             }
