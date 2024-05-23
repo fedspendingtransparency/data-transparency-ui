@@ -95,6 +95,7 @@ const TableData = ({
                                         className="table-header_body-header"
                                         key={uniqueId()}
                                         stickyFirstColumn={stickyFirstColumn}
+                                        index={j}
                                         {...data} />
                                 )
                                 : (
