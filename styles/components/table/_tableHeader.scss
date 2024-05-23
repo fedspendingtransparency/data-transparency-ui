@@ -70,9 +70,8 @@ th.table-header {
 .stickyColumn:first-of-type {
     position: sticky;
     left: 0;
-    z-index:30;
+    z-index: 1;
     border-right: solid 1px $gray-cool-10;
-    box-shadow: $shadow-sm;
 }
 
 .table-header__subaward-color:nth-last-of-type(-n + 2) {

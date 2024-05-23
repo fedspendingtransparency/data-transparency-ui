@@ -29,7 +29,7 @@ table.usda-table {
         td.usda-table__cell.stickyColumn {
             position: sticky;
             left: 0;
-            z-index: 30;
+            z-index: 1;
             border-right: solid 1px $gray-cool-10;
             box-shadow: $shadow-sm;
         }
@@ -157,6 +157,7 @@ table.usda-table {
 
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
+                    height: inherit;
 
                     &:last-of-type {
                         //border-right: 0;
@@ -171,9 +172,8 @@ table.usda-table {
                     a {
                         padding: rem(8) rem(16);
                         display: block;
-                        // 84% based on 200px header width minus 32px padding inside a tag
-                        width: 84%;
-                        height: 100%;
+                        width: 100%;
+                        height: inherit;
                     }
                 }
 
