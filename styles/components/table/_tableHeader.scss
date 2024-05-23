@@ -67,7 +67,7 @@ th.table-header {
     }
 }
 
-.stickyColumn:first-of-type {
+.stickyColumn {
     position: sticky;
     left: 0;
     z-index: 1;
