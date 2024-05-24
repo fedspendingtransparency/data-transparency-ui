@@ -18,6 +18,8 @@ require('../../styles/components/table/_table.scss');
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])),
+    rowHeight: PropTypes.number,
+    headerRowHeight: PropTypes.number,
     currentSort: shape({
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
@@ -106,13 +108,14 @@ const Table = (props) => {
                     <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
                 )}
                 <thead className="usda-table__head">
-                    <tr className="usda-table__row">
-                        {props.columns.map((col) => (
+                    <tr className="usda-table__row" style={{ height: props.headerRowHeight }}>
+                        {props.columns.map((col, index) => (
                             <TableHeader
                                 key={uniqueId()}
                                 currentSort={props.currentSort}
                                 updateSort={props.updateSort}
                                 stickyFirstColumn={props.stickyFirstColumn}
+                                index={index}
                                 {...col} />
                         ))}
                     </tr>
@@ -125,13 +128,14 @@ const Table = (props) => {
                                 }
                                 return acc.concat([{ ...col, displayName: '', className: 'empty-subheader' }]);
                             }, [])
-                            .map((col) => (
+                            .map((col, index) => (
                                 <TableHeader
                                     key={uniqueId()}
                                     className={col?.title ? 'nested-header' : 'empty'}
                                     currentSort={props.currentSort}
                                     updateSort={props.updateSort}
                                     stickyFirstColumn={props.stickyFirstColumn}
+                                    index={index}
                                     {...col} />
                             ))}
                     </tr>
