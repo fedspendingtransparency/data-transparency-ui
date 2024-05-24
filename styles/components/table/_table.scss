@@ -153,7 +153,6 @@ table.usda-table {
             color: $theme-color-body;
             line-height: 1.5;
             .usda-table__row {
-                //border-bottom: solid rem(1) $gray-cool-10;
                 &:hover {
                     background-color: $gray-cool-2;
 
@@ -165,10 +164,6 @@ table.usda-table {
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
                     height: inherit;
-
-                    &:last-of-type {
-                        //border-right: 0;
-                    }
                 }
 
                 // if the td contains an a tag, we want the entire cell to be clickable
@@ -185,7 +180,6 @@ table.usda-table {
                 }
 
                 &.usda-table__row_odd {
-                    //border-bottom: solid rem(1) $gray-cool-10;
                     &:hover {
                         background-color: $gray-cool-2;
                     }
@@ -214,7 +208,6 @@ table.usda-table {
 
                     td.usda-table__cell {
                         border-right: 0;
-                        //border-bottom: solid rem(1) $gray-cool-10;
                     }
 
                     &:hover {
