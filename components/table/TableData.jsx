@@ -14,6 +14,7 @@ import TableHeader from './TableHeader';
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,
     rows: PropTypes.arrayOf(oneOfType([PropTypes.array, PropTypes.object])).isRequired,
+    rowHeight: PropTypes.number,
     expandable: PropTypes.bool,
     divider: PropTypes.string,
     onClickHandler: PropTypes.func,
@@ -26,6 +27,7 @@ const propTypes = {
 const TableData = ({
     columns,
     rows,
+    rowHeight,
     expandable,
     divider,
     onClickHandler,
@@ -86,7 +88,7 @@ const TableData = ({
                                 localClickHandler(row, i);
                             }
                         }}
-                        className={`usda-table__row-item usda-table__row${oddClass} ${subAward ? 'special-hover-color' : ''}`}>
+                        className={`usda-table__row-item usda-table__row${oddClass} ${subAward ? 'special-hover-color' : ''}`} style={{ height: rowHeight }}>
                         {row.map((data, j) => (
                             columns[j]?.bodyHeader
                                 ? (
@@ -94,6 +96,7 @@ const TableData = ({
                                         className="table-header_body-header"
                                         key={uniqueId()}
                                         stickyFirstColumn={stickyFirstColumn}
+                                        index={j}
                                         {...data} />
                                 )
                                 : (

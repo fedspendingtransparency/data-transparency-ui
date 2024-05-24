@@ -29,7 +29,6 @@ table.usda-table {
         td.usda-table__cell.stickyColumn {
             position: sticky;
             left: 0;
-            z-index: 30;
             border-right: solid 1px $gray-cool-10;
             box-shadow: $shadow-sm;
         }
@@ -165,6 +164,7 @@ table.usda-table {
 
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
+                    height: inherit;
 
                     &:last-of-type {
                         //border-right: 0;
@@ -179,9 +179,8 @@ table.usda-table {
                     a {
                         padding: rem(8) rem(16);
                         display: block;
-                        // 84% based on 200px header width minus 32px padding inside a tag
-                        width: 84%;
-                        height: 100%;
+                        width: 100%;
+                        height: inherit;
                     }
                 }
 
@@ -200,6 +199,14 @@ table.usda-table {
         &.award-results-table-dtui {
             // this is needed to make the right border and the box shadow appear on the sticky column
             border-collapse: separate;
+
+            thead.usda-table__head {
+                th {
+                    position: -webkit-sticky; /* Safari */
+                    position: sticky;
+                    top: 0;
+                }
+            }
 
             tbody.usda-table__body {
 
