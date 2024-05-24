@@ -118,7 +118,9 @@ const TableData = ({
                                                 )}
                                             </div>
                                         )}
-                                        {data}
+                                        <div>
+                                            {data}
+                                        </div>
                                     </td>
                                 )
                         ))}
