@@ -17,9 +17,7 @@ table.usda-table {
         td.usda-table__cell {
             text-align: left;
             vertical-align: baseline;
-
             border: rem(1) solid $gray-cool-10;
-
 
             &.usda-table__cell_right {
                 text-align: right;
@@ -208,6 +206,7 @@ table.usda-table {
 
                     td.usda-table__cell {
                         border-right: 0;
+                        vertical-align: middle;
                     }
 
                     &:hover {
