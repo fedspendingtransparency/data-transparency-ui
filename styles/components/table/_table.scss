@@ -135,10 +135,14 @@ table.usda-table {
             th.table-header {
                 color: $theme-color-headline;
                 &:first-of-type {
-                    border-top-left-radius: 8px;
+                    border-top-left-radius: rem(4);
                 }
                 &:last-of-type {
-                    border-top-right-radius: 8px;
+                    border-top-right-radius: rem(4);
+                }
+
+                .table-header__content {
+                    padding: rem(12) rem(16);
                 }
             }
         }
@@ -166,6 +170,11 @@ table.usda-table {
                         display: block;
                         width: 100%;
                         height: inherit;
+                        color: $theme-color-1;
+
+                        &:hover {
+                            color: $blue-vivid-70;
+                        }
                     }
                 }
 
