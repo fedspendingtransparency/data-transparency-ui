@@ -73,3 +73,7 @@ th.table-header {
     z-index: 1;
     border-right: solid 1px $gray-cool-10;
 }
+
+.table-header__subaward-color:nth-last-of-type(-n + 2) {
+        background-color: $blue-warm-20;
+}

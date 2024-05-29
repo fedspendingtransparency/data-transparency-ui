@@ -35,7 +35,8 @@ const propTypes = {
     screenReaderCaption: PropTypes.string,
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
-    stickyFirstColumn: PropTypes.bool
+    stickyFirstColumn: PropTypes.bool,
+    subAward: PropTypes.bool
 };
 
 const defaultProps = {
@@ -107,6 +108,13 @@ const Table = (props) => {
                 {props.screenReaderCaption && (
                     <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
                 )}
+                {props.subAward
+                && (
+                    <colgroup>
+                        <col span={6} />
+                        <col span={2} className="usda-table__body-special-color" />
+                    </colgroup>
+                )}
                 <thead className="usda-table__head">
                     <tr className="usda-table__row" style={{ height: props.headerRowHeight }}>
                         {props.columns.map((col, index) => (
@@ -115,6 +123,7 @@ const Table = (props) => {
                                 currentSort={props.currentSort}
                                 updateSort={props.updateSort}
                                 stickyFirstColumn={props.stickyFirstColumn}
+                                subAward={props.subAward}
                                 index={index}
                                 {...col} />
                         ))}
