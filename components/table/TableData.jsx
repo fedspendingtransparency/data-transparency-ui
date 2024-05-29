@@ -20,7 +20,8 @@ const propTypes = {
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
     atMaxLevel: PropTypes.bool,
-    stickyFirstColumn: PropTypes.bool
+    stickyFirstColumn: PropTypes.bool,
+    subAward: PropTypes.bool
 };
 
 const TableData = ({
@@ -32,7 +33,8 @@ const TableData = ({
     onClickHandler,
     isMobile,
     atMaxLevel,
-    stickyFirstColumn = false
+    stickyFirstColumn = false,
+    subAward
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
@@ -86,8 +88,7 @@ const TableData = ({
                                 localClickHandler(row, i);
                             }
                         }}
-                        className={`usda-table__row-item usda-table__row${oddClass}`}
-                        style={{ height: rowHeight }}>
+                        className={`usda-table__row-item usda-table__row${oddClass} ${subAward ? 'special-hover-color' : ''}`} style={{ height: rowHeight }}>
                         {row.map((data, j) => (
                             columns[j]?.bodyHeader
                                 ? (
