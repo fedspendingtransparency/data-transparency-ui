@@ -112,7 +112,7 @@ const Table = (props) => {
                 && (
                     <colgroup>
                         <col span={6} />
-                        <col span={2} className="usda-table__body-special-color" />
+                        <col span={4} className="usda-table__body-special-color" />
                     </colgroup>
                 )}
                 <thead className="usda-table__head">
