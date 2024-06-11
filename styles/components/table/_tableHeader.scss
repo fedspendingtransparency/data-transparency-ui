@@ -74,6 +74,6 @@ th.table-header {
     border-right: solid 1px $gray-cool-10;
 }
 
-.table-header__subaward-color:nth-last-of-type(-n + 2) {
+.table-header__subaward-color:nth-last-of-type(-n + 4) {
         background-color: $blue-warm-20;
 }
