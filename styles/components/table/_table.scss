@@ -158,7 +158,7 @@ table.usda-table {
                 &:hover {
                     background-color: $gray-cool-2;
 
-                    &.special-hover-color td:nth-last-of-type(-n + 2) {
+                    &.special-hover-color td:nth-last-of-type(-n + 4) {
                             background-color: $blue-warm-10;
                     }
                 }
