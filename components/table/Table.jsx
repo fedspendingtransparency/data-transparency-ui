@@ -36,7 +36,8 @@ const propTypes = {
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    subAward: PropTypes.bool
+    subAward: PropTypes.bool,
+    checkToAddRightFade: PropTypes.func
 };
 
 const defaultProps = {
@@ -70,28 +71,19 @@ const Table = (props) => {
     const element = document.querySelector(".advanced-search__table-wrapper");
     if (element) {
         element.addEventListener("scroll", (e) => {
-            setTimeout(() => {
-                // console.log('e.target.scrollLeft', e.target.scrollLeft);
-                // console.log('e.target.scrollWidth', e.target.scrollWidth);
-                // console.log('e.target.clientWidth', e.target.clientWidth);
+            if ((e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft) < 20) {
+                setIsScrolledRight(true);
+            }
+            else {
+                setIsScrolledRight(false);
+            }
 
-                if (e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft <= 1) {
-                    setIsScrolledRight(true);
-                }
-                else {
-                    setIsScrolledRight(false);
-                }
-
-                if (e.target.scrollLeft === 0) {
-                    setIsScrolledLeft(true);
-                }
-                else {
-                    setIsScrolledLeft(false);
-                }
-
-                // console.log('isScrolledRight', isScrolledRight);
-                // console.log('isScrolledLeft', isScrolledLeft);
-            });
+            if (e.target.scrollLeft === 0) {
+                setIsScrolledLeft(true);
+            }
+            else {
+                setIsScrolledLeft(false);
+            }
         });
     }
 
@@ -127,6 +119,9 @@ const Table = (props) => {
     else {
         body = (<TableData {...props} isScrolledLeft={isScrolledLeft} />);
     }
+
+    props.checkToAddRightFade(isScrolledLeft, isScrolledRight);
+
     return (
         <>
             {props.isStacked && props.updateSort && (
