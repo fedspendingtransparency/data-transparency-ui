@@ -28,7 +28,11 @@ table.usda-table {
             position: sticky;
             left: 0;
             border-right: solid 1px $gray-cool-10;
-            box-shadow: $shadow-sm;
+
+            &.add-box-shadow {
+                // same as $shadow-sm, but only on right side
+                box-shadow: 4px 0 8px -2px rgba(0, 0, 0, 0.1);
+            }
         }
 
         tr.usda-table__row {

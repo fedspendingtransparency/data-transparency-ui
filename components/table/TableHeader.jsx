@@ -11,8 +11,7 @@ const SortIcon = ({
     clickedSort,
     displayName,
     currentSort,
-    title,
-    stickyFirstColumn = false
+    title
 }) => {
     // highlight the active arrow
     const activeAsc = (currentSort?.field === title && currentSort?.direction === 'asc')
@@ -49,8 +48,7 @@ SortIcon.propTypes = {
         direction: oneOf(['asc', 'desc']),
         field: PropTypes.string
     }).isRequired,
-    clickedSort: PropTypes.func.isRequired,
-    stickyFirstColumn: PropTypes.bool
+    clickedSort: PropTypes.func.isRequired
 };
 
 const propTypes = {
@@ -72,7 +70,8 @@ const propTypes = {
     stickyFirstColumn: PropTypes.bool,
     columnWidth: PropTypes.number,
     subAward: PropTypes.bool,
-    index: PropTypes.number
+    index: PropTypes.number,
+    isScrolledLeft: PropTypes.bool
 };
 
 const TableHeaderCell = ({
@@ -90,7 +89,8 @@ const TableHeaderCell = ({
     stickyFirstColumn = false,
     columnWidth,
     subAward,
-    index
+    index,
+    isScrolledLeft
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -104,7 +104,8 @@ const TableHeaderCell = ({
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} 
-            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${subAward ? 'table-header__subaward-color' : ''} `}
+            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${subAward ? 'table-header__subaward-color' : ''}
+             ${!isScrolledLeft ? ' add-box-shadow' : ''}`}
             style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}
