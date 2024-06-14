@@ -3,7 +3,7 @@
  * Created by Lizzie Salita 11/17/20
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes, { shape, oneOf, oneOfType } from 'prop-types';
 import { uniqueId, union } from 'lodash';
 import ErrorMessage from '../messages/ErrorMessage';
@@ -36,7 +36,8 @@ const propTypes = {
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    subAward: PropTypes.bool
+    subAward: PropTypes.bool,
+    checkToAddRightFade: PropTypes.func
 };
 
 const defaultProps = {
@@ -46,7 +47,11 @@ const defaultProps = {
 };
 
 const Table = (props) => {
+    const [isScrolledRight, setIsScrolledRight] = useState(false);
+    const [isScrolledLeft, setIsScrolledLeft] = useState(true);
+
     const stackedClass = props.isStacked ? `usa-dt-table__stacked` : '';
+
     const getTablePickerOptionsAsc = props.columns.map((col) => ({
         name: col.displayName + ' ' + '(ascending)',
         value: col.title,
@@ -54,6 +59,7 @@ const Table = (props) => {
             props.updateSort(col.title, 'asc');
         }
     }));
+
     const getTablePickerOptionsDesc = props.columns.map((col) => ({
         name: col.displayName + ' ' + '(descending)',
         value: col.title,
@@ -61,7 +67,28 @@ const Table = (props) => {
             props.updateSort(col.title, 'desc');
         }
     }));
+
+    const element = document.querySelector(".advanced-search__table-wrapper");
+    if (element) {
+        element.addEventListener("scroll", (e) => {
+            if ((e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft) < 20) {
+                setIsScrolledRight(true);
+            }
+            else {
+                setIsScrolledRight(false);
+            }
+
+            if (e.target.scrollLeft === 0) {
+                setIsScrolledLeft(true);
+            }
+            else {
+                setIsScrolledLeft(false);
+            }
+        });
+    }
+
     let body;
+
     if (props.loading) {
         body = (
             <tr>
@@ -90,8 +117,11 @@ const Table = (props) => {
         );
     }
     else {
-        body = (<TableData {...props} />);
+        body = (<TableData {...props} isScrolledLeft={isScrolledLeft} />);
     }
+
+    props.checkToAddRightFade(isScrolledLeft, isScrolledRight);
+
     return (
         <>
             {props.isStacked && props.updateSort && (
@@ -123,6 +153,7 @@ const Table = (props) => {
                                 currentSort={props.currentSort}
                                 updateSort={props.updateSort}
                                 stickyFirstColumn={props.stickyFirstColumn}
+                                isScrolledLeft={isScrolledLeft}
                                 subAward={props.subAward}
                                 index={index}
                                 {...col} />

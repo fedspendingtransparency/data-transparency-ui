@@ -21,7 +21,8 @@ const propTypes = {
     isMobile: PropTypes.bool,
     atMaxLevel: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    subAward: PropTypes.bool
+    subAward: PropTypes.bool,
+    isScrolledLeft: PropTypes.bool
 };
 
 const TableData = ({
@@ -34,7 +35,8 @@ const TableData = ({
     isMobile,
     atMaxLevel,
     stickyFirstColumn = false,
-    subAward
+    subAward,
+    isScrolledLeft
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
@@ -88,7 +90,8 @@ const TableData = ({
                                 localClickHandler(row, i);
                             }
                         }}
-                        className={`usda-table__row-item usda-table__row${oddClass} ${subAward ? 'special-hover-color' : ''}`} style={{ height: rowHeight }}>
+                        className={`usda-table__row-item usda-table__row${oddClass} ${subAward ? 'special-hover-color' : ''}`}
+                        style={{ height: rowHeight }}>
                         {row.map((data, j) => (
                             columns[j]?.bodyHeader
                                 ? (
@@ -103,7 +106,7 @@ const TableData = ({
                                     <td
                                         key={uniqueId()}
                                         className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
-                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''}`}>
+                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} ${!isScrolledLeft ? ' add-box-shadow' : ''} `}>
                                         {columns[j]
                                         && (
                                             <div className="usda-table__cell-heading-container">
