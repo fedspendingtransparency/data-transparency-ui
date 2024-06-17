@@ -120,7 +120,9 @@ const Table = (props) => {
         body = (<TableData {...props} isScrolledLeft={isScrolledLeft} />);
     }
 
-    props.checkToAddRightFade(isScrolledLeft, isScrolledRight);
+    if (props.checkToAddRightFade) {
+        props.checkToAddRightFade(isScrolledLeft, isScrolledRight);
+    }
 
     return (
         <>

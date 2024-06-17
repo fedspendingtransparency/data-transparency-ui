@@ -3,7 +3,6 @@ tr.usda-table__row {
 }
 th.table-header {
     background-color: $gray-cool-3;
-    border: rem(1) solid $gray-cool-10;
     padding: 0;
     &.nested-header {
         .table-header__content {
