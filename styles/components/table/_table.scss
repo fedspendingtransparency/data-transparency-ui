@@ -17,7 +17,6 @@ table.usda-table {
         td.usda-table__cell {
             text-align: left;
             vertical-align: baseline;
-            border: rem(1) solid $gray-cool-10;
 
             &.usda-table__cell_right {
                 text-align: right;
@@ -134,9 +133,20 @@ table.usda-table {
     }
 
     &.table-for-new-search-page {
+        margin-top: 0;
+        margin-bottom: 0;
 
         .usda-table__body-special-color {
             background-color: $blue-warm-5;
+        }
+
+        th {
+            border: rem(1) solid $gray-cool-10;
+        }
+
+        td {
+            border: rem(1) solid $gray-cool-10;
+            background-color: unset;
         }
 
         thead.usda-table__head {
@@ -158,6 +168,17 @@ table.usda-table {
         tbody.usda-table__body {
             color: $theme-color-body;
             line-height: 1.5;
+
+            tr:last-of-type {
+                td:first-of-type {
+                    border-bottom-left-radius: rem(4);
+                }
+
+                td:last-of-type {
+                    border-bottom-right-radius: rem(4);
+                }
+            }
+
             .usda-table__row {
                 &:hover {
                     background-color: $gray-cool-2;
@@ -201,9 +222,18 @@ table.usda-table {
                 }
             }
         }
+
         &.award-results-table-dtui {
             // this is needed to make the right border and the box shadow appear on the sticky column
             border-collapse: separate;
+
+            th.table-header {
+                // because we were seeing double borders here
+                border-right: 0;
+            }
+            th.table-header:last-of-type {
+                border-right: rem(1) solid $gray-cool-10;
+            }
 
             thead.usda-table__head {
                 th {
@@ -214,11 +244,23 @@ table.usda-table {
             }
 
             tbody.usda-table__body {
+                th {
+                    border: rem(1) solid $gray-cool-10;
+                }
 
                 .usda-table__row {
-
                     td.usda-table__cell {
                         vertical-align: middle;
+                        // because of overlapping css rules, we need to delete the borders here
+                        // to avoid double borders
+                        border-top: 0;
+                        border-right: 0;
+                        // and add the bottom border
+                        border-bottom: rem(1) solid $gray-cool-10;
+
+                        &:last-of-type {
+                            border-right: rem(1) solid $gray-cool-10;
+                        }
                     }
 
                     &:hover {
@@ -230,7 +272,6 @@ table.usda-table {
                     }
 
                     &.usda-table__row_odd {
-
                         td.usda-table__cell {
                             &.stickyColumn {
                                 background-color: $color-white;
@@ -238,7 +279,6 @@ table.usda-table {
                         }
 
                         &:hover {
-
                             td.usda-table__cell.stickyColumn {
                                 background-color: $gray-cool-2;
                             }

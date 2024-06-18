@@ -49,6 +49,7 @@ const defaultProps = {
 const Table = (props) => {
     const [isScrolledRight, setIsScrolledRight] = useState(false);
     const [isScrolledLeft, setIsScrolledLeft] = useState(true);
+    const [isScrolling, setIsScrolling] = useState(false);
 
     const stackedClass = props.isStacked ? `usa-dt-table__stacked` : '';
 
@@ -71,6 +72,7 @@ const Table = (props) => {
     const element = document.querySelector(".advanced-search__table-wrapper");
     if (element) {
         element.addEventListener("scroll", (e) => {
+            setIsScrolling(true);
             if ((e.target.scrollWidth - e.target.clientWidth - e.target.scrollLeft) < 20) {
                 setIsScrolledRight(true);
             }
@@ -84,6 +86,10 @@ const Table = (props) => {
             else {
                 setIsScrolledLeft(false);
             }
+
+            setTimeout(() => {
+                setIsScrolling(false);
+            }, 100);
         });
     }
 
@@ -120,7 +126,9 @@ const Table = (props) => {
         body = (<TableData {...props} isScrolledLeft={isScrolledLeft} />);
     }
 
-    props.checkToAddRightFade(isScrolledLeft, isScrolledRight);
+    if (isScrolling && props.checkToAddRightFade) {
+        props.checkToAddRightFade(isScrolledLeft, isScrolledRight);
+    }
 
     return (
         <>
