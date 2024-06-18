@@ -17,7 +17,6 @@ table.usda-table {
         td.usda-table__cell {
             text-align: left;
             vertical-align: baseline;
-            //border: rem(1) solid $gray-cool-10;
 
             &.usda-table__cell_right {
                 text-align: right;
@@ -169,6 +168,18 @@ table.usda-table {
         tbody.usda-table__body {
             color: $theme-color-body;
             line-height: 1.5;
+
+            // border radius for last row of basic table, first and last cells
+            tr:last-of-type {
+                td:first-of-type {
+                    border-bottom-left-radius: rem(4);
+                }
+
+                td:last-of-type {
+                    border-bottom-right-radius: rem(4);
+                }
+            }
+
             .usda-table__row {
                 &:hover {
                     background-color: $gray-cool-2;
@@ -212,6 +223,7 @@ table.usda-table {
                 }
             }
         }
+
         &.award-results-table-dtui {
             // this is needed to make the right border and the box shadow appear on the sticky column
             border-collapse: separate;
