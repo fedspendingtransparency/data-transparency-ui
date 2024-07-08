@@ -5,6 +5,7 @@
 
 import React from 'react';
 import PropTypes from "prop-types";
+
 require('../styles/components/_buttons.scss');
 
 const propTypes = {
@@ -159,22 +160,22 @@ const Button = (props) => {
             <a aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onKeyUp={props.onKeyUp} onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }} target="_blank" rel="noopener noreferrer" href={props.to}>{props.copy}</a>
         );
     }
-    else if (classNameList.includes('left-icon')) {
+    if (classNameList.includes('left-icon')) {
         return (
             <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.image}{props.copy}</button>
         );
     }
-    else if (classNameList.includes('right-icon')) {
+    if (classNameList.includes('right-icon')) {
         return (
             <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.copy}{props.image}</button>
         );
     }
-    else if (classNameList.includes('stacked-icon')) {
+    if (classNameList.includes('stacked-icon')) {
         return (
             <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}><div className="stacked-button__only-image">{props.image}</div><div className="stacked-button__only-text">{props.copy}</div></button>
         );
     }
-    else if (classNameList.includes('icon-light') || classNameList.includes('icon-dark')) {
+    if (classNameList.includes('icon-light') || classNameList.includes('icon-dark')) {
         return (
             <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.image}</button>
         );
