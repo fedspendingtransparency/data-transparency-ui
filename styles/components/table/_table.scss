@@ -250,7 +250,7 @@ table.usda-table {
 
                 .usda-table__row {
                     td.usda-table__cell {
-                        vertical-align: middle;
+                        vertical-align: top;
                         // because of overlapping css rules, we need to delete the borders here
                         // to avoid double borders
                         border-top: 0;
