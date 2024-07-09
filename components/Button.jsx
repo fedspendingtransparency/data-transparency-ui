@@ -162,26 +162,35 @@ const Button = (props) => {
     }
     if (classNameList.includes('left-icon')) {
         return (
-            <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.image}{props.copy}</button>
+            <button type="button" aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>
+                {props.image}
+                {props.copy}
+            </button>
         );
     }
     if (classNameList.includes('right-icon')) {
         return (
-            <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.copy}{props.image}</button>
+            <button type="button" aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>
+                {props.copy}
+                {props.image}
+            </button>
         );
     }
     if (classNameList.includes('stacked-icon')) {
         return (
-            <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}><div className="stacked-button__only-image">{props.image}</div><div className="stacked-button__only-text">{props.copy}</div></button>
+            <button type="button" aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>
+                <div className="stacked-button__only-image">{props.image}</div>
+                <div className="stacked-button__only-text">{props.copy}</div>
+            </button>
         );
     }
     if (classNameList.includes('icon-light') || classNameList.includes('icon-dark')) {
         return (
-            <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.image}</button>
+            <button type="button" aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.image}</button>
         );
     }
     return (
-        <button aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.copy}</button>
+        <button type="button" aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }}>{props.copy}</button>
     );
 };
 
