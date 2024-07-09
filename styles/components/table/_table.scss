@@ -169,9 +169,20 @@ table.usda-table {
             color: $theme-color-body;
             line-height: 1.5;
 
-            tr.td:first-of-type{
+            tr td:first-of-type{
                 color: $gray-10;
                 background-color: $blue-warm-70v;
+                margin-bottom: rem(12);
+
+                @media (max-width: ($tablet-screen - 1)) {
+                    font-size: rem(18);
+                }
+            }
+
+            .usda-table__cell-heading {
+                @media (max-width: ($tablet-screen - 1)) {
+                    font-size: rem(12);
+                }
             }
 
             tr:last-of-type {
@@ -194,14 +205,14 @@ table.usda-table {
                 }
 
                 td.usda-table__cell {
-                    padding: rem(12)rem(16);
+                    padding: 0 rem(12) rem(16);
                     height: inherit;
                 }
 
                 // if the td contains an a tag, we want the entire cell to be clickable
                 // so we move the padding into the a tag
                 td.usda-table__cell:has(a) {
-                    padding:rem(12)rem(16);
+                    padding: 0 rem(12) rem(16);
 
                     a {
                         padding: 0;
