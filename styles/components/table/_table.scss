@@ -155,12 +155,20 @@ table.usda-table {
         tbody.usda-table__body {
             color: $gray-90;
             line-height: 1.5;
-            font-weight: $font-semibold;
+            font-weight: normal;
+
+            @media (max-width: ($tablet-screen - 1)) {
+                font-weight: $font-semibold;
+            }
 
             tr td:first-of-type{
                 color: $gray-10;
                 margin-bottom: rem(12);
-                font-weight: $font-semibold;
+                font-weight: normal;
+
+                @media (max-width: ($tablet-screen - 1)) {
+                    font-weight: $font-semibold;
+                }
 
                 .usda-table__cell-heading {
                     color: $gray-10;

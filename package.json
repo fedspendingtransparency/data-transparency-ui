@@ -2,7 +2,7 @@
   "name": "data-transparency-ui",
   "version": "6.2.32",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "dist/index.js",
+  "main": "index.js",
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
