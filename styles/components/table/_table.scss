@@ -155,40 +155,6 @@ table.usda-table {
         tbody.usda-table__body {
             color: $gray-90;
             line-height: 1.5;
-            font-weight: normal;
-
-            @media (max-width: ($tablet-screen - 1)) {
-                font-weight: $font-semibold;
-            }
-
-            tr td:first-of-type{
-                color: $gray-10;
-                margin-bottom: rem(12);
-                font-weight: normal;
-
-                @media (max-width: ($tablet-screen - 1)) {
-                    font-weight: $font-semibold;
-                }
-
-                .usda-table__cell-heading {
-                    color: $gray-10;
-                    font-weight: normal;
-                }
-
-                @media (max-width: ($tablet-screen - 1)) {
-                    background-color: $blue-warm-70v !important;
-                    font-size: rem(18);
-                }
-            }
-
-            .usda-table__cell-heading {
-                color: $gray-60;
-                font-weight: normal;
-
-                @media (max-width: ($tablet-screen - 1)) {
-                    font-size: rem(12);
-                }
-            }
 
             tr:last-of-type {
                 td:first-of-type {
@@ -205,22 +171,26 @@ table.usda-table {
                     background-color: $gray-cool-2;
 
                     &.special-hover-color td:nth-last-of-type(-n + 4) {
-                            background-color: $blue-warm-10;
+                        background-color: $blue-warm-10;
                     }
                 }
 
                 td.usda-table__cell {
-                    padding: 0 rem(12) rem(16);
+                    padding: rem(8) rem(16);
                     height: inherit;
+
+                    @media (max-width: $tablet-screen - 1) {
+                        padding: 0 rem(16) rem(12);
+                    }
                 }
 
                 // if the td contains an a tag, we want the entire cell to be clickable
                 // so we move the padding into the a tag
                 td.usda-table__cell:has(a) {
-                    padding: 0 rem(12) rem(16);
+                    padding: 0;
 
                     a {
-                        padding: 0;
+                        padding: rem(8) rem(16);
                         display: block;
                         width: 100%;
                         height: inherit;
@@ -228,6 +198,14 @@ table.usda-table {
 
                         &:hover {
                             color: $blue-vivid-70;
+                        }
+                    }
+
+                    @media (max-width: $tablet-screen - 1) {
+                        padding: 0 rem(16) rem(12);
+
+                        a {
+                            padding: 0
                         }
                     }
                 }
