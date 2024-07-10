@@ -22,17 +22,25 @@ table.usa-dt-table__stacked {
         display: block;
         width: 100%;
 
+
         @media (max-width: $tablet-screen - 1) {
           font-weight: $font-semibold;
 
+          .usda-table__cell-heading {
+            color: $gray-60;
+          }
+
           td:first-of-type {
             background-color: $blue-warm-70v;
-            color: $gray-10;
             font-size: rem(18);
             margin-bottom: rem(12);
 
+            .usda-table__cell-heading {
+              color: $gray-10;
+            }
+
             a {
-              color: $gray-10 !important;
+              color: $gray-2 !important;
               text-decoration: underline;
             }
           }
