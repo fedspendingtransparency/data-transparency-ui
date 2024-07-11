@@ -43,12 +43,6 @@ table.usda-table {
                 background-color: $color-white;
             }
 
-            &.usda-table__row_odd {
-                td.usda-table__cell {
-                    background-color: $color-gray-lightest;
-                }
-            }
-
             &.usda-table__row_expandable {
                 button.usda-table__expand-button {
                     @include button-unstyled;
@@ -83,12 +77,6 @@ table.usda-table {
 
         tr.usda-table__child-row {
             background-color: $color-white;
-
-            &.usda-table__row_odd {
-                td.usda-table__cell {
-                    background-color: $color-gray-lightest;
-                }
-            }
 
             &.usda-table__child-row_divider {
                 font-weight: $font-semibold;
@@ -146,7 +134,6 @@ table.usda-table {
 
         td {
             border: rem(1) solid $gray-cool-10;
-            background-color: unset;
         }
 
         thead.usda-table__head {
@@ -166,7 +153,7 @@ table.usda-table {
         }
 
         tbody.usda-table__body {
-            color: $theme-color-body;
+            color: $gray-90;
             line-height: 1.5;
 
             tr:last-of-type {
@@ -184,13 +171,17 @@ table.usda-table {
                     background-color: $gray-cool-2;
 
                     &.special-hover-color td:nth-last-of-type(-n + 4) {
-                            background-color: $blue-warm-10;
+                        background-color: $blue-warm-10;
                     }
                 }
 
                 td.usda-table__cell {
                     padding: rem(8) rem(16);
                     height: inherit;
+
+                    @media (max-width: $tablet-screen - 1) {
+                        padding: 0 rem(16) rem(12);
+                    }
                 }
 
                 // if the td contains an a tag, we want the entire cell to be clickable
@@ -208,16 +199,18 @@ table.usda-table {
                         &:hover {
                             color: $blue-vivid-70;
                         }
-                    }
-                }
 
-                &.usda-table__row_odd {
-                    &:hover {
-                        background-color: $gray-cool-2;
+                        &:visited {
+                            color: $violet-70v;
+                        }
                     }
 
-                    td.usda-table__cell {
-                        background-color: unset;
+                    @media (max-width: $tablet-screen - 1) {
+                        padding: 0 rem(16) rem(12);
+
+                        a {
+                            padding: 0
+                        }
                     }
                 }
             }
@@ -268,20 +261,6 @@ table.usda-table {
 
                         td.usda-table__cell.stickyColumn {
                             background-color: $gray-cool-2;
-                        }
-                    }
-
-                    &.usda-table__row_odd {
-                        td.usda-table__cell {
-                            &.stickyColumn {
-                                background-color: $color-white;
-                            }
-                        }
-
-                        &:hover {
-                            td.usda-table__cell.stickyColumn {
-                                background-color: $gray-cool-2;
-                            }
                         }
                     }
                 }
