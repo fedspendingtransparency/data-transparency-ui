@@ -123,11 +123,11 @@ const TableData = ({
                                             </div>
                                         )}
                                         <div>
-                                            {typeof data === 'object' && data.type === 'a' && j === 0
+                                            {data.type === 'a' && j === 0
                                                 ? (
                                                     <a
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
+                                                        target={data.props.target}
+                                                        rel={data.props.rel}
                                                         href={data.props.href}
                                                         onClick={data.props.onClick}>
                                                         {data.props.children}
