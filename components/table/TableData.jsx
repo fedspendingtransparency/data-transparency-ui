@@ -123,7 +123,19 @@ const TableData = ({
                                             </div>
                                         )}
                                         <div>
-                                            {data}
+                                            {typeof data === 'object' && data.type === 'a' && j === 0
+                                                ? (
+                                                    <a
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        href={data.props.href}
+                                                        onClick={data.props.onClick}>
+                                                        {data.props.children}
+                                                        {' '}
+                                                        <FontAwesomeIcon icon="arrow-right" />
+                                                    </a>
+                                                )
+                                                : data}
                                         </div>
                                     </td>
                                 )
