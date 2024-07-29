@@ -205,11 +205,20 @@ table.usda-table {
                         }
                     }
 
+                    svg {
+                        display: none;
+                    }
+
                     @media (max-width: $tablet-screen - 1) {
                         padding: 0 rem(16) rem(12);
 
                         a {
-                            padding: 0
+                            padding: 0;
+                        }
+
+                        svg {
+                            display: unset;
+                            padding-left: rem(4);
                         }
                     }
                 }
