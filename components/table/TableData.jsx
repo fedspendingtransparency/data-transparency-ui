@@ -22,7 +22,8 @@ const propTypes = {
     atMaxLevel: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
     subAward: PropTypes.bool,
-    isScrolledLeft: PropTypes.bool
+    isScrolledLeft: PropTypes.bool,
+    isStacked: PropTypes.bool
 };
 
 const TableData = ({
@@ -36,7 +37,8 @@ const TableData = ({
     atMaxLevel,
     stickyFirstColumn = false,
     subAward,
-    isScrolledLeft
+    isScrolledLeft,
+    isStacked
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
@@ -123,7 +125,7 @@ const TableData = ({
                                             </div>
                                         )}
                                         <div>
-                                            {data.type === 'a' && j === 0
+                                            {data.type === 'a' && j === 0 && isStacked && isMobile
                                                 ? (
                                                     <a
                                                         target={data.props.target}
