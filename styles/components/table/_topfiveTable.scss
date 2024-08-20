@@ -6,6 +6,7 @@ table.usda-table {
         border-radius: rem(5);
         -moz-border-radius: rem(5);
         margin: 0;
+        border-bottom: none;
 
         tbody.usda-table__body tr.usda-table__row td.usda-table__cell {
             color: $color-base;
@@ -36,6 +37,17 @@ table.usda-table {
                 width: 20%;
             }
         }
+
+        tbody.usda-table__body tr.usda-table__row:last-child td.usda-table__cell {
+            &:first-child {
+                border-bottom-left-radius: rem(5);
+            }
+
+            &:last-child {
+                border-bottom-right-radius: rem(5);
+            }
+        }
+
 
         thead.usda-table__head th.table-header.table-header {
             color: $color-base;
