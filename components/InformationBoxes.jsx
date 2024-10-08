@@ -12,7 +12,7 @@ const defaultProps = {
             PropTypes.string,
             PropTypes.element
         ]),
-        amount: PropTypes.number,
+        amount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
         isMonetary: PropTypes.bool,
         isString: PropTypes.bool,
         subtitle: PropTypes.string,
@@ -42,19 +42,23 @@ const InformationBoxes = ({ boxes }) => {
                                 <div className="usa-dt-information-box__title">
                                     {box.title}
                                 </div>
-                                {box.subtitle &&
-                                    <div className="usa-dt-information-box__subtitle">
-                                        {box.subtitle}
-                                    </div>}
+                                {box.subtitle
+                                    && (
+                                        <div className="usa-dt-information-box__subtitle">
+                                            {box.subtitle}
+                                        </div>
+                                    )}
                                 <div className={`usa-dt-information-box__amount${box.isLoading ? ' loading' : ''}`}>
                                     {box.isLoading && <div className="dot-pulse" />}
                                     {!box.isLoading && box.isString ? box.amount : ''}
                                     {!box.isLoading && !box.isString && formattedValue(box.amount, box.isMonetary, isForTabletPortaitUp)}
                                 </div>
-                                {box.subtitleBottom &&
-                                    <div className="usa-dt-information-box__subtitle-bottom">
-                                        {box.subtitleBottom}
-                                    </div>}
+                                {box.subtitleBottom
+                                    && (
+                                        <div className="usa-dt-information-box__subtitle-bottom">
+                                            {box.subtitleBottom}
+                                        </div>
+                                    )}
                             </div>
                         </div>
                     </div>

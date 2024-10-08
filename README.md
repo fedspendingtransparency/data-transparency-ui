@@ -94,4 +94,4 @@ Now, when you start your local development server in your consumer context, you 
 
 ### Node Version
 
-Current node version is v14
+Current node version is v20
