@@ -38,16 +38,16 @@ function SectionHeader({
 }
 
 SectionHeader.propTypes = {
-    icon: PropTypes.element.isRequired,
+    icon: PropTypes.element,
     title: PropTypes.string.isRequired,
     overLine: PropTypes.string,
     description: PropTypes.element,
     titleTooltip: PropTypes.shape({
-        component: PropTypes.element,
+        component: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
         props: PropTypes.object
     }),
     descTooltip: PropTypes.shape({
-        component: PropTypes.element,
+        component: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
         props: PropTypes.object
     })
 };

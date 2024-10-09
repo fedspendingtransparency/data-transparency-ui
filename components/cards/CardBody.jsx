@@ -20,7 +20,8 @@ const propTypes = {
     variant: PropTypes.string, // inset or no-variant
     children: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.object
+        PropTypes.object,
+        PropTypes.node
     ]),
     imageContainerHeight: PropTypes.string,
     customClassName: PropTypes.string,
