@@ -22,7 +22,6 @@ const propTypes = {
     atMaxLevel: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
     subAward: PropTypes.bool,
-    isScrolledLeft: PropTypes.bool,
     isStacked: PropTypes.bool
 };
 
@@ -37,7 +36,6 @@ const TableData = ({
     atMaxLevel,
     stickyFirstColumn = false,
     subAward,
-    isScrolledLeft,
     isStacked
 }) => {
     const [firstClick, setFirstClick] = useState(false);
@@ -108,7 +106,7 @@ const TableData = ({
                                     <td
                                         key={uniqueId()}
                                         className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
-                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} ${!isScrolledLeft ? ' add-box-shadow' : ''} `}>
+                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
                                         {columns[j]
                                         && (
                                             <div className="usda-table__cell-heading-container">

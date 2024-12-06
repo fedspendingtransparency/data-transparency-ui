@@ -70,8 +70,7 @@ const propTypes = {
     stickyFirstColumn: PropTypes.bool,
     columnWidth: PropTypes.number,
     subAward: PropTypes.bool,
-    index: PropTypes.number,
-    isScrolledLeft: PropTypes.bool
+    index: PropTypes.number
 };
 
 const TableHeaderCell = ({
@@ -89,8 +88,7 @@ const TableHeaderCell = ({
     stickyFirstColumn = false,
     columnWidth,
     subAward,
-    index,
-    isScrolledLeft
+    index
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -104,8 +102,7 @@ const TableHeaderCell = ({
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} 
-            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${subAward ? 'table-header__subaward-color' : ''}
-             ${!isScrolledLeft ? ' add-box-shadow' : ''}`}
+            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${subAward ? 'table-header__subaward-color' : ''}`}
             style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}
