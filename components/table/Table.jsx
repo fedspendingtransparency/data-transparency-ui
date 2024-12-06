@@ -3,7 +3,7 @@
  * Created by Lizzie Salita 11/17/20
  */
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes, { shape, oneOf, oneOfType } from 'prop-types';
 import { uniqueId, union } from 'lodash';
 import ErrorMessage from '../messages/ErrorMessage';
