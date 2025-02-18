@@ -4,7 +4,6 @@ import CardContainer from "../../components/cards/CardContainer";
 import CardBody from "../../components/cards/CardBody";
 import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
-
 import React from "react";
 
 const imageLink = "./img/top-bowie-state-combined-image.svg";
@@ -21,6 +20,13 @@ export default {
       control: { type: "radio" },
     },
   },
+  parameters: {
+    docs: {
+      page: () => (
+        <h1>Card</h1>
+      )
+    }
+  }
 };
 const Template = (args) => (
   <FlexGridRow hasGutter gutterSize={32}>
@@ -29,8 +35,6 @@ const Template = (args) => (
     </FlexGridCol>
   </FlexGridRow>
 );
-
-export const Default = {};
 
 export const Outline = Template.bind({});
 Outline.args = {
@@ -79,8 +83,8 @@ WithCardButton.args = {
   ),
 };
 
-export const Hero = Template.bind({});
-Hero.args = {
+export const HeroWithBarFill = Template.bind({});
+HeroWithBarFill.args = {
   children: (
     <>
       <CardHero fill="#1a4480" />
@@ -97,6 +101,7 @@ Hero.args = {
 
 export const HeroWithImage = Template.bind({});
 HeroWithImage.args = {
+  variant: 'elevated',
   children: (
     <>
       <CardHero variant="expanded" img={imageLink} />
