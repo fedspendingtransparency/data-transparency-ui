@@ -20,17 +20,10 @@ export default {
       control: { type: "radio" },
     },
   },
-  parameters: {
-    docs: {
-      page: () => (
-        <h1>Card</h1>
-      )
-    }
-  }
 };
 const Template = (args) => (
   <FlexGridRow hasGutter gutterSize={32}>
-    <FlexGridCol width={4} desktop={4}>
+    <FlexGridCol>
       <CardContainer {...args}></CardContainer>
     </FlexGridCol>
   </FlexGridRow>
