@@ -123,22 +123,3 @@ HeroFillWithImage.args = {
           </CardBody>
         </>
       ),}
-
-//NEED TO FIGURE OUT WHY THE SIZE DOES NOT CHANGE
-// export const Small = Template.bind({});
-// Small.args = {
-//     size: 'sm',
-//     children: <CardBody><div>{dummyText}</div></CardBody>
-// }
-
-// export const Medium = Template.bind({});
-// Medium.args = {
-//     size: 'md',
-//     children: <CardBody><div>{dummyText}</div></CardBody>
-// }
-
-// export const Large = Template.bind({});
-// Large.args = {
-//     size: 'lg',
-//     children: <CardBody><div>{dummyText}</div></CardBody>
-// }
