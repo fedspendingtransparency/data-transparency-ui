@@ -11,7 +11,7 @@ const dummyText =
   "Pudding jelly beans tiramisu bear claw apple pie liquorice. Jelly beans macaroon wafer topping gummies. Shortbread tiramisu lollipop topping apple pie tart pie chocolate. Tart croissant cake danish wafer icing sugar plum.";
 
 export default {
-  title: "Updated/Card",
+  title: "Card",
   component: CardContainer,
   subcomponent: { CardBody },
   argTypes: {
