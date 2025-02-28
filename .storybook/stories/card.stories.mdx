@@ -16,29 +16,29 @@ Cards are UI Elements that contain content and actions about a single subject
 
 export const Template = (args) => <CardContainer {...args} />;
 
+## Containers Variants
+<Canvas>
+    <Story id="card--fill" />
+    <Story id="card--elevated" />
+    <Story id="card--outline" />
+    <Story inline={false} id="card--with-card-button" />
+</Canvas>
+
 ## Card Container
 <ArgsTable of={CardContainer} />
+
+## Hero Variants
+<Canvas>
+  <Story inline={false} id="card--hero-fill-with-image" />
+  <Story inline={false} id="card--hero-with-image" />
+  <Story inline={false} id="card--hero-with-bar-fill" />
+</Canvas>
+
+## Card Hero
+<ArgsTable of={CardHero} />
 
 ## Card Body 
 <ArgsTable of={CardBody} />
 
 ## Card Button 
 <ArgsTable of={CardButton} />
-
-## Card Hero
-<ArgsTable of={CardHero} />
-
-## Containers Variants
-<Canvas>
-  <Story id="card--fill" />
-  <Story id="card--elevated" />
-  <Story id="card--outline" />
-  <Story id="card--with-card-button" />
-</Canvas>
-
-## Hero Variants
-<Canvas>
-  <Story id="card--hero-fill-with-image" />
-  <Story id="card--hero-with-image" />
-  <Story id="card--hero-with-bar-fill" />
-</Canvas>

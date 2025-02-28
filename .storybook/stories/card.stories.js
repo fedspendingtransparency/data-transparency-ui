@@ -23,7 +23,7 @@ export default {
 };
 const Template = (args) => (
   <FlexGridRow hasGutter gutterSize={32}>
-    <FlexGridCol>
+    <FlexGridCol desktop={4} tablet={2} mobile={1} >
       <CardContainer {...args}></CardContainer>
     </FlexGridCol>
   </FlexGridRow>
@@ -70,8 +70,15 @@ WithCardButton.args = {
         headline="Find details here"
         text="Search spending in your community"
       >
-        <CardButton text="Search" variant="primary"></CardButton>
-      </CardBody>
+        <CardButton
+          text="Search"
+          variant="secondary"
+          link="/search"
+          backgroundColor="light"
+          buttonSize="sm"
+          textAlignment="center"
+        />      
+        </CardBody>
     </>
   ),
 };
@@ -84,8 +91,11 @@ HeroWithBarFill.args = {
       <CardBody overline="Resources" headline="Learn how to use  our app">
         <CardButton
           text="Search"
-          variant="hero__button--action"
+          variant="secondary"
           link="/search"
+          backgroundColor="light"
+          buttonSize="sm"
+          textAlignment="center"
         />
       </CardBody>
     </>
@@ -99,10 +109,13 @@ HeroWithImage.args = {
     <>
       <CardHero variant="expanded" img={imageLink} />
       <CardBody overline="Resources" headline="Learn how to use  our app">
-        <CardButton
+      <CardButton
           text="Search"
-          variant="hero__button--action"
+          variant="secondary"
           link="/search"
+          backgroundColor="light"
+          buttonSize="sm"
+          textAlignment="center"
         />
       </CardBody>
     </>
@@ -116,10 +129,13 @@ HeroFillWithImage.args = {
             <CardHero variant="expanded" fill="#1a4480" img={imageLink} />
             <CardBody overline="Resources" headline="Learn how to use  our app">
             <CardButton
-              text="Search"
-              variant="hero__button--action"
-              link="/search"
-            />
+          text="Search"
+          variant="secondary"
+          link="/search"
+          backgroundColor="light"
+          buttonSize="sm"
+          textAlignment="center"
+        />
           </CardBody>
         </>
       ),}
