@@ -1,105 +1,44 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { boolean, object, text, number, array } from "@storybook/addon-knobs";
-import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from "../misc";
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
 import CardContainer from '../../components/cards/CardContainer';
-import CardBody from '../../components/cards/CardBody';
-import CardHero from '../../components/cards/CardHero';
-import CardButton from '../../components/cards/CardButton';
-import FlexGridCol from '../../components/flexGrid/FlexGridCol';
-import FlexGridRow from '../../components/flexGrid/FlexGridRow';
+import CardBody from "../../components/cards/CardBody";
+import CardButton from "../../components/cards/CardButton";
+import CardHero from "../../components/cards/CardHero";
 
-export const imageLink = "./img/top-bowie-state-combined-image.svg";
-export const dummyText = "Pudding jelly beans tiramisu bear claw apple pie liquorice. Jelly beans macaroon wafer topping gummies. Shortbread tiramisu lollipop topping apple pie tart pie chocolate. Tart croissant cake danish wafer icing sugar plum.";
+<Meta title="Card/Default" component={CardContainer}
+ parameters={{options: {showAddonPanel: false}}} />
 
-<Meta
-    title="Card"
-    component={CardContainer}
-/>
+# Card
+```javascript
+import { CardContainer, CardHero, CardBody, CardButton } from 'data-transparency-ui';
+```
 
+Cards are UI Elements that contain content and actions about a single subject
+
+export const Template = (args) => <CardContainer {...args} />;
+
+## Containers Variants
+<Canvas>
+    <Story id="card--fill" />
+    <Story id="card--elevated" />
+    <Story id="card--outline" />
+    <Story inline={false} id="card--with-card-button" />
+</Canvas>
+
+## Card Container
 <ArgsTable of={CardContainer} />
 
-## Card Container Component
+## Hero Variants
 <Canvas>
-    <Story name='Container Variants'>
-        <FlexGridRow hasGutter gutterSize={32}>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="outline" size="sm" height="200px">
-                    <CardBody>
-                        <div>{dummyText}</div>
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="outline" size="md">
-                    <CardBody>
-                        <div>{dummyText}</div>
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="elevated" size="md">
-                    <CardBody>
-                        <div>{dummyText}</div>
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-        </FlexGridRow>
-        <br/><br/>
-        <FlexGridRow hasGutter gutterSize={32}>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="outline" fill="#1a4480">
-                    <CardBody>
-                        <div style={{color: "#e6e6e6"}}>{dummyText}</div>
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer>
-                    <CardBody
-                        overline="Search"
-                        headline="Find details here"
-                        text="Search spending to your community" >
-                        <CardButton text="Search" variant="primary" link="/search" />
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-        </FlexGridRow>
-    </Story>
+  <Story inline={false} id="card--hero-fill-with-image" />
+  <Story inline={false} id="card--hero-with-image" />
+  <Story inline={false} id="card--hero-with-bar-fill" />
 </Canvas>
 
-<Canvas>
-    <Story name='Hero and Button Variants'>
-        <FlexGridRow width={3} desktop={3} hasGutter gutterSize={32}>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="elevated" size="md">
-                    <CardHero fill="#1a4480" />
-                    <CardBody
-                        overline="Resources"
-                        headline="Learn how to use  our app" >
-                        <CardButton text="Search" variant="hero__button--action" link="/search" />
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="elevated" size="md">
-                    <CardHero variant="expanded" img={imageLink} />
-                    <CardBody
-                        overline="Resources"
-                        headline="Learn how to use our app" >
-                        <CardButton text="Search" link="/search" />
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-            <FlexGridCol width={4} desktop={4}>
-                <CardContainer variant="elevated" size="md">
-                    <CardHero variant="expanded" fill="#1a4480" img={imageLink} />
-                    <CardBody
-                        overline="Resources"
-                        headline="Learn how to use  our app" >
-                        <CardButton text="Search" variant="text" link="/search" />
-                    </CardBody>
-                </CardContainer>
-            </FlexGridCol>
-        </FlexGridRow>
-    </Story>
-</Canvas>
+## Card Hero
+<ArgsTable of={CardHero} />
+
+## Card Body 
+<ArgsTable of={CardBody} />
+
+## Card Button 
+<ArgsTable of={CardButton} />
