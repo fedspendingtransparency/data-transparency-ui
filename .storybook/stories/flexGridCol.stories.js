@@ -1,11 +1,9 @@
 import React from 'react';
-import { boolean, object, text, number, array } from '@storybook/addon-knobs';
-import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
 import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 
 export default {
-  title: 'Components/Flex Grid/Flex Grid Col',
+  title: 'Flex Grid/Flex Grid Col',
   component: FlexGridCol,
   decorators: [
     (Story) => (

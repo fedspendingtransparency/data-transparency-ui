@@ -1,11 +1,9 @@
 import React from 'react';
-import { boolean, object, text, number, array } from '@storybook/addon-knobs';
 import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
-import FlexGridRow from '../../components/flexGrid/FlexGridRow';
-import FlexGridCol from '../../components/flexGrid/FlexGridCol';
+
 
 export default {
-  title: 'Components/Flex Grid/Flex Grid Container',
+  title: 'Flex Grid/Flex Grid Container',
   component: FlexGridContainer,
   decorators: [
     (Story) => (
@@ -17,9 +15,15 @@ export default {
 };
 
 export const FlexGridContainerVariants = () => (
+  <>
   <div className="story-flex-grid-heading">Visual Example</div>
+  <FlexGridContainer>
+      container
+  </FlexGridContainer>
+  </>
 );
 
+//add the class name back into variant
 FlexGridContainerVariants.story = {
   name: 'Flex Grid Container',
 };

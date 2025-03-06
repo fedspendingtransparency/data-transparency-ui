@@ -1,6 +1,4 @@
 import React from 'react';
-import { boolean, object, text, number, array } from '@storybook/addon-knobs';
-import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from '../misc';
 import Carousel from '../../components/Carousel';
 
 export default {
@@ -8,7 +6,7 @@ export default {
   component: Carousel,
 };
 
-export const Default = () => (
+export const DefaultCarousel = () => (
   <Carousel
     items={[
       <div>

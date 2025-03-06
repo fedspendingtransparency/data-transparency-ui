@@ -7,6 +7,7 @@ export default {
   component: SearchBar,
 };
 
+//need to update to be better practice
 export const Default = () => (
   <SearchBar
     setQuery={(searchTerm) => console.log(searchTerm)}

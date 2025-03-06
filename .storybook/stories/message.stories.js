@@ -1,5 +1,4 @@
 import React from 'react';
-import { boolean, object } from '@storybook/addon-knobs';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LoadingMessage from '../../components/messages/LoadingMessage';
 import ErrorMessage from '../../components/messages/ErrorMessage';
