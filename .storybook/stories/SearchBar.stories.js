@@ -1,5 +1,4 @@
 import React from 'react';
-import { boolean, number, text } from '@storybook/addon-knobs';
 import SearchBar from '../../components/SearchBar';
 
 export default {
@@ -7,14 +6,15 @@ export default {
   component: SearchBar,
 };
 
-//need to update to be better practice
-export const Default = () => (
-  <SearchBar
-    setQuery={(searchTerm) => console.log(searchTerm)}
-    minChars={number('minChars', 2)}
-    isDisabled={boolean('isDisabled', false)}
-    throttleOnChange={number('throttleOnChange', 500)}
-    inputTitle={text('inputTitle', 'Search Input')}
-    placeholder="Placeholder"
-  />
+const Template = (args) => (
+  <SearchBar {...args} />
 );
+
+export const Default = Template.bind({});
+Default.args = {
+  minChars: 5,
+  isDisabled: false,
+  throttleOnChange: 250,
+  inputTitle: "Search Input",
+  placeholder: "Placeholder",
+}

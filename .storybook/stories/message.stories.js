@@ -11,47 +11,25 @@ export default {
   component: GenericMessage,
 };
 
-export const GenericMessageDefault = () => (
-  <GenericMessage
-    className="your-class"
-    title="Your title"
-    description="Custom description here."
-    icon={<FontAwesomeIcon icon="pencil-alt" />}
-  />
-);
+export const DefaultErrorMessage = (args) => <ErrorMessage {...args} />;
 
-GenericMessageDefault.story = {
-  name: 'Generic Message',
-};
+export const CustomErrorMessage = DefaultErrorMessage.bind({});
+CustomErrorMessage.args = {
+  title: "Your title",
+  description: "Custom error message"
+}
 
-export const LoadingMessageDefault = () => <LoadingMessage />;
+export const DefaultGenericMessage = (args) => <GenericMessage {...args} />
+DefaultGenericMessage.args = {
+  title: "Your title",
+  description: "Custom description here",
+  icon: <FontAwesomeIcon icon="pencil-alt"/>,
+  className: "your-class"
+}
 
-LoadingMessageDefault.story = {
-  name: 'Loading Message',
-};
+export const DefaultLoadingMessage = (args) => <LoadingMessage {...args} />
 
-export const ErrorMessageDefault = () => <ErrorMessage />;
+export const DefaultNoResultMessage = (args) => <NoResultsMessage {...args} />
 
-ErrorMessage.story = {
-  name: 'Error Message',
-};
+export const DefaultComingSoonPlaceholder = (args) => <ComingSoon {...args} />
 
-export const CustomErrorMessage = () => (
-  <ErrorMessage title="Your title" description="Custom error message here." />
-);
-
-CustomErrorMessage.story = {
-  name: 'Custom Error Message',
-};
-
-export const NoResultsMessageDefault = () => <NoResultsMessage />;
-
-NoResultsMessageDefault.story = {
-  name: 'No Results Message',
-};
-
-export const ComingSoonPlaceholderDefault = () => <ComingSoon />;
-
-ComingSoonPlaceholderDefault.story = {
-  name: 'Coming Soon Placeholder',
-};

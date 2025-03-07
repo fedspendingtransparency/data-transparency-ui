@@ -1,7 +1,5 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { boolean, object, text, number, array } from '@storybook/addon-knobs';
-import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from '../misc';
 import Button from '../../components/Button';
 import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 

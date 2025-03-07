@@ -2,80 +2,50 @@ import React from 'react';
 import { boolean, object } from '@storybook/addon-knobs';
 import Pagination from '../../components/pagination/Pagination';
 import { PaginationWrapper } from '../misc';
+import { result } from 'lodash';
 
 export default {
   title: 'Pagination',
   component: Pagination,
 };
 
-export const LimitSelectorAndGoToPage = () => (
+export const Default = (args) => (
   <PaginationWrapper>
-    <Pagination
-      goToPage
-      id="sample-id-1"
-      limitSelector
-      resultsText
-      pageSize={10}
-      totalItems={100}
-    />
+    <Pagination {...args} />
   </PaginationWrapper>
 );
 
-LimitSelectorAndGoToPage.story = {
-  name: 'Limit selector and "Go to page"',
+export const DefaultResultsText = Default.bind({});
+DefaultResultsText.args = {
+  resultsText: true,
+}
+
+export const CustomResultsText = Default.bind({});
+CustomResultsText.args = {
+  resultsText: <div className="usa-dt-pagination__totals"><strong>Custom</strong> results text</div>
+}
+
+export const LimitSelector = Default.bind({});
+LimitSelector.args = {
+  limitSelector: true,
+  resultsText: true,
+  pageSize: 50,
+  totalItems: 100
+}
+export const LimitSelectorAndGoToPage = Default.bind({});
+LimitSelectorAndGoToPage.args = {
+  gotToPage: true,
+  id: "sample-id-2",
+  limitSelector: true,
+  resultsText: true,
+  pageSize: 10,
+  totalItems: 100
+}
+
+export const GoToPage = Default.bind({});
+GoToPage.args = {
+  goToPage: true,
+  id: "sample-id-2",
+  pageSize: 10,
+  totalItems: 100
 };
-
-export const GoToPage = () => (
-  <PaginationWrapper>
-    <Pagination goToPage id="sample-id-2" pageSize={10} totalItems={100} />
-  </PaginationWrapper>
-);
-
-GoToPage.story = {
-  name: '"Go to Page"',
-};
-
-export const LimitSelector = () => (
-  <PaginationWrapper>
-    <Pagination limitSelector resultsText pageSize={10} totalItems={100} />
-  </PaginationWrapper>
-);
-
-LimitSelector.story = {
-  name: 'Limit Selector',
-};
-
-export const CustomResultsText = () => (
-  <PaginationWrapper>
-    <Pagination
-      pageSize={10}
-      resultsText={
-        <div className="usa-dt-pagination__totals">
-          <strong>Custom</strong> results text
-        </div>
-      }
-      totalItems={100}
-    />
-  </PaginationWrapper>
-);
-
-CustomResultsText.story = {
-  name: 'Custom Results Text',
-};
-
-export const DefaultResultsText = () => (
-  <PaginationWrapper>
-    <Pagination resultsText pageSize={10} totalItems={100} />
-  </PaginationWrapper>
-);
-
-DefaultResultsText.story = {
-  name: 'Default Results Text',
-};
-
-export const Default = () => (
-  <PaginationWrapper>
-    {/* /* handler Funcs Passed from PaginationWrapper */}
-    <Pagination pageSize={10} totalItems={100} />
-  </PaginationWrapper>
-);

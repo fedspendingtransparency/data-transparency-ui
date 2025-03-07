@@ -6,10 +6,14 @@ export default {
   component: Carousel,
 };
 
-export const DefaultCarousel = () => (
-  <Carousel
-    items={[
-      <div>
+const Template = (args) => (
+  <Carousel {...args} />
+)
+
+export const DefaultCarousel =  Template.bind({});
+DefaultCarousel.args = {
+  items: [
+          <div>
         <img src="./img/carouselImageOne.png" />
       </div>,
       <div>
@@ -17,7 +21,6 @@ export const DefaultCarousel = () => (
       </div>,
       <div>
         <img src="./img/carouselImageThree.png" />
-      </div>,
-    ]}
-  />
-);
+      </div>
+  ]
+}

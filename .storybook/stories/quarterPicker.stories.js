@@ -7,30 +7,32 @@ export default {
   component: QuarterPicker,
 };
 
-export const Default = () => (
+export const Default = (args) => (
   <QuarterPickerWrapper>
-    <QuarterPicker disabledQuarters={[]} />
+    <QuarterPicker {...args} disabledQuarters={[]} />
   </QuarterPickerWrapper>
 );
 
-export const CumulativePicker = () => (
+export const CumulativePicker = (args) => (
   <QuarterPickerCumulative>
-    <QuarterPicker disabledQuarters={[]} isCumulative />
+    <QuarterPicker {...args} />
   </QuarterPickerCumulative>
-);
+)
 
-CumulativePicker.story = {
-  name: 'Cumulative Picker',
-};
+CumulativePicker.args = {
+  disabledQuarters: [],
+  isCumulative: true
+}
 
-export const WPeriods = () => (
-  <div className="story__container quarter-picker-story">
-    <QuarterPickerWithPeriods>
-      <QuarterPicker disabledPeriods={['10', '11', '12']} showPeriods />
-    </QuarterPickerWithPeriods>
-  </div>
-);
+export const WPeriods = (args) => (
+  <QuarterPickerWithPeriods>
+    <QuarterPicker {...args} />
+  </QuarterPickerWithPeriods>
+)
 
-WPeriods.story = {
-  name: 'w/ Periods',
-};
+WPeriods.args = {
+  disabledQuarters: [],
+  isCumulative: true,
+  disabledPeriods:['10','11','12'],
+  showPeriods: true
+}
