@@ -2,6 +2,7 @@ import React from 'react';
 import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 import FlexGridContainer from "../../components/flexGrid/FlexGridContainer"
+import { knob } from '@storybook/addon-knobs';
 export default {
   title: 'Flex Grid/Flex Grid Row',
   component: FlexGridRow,
@@ -14,109 +15,108 @@ export default {
   ],
 };
 
-export const Default = () => (
+const Template = (args) => (
+  <>
+    <div className="story-flex-grid-heading">Visual Example</div>
+    <FlexGridRow {...args} />
+  </>
+)
+
+const WithContainerTemplate = (args) => (
   <>
   <div className="story-flex-grid-heading">Visual Example</div>
-  <FlexGridRow>
-    <FlexGridCol>
-      <div>column content</div>
-    </FlexGridCol>
-    <FlexGridCol>
-      <div>column content</div>
-    </FlexGridCol>
-    <FlexGridCol>
-      <div>column content</div>
-    </FlexGridCol>
-  </FlexGridRow>
-</>
-) 
-export const Gutters = () => (
-<>
-<div className="story-flex-grid-heading">Visual Example</div>
-<FlexGridContainer>
-  <FlexGridRow hasGutter={true}>
-      <FlexGridCol>
-            <div>column content</div>
-        </FlexGridCol>
-        <FlexGridCol>
-            <div>column content</div>
-          </FlexGridCol>
-          <FlexGridCol>
-              <div>column content</div>
-          </FlexGridCol>
-      </FlexGridRow>
+  <FlexGridContainer>
+  <FlexGridRow {...args} />
   </FlexGridContainer>
 </>
-);
-export const GutterSizing = () => (
-<>
-<div className="story-flex-grid-heading">Visual Example</div>
-<FlexGridContainer>
-            <FlexGridRow hasGutter={true} gutterSize="sm">
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-            </FlexGridRow>
-            <FlexGridRow hasGutter={true}>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-            </FlexGridRow>
-            <FlexGridRow hasGutter={true} gutterSize="lg">
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-            </FlexGridRow>
-        </FlexGridContainer>
-</>
-);
+)
 
-GutterSizing.story = {
-  name: 'Gutter sizing',
-};
+export const Default = Template.bind({});
+Default.args = {
+  children: (
+    <>
+     <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    </>
+  )
+}
 
-export const KnobsExample = () => (
-<>
-<div className="story-flex-grid-heading">Visual Example</div>
-<FlexGridContainer>
-            <FlexGridRow
-                hasGutter
-                gutterSize>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-                <FlexGridCol>
-                    <div>column content</div>
-                </FlexGridCol>
-            </FlexGridRow>
-        </FlexGridContainer>
-</>
-);
-
-//need to get the properties to work correctly; 
-KnobsExample.story = {
-  name: 'Knobs example',
-  gutterSize: 'lg',
+export const Gutters = WithContainerTemplate.bind({});
+Gutters.args = {
   hasGutter: true,
-};
+  children: (
+    <>
+     <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    </>
+  )
+}
+
+export const SmallGutter = WithContainerTemplate.bind({});
+SmallGutter.args = {
+  hasGutter: true,
+  gutterSize: "sm",
+  children: (
+    <>
+     <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    </>
+  )
+}
+
+export const LargeGutter = WithContainerTemplate.bind({});
+LargeGutter.args = {
+  hasGutter: true,
+  gutterSize: "lg",
+  children: (
+    <>
+     <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    </>
+  )
+}
+
+export const KnobExample = WithContainerTemplate.bind({})
+KnobExample.args = {
+  children: (
+    <>
+     <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    <FlexGridCol>
+      <div>column content</div>
+    </FlexGridCol>
+    </>
+  )
+}

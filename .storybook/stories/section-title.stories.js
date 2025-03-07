@@ -9,57 +9,39 @@ export default {
   component: SectionWrapper,
 };
 
-export const CollapsibleSection = () => (
-  <SectionWrapper
-    title="Award"
-    isCollapsible
-    overLine="Award Spending"
-    icon={<FontAwesomeIcon icon="map-marker" size="3x" color="#555" />}
-    titleTooltip={{
-      component: <ExampleTooltip />,
-      props: {},
-    }}
-    descTooltip={{
-      component: <ExampleTooltip />,
-      props: {},
-    }}
-    description={
-      <span className="usda-section-title__desc">
-        This section covers <strong>Award Spending</strong>
-      </span>
-    }
-  >
-    <ComingSoon />
+const Template = (args) => (
+  <SectionWrapper {...args}>
+    <ComingSoon/>
   </SectionWrapper>
-);
+)
+export const CollapsibleSection = Template.bind({});
+CollapsibleSection.args = {
+  title: "Award",
+  isCollapsible: true,
+  overLine: "Award Spending",
+  icon: <FontAwesomeIcon icon="map-marker" size="3px" color='#555'/>,
+  titleTooltip: {
+    component: <ExampleTooltip/>,
+    props: {}
+  },
+  descTooltip: {
+    component: <ExampleTooltip />,
+    props: {},
+  }
+}
 
-CollapsibleSection.story = {
-  name: 'Collapsible Section',
-};
-
-export const AlwaysExpanded = () => (
-  <SectionWrapper
-    title="Award"
-    overLine="Award Spending"
-    icon={<FontAwesomeIcon icon="map-marker" size="3x" />}
-    titleTooltip={{
-      component: <ExampleTooltip />,
-      props: {},
-    }}
-    descTooltip={{
-      component: <ExampleTooltip />,
-      props: {},
-    }}
-    description={
-      <span className="usda-section-title__desc">
-        This section covers <strong>Award Spending</strong>
-      </span>
-    }
-  >
-    <ComingSoon />
-  </SectionWrapper>
-);
-
-AlwaysExpanded.story = {
-  name: 'Always Expanded',
-};
+export const AlwaysExpanded = Template.bind({});
+AlwaysExpanded.args = {
+  title: "Award",
+  isCollapsible: false,
+  overLine: "Award Spending",
+  icon: <FontAwesomeIcon icon="map-marker" size="3px" color='#555'/>,
+  titleTooltip: {
+    component: <ExampleTooltip/>,
+    props: {}
+  },
+  descTooltip: {
+    component: <ExampleTooltip />,
+    props: {},
+  }
+}

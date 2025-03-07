@@ -8,10 +8,74 @@ export default {
   component: Tabs,
 };
 
-export const TabsWithScroll = () => (
+const Template = (args) => (
   <TabsWrapper>
-    <Tabs
-      types={[
+    <Tabs {...args} />
+  </TabsWrapper>
+)
+
+export const TabsWithScroll = Template.bind({});
+TabsWithScroll.args = {
+  types:[
+    {
+      internal: 'name',
+      label: 'Names',
+      count: 22,
+    },
+    {
+      internal: 'dates',
+      label: 'Dates',
+      count: 33,
+    },
+    {
+      internal: 'cars',
+      label: 'Cars',
+    },
+    {
+      internal: 'coffeemugs',
+      label: 'Coffee Mugs',
+    },
+    {
+      internal: 'colorado',
+      label: 'Colorado',
+    },
+    {
+      internal: 'whistler',
+      label: 'Whistler',
+      disabled: true,
+    },
+    {
+      internal: 'yellowstone',
+      label: 'Yellowstone',
+      count: 22,
+    },
+    {
+      internal: 'washingtondc',
+      label: 'Washington D.C.',
+      count: 33,
+    },
+    {
+      internal: 'blue',
+      label: 'Blue',
+    },
+    {
+      internal: 'purple',
+      label: 'Purple',
+    },
+    {
+      internal: 'dinnerware',
+      label: 'Dinnerware',
+    },
+    {
+      internal: 'cookware',
+      label: 'Cookware',
+    },
+  ]
+}
+  
+export const TablessStyle = Template.bind({});
+  TablessStyle.args={
+  types:[
         {
           internal: 'name',
           label: 'Names',
@@ -25,73 +89,6 @@ export const TabsWithScroll = () => (
         {
           internal: 'cars',
           label: 'Cars',
-        },
-        {
-          internal: 'coffeemugs',
-          label: 'Coffee Mugs',
-        },
-        {
-          internal: 'colorado',
-          label: 'Colorado',
-        },
-        {
-          internal: 'whistler',
-          label: 'Whistler',
-          disabled: true,
-        },
-        {
-          internal: 'yellowstone',
-          label: 'Yellowstone',
-          count: 22,
-        },
-        {
-          internal: 'washingtondc',
-          label: 'Washington D.C.',
-          count: 33,
-        },
-        {
-          internal: 'blue',
-          label: 'Blue',
-        },
-        {
-          internal: 'purple',
-          label: 'Purple',
-        },
-        {
-          internal: 'dinnerware',
-          label: 'Dinnerware',
-        },
-        {
-          internal: 'cookware',
-          label: 'Cookware',
-        },
-      ]}
-    />
-  </TabsWrapper>
-);
-
-TabsWithScroll.story = {
-  name: 'Tabs with Scroll',
-};
-
-export const TablessStyle = () => (
-  <TabsWrapper>
-    <Tabs
-      tablessStyle
-      types={[
-        {
-          internal: 'name',
-          label: 'Names',
-          count: 22,
-        },
-        {
-          internal: 'dates',
-          label: 'Dates',
-          count: 33,
-        },
-        {
-          internal: 'cars',
-          label: 'Cars',
           disabled: true,
         },
         {
@@ -106,10 +103,8 @@ export const TablessStyle = () => (
           internal: 'whistler',
           label: 'Whistler',
         },
-      ]}
-    />
-  </TabsWrapper>
-);
+      ]
+    };
 
 TablessStyle.story = {
   name: 'Tabless Style',

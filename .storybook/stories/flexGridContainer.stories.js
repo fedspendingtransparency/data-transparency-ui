@@ -14,16 +14,15 @@ export default {
   ],
 };
 
-export const FlexGridContainerVariants = () => (
+export const DefaultFlexGridContainer = (args) => (
   <>
-  <div className="story-flex-grid-heading">Visual Example</div>
-  <FlexGridContainer>
+    <div className="story-flex-grid-heading"> Visual Example</div>
+    <FlexGridContainer {...args}>
       container
   </FlexGridContainer>
   </>
-);
+)
 
-//add the class name back into variant
-FlexGridContainerVariants.story = {
-  name: 'Flex Grid Container',
-};
+DefaultFlexGridContainer.args = {
+  className: "",
+}

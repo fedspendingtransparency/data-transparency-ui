@@ -14,59 +14,43 @@ export default {
   ],
 };
 
-export const EqualWidth = () => (
+const Template = (args) => (
   <FlexGridRow>
-    <FlexGridCol>
+     <FlexGridCol>
       <div>column</div>
     </FlexGridCol>
-    <FlexGridCol>
-      <div>column</div>
+    <FlexGridCol {...args}>
     </FlexGridCol>
-    <FlexGridCol>
+    <FlexGridCol >
       <div>column</div>
     </FlexGridCol>
   </FlexGridRow>
-);
+)
 
-EqualWidth.story = {
-  name: 'Equal-width',
-};
-
-export const SettingOneColumnWidth = () => (
-  <FlexGridRow>
-    <FlexGridCol>
+export const EqualWidth = Template.bind({});
+EqualWidth.args = {
+  children: (
+    <>
       <div>column</div>
-    </FlexGridCol>
-    <FlexGridCol mobile={6}>
-      <div>mobile:column-6</div>
-    </FlexGridCol>
-    <FlexGridCol>
-      <div>column</div>
-    </FlexGridCol>
-  </FlexGridRow>
-);
+    </>
+  )
+}
 
-SettingOneColumnWidth.story = {
-  name: 'Setting one column width',
-};
+export const SettingOneColumnWidth = Template.bind({});
+SettingOneColumnWidth.args = {
+  mobile: 6,
+  children: (
+    <div>mobile:column-6</div>
+  )
+}
 
-export const VariableWidthContent = () => (
-  <FlexGridRow>
-    <FlexGridCol>
-      <div>column</div>
-    </FlexGridCol>
-    <FlexGridCol width="auto">
-      <div>column-auto</div>
-    </FlexGridCol>
-    <FlexGridCol>
-      <div>column</div>
-    </FlexGridCol>
-  </FlexGridRow>
-);
-
-VariableWidthContent.story = {
-  name: 'Variable width content',
-};
+export const VariableWidthContent = Template.bind({});
+VariableWidthContent.args = {
+  width: "auto",
+  children: (
+    <div>column-auto</div>
+  )
+}
 
 export const SameAtAllBreakpoints = () => (
   <FlexGridRow>
