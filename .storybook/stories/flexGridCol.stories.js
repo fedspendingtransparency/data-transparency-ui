@@ -5,17 +5,11 @@ import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 export default {
   title: 'Flex Grid/Flex Grid Col',
   component: FlexGridCol,
-  decorators: [
-    (Story) => (
-      <div className="story-flex-grid-col">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 const Template = (args) => (
-  <FlexGridRow>
+  <div className='story-flex-grid-col'>
+ <FlexGridRow>
      <FlexGridCol>
       <div>column</div>
     </FlexGridCol>
@@ -25,6 +19,30 @@ const Template = (args) => (
       <div>column</div>
     </FlexGridCol>
   </FlexGridRow>
+  </div>
+ 
+)
+
+const EditTwoColTemplate = (value, ...args) => (
+  <FlexGridRow>
+  <FlexGridCol>
+   <div>column</div>
+ </FlexGridCol>
+ <FlexGridCol {...args}>
+ </FlexGridCol>
+ <FlexGridCol {...value}>
+   <div>column</div>
+ </FlexGridCol>
+</FlexGridRow>
+)
+
+const RowTemplate = (args) => (
+  <div className='story-flex-grid-col'>
+
+  <FlexGridRow>
+    <FlexGridCol {...args} />
+  </FlexGridRow>
+  </div>
 )
 
 export const EqualWidth = Template.bind({});
@@ -51,6 +69,25 @@ VariableWidthContent.args = {
     <div>column-auto</div>
   )
 }
+
+
+
+export const OffsettingColumns = () => (
+  <FlexGridRow>
+    <FlexGridCol
+      width={{
+        span: 8,
+        offset: 4,
+      }}
+    >
+      <div>column-8 offset-4</div>
+    </FlexGridCol>
+  </FlexGridRow>
+);
+
+OffsettingColumns.story = {
+  name: 'Offsetting columns',
+};
 
 export const SameAtAllBreakpoints = () => (
   <FlexGridRow>
@@ -149,19 +186,3 @@ OrderClasses.story = {
   name: 'Order classes',
 };
 
-export const OffsettingColumns = () => (
-  <FlexGridRow>
-    <FlexGridCol
-      width={{
-        span: 8,
-        offset: 4,
-      }}
-    >
-      <div>column-8 offset-4</div>
-    </FlexGridCol>
-  </FlexGridRow>
-);
-
-OffsettingColumns.story = {
-  name: 'Offsetting columns',
-};

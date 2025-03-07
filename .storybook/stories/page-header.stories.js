@@ -17,52 +17,31 @@ export default {
   },
 };
 
-export const WAllToolbarOptions = () => (
+export const WithAllToolbarOptions = (args) => (
   <div className="page-header-story">
-    <PageHeader
-      overLine="Agency Profile"
-      title="Department of Homeland Security"
-      toolBar={[
-        <FiscalYearPicker selectedFy={2020} latestFy={2021} handleFyChange={() => {}} />,
-        <ShareIcon url="this-is-a-test-url.com" />,
-        <DownloadIconButton
-          onClick={() => {}}
-          downloadInFlight={boolean('Download In Flight', false)}
-          tooltipComponent={<Tooltip />}
-          isEnabled={boolean('Download Enabled', true)}
-        />,
-      ]}
-    />
-    <ComingSoon />
+    <PageHeader {...args} />
+    <ComingSoon></ComingSoon>
   </div>
-);
+)
+WithAllToolbarOptions.args = {
+  overLine: "Agency Profile",
+  title: "Department of Homeland Security",
+  toolBar: [
+    <FiscalYearPicker selectedFy={2020} latestFy={2021} handleFyChange={() => {}} />,
+    <ShareIcon url="this-is-a-test-url.com" />,
+    <DownloadIconButton
+      onClick={() => {}}
+      downloadInFlight={false}
+      tooltipComponent={<Tooltip />}
+      isEnabled={true}
+      />,
+  ],
+}
 
-WAllToolbarOptions.story = {
-  name: 'w/ All Toolbar Options',
-};
-
-export const WInPageNav = () => (
+export const WithInPageNav = (args) => (
   <div className="page-header-story">
     <InPageNavWrapper>
-      <PageHeader
-        title="About"
-        pageName="about"
-        sections={[
-          {
-            section: 'mission',
-            label: 'Start: Mission1',
-          },
-          {
-            section: 'background',
-            label: 'Background2',
-          },
-          {
-            section: 'development',
-            label: 'Development and Releases3',
-          },
-        ]}
-        inPageNav
-      />
+      <PageHeader {...args}/>
     </InPageNavWrapper>
     <div
       id="about-mission"
@@ -95,8 +74,23 @@ export const WInPageNav = () => (
       Development
     </div>
   </div>
-);
-
-WInPageNav.story = {
-  name: 'w/ InPageNav',
-};
+)
+WithInPageNav.args = {
+  inPageNav: true,
+  title: "About",
+  pageName: "about",
+  sections: [
+    {
+      section: 'mission',
+      label: 'Start: Mission1',
+    },
+    {
+      section: 'background',
+      label: 'Background2',
+    },
+    {
+      section: 'development',
+      label: 'Development and Releases3',
+    },
+  ]
+}
