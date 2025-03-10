@@ -8,55 +8,56 @@ export default {
   component: TooltipWrapper,
 };
 
-export const Default = () => (
-  <div className="story__container tooltip-story">
-    <TooltipWrapper
-      icon="info"
-      tooltipComponent={<Tooltip />}
-      wide={boolean('wide', false)}
-      tooltipPosition={text('tooltipPosition', 'left')}
-      controlledProps={object('controlledTooltip', {
-        isControlled: false,
-        isVisible: false,
-      })}
-    />
+const Template = (args) => (
+  <div className={"story__container tooltip-story"} >
+    <TooltipWrapper {...args}/>
   </div>
-);
+)
 
-export const SmartTooltipLeft = () => (
-  <div className="story__container tooltip-story smart-tooltip-left">
-    <TooltipWrapper
-      icon="info"
-      tooltipComponent={<Tooltip />}
-      wide={boolean('wide', true)}
-      tooltipPosition={text('tooltipPosition')}
-      controlledProps={object('controlledTooltip', {
-        isControlled: false,
-        isVisible: false,
-      })}
-    />
+const LeftTemplate = (args) => (
+  <div className={"story__container tooltip-story smart-tooltip-left"} >
+    <TooltipWrapper {...args}/>
   </div>
-);
-
-SmartTooltipLeft.story = {
-  name: 'Smart Tooltip (left)',
-};
-
-export const SmartTooltipRight = () => (
-  <div className="story__container tooltip-story smart-tooltip-right">
-    <TooltipWrapper
-      icon="info"
-      tooltipComponent={<Tooltip />}
-      wide={boolean('wide', true)}
-      tooltipPosition={text('tooltipPosition', 'left')}
-      controlledProps={object('controlledTooltip', {
-        isControlled: false,
-        isVisible: false,
-      })}
-    />
+)
+const RightTemplate = (args) => (
+  <div className={"story__container tooltip-story smart-tooltip-right"} >
+    <TooltipWrapper {...args}/>
   </div>
-);
+)
 
-SmartTooltipRight.story = {
-  name: 'Smart Tooltip (right)',
-};
+export const Default = Template.bind({});
+Default.args = {
+  icon: "info",
+  tooltipComponent: <Tooltip />,
+  wide: false,
+  tooltipPosition: "left",
+  controlledProps: {
+    isControlled: false,
+    isVisible: false
+  }
+}
+
+
+export const SmartTooltipLeft = LeftTemplate.bind({});
+SmartTooltipLeft.args = {
+  icon: "info",
+  tooltipComponent: <Tooltip />,
+  wide: true,
+  tooltipPosition: "left",
+  controlledProps: {
+    isControlled: false,
+    isVisible: false
+  }
+}
+
+export const SmartTooltipRight = RightTemplate.bind({});
+SmartTooltipRight.args = {
+  icon: "info",
+  tooltipComponent: <Tooltip />,
+  wide: true,
+  tooltipPosition: "left",
+  controlledProps: {
+    isControlled: false,
+    isVisible: false
+  }
+}

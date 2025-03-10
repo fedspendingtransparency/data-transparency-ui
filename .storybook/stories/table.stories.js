@@ -154,14 +154,24 @@ const BasicTableWrapperTemplate = (args) => (
 
 const TableWrapperTemplate = (args) => (
   <TableWrapper {...args} >
-    <Table rows={rowData} />
+    <Table rows={rowData} columns={columns} />
   </TableWrapper>
 )
 
-const TableTemplate = (args) => {
+const TableTemplate = (args) => (
    <Table {...args} />
-}
+)
 
+const StackTemplate = (args) => (
+  <>
+  <TableWrapper>
+    <Table {...args} />
+  </TableWrapper>
+    <TableWrapper>
+    <Table {...args} />
+  </TableWrapper>
+  </>
+)
 export const DefaultTable = TableInTableWrapperTemplate.bind({});
 DefaultTable.args = {
   rows: rowData
@@ -192,108 +202,53 @@ TableWSubColumnsTooltips.args = {
   columns: tooltipColumns
 }
 
-// export const FirstColumnHeaders = TableTemplate.bind({});
-// FirstColumnHeaders.args = {
-//   rows: [
-//     [
-//       {
-//         displayName: 'Body Header',
-//         title: '',
-//         rowSpan: '0',
-//       },
-//       <a href="/">Link</a>,
-//       'mock data',
-//       '25%',
-//     ],
-//     [
-//       {
-//         displayName: 'Body Header',
-//         title: '',
-//         rowSpan: '0',
-//       },
-//       <React.Fragment>
-//         <strong>jsx</strong> content
-//       </React.Fragment>,
-//       1234,
-//       'mock data',
-//     ],
-//   ],
-//   columns: [
-//     {
-//       title: 'blank',
-//       displayName: '',
-//       bodyHeader: true,
-//     },
-//     {
-//       title: 'name',
-//       displayName: 'Budget Function',
-//     },
-//     {
-//       title: 'amount',
-//       displayName: 'Amount',
-//     },
-//     {
-//       title: 'percent',
-//       displayName: '% of Total Amount',
-//       right: true,
-//     },
-//   ]
-// }
-
-export const TableWithFirstColumnHeaders = () => (
-  <div className="story__container table-story">
-    <Table
-      columns={[
-        {
-          title: 'blank',
-          displayName: '',
-          bodyHeader: true,
-        },
-        {
-          title: 'name',
-          displayName: 'Budget Function',
-        },
-        {
-          title: 'amount',
-          displayName: 'Amount',
-        },
-        {
-          title: 'percent',
-          displayName: '% of Total Amount',
-          right: true,
-        },
-      ]}
-      rows={[
-        [
-          {
-            displayName: 'Body Header',
-            title: '',
-            rowSpan: '0',
-          },
-          <a href="/">Link</a>,
-          'mock data',
-          '25%',
-        ],
-        [
-          {
-            displayName: 'Body Header',
-            title: '',
-            rowSpan: '0',
-          },
-          <React.Fragment>
-            <strong>jsx</strong> content
-          </React.Fragment>,
-          1234,
-          'mock data',
-        ],
-      ]}
-    />
-  </div>
-);
-
-TableWithFirstColumnHeaders.story = {
-  name: 'Table with First Column Headers',
-};
+export const TableWithFirstColumnHeaders = TableTemplate.bind({});
+TableWithFirstColumnHeaders.args = {
+  columns: [
+    {
+      title: 'blank',
+      displayName: '',
+      bodyHeader: true,
+    },
+    {
+      title: 'name',
+      displayName: 'Budget Function',
+    },
+    {
+      title: 'amount',
+      displayName: 'Amount',
+    },
+    {
+      title: 'percent',
+      displayName: '% of Total Amount',
+      right: true,
+    },
+  ],
+  rows:[
+    [
+      {
+        displayName: 'Body Header',
+        title: '',
+        rowSpan: '0',
+      },
+      <a href="/">Link</a>,
+      'mock data',
+      '25%',
+    ],
+    [
+      {
+        displayName: 'Body Header',
+        title: '',
+        rowSpan: '0',
+      },
+      <React.Fragment>
+        <strong>jsx</strong> content
+      </React.Fragment>,
+      1234,
+      'mock data',
+    ],
+  ]
+}
 
 export const LoadingTable = BasicTableWrapperTemplate.bind({});
 LoadingTable.args = {
@@ -319,7 +274,7 @@ NoResults.args = {
   rows: []
 }
 
-export const Stacked = TableWrapperTemplate.bind({});
+export const Stacked = StackTemplate.bind({});
 Stacked.args = {
   isStacked: true,
   rows: [ 
@@ -329,19 +284,3 @@ Stacked.args = {
   ]
 }
 
-export const StackedResponsiveTable = () => (
-  <TableWrapper>
-    <Table
-      isStacked
-      rows={[
-        ['Transportation', '$100', '20%'],
-        ['Health', '$150', '30%'],
-        ['General Science', '$250', '50%'],
-      ]}
-    />
-  </TableWrapper>
-);
-
-StackedResponsiveTable.story = {
-  name: 'Stacked Responsive Table',
-};
