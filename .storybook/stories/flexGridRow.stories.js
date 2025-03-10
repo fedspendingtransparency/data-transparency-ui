@@ -6,29 +6,22 @@ import { knob } from '@storybook/addon-knobs';
 export default {
   title: 'Flex Grid/Flex Grid Row',
   component: FlexGridRow,
-  decorators: [
-    (Story) => (
-      <div className="story-flex-grid">
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 const Template = (args) => (
-  <>
+<div className="story-flex-grid">
     <div className="story-flex-grid-heading">Visual Example</div>
     <FlexGridRow {...args} />
-  </>
+  </div>
 )
 
 const WithContainerTemplate = (args) => (
-  <>
+  <div className="story-flex-grid">
   <div className="story-flex-grid-heading">Visual Example</div>
   <FlexGridContainer>
   <FlexGridRow {...args} />
   </FlexGridContainer>
-</>
+</div>
 )
 
 export const Default = Template.bind({});

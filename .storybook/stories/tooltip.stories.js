@@ -55,7 +55,7 @@ SmartTooltipRight.args = {
   icon: "info",
   tooltipComponent: <Tooltip />,
   wide: true,
-  tooltipPosition: "left",
+  tooltipPosition: "right",
   controlledProps: {
     isControlled: false,
     isVisible: false
