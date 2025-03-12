@@ -17,23 +17,26 @@ const propTypes = {
     dropdownDirection: PropTypes.string,
     downloadInFlight: PropTypes.bool,
     isEnabled: PropTypes.bool,
-    noShareText: PropTypes.bool
+    noShareText: PropTypes.bool,
+    keepText: PropTypes.bool
 };
 
-function ShareIcon({
+const ShareIcon = ({
     includedDropdownOptions = [],
     classNames = '',
     url = '',
     onShareOptionClick = () => {},
     colors = {
         color: "#dfe1e2",
-        backgroundColor: "#1a4480"
+        backgroundColor: "#1a4480",
+        confirmationBackgroundColor: "#f1f1f1"
     },
     dropdownDirection = 'left',
     downloadInFlight,
     isEnabled = true,
-    noShareText
-}) {
+    noShareText,
+    keepText = false
+}) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
     const disabledClass = downloadInFlight || !isEnabled ? ' disabled' : '';
@@ -115,9 +118,9 @@ function ShareIcon({
                 sortFn={() => 1}>
                 <FontAwesomeIcon icon="share-alt" size="lg" color={colors.color} />
             </Picker>
-            {!noShareText && <span className="usda-share-icon__share-text">Share</span>}
+            {!noShareText && <span className={"usda-share-icon__share-text " + `${keepText ? 'keep-text' : ''}`}>Share</span>}
             {showConfirmationText && (
-                <div className="copy-confirmation">
+                <div className="copy-confirmation" style={{ backgroundColor: colors.confirmationBackgroundColor }}>
                     <FontAwesomeIcon icon={faCheckCircle} />
                     {' '}
                     Copied!
@@ -125,7 +128,7 @@ function ShareIcon({
             )}
         </div>
     );
-}
+};
 
 ShareIcon.propTypes = propTypes;
 ShareIcon.displayName = 'Share Icon';

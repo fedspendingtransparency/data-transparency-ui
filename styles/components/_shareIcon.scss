@@ -28,6 +28,9 @@
     margin-right: rem(10);
     .usda-share-icon__share-text {
       display: none;
+      .keep-text {
+        display: flex
+      }
     }
   }
 
