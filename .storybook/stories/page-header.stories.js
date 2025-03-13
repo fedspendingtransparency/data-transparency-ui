@@ -1,5 +1,4 @@
 import React from 'react';
-import { boolean } from '@storybook/addon-knobs';
 import PageHeader from '../../components/PageHeader';
 import ComingSoon from '../../components/messages/ComingSoon';
 import ShareIcon from '../../components/ShareIcon';

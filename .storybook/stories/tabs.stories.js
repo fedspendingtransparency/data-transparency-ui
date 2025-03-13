@@ -1,5 +1,4 @@
 import React from 'react';
-import { boolean, object, text, number, array } from '@storybook/addon-knobs';
 import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from '../misc';
 import Tabs from '../../components/tabs/Tabs';
 
