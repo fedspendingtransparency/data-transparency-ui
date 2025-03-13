@@ -104,7 +104,3 @@ export const TablessStyle = Template.bind({});
         },
       ]
     };
-
-TablessStyle.story = {
-  name: 'Tabless Style',
-};
