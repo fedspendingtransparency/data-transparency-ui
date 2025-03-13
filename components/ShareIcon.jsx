@@ -18,7 +18,9 @@ const propTypes = {
     downloadInFlight: PropTypes.bool,
     isEnabled: PropTypes.bool,
     noShareText: PropTypes.bool,
-    keepText: PropTypes.bool
+    keepText: PropTypes.bool,
+    pickerButtonClassNames: PropTypes.string,
+    pickerListClassNames: PropTypes.string
 };
 
 const ShareIcon = ({
@@ -35,7 +37,9 @@ const ShareIcon = ({
     downloadInFlight,
     isEnabled = true,
     noShareText,
-    keepText = false
+    keepText = false,
+    pickerButtonClassNames = '',
+    pickerListClassNames = ""
 }) => {
     const [showConfirmationText, setConfirmationText] = useState(false);
     const hideConfirmationText = debounce(() => setConfirmationText(false), 1750);
@@ -110,6 +114,8 @@ const ShareIcon = ({
                 value={url}
                 readOnly />
             <Picker
+                buttonClassNames={pickerButtonClassNames}
+                pickerListClassNames={pickerListClassNames}
                 dropdownDirection={dropdownDirection}
                 options={socialSharePickerOptions}
                 selectedOption="copy"
@@ -120,7 +126,7 @@ const ShareIcon = ({
             </Picker>
             {!noShareText && <span className={"usda-share-icon__share-text " + `${keepText ? 'keep-text' : ''}`}>Share</span>}
             {showConfirmationText && (
-                <div className="copy-confirmation" style={{ backgroundColor: colors.confirmationBackgroundColor }}>
+                <div className={"copy-confirmation " + `${keepText ? 'keep-text' : ''}`} style={{ backgroundColor: colors.confirmationBackgroundColor }}>
                     <FontAwesomeIcon icon={faCheckCircle} />
                     {' '}
                     Copied!

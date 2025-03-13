@@ -33,7 +33,10 @@
         &:active {
             color: $gray-cool-1;
         }
-        .usa-dt-picker__button {
+        .usa-dt-picker__button { 
+            &.side-margin {
+                margin: 0 rem(5);
+            }
             @include button-unstyled;
             display: flex;
             justify-content: center;
@@ -70,6 +73,17 @@
             }
         }
         .usa-dt-picker__list {
+            &.padding {
+                padding: 8px 0px;
+            }
+
+            &.top-margin {
+                margin-top: 20px;
+            }
+
+            &.min-width {
+                min-width: 15rem;
+            }
             @include unstyled-list;
             position: absolute;
             border: 1px solid $color-gray-light;

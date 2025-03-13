@@ -27,10 +27,10 @@
   @media(max-width: $medium-screen) {
     margin-right: rem(10);
     .usda-share-icon__share-text {
-      display: none;
-      .keep-text {
-        display: flex
+      &.keep-text {
+          display: flex;
       }
+      display: none;
     }
   }
 
@@ -101,6 +101,11 @@
   }
 
   .copy-confirmation {
+    &.keep-text{
+      @media(max-width:$medium-screen) {
+        transform: translateX(120px);
+      }
+    }
     position: absolute;
     display: flex;
     justify-content: center;

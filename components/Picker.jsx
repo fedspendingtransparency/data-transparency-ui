@@ -28,7 +28,9 @@ const propTypes = {
     isFixedWidth: PropTypes.bool,
     children: PropTypes.node,
     backgroundColor: PropTypes.string,
-    notEnabled: PropTypes.bool
+    notEnabled: PropTypes.bool,
+    buttonClassNames: PropTypes.string,
+    pickerListClassNames: PropTypes.string
 };
 
 const defaultSort = (a, b, selectedOption) => {
@@ -52,7 +54,9 @@ const Picker = ({
     children,
     dropdownDirection = 'right',
     backgroundColor = '#1a4480',
-    notEnabled
+    notEnabled,
+    buttonClassNames = "",
+    pickerListClassNames = ""
 }) => {
     const pickerRef = useRef(null);
     const buttonRef = useRef(null);
@@ -97,11 +101,11 @@ const Picker = ({
     useEffect(() => {
         const closeMenu = (e) => {
             if ((
-                expanded &&
-                pickerRef.current &&
-                !pickerRef.current.contains(e.target) &&
-                e.target.id !== `${id}-${fontAwesomeIconId}` &&
-                e.target.parentNode.id !== `${id}-${fontAwesomeIconId}`
+                expanded
+                && pickerRef.current
+                && !pickerRef.current.contains(e.target)
+                && e.target.id !== `${id}-${fontAwesomeIconId}`
+                && e.target.parentNode.id !== `${id}-${fontAwesomeIconId}`
             )) {
                 setExpanded(false);
             }
@@ -149,39 +153,40 @@ const Picker = ({
     };
 
     return (
-        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{backgroundColor: backgroundColor}}>
-            <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor: backgroundColor }}>
+        <div id={id} className={`usa-dt-picker ${className}`} ref={pickerRef} style={{ backgroundColor }}>
+            <div className="usa-dt-picker__dropdown-container" style={{ backgroundColor }}>
                 <button
-                    style={{ backgroundColor: backgroundColor }}
+                    style={{ backgroundColor }}
                     ref={buttonRef}
                     aria-label="Dropdown Toggle Button"
-                    className="usa-dt-picker__button"
+                    className={`usa-dt-picker__button ${buttonClassNames}`}
                     onClick={toggleMenu}>
 
                     {icon && (
-                        <div className="usa-dt-picker__icon" >
+                        <div className="usa-dt-picker__icon">
                             {icon}
                         </div>
                     )}
 
-                    {children ?
-                        <>{ children }</> :
-                        <>
-                            <span className="usa-dt-picker__button-text" style={{ backgroundColor: backgroundColor  }}>
-                                {selectedOption}
-                            </span>
-                            <span className="usa-dt-picker__button-icon">
-                                {!expanded && (
-                                    <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-down" alt="Toggle menu" color="#555" />
-                                )}
-                                {expanded && (
-                                    <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-up" alt="Toggle menu" color="#555" />
-                                )}
-                            </span>
-                        </>
-                    }
+                    {children
+                        ? <>{ children }</>
+                        : (
+                            <>
+                                <span className="usa-dt-picker__button-text" style={{ backgroundColor }}>
+                                    {selectedOption}
+                                </span>
+                                <span className="usa-dt-picker__button-icon">
+                                    {!expanded && (
+                                        <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-down" alt="Toggle menu" color="#555" />
+                                    )}
+                                    {expanded && (
+                                        <FontAwesomeIcon id={`${id}-${fontAwesomeIconId}`} icon="chevron-up" alt="Toggle menu" color="#555" />
+                                    )}
+                                </span>
+                            </>
+                        )}
                 </button>
-                <ul className={`usa-dt-picker__list ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
+                <ul className={`usa-dt-picker__list ${pickerListClassNames} ${expanded ? '' : 'hide'}`} style={getDropdownListStyles()}>
                     {options
                         .sort(handleSort)
                         .map((option) => ({
@@ -205,8 +210,7 @@ const Picker = ({
                                     {option.component ? option.component : option.name}
                                 </button>
                             </li>
-                        ))
-                    }
+                        ))}
                 </ul>
             </div>
         </div>
