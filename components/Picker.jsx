@@ -158,6 +158,7 @@ const Picker = ({
                 <button
                     style={{ backgroundColor }}
                     ref={buttonRef}
+                    type="button"
                     aria-label="Dropdown Toggle Button"
                     className={`usa-dt-picker__button ${buttonClassNames}`}
                     onClick={toggleMenu}>
@@ -169,8 +170,7 @@ const Picker = ({
                     )}
 
                     {children
-                        ? <>{ children }</>
-                        : (
+                        || (
                             <>
                                 <span className="usa-dt-picker__button-text" style={{ backgroundColor }}>
                                     {selectedOption}
@@ -197,6 +197,7 @@ const Picker = ({
                             <li key={uniqueId()} className={`usa-dt-picker__list-item ${option?.classNames ? option.classNames : ''}`}>
                                 <button
                                     className={`usa-dt-picker__item ${option.name === selectedOption ? 'active' : ''}`}
+                                    type="button"
                                     value={`${option.value || option.name}`}
                                     onClick={(e) => {
                                         e.preventDefault();

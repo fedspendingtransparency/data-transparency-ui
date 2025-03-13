@@ -48,6 +48,7 @@ const ShareIcon = ({
     const copyLink = () => {
         Array
             .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
+        // eslint-disable-next-line consistent-return
             .forEach((node) => {
                 if (node.value.includes(url)) {
                     return node.select();
