@@ -27,18 +27,16 @@ module.exports = async ({ config, mode }) => {
             loader: "postcss-loader",
             options: {
               sourceMap: true,
-              indent: 'postcss',
-              plugins: [require('autoprefixer')],
-              config: {
-                path: path.resolve(__dirname, "../postcss.config.js")
+              postcssOptions: {
+                plugins: [["autoprefixer"]]
               }
             }
           },
           {
-              loader: "sass-loader",
-              options: {
-                  sourceMap: true
-              }
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
           }
         ],
         include: [
@@ -61,17 +59,17 @@ module.exports = async ({ config, mode }) => {
         ],
       },
       {
-          test: /\.(stories|story)\.js?$/,
-          loader: require.resolve('@storybook/source-loader'),
-          exclude: [/node_modules/],
-          enforce: 'pre'
+        test: /\.(stories|story)\.js?$/,
+        loader: require.resolve('@storybook/source-loader'),
+        exclude: [/node_modules/],
+        enforce: 'pre'
       }
     ]);
 
-    config.plugins.push(
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css'
-        })
-    );
-    return config;
+  config.plugins.push(
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    })
+  );
+  return config;
 };

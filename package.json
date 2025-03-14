@@ -85,6 +85,7 @@
     "acorn": "^8.7.1",
     "ajv": "^8.11.0",
     "ajv-keywords": "^5.1.0",
+    "autoprefixer": "^10.4.21",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.3.1",
     "core-js": "^3.4.5",
