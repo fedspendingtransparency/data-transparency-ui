@@ -1,5 +1,4 @@
 import React from 'react';
-import { boolean, object, text } from '@storybook/addon-knobs';
 import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
 import { Tooltip } from '../misc';
 

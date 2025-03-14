@@ -2,7 +2,6 @@ import React from 'react';
 import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 import FlexGridContainer from "../../components/flexGrid/FlexGridContainer"
-import { knob } from '@storybook/addon-knobs';
 export default {
   title: 'Flex Grid/Flex Grid Row',
   component: FlexGridRow,
