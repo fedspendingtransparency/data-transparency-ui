@@ -1,5 +1,4 @@
 const path = require('path');
-const createCompiler = require('@storybook/addon-docs/mdx-compiler-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = async ({ config, mode }) => {
@@ -42,7 +41,8 @@ module.exports = async ({ config, mode }) => {
         include: [
           path.resolve(__dirname, "../styles"),
           path.resolve(__dirname, "../assets/img"),
-          path.resolve(__dirname, "../assets/fonts")
+          path.resolve(__dirname, "../assets/fonts"),
+          path.resolve(__dirname, "../assets"),
         ]
       },
       {
@@ -55,7 +55,8 @@ module.exports = async ({ config, mode }) => {
         }],
         include: [
           path.resolve(__dirname, '../assets/img'),
-          path.resolve(__dirname, '../assets/fonts')
+          path.resolve(__dirname, '../assets/fonts'),
+          path.resolve(__dirname, "../assets"),
         ],
       },
       {
