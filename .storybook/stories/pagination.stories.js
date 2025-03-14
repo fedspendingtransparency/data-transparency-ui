@@ -1,8 +1,6 @@
 import React from 'react';
-import { boolean, object } from '@storybook/addon-knobs';
 import Pagination from '../../components/pagination/Pagination';
 import { PaginationWrapper } from '../misc';
-import { result } from 'lodash';
 
 export default {
   title: 'Pagination',
