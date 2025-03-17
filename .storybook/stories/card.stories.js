@@ -29,6 +29,7 @@ const Template = (args) => (
   </FlexGridRow>
 );
 
+export const Default = Template.bind({});
 export const Outline = Template.bind({});
 Outline.args = {
   variant: "outline",

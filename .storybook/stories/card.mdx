@@ -1,44 +1,39 @@
-import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
-import CardContainer from '../../components/cards/CardContainer';
+import {Meta, Canvas, Controls} from '@storybook/blocks';
+import * as CardStories from "./card.stories";
 import CardBody from "../../components/cards/CardBody";
 import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 
-<Meta title="Card/Default" component={CardContainer}
- parameters={{options: {showAddonPanel: false}}} />
+<Meta of={CardStories} />
+
 
 # Card
 ```javascript
 import { CardContainer, CardHero, CardBody, CardButton } from 'data-transparency-ui';
 ```
-
 Cards are UI Elements that contain content and actions about a single subject
 
 export const Template = (args) => <CardContainer {...args} />;
 
 ## Containers Variants
-<Canvas>
-    <Story id="card--fill" />
-    <Story id="card--elevated" />
-    <Story id="card--outline" />
-    <Story inline={false} id="card--with-card-button" />
-</Canvas>
+<Canvas of={CardStories.Fill} />
+<Canvas of={CardStories.Elevated} />
+<Canvas of={CardStories.Outline} />
+<Canvas of={CardStories.WithCardButton} />
 
 ## Card Container
-<ArgsTable story={CardContainer} />
+<Controls of={CardStories.Default} />
 
 ## Hero Variants
-<Canvas>
-  <Story inline={false} id="card--hero-fill-with-image" />
-  <Story inline={false} id="card--hero-with-image" />
-  <Story inline={false} id="card--hero-with-bar-fill" />
-</Canvas>
+<Canvas of={CardStories.HeroWithImage} />
+<Canvas of={CardStories.HeroWithBarFill} />
+<Canvas of={CardStories.HeroFillWithImage} />
 
 ## Card Hero
-<ArgsTable story={CardHero} />
+<Controls of={CardStories.HeroFillWithImage} />
 
 ## Card Body 
-<ArgsTable story={CardBody} />
+<Controls of={CardStories.Fill} />
 
 ## Card Button 
-<ArgsTable story={CardButton} />
+<Controls of={CardStories.WithCardButton} />
