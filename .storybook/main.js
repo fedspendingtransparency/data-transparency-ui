@@ -1,4 +1,10 @@
 
+export default {
+    // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
+    framework: '@storybook/react-webpack5',
+    stories: ['./stories/*.mdx', './stories/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    staticDirs: ['../assets','../assets/fonts', '../assets/img']
+};
 module.exports = {
     stories: ['./**/stories/*.@(stories.@(js))','./**/stories/*.@(mdx)'],
     addons: [
@@ -24,11 +30,4 @@ module.exports = {
     typescript: {
         reactDocgen: 'react-docgen-typescript'
     }
-};
-
-export default {
-    // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
-    framework: '@storybook/react-webpack5',
-    stories: ['./stories/*.mdx', './stories/*.stories.@(js|jsx|mjs|ts|tsx)'],
-    staticDirs: ['../assets','../assets/fonts', '../assets/img']
 };

@@ -46,13 +46,12 @@ module.exports = async ({ config, mode }) => {
         ]
       },
       {
-        test: /\.(eot|ttf|woff|woff2|png|svg|ico|gif|jpg)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]'
-          },
-        }],
+        include: /\.(eot|ttf|woff|woff2|png|svg|ico|gif|jpg|pdf|webp)$/,
+        loader: 'file-loader',
+        type: 'javascript/auto',
+        options: {
+            name: '[path][name].[ext]'
+        },
         include: [
           path.resolve(__dirname, '../assets/img'),
           path.resolve(__dirname, '../assets/fonts'),
