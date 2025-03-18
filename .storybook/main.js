@@ -18,7 +18,7 @@ module.exports = {
         '@chromatic-com/storybook',
         '@storybook/addon-webpack5-compiler-babel',
     ],
-    managerWebpack: (config, options) => {
+    webpack: (config, options) => {
         options.cache.set = () => Promise.resolve();
         return config;
     },
