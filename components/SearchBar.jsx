@@ -21,17 +21,13 @@ const propTypes = {
 };
 
 // the minimum number of characters a user is required to enter before they can perform a search
-const defaultProps = {
-    onSearch: () => {},
-    minChars: 2,
-    throttleOnChange: 500,
-    inputTitle: 'Search Input',
-    isDisabled: false,
-    placeholder: ''
-};
-
 const SearchBar = ({
-    onSearch, minChars, isDisabled, throttleOnChange, inputTitle, placeholder
+    onSearch,
+    minChars = 2,
+    isDisabled = false,
+    throttleOnChange = 500,
+    inputTitle = 'Search Input',
+    placeholder = ''
 }) => {
     // value of the input
     const [value, setValue] = useState('');
@@ -89,6 +85,5 @@ const SearchBar = ({
     );
 };
 
-SearchBar.defaultProps = defaultProps;
 SearchBar.propTypes = propTypes;
 export default SearchBar;
