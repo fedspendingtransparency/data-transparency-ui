@@ -36,83 +36,109 @@ const propTypes = {
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    subAward: PropTypes.bool};
-
-const defaultProps = {
-    classNames: '',
-    isStacked: false,
-    stickyFirstColumn: false
+    subAward: PropTypes.bool,
+    atMaxLevel: PropTypes.bool
 };
 
-const Table = (props) => {
-    const stackedClass = props.isStacked ? `usa-dt-table__stacked` : '';
-
-    const getTablePickerOptionsAsc = props.columns.map((col) => ({
+const Table = ({
+    columns,
+    rows,
+    rowHeight,
+    headerRowHeight,
+    currentSort,
+    classNames = '',
+    updateSort,
+    expandable,
+    divider,
+    loading,
+    error,
+    message,
+    isStacked = false,
+    screenReaderCaption,
+    onClickHandler,
+    isMobile,
+    stickyFirstColumn = false,
+    subAward,
+    atMaxLevel = false
+}) => {
+    const stackedClass = isStacked ? `usa-dt-table__stacked` : '';
+    const getTablePickerOptionsAsc = columns.map((col) => ({
         name: col.displayName + ' ' + '(ascending)',
         value: col.title,
         onClick: () => {
-            props.updateSort(col.title, 'asc');
+            updateSort(col.title, 'asc');
         }
     }));
-
-    const getTablePickerOptionsDesc = props.columns.map((col) => ({
+    const getTablePickerOptionsDesc = columns.map((col) => ({
         name: col.displayName + ' ' + '(descending)',
         value: col.title,
         onClick: () => {
-            props.updateSort(col.title, 'desc');
+            updateSort(col.title, 'desc');
         }
     }));
-
     let body;
 
-    if (props.loading) {
+    if (loading) {
         body = (
             <tr>
-                <td className="usda-table__message-cell" colSpan={props.columns.length}>
+                <td className="usda-table__message-cell" colSpan={columns.length}>
                     <LoadingMessage />
                 </td>
             </tr>
         );
     }
-    else if (props.error) {
+    else if (error) {
         body = (
             <tr>
-                <td className="usda-table__message-cell" colSpan={props.columns.length}>
-                    <ErrorMessage description={props.message} />
+                <td className="usda-table__message-cell" colSpan={columns.length}>
+                    <ErrorMessage description={message} />
                 </td>
             </tr>
         );
     }
-    else if (!props.rows || props.rows.length === 0) {
+    else if (!rows || rows.length === 0) {
         body = (
             <tr>
-                <td className="usda-table__message-cell" colSpan={props.columns.length}>
-                    <NoResultsMessage description={props.message} />
+                <td className="usda-table__message-cell" colSpan={columns.length}>
+                    <NoResultsMessage description={message} />
                 </td>
             </tr>
         );
     }
     else {
-        body = (<TableData {...props} />);
+        body = (
+            <TableData
+                columns={columns}
+                rows={rows}
+                rowHeight={rowHeight}
+                expandable={expandable}
+                divider={divider}
+                onClickHandler={onClickHandler}
+                isMobile={isMobile}
+                stickyFirstColumn={stickyFirstColumn}
+                subAward={subAward}
+                isStacked={isStacked}
+                atMaxLevel={atMaxLevel} />
+        );
     }
 
     return (
         <>
-            {props.isStacked && props.updateSort && (
+            {isStacked && updateSort && (
                 <div className="usa-dt-table__stacked-picker">
                     {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                     <label htmlFor="stackedTableSort">Sort By</label>
                     <Picker
                         id="stackedTableSort"
-                        selectedOption={props.currentSort.field}
+                        selectedOption={currentSort.field}
                         options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
                 </div>
             )}
-            <table className={`usda-table ${stackedClass} ${props.classNames}`}>
-                {props.screenReaderCaption && (
-                    <caption className="usa-dt-sr-only">{props.screenReaderCaption}</caption>
+            <table className={`usda-table ${stackedClass} ${classNames}`}>
+                {screenReaderCaption && (
+                    <caption className="usa-dt-sr-only">{screenReaderCaption}</caption>
                 )}
-                {props.subAward
+                {subAward
                 && (
                     <colgroup>
                         <col span={4} />
@@ -120,34 +146,36 @@ const Table = (props) => {
                     </colgroup>
                 )}
                 <thead className="usda-table__head">
-                    <tr className="usda-table__row" style={{ height: props.headerRowHeight }}>
-                        {props.columns.map((col, index) => (
+                    <tr className="usda-table__row" style={{ height: headerRowHeight }}>
+                        {columns.map((col, index) => (
                             <TableHeader
                                 key={uniqueId()}
-                                currentSort={props.currentSort}
-                                updateSort={props.updateSort}
-                                stickyFirstColumn={props.stickyFirstColumn}
-                                subAward={props.subAward}
+                                currentSort={currentSort}
+                                updateSort={updateSort}
+                                stickyFirstColumn={stickyFirstColumn}
+                                subAward={subAward}
                                 index={index}
                                 {...col} />
                         ))}
                     </tr>
                     <tr className="usda-table__row">
-                        {props.columns
+                        {columns
                             .filter((col) => col?.subColumnNames?.length)
                             .reduce((acc, col) => {
                                 if (col?.subColumnNames?.length) {
                                     return acc.concat(col.subColumnNames);
                                 }
-                                return acc.concat([{ ...col, displayName: '', className: 'empty-subheader' }]);
+                                return acc.concat([{
+                                    ...col, displayName: '', className: 'empty-subheader'
+                                }]);
                             }, [])
                             .map((col, index) => (
                                 <TableHeader
                                     key={uniqueId()}
                                     className={col?.title ? 'nested-header' : 'empty'}
-                                    currentSort={props.currentSort}
-                                    updateSort={props.updateSort}
-                                    stickyFirstColumn={props.stickyFirstColumn}
+                                    currentSort={currentSort}
+                                    updateSort={updateSort}
+                                    stickyFirstColumn={stickyFirstColumn}
                                     index={index}
                                     {...col} />
                             ))}
@@ -162,5 +190,4 @@ const Table = (props) => {
 };
 
 Table.propTypes = propTypes;
-Table.defaultProps = defaultProps;
 export default Table;
