@@ -5,6 +5,7 @@ import { Tooltip } from '../misc';
 export default {
   title: 'Tooltip Wrapper',
   component: TooltipWrapper,
+  tags: ['autodocs']
 };
 
 const Template = (args) => (

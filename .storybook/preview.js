@@ -106,7 +106,8 @@ export const parameters = {
       if (b.title === 'Components/Flex Grid/Flex Grid Col') return 0;
       return 1;
     },
-    showAddonPanel: true
+    showAddonPanel: true,
+    tags: ['autodocs']
   },
   viewport: {
     viewports: INITIAL_VIEWPORTS,

@@ -5,6 +5,7 @@ import CardBody from "../../components/cards/CardBody";
 import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 import React from "react";
+import { tags } from "../preview";
 
 const imageLink = "../../assets/img/top-bowie-state-combined-image.svg";
 const image = {
@@ -18,6 +19,7 @@ export default {
   title: "Card",
   component: CardContainer,
   subcomponent: { CardBody },
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       options: ["elevated", "outline", ""],
@@ -33,7 +35,25 @@ const Template = (args) => (
   </FlexGridRow>
 );
 
-export const Default = Template.bind({});
+const HeroTemplate = (args) => (
+  <CardHero fill="#1a4480" />
+);
+const BodyTemplate = (args) => (
+  <CardBody>
+    <div>{dummyText}</div>
+  </CardBody>
+);
+const ButtonTemplate = (args) => (
+  <CardButton
+    text="Search"
+    variant="secondary"
+    link="/search"
+    backgroundColor="light"
+    buttonSize="sm"
+    textAlignment="center"
+  />
+);
+
 export const Outline = Template.bind({});
 Outline.args = {
   variant: "outline",
@@ -82,8 +102,8 @@ WithCardButton.args = {
           backgroundColor="light"
           buttonSize="sm"
           textAlignment="center"
-        />      
-        </CardBody>
+        />
+      </CardBody>
     </>
   ),
 };
@@ -114,7 +134,7 @@ HeroWithImage.args = {
     <>
       <CardHero variant="expanded" img={image.src} />
       <CardBody overline="Resources" headline="Learn how to use  our app">
-      <CardButton
+        <CardButton
           text="Search"
           variant="secondary"
           link="/search"
@@ -129,11 +149,11 @@ HeroWithImage.args = {
 
 export const HeroFillWithImage = Template.bind({});
 HeroFillWithImage.args = {
-    children: (
-        <>
-            <CardHero variant="expanded" fill="#1a4480" img={image.src} />
-            <CardBody overline="Resources" headline="Learn how to use  our app">
-            <CardButton
+  children: (
+    <>
+      <CardHero variant="expanded" fill="#1a4480" img={image.src} />
+      <CardBody overline="Resources" headline="Learn how to use our app">
+        <CardButton
           text="Search"
           variant="secondary"
           link="/search"
@@ -141,6 +161,10 @@ HeroFillWithImage.args = {
           buttonSize="sm"
           textAlignment="center"
         />
-          </CardBody>
-        </>
-      ),}
+      </CardBody>
+    </>
+  ),
+}
+
+export const hero = HeroTemplate.bind({});
+export const Default = Template.bind({});      

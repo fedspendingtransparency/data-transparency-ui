@@ -4,6 +4,7 @@ import Carousel from '../../components/Carousel';
 export default {
   title: 'Carousel',
   component: Carousel,
+  tags: ['autodocs'],
 };
 
 const Template = (args) => (
