@@ -6,7 +6,11 @@ import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 import React from "react";
 
-const imageLink = "../assets/img/top-bowie-state-combined-image.svg";
+const imageLink = "../../assets/img/top-bowie-state-combined-image.svg";
+const image = {
+  src: imageLink,
+  alt: 'card image',
+};
 const dummyText =
   "Pudding jelly beans tiramisu bear claw apple pie liquorice. Jelly beans macaroon wafer topping gummies. Shortbread tiramisu lollipop topping apple pie tart pie chocolate. Tart croissant cake danish wafer icing sugar plum.";
 
@@ -22,7 +26,7 @@ export default {
   },
 };
 const Template = (args) => (
-  <FlexGridRow hasGutter gutterSize={32}>
+  <FlexGridRow hasGutter gutterSize="lg">
     <FlexGridCol desktop={4} tablet={2} mobile={1} >
       <CardContainer {...args}></CardContainer>
     </FlexGridCol>
@@ -108,7 +112,7 @@ HeroWithImage.args = {
   variant: 'elevated',
   children: (
     <>
-      <CardHero variant="expanded" img={imageLink} />
+      <CardHero variant="expanded" img={image.src} />
       <CardBody overline="Resources" headline="Learn how to use  our app">
       <CardButton
           text="Search"
@@ -127,7 +131,7 @@ export const HeroFillWithImage = Template.bind({});
 HeroFillWithImage.args = {
     children: (
         <>
-            <CardHero variant="expanded" fill="#1a4480" img={imageLink} />
+            <CardHero variant="expanded" fill="#1a4480" img={image.src} />
             <CardBody overline="Resources" headline="Learn how to use  our app">
             <CardButton
           text="Search"
