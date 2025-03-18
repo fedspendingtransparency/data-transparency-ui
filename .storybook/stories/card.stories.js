@@ -6,7 +6,7 @@ import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 import React from "react";
 
-const imageLink = "./img/top-bowie-state-combined-image.svg";
+const imageLink = "../assets/img/top-bowie-state-combined-image.svg";
 const dummyText =
   "Pudding jelly beans tiramisu bear claw apple pie liquorice. Jelly beans macaroon wafer topping gummies. Shortbread tiramisu lollipop topping apple pie tart pie chocolate. Tart croissant cake danish wafer icing sugar plum.";
 
