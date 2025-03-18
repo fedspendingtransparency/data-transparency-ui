@@ -5,7 +5,6 @@ import CardBody from "../../components/cards/CardBody";
 import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 import React from "react";
-import { tags } from "../preview";
 
 const imageLink = "../../assets/img/top-bowie-state-combined-image.svg";
 const image = {
@@ -18,7 +17,7 @@ const dummyText =
 export default {
   title: "Card",
   component: CardContainer,
-  subcomponent: { CardBody },
+  subcomponent: { CardHero, CardBody, CardButton },
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -166,5 +165,4 @@ HeroFillWithImage.args = {
   ),
 }
 
-export const hero = HeroTemplate.bind({});
 export const Default = Template.bind({});      
