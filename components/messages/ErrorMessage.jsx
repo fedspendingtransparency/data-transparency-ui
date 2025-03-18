@@ -8,19 +8,20 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import GenericMessage from './GenericMessage';
 
-const defaultProps = {
-    description: 'Something went wrong while gathering your data.'
-};
-
 const propTypes = {
     description: PropTypes.string
 };
 
-const ErrorMessage = ({ description }) => {
+const ErrorMessage = ({ description = 'Something went wrong while gathering your data.' }) => {
     const icon = <FontAwesomeIcon icon="exclamation-triangle" />;
-    return <GenericMessage description={description} title="An error occurred" icon={icon} className="error" />;
+    return (
+        <GenericMessage
+            description={description}
+            title="An error occurred"
+            icon={icon}
+            className="error" />
+    );
 };
 
 ErrorMessage.propTypes = propTypes;
-ErrorMessage.defaultProps = defaultProps;
 export default ErrorMessage;
