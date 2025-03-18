@@ -6,7 +6,7 @@ import React from "react";
 export default {
     title: 'Card/CardBody',
     component: CardBody,
-    tags: ['autodocs'],
+    tags: ['autodocs', '!dev'],
 };
 
 const Template = (args) => (

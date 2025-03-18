@@ -6,7 +6,7 @@ import React from "react";
 export default {
     title: 'Card/CardHero',
     component: CardHero,
-    tags: ['autodocs'],
+    tags: ['autodocs', '!dev'],
 };
 
 const Template = (args) => (
@@ -16,4 +16,4 @@ const Template = (args) => (
     </FlexGridCol>
   </FlexGridRow>
 );
-export const Default = Template.bind({});      
+export const Default = Template.bind({});

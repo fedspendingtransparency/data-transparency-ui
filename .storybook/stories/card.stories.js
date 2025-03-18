@@ -166,3 +166,4 @@ HeroFillWithImage.args = {
 }
 
 export const Default = Template.bind({});      
+Default.tags = ['autodocs', '!dev'];
