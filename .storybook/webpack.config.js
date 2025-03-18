@@ -50,13 +50,13 @@ module.exports = async ({ config, mode }) => {
         loader: 'file-loader',
         type: 'javascript/auto',
         options: {
-            name: '[path][name].[ext]'
+            name: '[path][name].[ext]',
+            include: [
+              path.resolve(__dirname, '../assets/img'),
+              path.resolve(__dirname, '../assets/fonts'),
+              path.resolve(__dirname, "../assets"),
+            ]
         },
-        include: [
-          path.resolve(__dirname, '../assets/img'),
-          path.resolve(__dirname, '../assets/fonts'),
-          path.resolve(__dirname, "../assets"),
-        ],
       },
       {
         test: /\.(stories|story)\.js?$/,
