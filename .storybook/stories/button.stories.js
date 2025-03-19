@@ -6,6 +6,7 @@ import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 export default {
   title: 'Buttons',
   component: Button,
+  tags: ['autodocs'],
 };
 
 const Template = (args) => (

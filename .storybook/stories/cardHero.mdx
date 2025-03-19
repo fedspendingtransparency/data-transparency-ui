@@ -1,0 +1,16 @@
+import {Meta, Canvas, Controls} from '@storybook/blocks';
+import * as CardStories from "./cardHero.stories";
+import CardHero from "../../components/cards/CardHero";
+
+<Meta of={CardStories} />
+
+
+# Card
+```javascript
+import { CardHero } from 'data-transparency-ui';
+```
+
+export const Template = (args) => <CardHero {...args} />;
+
+## Controls
+<Controls of={CardStories.Default} />

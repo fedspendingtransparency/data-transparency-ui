@@ -33,8 +33,9 @@ module.exports = {
                     {
                         loader: "postcss-loader",
                         options: {
-                            indent: "postcss",
-                            plugins: [require("autoprefixer")]
+                            postcssOptions: {
+                                plugins: [["autoprefixer"]]
+                            }
                         }
                     },
                     {

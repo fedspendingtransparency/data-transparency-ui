@@ -5,6 +5,7 @@ import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative
 export default {
   title: 'Quarter Picker',
   component: QuarterPicker,
+  tags: ['autodocs'],
 };
 
 export const Default = (args) => (

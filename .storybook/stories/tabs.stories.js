@@ -5,6 +5,7 @@ import Tabs from '../../components/tabs/Tabs';
 export default {
   title: 'Tabs',
   component: Tabs,
+  tags: ['autodocs'],
 };
 
 const Template = (args) => (

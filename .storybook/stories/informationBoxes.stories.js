@@ -5,6 +5,7 @@ import InformationBoxes from '../../components/InformationBoxes';
 export default {
   title: 'Information Boxes',
   component: InformationBoxes,
+  tags: ['autodocs'],
 };
 
 const Template = (args) => (

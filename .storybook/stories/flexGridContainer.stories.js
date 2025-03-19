@@ -5,6 +5,7 @@ import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
 export default {
   title: 'Flex Grid/Flex Grid Container',
   component: FlexGridContainer,
+  tags: ['autodocs'],
 };
 
 export const DefaultFlexGridContainer = (args) => (

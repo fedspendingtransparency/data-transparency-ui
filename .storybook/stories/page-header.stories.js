@@ -8,7 +8,7 @@ import { InPageNavWrapper, Tooltip } from '../misc';
 
 export default {
   title: 'Page Header',
-
+  tags: ['autodocs'],
   parameters: {
     options: {
       showAddonPanel: false,

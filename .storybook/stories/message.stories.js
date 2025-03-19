@@ -9,6 +9,7 @@ import GenericMessage from '../../components/messages/GenericMessage';
 export default {
   title: 'Messages',
   component: GenericMessage,
+  tags: ['autodocs'],
 };
 
 export const DefaultErrorMessage = (args) => <ErrorMessage {...args} />;

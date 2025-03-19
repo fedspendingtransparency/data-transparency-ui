@@ -5,6 +5,7 @@ import SearchResultsTableWrapper from '../../components/SearchResultsTableWrappe
 export default {
     title: 'Search Results Table',
     component: Table,
+    tags: ['autodocs'],
 };
 
 const searchResultsTableData =
