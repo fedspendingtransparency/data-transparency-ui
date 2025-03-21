@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { throttle } from "lodash";
+import { throttle, uniqueId } from "lodash";
 import cx from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -71,6 +71,7 @@ const TooltipWrapper = ({
     const tooltipIcons = {
         info: <FontAwesomeIcon className="tooltip__icon" icon="info-circle" />
     };
+    const elId = uniqueId('dtui-tt_');
 
     const onMouseMoveTooltip = () => {
         if (propOnMouseMoveTooltip) {
@@ -273,9 +274,20 @@ const TooltipWrapper = ({
         window.addEventListener("scroll", throttle(setTooltipDimensions, 500));
         window.addEventListener("resize", throttle(setTooltipDimensions, 100));
 
+        if (!controlledProps.isControlled) {
+            document?.getElementById(elId)?.addEventListener(
+                'mousemove', throttle(setTooltipDimensions, 500)
+            );
+        }
+
         return () => {
             window.removeEventListener("scroll", setTooltipDimensions);
             window.removeEventListener("resize", setTooltipDimensions);
+
+            if (!controlledProps.isControlled) {
+                document?.getElementById(elId)
+                    ?.addEventListener('mousemove', setTooltipDimensions);
+            }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -286,7 +298,10 @@ const TooltipWrapper = ({
     }, [tooltipContainer.current]);
 
     return (
-        <div className={cx({ 'tooltip-wrapper': true, [className]: className !== null })} style={styles}>
+        <div
+            id={elId}
+            className={cx({ 'tooltip-wrapper': true, [className]: className !== null })}
+            style={styles}>
             <div
                 ref={(div) => {
                     tooltipContainer.current = div;
