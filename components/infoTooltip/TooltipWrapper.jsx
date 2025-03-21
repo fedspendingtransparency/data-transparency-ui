@@ -11,9 +11,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 require('../../styles/components/infoTooltip/_tooltipWrapper.scss');
 
-const horizontalPadding = 5;
-const baseTooltipWidth = 375;
-
 const propTypes = {
     className: PropTypes.string,
     children: PropTypes.element,
@@ -38,9 +35,7 @@ const propTypes = {
     onMouseLeaveTooltip: PropTypes.func
 };
 
-const tooltipIcons = {
-    info: <FontAwesomeIcon className="tooltip__icon" icon="info-circle" />
-};
+const baseTooltipWidth = 375;
 
 const TooltipWrapper = ({
     className = null,
@@ -67,10 +62,15 @@ const TooltipWrapper = ({
 }) => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [isHoveringOnTooltip, setIsHoveringOnTooltip] = useState(false);
-    const [spacerStyles, setSpacerStyles] = useState({});
-    const [arrowDirection, setArrowDirection] = useState();
 
     const tooltipContainer = useRef();
+    const arrowDirection = useRef('');
+    const spacerStyle = useRef({});
+
+    const horizontalPadding = 5;
+    const tooltipIcons = {
+        info: <FontAwesomeIcon className="tooltip__icon" icon="info-circle" />
+    };
 
     const onMouseMoveTooltip = () => {
         if (propOnMouseMoveTooltip) {
@@ -136,25 +136,25 @@ const TooltipWrapper = ({
             };
         }
         return {
-            ...spacerStyles,
+            ...spacerStyle.current,
             widthVar
         };
     };
 
-    const setTooltipDimensions = throttle(() => {
+    const setTooltipDimensions = () => {
         const shouldOverridePositioning = Object.keys(styles).includes('transform');
 
         if (shouldOverridePositioning && tooltipContainer.current) {
             if (tooltipPosition === 'bottom') {
                 // make sure we set  the arrow styles if the positioning is being overridden.
-                setArrowDirection('bottom');
-                setSpacerStyles({
+                arrowDirection.current = 'bottom';
+                spacerStyle.current = ({
                     width: getTooltipWidth()
                 });
             }
             else {
                 // position is being overridden
-                setSpacerStyles({
+                spacerStyle.current = ({
                     width: getTooltipWidth()
                 });
             }
@@ -166,16 +166,16 @@ const TooltipWrapper = ({
             const offsetTopCalc = tooltipContainer.current.offsetTop + offsetAdjustments.top;
             const isMobile = total < 700;
             if (tooltipPosition === 'bottom' || isMobile) {
-                setArrowDirection('bottom');
-                setSpacerStyles({ ...getDimensionsForMobile(isMobile, tooltipWidth) });
+                arrowDirection.current = 'bottom';
+                spacerStyle.current = ({ ...getDimensionsForMobile(isMobile, tooltipWidth) });
             }
             else if (tooltipPosition === 'right' && spaceToRight < tooltipWidth) {
                 // going left b/c cant go right
                 const startingPositionLeft = (spaceToLeft - tooltipWidth)
                     + tooltipContainer.current.clientWidth;
 
-                setArrowDirection('smart-bottom-left');
-                setSpacerStyles({
+                arrowDirection.current = 'smart-bottom-left';
+                spacerStyle.current = ({
                     top: tooltipContainer.current.offsetTop
                         + 16
                         + tooltipContainer.current.clientHeight,
@@ -186,8 +186,8 @@ const TooltipWrapper = ({
             }
             else if (tooltipPosition === 'left' && spaceToLeft < tooltipWidth) {
                 // going right b/c cant go left
-                setArrowDirection('smart-bottom-right');
-                setSpacerStyles({
+                arrowDirection.current = 'smart-bottom-right';
+                spacerStyle.current = ({
                     top: tooltipContainer.current.offsetTop + 16 + tooltipContainer.current.clientHeight,
                     // 20px of padding for the arrow
                     left: spaceToLeft - 20,
@@ -198,8 +198,8 @@ const TooltipWrapper = ({
                 // minus tooltipWidth b/c right corner of toolTip is flush w/ left edge of toolTip container
                 const startingPositionLeft = spaceToLeft - tooltipWidth;
 
-                setArrowDirection('right');
-                setSpacerStyles({
+                arrowDirection.current = 'right';
+                spacerStyle.current = ({
                     top: offsetTopCalc,
                     left: startingPositionLeft - horizontalPadding,
                     width: tooltipWidth
@@ -209,15 +209,15 @@ const TooltipWrapper = ({
                 // plus ttContainerWidth b/c left corner of toolTip is flush w/ right edge of toolTip container
                 const startingPositionLeft = spaceToLeft + tooltipContainer.current.clientWidth;
 
-                setArrowDirection('left');
-                setSpacerStyles({
+                arrowDirection.current = 'left';
+                spacerStyle.current = ({
                     top: offsetTopCalc,
                     left: startingPositionLeft + horizontalPadding,
                     width: tooltipWidth
                 });
             }
         }
-    }, 16);
+    };
 
     const showTooltipFunc = () => {
         if (controlledProps.isControlled) {
@@ -247,7 +247,7 @@ const TooltipWrapper = ({
 
     if (showTooltipBool) {
         tooltip = (
-            <div className="tooltip-spacer" style={spacerStyles}>
+            <div className="tooltip-spacer" style={spacerStyle.current}>
                 <div
                     className="tooltip"
                     id="tooltip"
@@ -257,7 +257,7 @@ const TooltipWrapper = ({
                     onMouseLeave={onMouseLeaveTooltip}>
                     <div
                         className="tooltip__interior">
-                        <div className={`tooltip-pointer ${arrowDirection}`} />
+                        <div className={`tooltip-pointer ${arrowDirection.current}`} />
                         <div className="tooltip__content">
                             <div className="tooltip__message">
                                 {tooltipComponent}
