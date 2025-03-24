@@ -5,8 +5,8 @@ import CardBody from "../../components/cards/CardBody";
 import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 import React from "react";
+import imageLink from "../../assets/img/top-bowie-state-combined-image.svg";
 
-const imageLink = "../../assets/img/top-bowie-state-combined-image.svg";
 const image = {
   src: imageLink,
   alt: 'card image',

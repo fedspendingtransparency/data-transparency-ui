@@ -1,5 +1,8 @@
 import React from 'react';
 import Carousel from '../../components/Carousel';
+import imageOne from '../../assets/img/carouselImageOne.png'
+import imageTwo from '../../assets/img/carouselImageTwo.png'
+import imageThree from '../../assets/img/carouselImageThree.png'
 
 export default {
   title: 'Carousel',
@@ -15,13 +18,13 @@ export const DefaultCarousel =  Template.bind({});
 DefaultCarousel.args = {
   items: [
           <div>
-        <img src="./img/carouselImageOne.png" />
+        <img src={imageOne} />
       </div>,
       <div>
-        <img src="./img/carouselImageTwo.png" />
+        <img src={imageTwo} />
       </div>,
       <div>
-        <img src="./img/carouselImageThree.png" />
+        <img src={imageThree} />
       </div>
   ]
 }
