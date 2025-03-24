@@ -113,10 +113,16 @@ export const parameters = {
     viewports: INITIAL_VIEWPORTS,
   },
   a11y: {
-    element: '#root',
+    element: 'body',
     config: {},
     options: {},
-    manual: true,
+    test: 'todo'
+  },
+  globals: {
+    a11y: {
+      // Optional flag to prevent the automatic check
+      manual: true,
+    },
   },
 };
 
