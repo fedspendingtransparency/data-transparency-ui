@@ -5,7 +5,7 @@ import { formattedValue, numberToText } from '../helpers/informationBoxesHelper'
 
 require('../styles/components/_informationBoxes.scss');
 
-const defaultProps = {
+const propTypes = {
     boxes: PropTypes.arrayOf(PropTypes.shape({
         type: PropTypes.string.isRequired,
         title: PropTypes.oneOfType([
@@ -68,5 +68,5 @@ const InformationBoxes = ({ boxes }) => {
     );
 };
 
-InformationBoxes.propTypes = defaultProps;
+InformationBoxes.propTypes = propTypes;
 export default InformationBoxes;
