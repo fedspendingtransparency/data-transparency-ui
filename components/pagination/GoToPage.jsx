@@ -3,7 +3,7 @@
  * Created by Alisa Burdeyny 12/5/19
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
@@ -12,72 +12,53 @@ const propTypes = {
     id: PropTypes.string
 };
 
-const defaultProps = {
-    totalPages: 1,
-    id: 'usa-dt-pagination-go-to'
+const GoToPage = ({
+    changePage: changePageProp,
+    totalPages = 1,
+    id = 'usa-dt-pagination-go-to'
+}) => {
+    const [goToPage, setGoToPage] = useState('');
+
+    const placeholder = totalPages > 1 ? `1-${totalPages}` : '1';
+
+    const validPage = () => !(goToPage === '' || parseInt(goToPage, 10) < 1
+        || parseInt(goToPage, 10) > totalPages);
+
+    const changePage = (e) => {
+        e.preventDefault();
+        if (validPage()) {
+            changePageProp(parseInt(goToPage, 10));
+        }
+    };
+
+    const changedInput = (e) => {
+        setGoToPage(e.target.value);
+    };
+
+    return (
+        <form className="usa-dt-pagination__go-to">
+            <label htmlFor={`${id}-go-to`}>
+                Go to page
+            </label>
+            <input
+                type="number"
+                id={`${id}-go-to`}
+                title={`Enter a number between 1 and ${totalPages}`}
+                min="1"
+                max={totalPages}
+                placeholder={placeholder}
+                value={goToPage}
+                onChange={changedInput}
+                onSubmit={changePage} />
+            <button
+                type="submit"
+                onClick={changePage}
+                disabled={!validPage()}>
+                Go
+            </button>
+        </form>
+    );
 };
 
-export default class GoToPage extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            goToPage: ''
-        };
-
-        this.changePage = this.changePage.bind(this);
-        this.changedInput = this.changedInput.bind(this);
-        this.validPage = this.validPage.bind(this);
-    }
-
-    changePage(e) {
-        e.preventDefault();
-        if (this.validPage()) {
-            this.props.changePage(parseInt(this.state.goToPage, 10));
-        }
-    }
-
-    changedInput(e) {
-        this.setState({
-            goToPage: e.target.value
-        });
-    }
-
-    validPage() {
-        const { goToPage } = this.state;
-        const { totalPages } = this.props;
-        return !(goToPage === '' || parseInt(goToPage, 10) < 1
-            || parseInt(goToPage, 10) > totalPages);
-    }
-
-    render() {
-        const { totalPages } = this.props;
-        const placeholder = totalPages > 1 ? `1-${totalPages}` : '1';
-        return (
-            <form className="usa-dt-pagination__go-to">
-                <label htmlFor={`${this.props.id}-go-to`}>
-                    Go to page
-                </label>
-                <input
-                    type="number"
-                    id={`${this.props.id}-go-to`}
-                    title={`Enter a number between 1 and ${totalPages}`}
-                    min="1"
-                    max={totalPages}
-                    placeholder={placeholder}
-                    value={this.state.goToPage}
-                    onChange={this.changedInput}
-                    onSubmit={this.changePage} />
-                <button
-                    type="submit"
-                    onClick={this.changePage}
-                    disabled={!this.validPage()}>
-                    Go
-                </button>
-            </form>
-        );
-    }
-}
-
 GoToPage.propTypes = propTypes;
-GoToPage.defaultProps = defaultProps;
+export default GoToPage;
