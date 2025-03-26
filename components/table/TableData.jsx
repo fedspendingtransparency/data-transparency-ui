@@ -3,7 +3,7 @@
  * Created by Lizzie Salita 5/14/20
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 import { uniqueId } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -40,6 +40,14 @@ const TableData = ({
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
+
+    const setFocus = () => {
+        const selectedElement = document.querySelector(".selected-row");
+        if (selectedElement) {
+            selectedElement.focus();
+        }
+    };
+
     const localClickHandler = (row, index) => {
         if (!atMaxLevel) {
             // user taps a row in mobile
@@ -62,6 +70,10 @@ const TableData = ({
             }
         }
     };
+
+    useEffect(() => {
+        setFocus();
+    }, [rowIndexForMessage]);
 
     return (
         <>
@@ -90,7 +102,7 @@ const TableData = ({
                                 localClickHandler(row, i);
                             }
                         }}
-                        className={`usda-table__row-item usda-table__row${oddClass} ${subAward ? 'special-hover-color' : ''}`}
+                        className={`usda-table__row-item usda-table__row${oddClass} ${rowIndexForMessage === i ? 'selected-row' : ''} ${subAward ? 'special-hover-color' : ''}`}
                         style={{ height: rowHeight }}>
                         {row.map((data, j) => (
                             columns[j]?.bodyHeader
