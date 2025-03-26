@@ -14,20 +14,15 @@ const propTypes = {
     })
 };
 
-const defaultProps = {
-    className: null,
-    textAlign: {
-        title: 'left',
-        text: 'left'
-    }
-};
-
 // eslint-disable-next-line import/prefer-default-export
 const TooltipComponent = ({
     children,
     title,
-    className,
-    textAlign
+    className = null,
+    textAlign = {
+        title: 'left',
+        text: 'left'
+    }
 }) => (
     <div className={cx({ [className]: className !== null })}>
         <h1 className={cx("tooltip__title", textAlign.title)}>{title}</h1>
@@ -38,6 +33,4 @@ const TooltipComponent = ({
 );
 
 TooltipComponent.propTypes = propTypes;
-TooltipComponent.defaultProps = defaultProps;
-
 export default TooltipComponent;
