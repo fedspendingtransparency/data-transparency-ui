@@ -4,6 +4,7 @@ import SearchBar from '../../components/SearchBar';
 export default {
   title: 'SearchBar',
   component: SearchBar,
+  tags: ['autodocs'],
 };
 
 const Template = (args) => (

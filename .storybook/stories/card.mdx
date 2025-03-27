@@ -1,0 +1,30 @@
+import {Meta, Canvas, Controls} from '@storybook/blocks';
+import * as CardStories from "./card.stories";
+import CardBody from "../../components/cards/CardBody";
+import CardButton from "../../components/cards/CardButton";
+import CardHero from "../../components/cards/CardHero";
+
+<Meta of={CardStories} />
+
+
+# Card
+```javascript
+import { CardContainer, CardHero, CardBody, CardButton } from 'data-transparency-ui';
+```
+Cards are UI Elements that contain content and actions about a single subject
+
+export const Template = (args) => <CardContainer {...args} />;
+
+## Containers Variants
+<Canvas of={CardStories.Fill} />
+<Canvas of={CardStories.Elevated} />
+<Canvas of={CardStories.Outline} />
+<Canvas of={CardStories.WithCardButton} />
+
+## Card Container
+<Controls of={CardStories.Default} />
+
+## Hero Variants
+<Canvas of={CardStories.HeroWithImage} />
+<Canvas of={CardStories.HeroWithBarFill} />
+<Canvas of={CardStories.HeroFillWithImage} />

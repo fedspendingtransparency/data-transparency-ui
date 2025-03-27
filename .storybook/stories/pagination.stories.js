@@ -5,6 +5,7 @@ import { PaginationWrapper } from '../misc';
 export default {
   title: 'Pagination',
   component: Pagination,
+  tags: ['autodocs'],
 };
 
 export const Default = (args) => (

@@ -5,15 +5,20 @@ import CardBody from "../../components/cards/CardBody";
 import CardButton from "../../components/cards/CardButton";
 import CardHero from "../../components/cards/CardHero";
 import React from "react";
+import imageLink from "../../assets/img/top-bowie-state-combined-image.svg";
 
-const imageLink = "./img/top-bowie-state-combined-image.svg";
+const image = {
+  src: imageLink,
+  alt: 'card image',
+};
 const dummyText =
   "Pudding jelly beans tiramisu bear claw apple pie liquorice. Jelly beans macaroon wafer topping gummies. Shortbread tiramisu lollipop topping apple pie tart pie chocolate. Tart croissant cake danish wafer icing sugar plum.";
 
 export default {
   title: "Card",
   component: CardContainer,
-  subcomponent: { CardBody },
+  subcomponent: { CardHero, CardBody, CardButton },
+  tags: ['autodocs'],
   argTypes: {
     variant: {
       options: ["elevated", "outline", ""],
@@ -22,11 +27,30 @@ export default {
   },
 };
 const Template = (args) => (
-  <FlexGridRow hasGutter gutterSize={32}>
+  <FlexGridRow hasGutter gutterSize="lg">
     <FlexGridCol desktop={4} tablet={2} mobile={1} >
       <CardContainer {...args}></CardContainer>
     </FlexGridCol>
   </FlexGridRow>
+);
+
+const HeroTemplate = (args) => (
+  <CardHero fill="#1a4480" />
+);
+const BodyTemplate = (args) => (
+  <CardBody>
+    <div>{dummyText}</div>
+  </CardBody>
+);
+const ButtonTemplate = (args) => (
+  <CardButton
+    text="Search"
+    variant="secondary"
+    link="/search"
+    backgroundColor="light"
+    buttonSize="sm"
+    textAlignment="center"
+  />
 );
 
 export const Outline = Template.bind({});
@@ -77,8 +101,8 @@ WithCardButton.args = {
           backgroundColor="light"
           buttonSize="sm"
           textAlignment="center"
-        />      
-        </CardBody>
+        />
+      </CardBody>
     </>
   ),
 };
@@ -107,9 +131,9 @@ HeroWithImage.args = {
   variant: 'elevated',
   children: (
     <>
-      <CardHero variant="expanded" img={imageLink} />
+      <CardHero variant="expanded" img={image.src} />
       <CardBody overline="Resources" headline="Learn how to use  our app">
-      <CardButton
+        <CardButton
           text="Search"
           variant="secondary"
           link="/search"
@@ -124,11 +148,11 @@ HeroWithImage.args = {
 
 export const HeroFillWithImage = Template.bind({});
 HeroFillWithImage.args = {
-    children: (
-        <>
-            <CardHero variant="expanded" fill="#1a4480" img={imageLink} />
-            <CardBody overline="Resources" headline="Learn how to use  our app">
-            <CardButton
+  children: (
+    <>
+      <CardHero variant="expanded" fill="#1a4480" img={image.src} />
+      <CardBody overline="Resources" headline="Learn how to use our app">
+        <CardButton
           text="Search"
           variant="secondary"
           link="/search"
@@ -136,6 +160,10 @@ HeroFillWithImage.args = {
           buttonSize="sm"
           textAlignment="center"
         />
-          </CardBody>
-        </>
-      ),}
+      </CardBody>
+    </>
+  ),
+}
+
+export const Default = Template.bind({});      
+Default.tags = ['autodocs', '!dev'];

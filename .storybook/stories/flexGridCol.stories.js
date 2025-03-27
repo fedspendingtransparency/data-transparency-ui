@@ -5,6 +5,7 @@ import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 export default {
   title: 'Flex Grid/Flex Grid Col',
   component: FlexGridCol,
+  tags: ['autodocs'],
 };
 
 const OneColumTemplate = (args) => (

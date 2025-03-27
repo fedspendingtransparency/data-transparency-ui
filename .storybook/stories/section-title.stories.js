@@ -7,6 +7,7 @@ import { ExampleTooltip } from '../misc';
 export default {
   title: 'Section Title',
   component: SectionWrapper,
+  tags: ['autodocs'],
 };
 
 const Template = (args) => (

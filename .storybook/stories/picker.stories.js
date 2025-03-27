@@ -6,6 +6,7 @@ import { PickerWrapper } from '../misc';
 export default {
   title: 'Picker',
   component: Picker,
+  tags: ['autodocs'],
 };
 
 export const Default = (args) => (

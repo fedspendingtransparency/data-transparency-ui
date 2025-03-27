@@ -7,6 +7,7 @@ import { TableWrapper, BasicTableWrapper, CustomColumnExample } from '../misc';
 export default {
   title: 'Table',
   component: Table,
+  tags: ['autodocs'],
 };
 
 const expandableData = [
