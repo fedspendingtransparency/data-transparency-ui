@@ -3,7 +3,7 @@ import FlexGridContainer from '../../components/flexGrid/FlexGridContainer';
 
 
 export default {
-  title: 'Flex Grid/Flex Grid Container',
+  title: 'Layout/Flex Grid/Flex Grid Container',
   component: FlexGridContainer,
   tags: ['autodocs'],
 };

@@ -3,7 +3,7 @@ import { TabsWrapper, TabsTooltip, InformationBoxesWrapper } from '../misc';
 import InformationBoxes from '../../components/InformationBoxes';
 
 export default {
-  title: 'Information Boxes',
+  title: 'Data Display/Information Boxes',
   component: InformationBoxes,
   tags: ['autodocs'],
 };

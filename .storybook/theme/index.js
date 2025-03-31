@@ -31,7 +31,7 @@ export default create({
     inputTextColor: 'black',
     inputBorderRadius: 4,
   
-    brandTitle: 'My custom storybook',
+    brandTitle: 'Data Transparency Program',
     brandUrl: 'https://example.com',
-    brandImage: 'https://placehold.it/350x150',
+    brandImage: '',
 });

@@ -1,10 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from '../../components/Button';
+import Button from "../../components/Button";
 import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 
 export default {
-  title: 'Buttons',
+  title: 'Buttons/Buttons',
   component: Button,
   tags: ['autodocs'],
 };

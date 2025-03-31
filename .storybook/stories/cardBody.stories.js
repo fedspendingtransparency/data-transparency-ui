@@ -4,7 +4,7 @@ import FlexGridRow from "../../components/flexGrid/FlexGridRow";
 import React from "react";
 
 export default {
-    title: 'Card/CardBody',
+    title: 'General/Cards/CardBody',
     component: CardBody,
     tags: ['autodocs', '!dev'],
 };

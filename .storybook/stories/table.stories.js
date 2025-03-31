@@ -5,7 +5,7 @@ import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
 import { TableWrapper, BasicTableWrapper, CustomColumnExample } from '../misc';
 
 export default {
-  title: 'Table',
+  title: 'Tables/Table',
   component: Table,
   tags: ['autodocs'],
 };

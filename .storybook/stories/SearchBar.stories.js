@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from '../../components/SearchBar';
 
 export default {
-  title: 'SearchBar',
+  title: 'Tables/SearchBar',
   component: SearchBar,
   tags: ['autodocs'],
 };

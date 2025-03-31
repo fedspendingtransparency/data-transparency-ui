@@ -3,7 +3,7 @@ import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
 import { Tooltip } from '../misc';
 
 export default {
-  title: 'Tooltip Wrapper',
+  title: 'Data Display/Tooltip Wrapper',
   component: TooltipWrapper,
   tags: ['autodocs']
 };

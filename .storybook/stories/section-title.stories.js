@@ -5,7 +5,7 @@ import ComingSoon from '../../components/messages/ComingSoon';
 import { ExampleTooltip } from '../misc';
 
 export default {
-  title: 'Section Title',
+  title: 'Layout/Section Title',
   component: SectionWrapper,
   tags: ['autodocs'],
 };
