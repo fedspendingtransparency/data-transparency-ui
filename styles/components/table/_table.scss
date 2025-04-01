@@ -118,7 +118,6 @@ table.usda-table {
     &.table-for-new-search-page {
         margin-top: 0;
         margin-bottom: 0;
-
         .usda-table__body-special-color {
             background-color: $blue-warm-5;
         }
@@ -137,7 +136,10 @@ table.usda-table {
         }
         
 
-        td.stickyFirstColumn {
+        td.stickyColumn {
+            border-left:rem(1) solid $gray-cool-10;
+        }
+        th.stickyColumn:first-of-type {
             border-left:rem(1) solid $gray-cool-10;
         }
 
