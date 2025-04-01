@@ -42,21 +42,6 @@ export const Large = {
   },
 };
 
-export const CenterAlignment = {
-  args: {
-    copy: "Center",
-    buttonTitle: "TEST",
-    buttonSize: "md",
-    buttonType: "secondary",
-    backgroundColor: "light",
-    imageAlignment: "right",
-    textAlignment: "center",
-    image: <FontAwesomeIcon icon="share-alt" />,
-  },
-};
-
-
-
 export const centerTextAlignment = {
   args: {
     buttonSize: "md",
@@ -88,7 +73,7 @@ export const Disabled = {
     copy: "Test",
     backgroundColor: "light",
     buttonType: "secondary",
-    disabled: true,
+    disabled: true
   },
 };
 
@@ -100,6 +85,29 @@ export const Icon = {
     backgroundColor: "light",
     buttonType: "secondaryIcon",
     imageAlignment: "left",
-    image: <FontAwesomeIcon icon="share-alt" />,
+    image: <FontAwesomeIcon icon="share-alt" />
   },
 };
+
+export const DarkBackground = {
+  args: {
+    buttonSize: "medium",
+    buttonTitle: "Test",
+    copy: "Test",
+    backgroundColor: "dark",
+    buttonType: "secondary"
+  }
+}
+
+
+export const DarkBackgroundWIcon = {
+  args: {
+    buttonSize: "medium",
+    buttonTitle: "Test",
+    copy: "Test",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    imageAlignment: "left",
+    image:<FontAwesomeIcon icon="share-alt"/>
+  }
+}

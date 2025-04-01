@@ -42,21 +42,6 @@ export const Large = {
   },
 };
 
-export const CenterAlignment = {
-  args: {
-    copy: "Center",
-    buttonTitle: "TEST",
-    buttonSize: "md",
-    buttonType: "primary",
-    backgroundColor: "light",
-    imageAlignment: "right",
-    textAlignment: "center",
-    image: <FontAwesomeIcon icon="share-alt" />,
-  },
-};
-
-
-
 export const centerTextAlignment = {
   args: {
     buttonSize: "md",

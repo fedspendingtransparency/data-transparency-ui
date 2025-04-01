@@ -12,7 +12,7 @@ export const Small = {
     copy: "Small",
     buttonTitle: "TEST",
     buttonSize: "sm",
-    buttonType: "secondary",
+    buttonType: "tertiary",
     backgroundColor: "light",
     imageAlignment: "right",
     image: <FontAwesomeIcon icon="share-alt" />,
@@ -24,7 +24,7 @@ export const Medium = {
     copy: "Medium",
     buttonTitle: "TEST",
     buttonSize: "md",
-    buttonType: "secondary",
+    buttonType: "tertiary",
     backgroundColor: "light",
     imageAlignment: "right",
     image: <FontAwesomeIcon icon="share-alt" />,
@@ -35,27 +35,12 @@ export const Large = {
     copy: "Large",
     buttonTitle: "TEST",
     buttonSize: "lg",
-    buttonType: "secondary",
+    buttonType: "tertiary",
     backgroundColor: "light",
     imageAlignment: "right",
     image: <FontAwesomeIcon icon="share-alt" />,
   },
 };
-
-export const CenterAlignment = {
-  args: {
-    copy: "Center",
-    buttonTitle: "TEST",
-    buttonSize: "md",
-    buttonType: "secondary",
-    backgroundColor: "light",
-    imageAlignment: "right",
-    textAlignment: "center",
-    image: <FontAwesomeIcon icon="share-alt" />,
-  },
-};
-
-
 
 export const centerTextAlignment = {
   args: {
@@ -63,7 +48,7 @@ export const centerTextAlignment = {
     buttonTitle: "This is wrapping button tex",
     copy: "This is wrapping button text",
     backgroundColor: "light",
-    buttonType: "secondary",
+    buttonType: "tertiary",
     textAlignment: "center",
     maxWidth: "200px",
   },
@@ -75,7 +60,7 @@ export const leftTextAlignment = {
     buttonTitle: "This is wrapping button tex",
     copy: "This is wrapping button text",
     backgroundColor: "light",
-    buttonType: "secondary",
+    buttonType: "tertiary",
     textAlignment: "left",
     maxWidth: "200px",
   },
@@ -87,7 +72,7 @@ export const Disabled = {
     buttonTitle: "Test",
     copy: "Test",
     backgroundColor: "light",
-    buttonType: "secondary",
+    buttonType: "tertiary",
     disabled: true,
   },
 };
@@ -98,8 +83,18 @@ export const Icon = {
     buttonTitle: "Test",
     copy: "Test",
     backgroundColor: "light",
-    buttonType: "secondaryIcon",
+    buttonType: "tertiaryIcon",
     imageAlignment: "left",
-    image: <FontAwesomeIcon icon="share-alt" />,
+    image: <FontAwesomeIcon icon="share-alt" />
   },
 };
+
+export const DarkBackground = {
+  args: {
+    buttonSize: "medium",
+    buttonTitle: "Test",
+    copy: "Test",
+    backgroundColor: "dark",
+    buttonType: "tertiary"
+  }
+}
