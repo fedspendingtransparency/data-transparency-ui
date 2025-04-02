@@ -5,10 +5,7 @@ import { within, userEvent, fn, expect } from '@storybook/test';
 export default {
   title: 'SearchBar',
   component: SearchBar,
-  tags: ['autodocs'],
-  args: {
-    onSearch: fn()
-  }
+  tags: ['autodocs']
 };
 
 function sleep(ms) {
@@ -16,7 +13,7 @@ function sleep(ms) {
 }
 
 export const Default = {
-  play: async({args, canvasElement, step}) => {
+  play: async({canvasElement, step}) => {
     const canvas = within(canvasElement);
     await step('Enter text & clear search', async () => {
       await userEvent.type(canvas.getByTitle("Search Input"), 'hello');
