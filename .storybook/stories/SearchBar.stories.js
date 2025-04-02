@@ -1,6 +1,5 @@
-import React from 'react';
 import SearchBar from '../../components/SearchBar';
-import { within, userEvent, fn, expect } from '@storybook/test';
+import { within, userEvent, expect } from '@storybook/test';
 
 export default {
   title: 'SearchBar',
@@ -8,26 +7,24 @@ export default {
   tags: ['autodocs']
 };
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export const Default = {
   play: async({canvasElement, step}) => {
     const canvas = within(canvasElement);
-    await step('Enter text & clear search', async () => {
-      await userEvent.type(canvas.getByTitle("Search Input"), 'hello');
+    await step('Enter text & submit', async () => {
+      await userEvent.type(canvas.getByTitle("Search Input"), 'hello', {delay: 500});
       await userEvent.click(canvas.getByTitle("Submit Search Button"));
-      await sleep(3500)
+      expect(canvas.getByTitle("Remove Input Value Button")).toBeTruthy();
+    })
+
+    await step('Clear submitted text', async() => {
       await userEvent.click(canvas.getByTitle("Remove Input Value Button"));
+      expect(canvas.getByTitle("Submit Search Button")).toBeTruthy();
     })
 
     await step('Text too short', async () => {
       await userEvent.type(canvas.getByTitle("Search Input"), 'hi');
       expect(canvas.getByTitle("Submit Search Button")).toBeDisabled();
     })
- 
-
   },
   args: {
     minChars: 5,
