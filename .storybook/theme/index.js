@@ -1,5 +1,4 @@
 import { create } from '@storybook/theming';
-
 export default create({
     base: 'light',
 
@@ -31,7 +30,6 @@ export default create({
     inputTextColor: 'black',
     inputBorderRadius: 4,
   
-    brandTitle: 'Data Transparency Program',
+    brandTitle: `<img src="../../assets/img/logo.ico" width="20px" style="vertical-align:middle"/>Data Transparency Program`,
     brandUrl: 'https://example.com',
-    brandImage: '',
 });
