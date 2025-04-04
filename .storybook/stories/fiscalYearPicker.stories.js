@@ -2,7 +2,7 @@ import React from 'react';
 import FiscalYearPicker from '../../components/FiscalYearPicker';
 
 export default {
-    title: 'FiscalYearPicker',
+    title: 'Pickers/Fiscal Year Picker',
     component: FiscalYearPicker,
     tags: ['autodocs'],
   };

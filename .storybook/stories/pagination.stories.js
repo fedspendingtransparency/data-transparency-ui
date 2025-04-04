@@ -3,7 +3,7 @@ import Pagination from '../../components/pagination/Pagination';
 import { PaginationWrapper } from '../misc';
 
 export default {
-  title: 'Pagination',
+  title: 'Tables/Pagination',
   component: Pagination,
   tags: ['autodocs'],
 };

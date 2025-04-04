@@ -2,7 +2,7 @@ import SearchBar from '../../components/SearchBar';
 import { within, userEvent, expect } from '@storybook/test';
 
 export default {
-  title: 'SearchBar',
+  title: 'Tables/SearchBar',
   component: SearchBar,
   tags: ['autodocs']
 };

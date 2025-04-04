@@ -7,7 +7,7 @@ import ComingSoon from '../../components/messages/ComingSoon';
 import GenericMessage from '../../components/messages/GenericMessage';
 
 export default {
-  title: 'Messages',
+  title: 'General/Messages',
   component: GenericMessage,
   tags: ['autodocs'],
 };

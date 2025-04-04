@@ -3,7 +3,7 @@ import QuarterPicker from '../../components/quarterPicker/QuarterPicker';
 import { QuarterPickerWrapper, QuarterPickerWithPeriods, QuarterPickerCumulative } from '../misc';
 
 export default {
-  title: 'Quarter Picker',
+  title: 'Pickers/Quarter Picker',
   component: QuarterPicker,
   tags: ['autodocs'],
 };

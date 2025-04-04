@@ -7,7 +7,7 @@ import FiscalYearPicker from '../../components/FiscalYearPicker';
 import { InPageNavWrapper, Tooltip } from '../misc';
 
 export default {
-  title: 'Page Header',
+  title: 'Layout/Page Header',
   tags: ['autodocs'],
   parameters: {
     options: {

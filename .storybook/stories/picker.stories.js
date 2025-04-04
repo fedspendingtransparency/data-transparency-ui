@@ -4,7 +4,7 @@ import Picker from '../../components/Picker';
 import { PickerWrapper } from '../misc';
 
 export default {
-  title: 'Picker',
+  title: 'Pickers/Picker',
   component: Picker,
   tags: ['autodocs'],
 };

@@ -3,7 +3,7 @@ import FlexGridRow from '../../components/flexGrid/FlexGridRow';
 import FlexGridCol from '../../components/flexGrid/FlexGridCol';
 import FlexGridContainer from "../../components/flexGrid/FlexGridContainer"
 export default {
-  title: 'Flex Grid/Flex Grid Row',
+  title: 'Layout/Flex Grid/Flex Grid Row',
   component: FlexGridRow,
   tags: ['autodocs'],
 };

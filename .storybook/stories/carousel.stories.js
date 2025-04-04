@@ -5,7 +5,7 @@ import imageTwo from '../../assets/img/carouselImageTwo.png'
 import imageThree from '../../assets/img/carouselImageThree.png'
 
 export default {
-  title: 'Carousel',
+  title: 'General/Carousel',
   component: Carousel,
   tags: ['autodocs'],
 };

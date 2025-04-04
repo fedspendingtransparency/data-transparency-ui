@@ -3,7 +3,7 @@ import { TabsWrapper, TabsTooltip, TabsWrapperShowTooltip } from '../misc';
 import Tabs from '../../components/tabs/Tabs';
 
 export default {
-  title: 'Tabs',
+  title: 'Layout/Tabs',
   component: Tabs,
   tags: ['autodocs'],
 };
