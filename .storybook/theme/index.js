@@ -30,6 +30,6 @@ export default create({
     inputTextColor: 'black',
     inputBorderRadius: 4,
   
-    brandTitle: `<img src="../../assets/img/iconLogo.svg" width="20px" style="vertical-align:middle"/>Data Transparency Program`,
+    brandTitle: `Data Transparency Program`,
     brandUrl: 'https://example.com',
 });
