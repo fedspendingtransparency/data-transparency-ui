@@ -9,44 +9,38 @@ export default {
 
 export const Small = {
   args: {
-    copy: "Small",
-    buttonTitle: "TEST",
-    buttonSize: "sm",
-    buttonType: "primary",
-    backgroundColor: "light",
-    imageAlignment: "right",
-    image: <FontAwesomeIcon icon="share-alt" />,
+    copy:"sm",
+    buttonTitle:"Small",
+    buttonSize:"sm",
+    buttonType:"primary",
+    backgroundColor:"light"
   },
 };
 
 export const Medium = {
   args: {
-    copy: "Medium",
-    buttonTitle: "TEST",
+    copy: "md",
+    buttonTitle: "Medium",
     buttonSize: "md",
     buttonType: "primary",
     backgroundColor: "light",
-    imageAlignment: "right",
-    image: <FontAwesomeIcon icon="share-alt" />,
   },
 };
 export const Large = {
   args: {
-    copy: "Large",
-    buttonTitle: "TEST",
+    copy: "lg",
+    buttonTitle: "large",
     buttonSize: "lg",
     buttonType: "primary",
     backgroundColor: "light",
-    imageAlignment: "right",
-    image: <FontAwesomeIcon icon="share-alt" />,
   },
 };
 
-export const centerTextAlignment = {
+export const smallCenterTextAlignment = {
   args: {
-    buttonSize: "md",
-    buttonTitle: "This is wrapping button tex",
-    copy: "This is wrapping button text",
+    buttonSize: "sm",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
     backgroundColor: "light",
     buttonType: "primary",
     textAlignment: "center",
@@ -54,11 +48,35 @@ export const centerTextAlignment = {
   },
 };
 
-export const leftTextAlignment = {
+export const mediumCenterTextAlignment = {
   args: {
     buttonSize: "md",
-    buttonTitle: "This is wrapping button tex",
-    copy: "This is wrapping button text",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "light",
+    buttonType: "primary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const largeCenterTextAlignment = {
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "light",
+    buttonType: "primary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const smallLeftTextAlignment = {
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
     backgroundColor: "light",
     buttonType: "primary",
     textAlignment: "left",
@@ -66,22 +84,92 @@ export const leftTextAlignment = {
   },
 };
 
-export const Disabled = {
+export const mediumLeftTextAlignment = {
   args: {
     buttonSize: "md",
-    buttonTitle: "Test",
-    copy: "Test",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "light",
+    buttonType: "primary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const largeLeftTextAlignment = {
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "light",
+    buttonType: "primary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const smallDisabled = {
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
     backgroundColor: "light",
     buttonType: "primary",
     disabled: true,
   },
 };
 
-export const Icon = {
+export const mediumDisabled = {
+  args: {
+    buttonSize: "md",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "light",
+    buttonType: "primary",
+    disabled: true,
+  },
+};
+
+export const largeDisabled = {
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "light",
+    buttonType: "primary",
+    disabled: true,
+  },
+};
+
+export const smallIcon = {
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "Test",
+    copy: "Icon",
+    backgroundColor: "light",
+    buttonType: "primaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
+  },
+};
+
+export const mediumIcon = {
   args: {
     buttonSize: "md",
     buttonTitle: "Test",
-    copy: "Test",
+    copy: "Icon",
+    backgroundColor: "light",
+    buttonType: "primaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
+  },
+};
+
+export const largeIcon = {
+  args: {
+    buttonSize: "large",
+    buttonTitle: "Test",
+    copy: "Icon",
     backgroundColor: "light",
     buttonType: "primaryIcon",
     imageAlignment: "left",
