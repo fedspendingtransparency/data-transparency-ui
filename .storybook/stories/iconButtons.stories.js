@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "../../components/Button";
 export default {
-  title: "Buttons/Stacked",
+  title: "Buttons/Icon",
   component: Button,
   tags: ["autodocs"],
 };

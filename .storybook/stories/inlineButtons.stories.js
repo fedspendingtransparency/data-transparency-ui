@@ -9,60 +9,337 @@ export default {
 
 export const Small = {
   args: {
-    copy: "Small",
-    buttonTitle: "TEST",
-    buttonSize: "sm",
-    buttonType: "inline",
-    backgroundColor: "light",
-    imageAlignment: "right",
-    image: <FontAwesomeIcon icon="share-alt" />,
+    copy:"sm",
+    buttonTitle:"Small",
+    buttonSize:"sm",
+    buttonType:"secondary",
+    backgroundColor:"light"
   },
 };
 
 export const Medium = {
   args: {
-    copy: "Medium",
-    buttonTitle: "TEST",
+    copy: "md",
+    buttonTitle: "Medium",
     buttonSize: "md",
-    buttonType: "inline",
+    buttonType: "secondary",
     backgroundColor: "light",
-    imageAlignment: "right",
-    image: <FontAwesomeIcon icon="share-alt" />,
   },
 };
-
-export const CenterAlignment = {
-  args: {
-    copy: "Center",
-    buttonTitle: "TEST",
-    buttonSize: "md",
-    buttonType: "inline",
-    backgroundColor: "light",
-    imageAlignment: "right",
-    textAlignment: "center",
-    image: <FontAwesomeIcon icon="share-alt" />,
-  },
-};
-
 export const Large = {
   args: {
-    copy: "Large",
-    buttonTitle: "TEST",
+    copy: "lg",
+    buttonTitle: "large",
     buttonSize: "lg",
-    buttonType: "inline",
+    buttonType: "secondary",
     backgroundColor: "light",
-    imageAlignment: "right",
+  },
+};
+
+export const smallCenterTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const mediumCenterTextAlignment = {
+  args: {
+    buttonSize: "md",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const largeCenterTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const smallLeftTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const mediumLeftTextAlignment = {
+  args: {
+    buttonSize: "md",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const largeLeftTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const smallDisabled = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    disabled: true,
+  },
+};
+
+export const mediumDisabled = {
+  args: {
+    buttonSize: "md",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    disabled: true,
+  },
+};
+
+export const largeDisabled = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "light",
+    buttonType: "secondary",
+    disabled: true,
+  },
+};
+
+export const smallIcon = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "Test",
+    copy: "Icon",
+    backgroundColor: "light",
+    buttonType: "secondaryIcon",
+    imageAlignment: "left",
     image: <FontAwesomeIcon icon="share-alt" />,
   },
 };
 
-export const InlineText = {
+export const mediumIcon = {
   args: {
-    copy: "Test",
-    buttonTitle: "Test",
     buttonSize: "md",
+    buttonTitle: "Test",
+    copy: "Icon",
     backgroundColor: "light",
-    buttonType: "intext",
-    to: "https://usaspending.gov",
+    buttonType: "secondaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
+  },
+};
+
+export const largeIcon = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "large",
+    buttonTitle: "Test",
+    copy: "Icon",
+    backgroundColor: "light",
+    buttonType: "secondaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
+  },
+};
+
+export const darkSmall = {
+  tags: ['!dev'],
+  args: {
+    copy:"sm",
+    buttonTitle:"Small",
+    buttonSize:"sm",
+    buttonType:"secondary",
+    backgroundColor:"dark"
+  },
+};
+
+export const darkMedium = {
+  tags: ['!dev'],
+  args: {
+    copy: "md",
+    buttonTitle: "Medium",
+    buttonSize: "md",
+    buttonType: "secondary",
+    backgroundColor: "dark",
+  },
+};
+export const darkLarge = {
+  tags: ['!dev'],
+  args: {
+    copy: "lg",
+    buttonTitle: "large",
+    buttonSize: "lg",
+    buttonType: "secondary",
+    backgroundColor: "dark",
+  },
+};
+
+export const darkSmallCenterTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const darkMediumCenterTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "md",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const darkLargeCenterTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "wrapping text button",
+    copy: "This is center text alignment",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    textAlignment: "center",
+    maxWidth: "200px",
+  },
+};
+
+export const darkSmallLeftTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const darkMediumLeftTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "md",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const darkLargeLeftTextAlignment = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "wrapping text button",
+    copy: "This is left text alignment",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    textAlignment: "left",
+    maxWidth: "200px",
+  },
+};
+
+export const darkSmallDisabled = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    disabled: true,
+  },
+};
+
+export const darkMediumDisabled = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "md",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    disabled: true,
+  },
+};
+
+export const darkLargeDisabled = {
+  tags: ['!dev'],
+  args: {
+    buttonSize: "lg",
+    buttonTitle: "disabled button",
+    copy: "disabled button",
+    backgroundColor: "dark",
+    buttonType: "secondary",
+    disabled: true,
+  },
+};
+
+
+export const darkLargeIcon = {
+  args: {
+    buttonSize: "large",
+    buttonTitle: "Test",
+    copy: "Icon",
+    backgroundColor: "dark",
+    buttonType: "secondaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
   },
 };
