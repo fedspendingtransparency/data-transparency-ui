@@ -330,9 +330,33 @@ export const darkLargeDisabled = {
     disabled: true,
   },
 };
+export const darkSmallIcon = {
+  tags: ["!dev"],
+  args: {
+    buttonSize: "sm",
+    buttonTitle: "Test",
+    copy: "Icon",
+    backgroundColor: "dark",
+    buttonType: "secondaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
+  },
+};
 
+export const darkMediumIcon = {
+  args: {
+    buttonSize: "md",
+    buttonTitle: "Test",
+    copy: "Icon",
+    backgroundColor: "dark",
+    buttonType: "secondaryIcon",
+    imageAlignment: "left",
+    image: <FontAwesomeIcon icon="share-alt" />,
+  },
+};
 
 export const darkLargeIcon = {
+  tags: ["!dev"],
   args: {
     buttonSize: "large",
     buttonTitle: "Test",
