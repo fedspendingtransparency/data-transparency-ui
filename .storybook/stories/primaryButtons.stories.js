@@ -117,7 +117,7 @@ export const smallDisabled = {
   args: {
     buttonSize: "sm",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled sm",
     backgroundColor: "light",
     buttonType: "primary",
     disabled: true,
@@ -128,7 +128,7 @@ export const mediumDisabled = {
   args: {
     buttonSize: "md",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled md",
     backgroundColor: "light",
     buttonType: "primary",
     disabled: true,
@@ -140,7 +140,7 @@ export const largeDisabled = {
   args: {
     buttonSize: "lg",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled lg",
     backgroundColor: "light",
     buttonType: "primary",
     disabled: true,

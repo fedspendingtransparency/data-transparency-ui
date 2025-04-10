@@ -41,7 +41,7 @@ export const SmallTextDisabled = {
   args: {
     buttonSize: "sm",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled sm",
     backgroundColor: "light",
     buttonType: "text",
     disabled: true,
@@ -52,7 +52,7 @@ export const MediumTextDisabled = {
   args: {
     buttonSize: "md",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled md",
     backgroundColor: "light",
     buttonType: "text",
     disabled: true,
@@ -64,7 +64,7 @@ export const LargeTextDisabled = {
   args: {
     buttonSize: "lg",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled lg",
     backgroundColor: "light",
     buttonType: "text",
     disabled: true,
@@ -122,7 +122,7 @@ export const SmallTextRightImage = {
   },
 };
 
-export const MediumTextTextRighImage = {
+export const MediumTextRightImage = {
   args: {
     buttonSize: "md",
     buttonTitle: "Test",
@@ -134,7 +134,7 @@ export const MediumTextTextRighImage = {
   },
 };
 
-export const LargeTextTextRightImage = {
+export const LargeTextRightImage = {
   tags: ['!dev'],
   args: {
     buttonSize: "large",
@@ -181,7 +181,7 @@ export const DarkSmallTextDisabled = {
   args: {
     buttonSize: "sm",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled sm",
     backgroundColor: "dark",
     buttonType: "text",
     disabled: true,
@@ -192,7 +192,7 @@ export const DarkMediumTextDisabled = {
   args: {
     buttonSize: "md",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled md",
     backgroundColor: "dark",
     buttonType: "text",
     disabled: true,
@@ -204,7 +204,7 @@ export const DarkLargeTextDisabled = {
   args: {
     buttonSize: "lg",
     buttonTitle: "disabled button",
-    copy: "disabled button",
+    copy: "disabled lg",
     backgroundColor: "dark",
     buttonType: "text",
     disabled: true,
