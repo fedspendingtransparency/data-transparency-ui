@@ -1,0 +1,35 @@
+import {Meta, Canvas, Controls, Story, Title} from '@storybook/blocks';
+import * as PrimaryButtons from "./primaryButtons.stories";
+import Buttons from "../../components/Button";
+import FlexGridCol from '../../components/flexGrid/FlexGridCol';
+import FlexGridRow from '../../components/flexGrid/FlexGridRow';
+
+<Meta of={PrimaryButtons}/>
+
+# Primary Button Variants
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={PrimaryButtons.Small} />
+    <Story of={PrimaryButtons.Medium} />
+    <Story of={PrimaryButtons.Large} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px"  }}>
+    <Story of={PrimaryButtons.smallCenterTextAlignment} />
+    <Story of={PrimaryButtons.mediumCenterTextAlignment} />
+    <Story of={PrimaryButtons.largeCenterTextAlignment} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px"  }}>
+    <Story of={PrimaryButtons.smallLeftTextAlignment} />
+    <Story of={PrimaryButtons.mediumLeftTextAlignment} />
+    <Story of={PrimaryButtons.largeLeftTextAlignment} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px"  }}>
+    <Story of={PrimaryButtons.smallDisabled} />
+    <Story of={PrimaryButtons.mediumDisabled} />
+    <Story of={PrimaryButtons.largeDisabled} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px"  }}>
+    <Story of={PrimaryButtons.smallIcon} />
+    <Story of={PrimaryButtons.mediumIcon} />
+    <Story of={PrimaryButtons.largeIcon} />
+</FlexGridRow>
+

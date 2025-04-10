@@ -1,0 +1,70 @@
+import {Meta, Canvas, Controls, Story, Title} from '@storybook/blocks';
+import * as InlineButtons from "./inlineButtons.stories";
+import Buttons from "../../components/Button";
+import FlexGridCol from '../../components/flexGrid/FlexGridCol';
+import FlexGridRow from '../../components/flexGrid/FlexGridRow';
+
+<Meta of={InlineButtons}/>
+
+# Text Button Variants
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallText} />
+    <Story of={InlineButtons.MediumText} />
+    <Story of={InlineButtons.LargeText} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallTextDisabled} />
+    <Story of={InlineButtons.MediumTextDisabled} />
+    <Story of={InlineButtons.LargeTextDisabled} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallTextLeftImage} />
+    <Story of={InlineButtons.MediumTextLeftImage} />
+    <Story of={InlineButtons.LargetTextLeftImage} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallTextRightImage} />
+    <Story of={InlineButtons.MediumTextRightImage} />
+    <Story of={InlineButtons.LargeTextRightImage} />
+</FlexGridRow>
+# Text Dark Button Variants
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px",backgroundColor: "#323a44" }}>
+    <Story of={InlineButtons.DarkSmallText} />
+    <Story of={InlineButtons.DarkMediumText} />
+    <Story of={InlineButtons.DarkLargeText} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px",backgroundColor: "#323a44" }}>
+    <Story of={InlineButtons.DarkSmallTextDisabled} />
+    <Story of={InlineButtons.DarkMediumTextDisabled} />
+    <Story of={InlineButtons.DarkLargeTextDisabled} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px",backgroundColor: "#323a44" }}>
+    <Story of={InlineButtons.DarkSmallTextLeftImage} />
+    <Story of={InlineButtons.DarkMediumTextTextLeftImage} />
+    <Story of={InlineButtons.DarkLargeTextTextLeftImage} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px",backgroundColor: "#323a44" }}>
+    <Story of={InlineButtons.DarkSmallTextRightImage} />
+    <Story of={InlineButtons.DarkMediumTextTextRighImage} />
+    <Story of={InlineButtons.DarkLargeTextTextRightImage} />
+</FlexGridRow>
+
+
+# Inline Button Variants
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallInlineRightImage} />
+    <Story of={InlineButtons.MediumInlineRightImage} />
+    <Story of={InlineButtons.LargeInlineRightImage} />
+</FlexGridRow>
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallInlineRightImageDisabled} />
+    <Story of={InlineButtons.MediumInlineRightImageDisabled} />
+    <Story of={InlineButtons.LargeInlineRightImageDisabled} />
+</FlexGridRow>
+
+# Intext Button Variants
+<FlexGridRow width={3} desktop={3} hasGutter gutterSize={32} style={{ marginLeft: "16px", marginBottom: "16px" }}>
+    <Story of={InlineButtons.SmallIntext} />
+    <Story of={InlineButtons.MediumIntext} />
+    <Story of={InlineButtons.LargeIntext} />
+</FlexGridRow>
