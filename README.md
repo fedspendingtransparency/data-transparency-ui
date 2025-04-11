@@ -1,7 +1,7 @@
 # Data Transparency User Interface (UI) Component Library
 
 ## Storybook Documentation
-[https://fedspendingtransparency.github.io/data-transparency-ui/?path=/story/introduction--page](https://fedspendingtransparency.github.io/data-transparency-ui/?path=/story/introduction--page)
+[https://fedspendingtransparency.github.io/data-transparency-ui/?path=/story/introduction--page](https://fedspendingtransparency.github.io/data-transparency-ui/
 
 ## Installation Instructions
 Install our library using npm:
