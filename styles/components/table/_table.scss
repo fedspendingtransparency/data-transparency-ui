@@ -26,12 +26,7 @@ table.usda-table {
         td.usda-table__cell.stickyColumn {
             position: sticky;
             left: 0;
-            border-right: solid 1px $gray-cool-10;
-
-            &.add-box-shadow {
-                // same as $shadow-sm, but only on right side
-                box-shadow: 4px 0 8px -2px rgba(0, 0, 0, 0.1);
-            }
+            border-right: solid 1px $gray-cool-10 !important;
         }
 
         tr.usda-table__row {
@@ -123,17 +118,29 @@ table.usda-table {
     &.table-for-new-search-page {
         margin-top: 0;
         margin-bottom: 0;
-
         .usda-table__body-special-color {
             background-color: $blue-warm-5;
         }
 
         th {
-            border: rem(1) solid $gray-cool-10;
+            border: none;
+            border-top: rem(1) solid $gray-cool-10;
+            border-right: rem(1) solid $gray-cool-10;
+            border-bottom: rem(1) solid $gray-cool-10;
         }
 
         td {
-            border: rem(1) solid $gray-cool-10;
+            border: none;
+            border-right: rem(1) solid $gray-cool-10;
+            border-bottom: rem(1) solid $gray-cool-10;
+        }
+        
+
+        td.stickyColumn {
+            border-left:rem(1) solid $gray-cool-10;
+        }
+        th.stickyColumn:first-of-type {
+            border-left:rem(1) solid $gray-cool-10;
         }
 
         thead.usda-table__head {
@@ -179,7 +186,7 @@ table.usda-table {
                     padding: rem(8) rem(16);
                     height: inherit;
 
-                    @media (max-width: $tablet-screen - 1) {
+                    @media (max-width: ($tablet-screen - 1)) {
                         padding: 0 rem(16) rem(12);
                     }
                 }
@@ -209,7 +216,7 @@ table.usda-table {
                         display: none;
                     }
 
-                    @media (max-width: $tablet-screen - 1) {
+                    @media (max-width: ($tablet-screen - 1)) {
                         padding: 0 rem(16) rem(12);
 
                         a {
@@ -228,11 +235,6 @@ table.usda-table {
         &.award-results-table-dtui {
             // this is needed to make the right border and the box shadow appear on the sticky column
             border-collapse: separate;
-
-            th.table-header {
-                // because we were seeing double borders here
-                border-right: 0;
-            }
             th.table-header:last-of-type {
                 border-right: rem(1) solid $gray-cool-10;
             }
@@ -246,19 +248,12 @@ table.usda-table {
             }
 
             tbody.usda-table__body {
-                th {
-                    border: rem(1) solid $gray-cool-10;
-                }
-
                 .usda-table__row {
                     td.usda-table__cell {
                         vertical-align: top;
                         // because of overlapping css rules, we need to delete the borders here
                         // to avoid double borders
-                        border-top: 0;
-                        border-right: 0;
                         // and add the bottom border
-                        border-bottom: rem(1) solid $gray-cool-10;
 
                         &:last-of-type {
                             border-right: rem(1) solid $gray-cool-10;

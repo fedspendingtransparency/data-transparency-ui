@@ -26,28 +26,23 @@ const propTypes = {
     hideLast: PropTypes.bool
 };
 
-const defaultProps = {
-    currentPage: 1,
-    pageSize: 10,
-    resultsText: false,
-    customResultsText: null,
-    limitSelector: false,
-    changeLimit: () => {},
-    goToPage: false,
-    hideLast: false
-};
-
 require('../../styles/components/pagination/_pagination.scss');
 
-export default class Pagination extends React.Component {
-    getResultsText() {
-        const {
-            resultsText,
-            totalItems,
-            currentPage,
-            pageSize
-        } = this.props;
+const Pagination = ({
+    changePage,
+    totalItems,
+    currentPage = 1,
+    pageSize = 10,
+    resultsText = false,
+    limitSelector = false,
+    changeLimit = () => {},
+    goToPage = false,
+    id,
+    hideLast = false
+}) => {
+    const totalPages = Math.ceil(totalItems / pageSize);
 
+    const getResultsText = () => {
         if (React.isValidElement(resultsText)) {
             return resultsText;
         }
@@ -63,61 +58,43 @@ export default class Pagination extends React.Component {
             );
         }
         return null;
+    };
+
+    const limitSelect = limitSelector ? (
+        <LimitSelector
+            changeLimit={changeLimit}
+            pageSize={pageSize} />
+    ) : null;
+
+    const goTo = goToPage ? (
+        <GoToPage
+            changePage={changePage}
+            totalPages={totalPages}
+            id={id} />
+    ) : null;
+
+    if (!limitSelector && totalPages <= 1) {
+        // don't display pager if there is only 1 page
+        // except when the limit selector is present
+        return null;
     }
 
-    render() {
-        const {
-            limitSelector,
-            goToPage,
-            changePage,
-            changeLimit,
-            currentPage,
-            pageSize,
-            totalItems,
-            id,
-            hideLast
-        } = this.props;
-
-        const totalPages = Math.ceil(totalItems / pageSize);
-
-        const description = this.getResultsText();
-
-        const limitSelect = limitSelector ? (
-            <LimitSelector
-                changeLimit={changeLimit}
-                pageSize={pageSize} />
-        ) : null;
-
-        const goTo = goToPage ? (
-            <GoToPage
-                changePage={changePage}
-                totalPages={totalPages}
-                id={id} />
-        ) : null;
-
-        if (!limitSelector && totalPages <= 1) {
-            // don't display pager if there is only 1 page
-            // except when the limit selector is present
-            return null;
-        }
-
-        return (
-            <div className="usa-dt-pagination">
-                {description}
-                <div className="usa-dt-pagination__wrapper">
-                    {limitSelect}
-                    <Pager
-                        changePage={changePage}
-                        totalItems={totalItems}
-                        currentPage={currentPage}
-                        pageSize={pageSize}
-                        hideLast={hideLast} />
-                    {goTo}
-                </div>
+    return (
+        <div className="usa-dt-pagination">
+            {getResultsText()}
+            <div className="usa-dt-pagination__wrapper">
+                {limitSelect}
+                <Pager
+                    changePage={changePage}
+                    totalItems={totalItems}
+                    currentPage={currentPage}
+                    pageSize={pageSize}
+                    hideLast={hideLast} />
+                {goTo}
             </div>
-        );
-    }
-}
+        </div>
+    );
+};
 
 Pagination.propTypes = propTypes;
-Pagination.defaultProps = defaultProps;
+export default Pagination;

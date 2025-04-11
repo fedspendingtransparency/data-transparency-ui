@@ -2,8 +2,9 @@ import React from 'react';
 import Table from '../../components/table/Table';
 
 export default {
-    title: 'Table new props',
+    title: 'Tables/Table new props',
     component: Table,
+    tags: ['autodocs'],
   };
   const Default = (args) => 
   <div style={{width:'400px',overflowX: 'scroll'}}>

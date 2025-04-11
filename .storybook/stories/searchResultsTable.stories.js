@@ -3,8 +3,9 @@ import Table from '../../components/table/Table';
 import SearchResultsTableWrapper from '../../components/SearchResultsTableWrapper';
 
 export default {
-    title: 'Search Results Table',
+    title: 'Tables/Search Results Table',
     component: Table,
+    tags: ['autodocs'],
 };
 
 const searchResultsTableData =
