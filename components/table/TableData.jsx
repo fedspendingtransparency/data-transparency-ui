@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /**
  * TableData.jsx
  * Created by Lizzie Salita 5/14/20
@@ -40,7 +41,7 @@ const TableData = ({
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
-
+    const [detailsOpen, setDetailsOpen] = useState(false);
     const setFocus = () => {
         const selectedElement = document.querySelector(".selected-row");
         if (selectedElement) {
@@ -69,6 +70,10 @@ const TableData = ({
                 onClickHandler(row);
             }
         }
+    };
+    const clickHandler = (e) => {
+        e.preventDefault();
+        setDetailsOpen(!detailsOpen);
     };
 
     useEffect(() => {
@@ -104,22 +109,24 @@ const TableData = ({
                         }}
                         className={`usda-table__row-item usda-table__row${oddClass} ${rowIndexForMessage === i ? 'selected-row' : ''} ${subAward ? 'special-hover-color' : ''}`}
                         style={{ height: rowHeight }}>
-                        {row.map((data, j) => (
-                            columns[j]?.bodyHeader
-                                ? (
-                                    <TableHeader
-                                        className="table-header_body-header"
-                                        key={uniqueId()}
-                                        stickyFirstColumn={stickyFirstColumn}
-                                        index={j}
-                                        {...data} />
-                                )
-                                : (
-                                    <td
-                                        key={uniqueId()}
-                                        className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
-                                ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
-                                        {columns[j]
+                        {row.map((data, j) => {
+                            console.debug("DATA row: ", data, j);
+                            return (
+                                columns[j]?.bodyHeader
+                                    ? (
+                                        <TableHeader
+                                            className="table-header_body-header"
+                                            key={uniqueId()}
+                                            stickyFirstColumn={stickyFirstColumn}
+                                            index={j}
+                                            {...data} />
+                                    )
+                                    : (j <= 5 ? (
+                                        <td
+                                            key={uniqueId()}
+                                            className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
+                                        ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
+                                            {columns[j]
                                         && (
                                             <div className="usda-table__cell-heading-container">
                                                 {isMobile
@@ -134,24 +141,91 @@ const TableData = ({
                                                 )}
                                             </div>
                                         )}
-                                        <div>
-                                            {data.type === 'a' && j === 0 && isStacked && isMobile
-                                                ? (
-                                                    <a
-                                                        target={data.props.target}
-                                                        rel={data.props.rel}
-                                                        href={data.props.href}
-                                                        onClick={data.props.onClick}>
-                                                        {data.props.children}
+                                            <div className="usda-table__cell-data-container">
+                                                {data.type === 'a' && j === 0 && isStacked && isMobile
+                                                    ? (
+                                                        <a
+                                                            target={data.props.target}
+                                                            rel={data.props.rel}
+                                                            href={data.props.href}
+                                                            onClick={data.props.onClick}>
+                                                            {data.props.children}
+                                                            {' '}
+                                                            <FontAwesomeIcon icon="arrow-right" />
+                                                        </a>
+                                                    )
+                                                    : data}
+                                            </div>
+                                        </td>
+                                    )
+                                        : (
+                                            <div
+                                                className={`usda-table--cell-slider ${detailsOpen ? `dsm-opened` : ''}`}>
+                                                <span
+                                                    role="button"
+                                                    tabIndex={0}
+                                                    onClick={clickHandler}
+                                                    onKeyUp={(e) => {
+                                                        if (e.key === 'Enter') {
+                                                            setDetailsOpen(!detailsOpen);
+                                                        }
+                                                    }}>
+                                                    View additional details
+                                                    <div>
+                                                        {detailsOpen ? (
+                                                            <FontAwesomeIcon className="chevron" icon="chevron-up" />
+                                                        ) : (
+                                                            <FontAwesomeIcon className="chevron" icon="chevron-down" />
+                                                        )}
+                                                    </div>
+                                                </span>
+                                            (detailsOpen
+                                            && (
+                                                <div className="usda-table--details-content">
+                                                    <div className="usda-table--details-wrapper">
+                                                        <td
+                                                            key={uniqueId()}
+                                                            className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
+                                        ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
+                                                            {columns[j]
+                                        && (
+                                            <div className="usda-table__cell-heading-container">
+                                                {isMobile
+                                                && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
+                                                {(isMobile && firstClick && j === 0 && rowIndexForMessage === i)
+                                                && (
+                                                    <div className="usda-table__cell-message">
+                                                        View next level
                                                         {' '}
-                                                        <FontAwesomeIcon icon="arrow-right" />
-                                                    </a>
-                                                )
-                                                : data}
-                                        </div>
-                                    </td>
-                                )
-                        ))}
+                                                        <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                                            <div className="usda-table__cell-data-container">
+                                                                {data.type === 'a' && j === 0 && isStacked && isMobile
+                                                                    ? (
+                                                                        <a
+                                                                            target={data.props.target}
+                                                                            rel={data.props.rel}
+                                                                            href={data.props.href}
+                                                                            onClick={data.props.onClick}>
+                                                                            {data.props.children}
+                                                                            {' '}
+                                                                            <FontAwesomeIcon icon="arrow-right" />
+                                                                        </a>
+                                                                    )
+                                                                    : data}
+                                                            </div>
+                                                        </td>
+                                                    </div>
+                                                </div>
+                                            )
+                                        )
+                                            </div>
+                                        ))
+                            );
+                        })}
                     </tr>
                 );
             })}
