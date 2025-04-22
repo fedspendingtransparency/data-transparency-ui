@@ -184,6 +184,26 @@ table.usda-table {
                     &.special-hover-color-6 td:nth-last-of-type(-n + 6) {
                         background-color: $blue-warm-10;
                     }
+
+                    &.special-hover-color-5 td:nth-last-of-type(-n + 5) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-4 td:nth-last-of-type(-n + 4) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-3 td:nth-last-of-type(-n + 3) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-2 td:nth-last-of-type(-n + 2) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-1 td:nth-last-of-type(-n + 1) {
+                        background-color: $blue-warm-10;
+                    }
                 }
 
                 td.usda-table__cell {
