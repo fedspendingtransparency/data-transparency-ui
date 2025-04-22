@@ -69,7 +69,7 @@ const propTypes = {
     bodyHeader: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
     columnWidth: PropTypes.number,
-    subAward: PropTypes.bool,
+    highlightedColumns: PropTypes.object,
     index: PropTypes.number
 };
 
@@ -87,7 +87,7 @@ const TableHeaderCell = ({
     bodyHeader = false,
     stickyFirstColumn = false,
     columnWidth,
-    subAward,
+    highlightedColumns,
     index
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
@@ -102,7 +102,7 @@ const TableHeaderCell = ({
     return (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} 
-            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${subAward ? 'table-header__subaward-color' : ''}`}
+            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${highlightedColumns ? `table-header__subaward-color-${highlightedColumns.highlightedColumns}` : ''}`}
             style={{ minWidth: columnWidth }}
             colSpan={columnWidth ? '' : columnSpan}
             rowSpan={rowsSpan()}

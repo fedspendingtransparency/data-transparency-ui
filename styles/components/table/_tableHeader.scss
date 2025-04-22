@@ -78,6 +78,10 @@ th.table-header {
     }
 }
 
-.table-header__subaward-color:nth-last-of-type(-n + 4) {
+.table-header__subaward-color-7:nth-last-of-type(-n + 7) {
         background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-6:nth-last-of-type(-n + 6) {
+    background-color: $blue-warm-20;
 }

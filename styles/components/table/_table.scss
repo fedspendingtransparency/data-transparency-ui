@@ -134,7 +134,7 @@ table.usda-table {
             border-right: rem(1) solid $gray-cool-10;
             border-bottom: rem(1) solid $gray-cool-10;
         }
-        
+
 
         td.stickyColumn {
             border-left:rem(1) solid $gray-cool-10;
@@ -177,7 +177,11 @@ table.usda-table {
                 &:hover {
                     background-color: $gray-cool-2;
 
-                    &.special-hover-color td:nth-last-of-type(-n + 4) {
+                    &.special-hover-color-7 td:nth-last-of-type(-n + 7) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-6 td:nth-last-of-type(-n + 6) {
                         background-color: $blue-warm-10;
                     }
                 }
