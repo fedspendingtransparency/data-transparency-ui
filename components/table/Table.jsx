@@ -36,7 +36,7 @@ const propTypes = {
     onClickHandler: PropTypes.func,
     isMobile: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
-    subAward: PropTypes.bool,
+    highlightedColumns: PropTypes.object,
     atMaxLevel: PropTypes.bool
 };
 
@@ -58,7 +58,10 @@ const Table = ({
     onClickHandler,
     isMobile,
     stickyFirstColumn = false,
-    subAward,
+    highlightedColumns = {
+        standardColumns: 9,
+        highlightedColumns: 7
+    },
     atMaxLevel = false
 }) => {
     const stackedClass = isStacked ? `usa-dt-table__stacked` : '';
@@ -116,7 +119,7 @@ const Table = ({
                 onClickHandler={onClickHandler}
                 isMobile={isMobile}
                 stickyFirstColumn={stickyFirstColumn}
-                subAward={subAward}
+                highlightedColumns={highlightedColumns}
                 isStacked={isStacked}
                 atMaxLevel={atMaxLevel} />
         );
@@ -138,11 +141,11 @@ const Table = ({
                 {screenReaderCaption && (
                     <caption className="usa-dt-sr-only">{screenReaderCaption}</caption>
                 )}
-                {subAward
+                {highlightedColumns
                 && (
                     <colgroup>
-                        <col span={4} />
-                        <col span={4} className="usda-table__body-special-color" />
+                        <col span={highlightedColumns.standardColumns} />
+                        <col span={highlightedColumns.highlightedColumns} className="usda-table__body-special-color" />
                     </colgroup>
                 )}
                 <thead className="usda-table__head">
@@ -153,7 +156,7 @@ const Table = ({
                                 currentSort={currentSort}
                                 updateSort={updateSort}
                                 stickyFirstColumn={stickyFirstColumn}
-                                subAward={subAward}
+                                highlightedColumns={highlightedColumns}
                                 index={index}
                                 {...col} />
                         ))}

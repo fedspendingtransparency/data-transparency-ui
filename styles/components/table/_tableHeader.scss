@@ -78,6 +78,30 @@ th.table-header {
     }
 }
 
-.table-header__subaward-color:nth-last-of-type(-n + 4) {
+.table-header__subaward-color-7:nth-last-of-type(-n + 7) {
         background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-6:nth-last-of-type(-n + 6) {
+    background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-5:nth-last-of-type(-n + 5) {
+    background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-4:nth-last-of-type(-n + 4) {
+    background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-3:nth-last-of-type(-n + 3) {
+    background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-2:nth-last-of-type(-n + 2) {
+    background-color: $blue-warm-20;
+}
+
+.table-header__subaward-color-1:nth-last-of-type(-n + 1) {
+    background-color: $blue-warm-20;
 }
