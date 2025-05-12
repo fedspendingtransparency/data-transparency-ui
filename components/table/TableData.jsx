@@ -36,8 +36,7 @@ const TableData = ({
     atMaxLevel,
     stickyFirstColumn = false,
     highlightedColumns,
-    isStacked,
-    subAward
+    isStacked
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
@@ -77,94 +76,121 @@ const TableData = ({
     }, [rowIndexForMessage]);
 
     if (isStacked && isMobile) {
-        return (
-            <>
-                {rows.map((row, i) => {
-                    let rowOpen = false;
-                    const clickHandler = (e) => {
-                        e.preventDefault();
-                        rowOpen = !rowOpen;
-                    };
-                    // Use a class name for alternating gray/white rows
-                    // because child rows should match their parent
-                    const oddClass = i % 2 === 0 ? '' : ' usda-table__row_odd';
-                    if (expandable) {
-                        return (
-                            <ExpandableRow
-                                key={uniqueId()}
-                                data={row}
-                                oddClass={oddClass}
-                                columns={columns}
-                                divider={divider} />
-                        );
-                    }
-                    return (
-                        <tr
-                            key={uniqueId()}
-                            tabIndex={0}
-                            onClick={() => localClickHandler(row, i)}
-                            onKeyUp={(e) => {
-                                if (e.key === 'Enter') {
-                                    e.preventDefault();
-                                    localClickHandler(row, i);
-                                }
-                            }}
-                            className={`usda-table__row-item usda-table__row${oddClass} ${rowIndexForMessage === i ? 'selected-row' : ''} ${subAward ? 'special-hover-color' : ''}`}
-                            style={{ height: rowHeight }}>
-                            {row.map((data, j) => {
-                                if (columns[j]?.bodyHeader) {
-                                    return (
-                                        <TableHeader
-                                            className="table-header_body-header"
-                                            key={uniqueId()}
-                                            stickyFirstColumn={stickyFirstColumn}
-                                            index={j}
-                                            {...data} />
-                                    );
-                                }
-                                return (
-                                    <td
-                                        key={uniqueId()}
-                                        className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
-                            ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
-                                        {columns[j]
-                                    && (
-                                        <div className="usda-table__cell-heading-container">
-                                            {isMobile
-                                            && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
-                                            {(firstClick && j === 0 && rowIndexForMessage === i)
-                                            && (
-                                                <div className="usda-table__cell-message">
-                                                    View next level
-                                                    {' '}
-                                                    <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
-                                                </div>
-                                            )}
-                                        </div>
-                                    )}
-                                        <div>
-                                            {data.type === 'a' && j === 0
-                                                ? (
-                                                    <a
-                                                        target={data.props.target}
-                                                        rel={data.props.rel}
-                                                        href={data.props.href}
-                                                        onClick={data.props.onClick}>
-                                                        {data.props.children}
-                                                        {' '}
-                                                        <FontAwesomeIcon icon="arrow-right" />
-                                                    </a>
-                                                )
-                                                : data}
-                                        </div>
-                                    </td>
-                                );
-                            })}
-                        </tr>
-                    );
-                })}
-            </>
-        );
+        for (let x = 0; x < rows.length; x++) {
+            let rowOpen = false;
+            const clickHandler = (e) => {
+                e.preventDefault();
+                rowOpen = !rowOpen;
+            };
+            // Use a class name for alternating gray/white rows
+            // because child rows should match their parent
+            const oddClass = x % 2 === 0 ? '' : ' usda-table__row_odd';
+            if (expandable) {
+                return (
+                    <ExpandableRow
+                        key={uniqueId()}
+                        data={rows[x]}
+                        oddClass={oddClass}
+                        columns={columns}
+                        divider={divider} />
+                );
+            }
+            for (let y = 0; y < rows[x].length; y++) {
+                if (y < 6) {
+                    //console.debug(rows[x][y]);
+                }
+            }
+        }
+        // return (
+        //     <>
+        //         {/* map each row */}
+        //         {rows.map((row, i) => {
+        //             let rowOpen = false;
+        //             const clickHandler = (e) => {
+        //                 e.preventDefault();
+        //                 rowOpen = !rowOpen;
+        //             };
+        //             // Use a class name for alternating gray/white rows
+        //             // because child rows should match their parent
+        //             const oddClass = i % 2 === 0 ? '' : ' usda-table__row_odd';
+        //             if (expandable) {
+        //                 return (
+        //                     <ExpandableRow
+        //                         key={uniqueId()}
+        //                         data={row}
+        //                         oddClass={oddClass}
+        //                         columns={columns}
+        //                         divider={divider} />
+        //                 );
+        //             }
+        //             {/* COLUMNS in each row */}
+        //             return (
+        //                 <tr
+        //                     key={uniqueId()}
+        //                     tabIndex={0}
+        //                     onClick={() => localClickHandler(row, i)}
+        //                     onKeyUp={(e) => {
+        //                         if (e.key === 'Enter') {
+        //                             e.preventDefault();
+        //                             localClickHandler(row, i);
+        //                         }
+        //                     }}
+        //                     className={`usda-table__row-item usda-table__row${oddClass} ${rowIndexForMessage === i ? 'selected-row' : ''} ${highlightedColumns ? `special-hover-color-${highlightedColumns.highlightedColumns}` : ''}`}
+        //                     style={{ height: rowHeight }}>
+        //                     {row.map((data, j) => {
+        //                         if (columns[j]?.bodyHeader) {
+        //                             return (
+        //                                 <TableHeader
+        //                                     className="table-header_body-header"
+        //                                     key={uniqueId()}
+        //                                     stickyFirstColumn={stickyFirstColumn}
+        //                                     index={j}
+        //                                     {...data} />
+        //                             );
+        //                         }
+        //                         return (
+        //                             <td
+        //                                 key={uniqueId()}
+        //                                 className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
+        //                     ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
+        //                                 {columns[j]
+        //                             && (
+        //                                 <div className="usda-table__cell-heading-container">
+        //                                     {isMobile
+        //                                     && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
+        //                                     {(firstClick && j === 0 && rowIndexForMessage === i)
+        //                                     && (
+        //                                         <div className="usda-table__cell-message">
+        //                                             View next level
+        //                                             {' '}
+        //                                             <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
+        //                                         </div>
+        //                                     )}
+        //                                 </div>
+        //                             )}
+        //                                 <div>
+        //                                     {data.type === 'a' && j === 0
+        //                                         ? (
+        //                                             <a
+        //                                                 target={data.props.target}
+        //                                                 rel={data.props.rel}
+        //                                                 href={data.props.href}
+        //                                                 onClick={data.props.onClick}>
+        //                                                 {data.props.children}
+        //                                                 {' '}
+        //                                                 <FontAwesomeIcon icon="arrow-right" />
+        //                                             </a>
+        //                                         )
+        //                                         : data}
+        //                                 </div>
+        //                             </td>
+        //                         );
+        //                     })}
+        //                 </tr>
+        //             );
+        //         })}
+        //     </>
+        // );
     }
     // normal table data return, do not modify
     return (
