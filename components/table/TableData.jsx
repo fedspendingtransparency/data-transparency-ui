@@ -36,7 +36,8 @@ const TableData = ({
     atMaxLevel,
     stickyFirstColumn = false,
     highlightedColumns,
-    isStacked
+    isStacked,
+    subAward
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
