@@ -97,7 +97,71 @@ const TableData = ({
             }
             for (let y = 0; y < rows[x].length; y++) {
                 if (y < 6) {
-                    //console.debug(rows[x][y]);
+                    // console.debug(rows[x][y]);
+                    return (
+                        <tr
+                            key={uniqueId()}
+                            tabIndex={0}
+                            onClick={() => localClickHandler(rows, x)}
+                            onKeyUp={(e) => {
+                                if (e.key === 'Enter') {
+                                    e.preventDefault();
+                                    localClickHandler(rows, x);
+                                }
+                            }}
+                            className={`usda-table__row-item usda-table__row${oddClass} ${rowIndexForMessage === x ? 'selected-row' : ''} ${highlightedColumns ? `special-hover-color-${highlightedColumns.highlightedColumns}` : ''}`}
+                            style={{ height: rowHeight }}>
+                            {columns[y]?.bodyHeader ? (
+                                <TableHeader
+                                    className="table-header_body-header"
+                                    key={uniqueId()}
+                                    stickyFirstColumn={stickyFirstColumn}
+                                    index={y}
+                                    {...rows[x].data} />
+                            )
+                                : null}
+
+                            {/* {rows.map((data, j) => {
+                                return (
+                                    <td
+                                        key={uniqueId()}
+                                        className={`usda-table__cell${columns[j]?.right ? ' usda-table__cell_right' : ''}
+                            ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''} `}>
+                                        {columns[j]
+                                    && (
+                                        <div className="usda-table__cell-heading-container">
+                                            {isMobile
+                                            && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
+                                            {(firstClick && j === 0 && rowIndexForMessage === i)
+                                            && (
+                                                <div className="usda-table__cell-message">
+                                                    View next level
+                                                    {' '}
+                                                    <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                        <div>
+                                            {data.type === 'a' && j === 0
+                                                ? (
+                                                    <a
+                                                        target={data.props.target}
+                                                        rel={data.props.rel}
+                                                        href={data.props.href}
+                                                        onClick={data.props.onClick}>
+                                                        {data.props.children}
+                                                        {' '}
+                                                        <FontAwesomeIcon icon="arrow-right" />
+                                                    </a>
+                                                )
+                                                : data}
+                                        </div>
+                                    </td>
+                                );
+                            })} */}
+                        </tr>
+                    );
                 }
             }
         }
