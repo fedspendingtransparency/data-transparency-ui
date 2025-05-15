@@ -37,7 +37,8 @@ const propTypes = {
     isMobile: PropTypes.bool,
     stickyFirstColumn: PropTypes.bool,
     highlightedColumns: PropTypes.object,
-    atMaxLevel: PropTypes.bool
+    atMaxLevel: PropTypes.bool,
+    newMobileView: PropTypes.bool
 };
 
 const Table = ({
@@ -62,7 +63,8 @@ const Table = ({
         standardColumns: 9,
         highlightedColumns: 7
     },
-    atMaxLevel = false
+    atMaxLevel = false,
+    newMobileView = false
 }) => {
     const stackedClass = isStacked ? `usa-dt-table__stacked` : '';
     const getTablePickerOptionsAsc = columns.map((col) => ({
@@ -121,7 +123,8 @@ const Table = ({
                 stickyFirstColumn={stickyFirstColumn}
                 highlightedColumns={highlightedColumns}
                 isStacked={isStacked}
-                atMaxLevel={atMaxLevel} />
+                atMaxLevel={atMaxLevel}
+                newMobileView={newMobileView} />
         );
     }
 
