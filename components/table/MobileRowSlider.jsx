@@ -33,7 +33,7 @@ const MobileRowSlider = (props) => {
                                                 {...data} />
                                         )
                                         : (
-                                            <td
+                                            <div
                                                 key={uniqueId()}
                                                 className={`usda-table__cell${props.columns[j]?.right ? ' usda-table__cell_right' : ''}
                                     ${(j === 0 && props.stickyFirstColumn) ? ' stickyColumn' : ''} `}>
@@ -54,7 +54,7 @@ const MobileRowSlider = (props) => {
                                                 <div>
                                                     {data}
                                                 </div>
-                                            </td>
+                                            </div>
                                         )
                                 );
                             }

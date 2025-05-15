@@ -22,6 +22,7 @@ const SortIcon = ({
     return (
         <div className="table-header__sort">
             <button
+                type="button"
                 onClick={clickedSort}
                 className={`table-header__icon${activeAsc}`}
                 value="asc"
@@ -30,6 +31,7 @@ const SortIcon = ({
                 <FontAwesomeIcon size="2x" icon="caret-up" />
             </button>
             <button
+                type="button"
                 onClick={clickedSort}
                 className={`table-header__icon${activeDesc}`}
                 value="desc"

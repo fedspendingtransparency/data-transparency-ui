@@ -18,7 +18,7 @@ table.usa-dt-table__stacked {
       display: inline-table;
       width: 100%;
 
-      tr.usda-table__row {
+      tr.usda-table__row div.usda-table__row {
         display: block;
         width: 100%;
 
@@ -30,7 +30,7 @@ table.usa-dt-table__stacked {
             color: $gray-60;
           }
 
-          td:first-of-type {
+          td:first-of-type div:first-of-type {
             background-color: $blue-warm-70v;
             font-size: rem(18);
             margin-bottom: rem(12);
@@ -47,7 +47,7 @@ table.usa-dt-table__stacked {
           }
         }
 
-        td.usda-table__cell {
+        td.usda-table__cell div.usda-table__cell {
           // keep display block (vs. flex) for accessibility
           display: block;
           width: 100%;
@@ -97,11 +97,11 @@ table.usa-dt-table__stacked {
 
         &.usda-table__row_expandable {
 
-          td.usda-table__cell_name {
+          td.usda-table__cell_name  div.usda-table__cell_name{
             padding-left: rem(32);
           }
 
-          td.usda-table__cell {
+          td.usda-table__cell div.usda-table__cell {
             padding-left: rem(32);
 
             .usda-table__expandable-cell-content {
@@ -126,16 +126,16 @@ table.usa-dt-table__stacked {
 
         &.usda-table__row_is-expanded {
 
-          td.usda-table__cell {
+          td.usda-table__cell div.usda-table__cell {
             position: relative;
           }
 
-          td.usda-table__cell:first-child:after {
+          td.usda-table__cell:first-child:after div.usda-table__cell:first-child:after{
             height: calc(100% - #{rem(56)});
             top: auto;
             bottom: 0;
           }
-          td.usda-table__cell:after {
+          td.usda-table__cell:after div.usda-table__cell:after {
             content: '';
             border-left: solid rem(1) $color-gray-light;
             position: absolute;
@@ -146,7 +146,7 @@ table.usa-dt-table__stacked {
         }
       }
 
-      tr.usda-table__child-row {
+      tr.usda-table__child-row div.usda-table__child-row {
         display: block;
         width: 100%;
 
@@ -155,7 +155,7 @@ table.usa-dt-table__stacked {
           display: none;
         }
 
-        td.usda-table__cell {
+        td.usda-table__cell div.usda-table__cell {
           // keep display block (vs. flex) for accessibility
           display: block;
           width: 100%;
@@ -204,7 +204,7 @@ table.usa-dt-table__stacked {
 
         &.usda-table__child-row_last {
 
-          td.usda-table__cell {
+          td.usda-table__cell div.usda-table__cell{
 
             &.usda-table__cell_child {
 
