@@ -17,27 +17,6 @@ const MobileRowSlider = (props) => {
     const [rowOpen, setRowOpen] = useState(false);
     return (
         <div className={`collapsible-row-div ${rowOpen ? `row-opened` : ''}`}>
-            <span
-                className="collapsible-row-button"
-                role="button"
-                tabIndex={0}
-                onClick={() => {
-                    setRowOpen(!rowOpen);
-                }}
-                onKeyUp={(e) => {
-                    if (e.key === 'Enter') {
-                        setRowOpen(!rowOpen);
-                    }
-                }}>
-                {rowOpen ? 'Collapse additional details' : 'View additional details'}
-                <div>
-                    {rowOpen ? (
-                        <FontAwesomeIcon className="chevron" icon="chevron-up" />
-                    ) : (
-                        <FontAwesomeIcon className="chevron" icon="chevron-down" />
-                    )}
-                </div>
-            </span>
             {rowOpen && (
                 <div className="collapsible-row--content">
                     <div className="collapsible-row--content-wrapper">
@@ -83,6 +62,27 @@ const MobileRowSlider = (props) => {
                     </div>
                 </div>
             )}
+            <span
+                className="collapsible-row-button"
+                role="button"
+                tabIndex={0}
+                onClick={() => {
+                    setRowOpen(!rowOpen);
+                }}
+                onKeyUp={(e) => {
+                    if (e.key === 'Enter') {
+                        setRowOpen(!rowOpen);
+                    }
+                }}>
+                {rowOpen ? 'Collapse additional details' : 'View additional details'}
+                <div>
+                    {rowOpen ? (
+                        <FontAwesomeIcon className="chevron" icon="chevron-up" />
+                    ) : (
+                        <FontAwesomeIcon className="chevron" icon="chevron-down" />
+                    )}
+                </div>
+            </span>
         </div>
     );
 };
