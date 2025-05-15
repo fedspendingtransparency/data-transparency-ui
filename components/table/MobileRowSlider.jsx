@@ -16,8 +16,9 @@ const MobileRowSlider = (props) => {
     console.debug(props);
     const [rowOpen, setRowOpen] = useState(false);
     return (
-        <div className={`collapsible-row-button ${rowOpen ? `row-opened` : ''}`}>
+        <div className={`collapsible-row-div ${rowOpen ? `row-opened` : ''}`}>
             <span
+                className="collapsible-row-button"
                 role="button"
                 tabIndex={0}
                 onClick={() => {
@@ -72,19 +73,7 @@ const MobileRowSlider = (props) => {
                                                 </div>
                                             )}
                                                 <div>
-                                                    {data.type === 'a' && j === 0
-                                                        ? (
-                                                            <a
-                                                                target={data.props.target}
-                                                                rel={data.props.rel}
-                                                                href={data.props.href}
-                                                                onClick={data.props.onClick}>
-                                                                {data.props.children}
-                                                                {' '}
-                                                                <FontAwesomeIcon icon="arrow-right" />
-                                                            </a>
-                                                        )
-                                                        : data}
+                                                    {data}
                                                 </div>
                                             </td>
                                         )
