@@ -45,7 +45,6 @@ const TableData = ({
 }) => {
     const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
-    console.debug("new mobile view: ", newMobileView);
     const setFocus = () => {
         const selectedElement = document.querySelector(".selected-row");
         if (selectedElement) {
