@@ -13,7 +13,6 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import TableHeader from './TableHeader';
 
 const MobileRowSlider = (props) => {
-    console.debug(props);
     const [rowOpen, setRowOpen] = useState(false);
     return (
         <div className={`collapsible-row-div ${rowOpen ? `row-opened` : ''}`}>
@@ -62,27 +61,28 @@ const MobileRowSlider = (props) => {
                     </div>
                 </div>
             )}
-            <span
-                className="collapsible-row-button"
-                role="button"
-                tabIndex={0}
-                onClick={() => {
-                    setRowOpen(!rowOpen);
-                }}
-                onKeyUp={(e) => {
-                    if (e.key === 'Enter') {
+            <div className="mobile-gradient__wrapper">
+                {/* {!rowOpen && <div id="mobile-row-gradient" />} */}
+                <span
+                    className="collapsible-row-button"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
                         setRowOpen(!rowOpen);
-                    }
-                }}>
-                {rowOpen ? 'Collapse additional details' : 'View additional details'}
-                <div>
+                    }}
+                    onKeyUp={(e) => {
+                        if (e.key === 'Enter') {
+                            setRowOpen(!rowOpen);
+                        }
+                    }}>
+                    {rowOpen ? 'Collapse additional details' : 'View additional details'}
                     {rowOpen ? (
                         <FontAwesomeIcon className="chevron" icon="chevron-up" />
                     ) : (
                         <FontAwesomeIcon className="chevron" icon="chevron-down" />
                     )}
-                </div>
-            </span>
+                </span>
+            </div>
         </div>
     );
 };
