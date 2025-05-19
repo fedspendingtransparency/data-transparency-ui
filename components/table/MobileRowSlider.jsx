@@ -5,8 +5,7 @@
  * Created by Nick Torres 5/14/2025
  */
 
-import React, { useEffect, useState } from 'react';
-import PropTypes, { oneOfType } from 'prop-types';
+import React, { useState } from 'react';
 import { uniqueId } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
