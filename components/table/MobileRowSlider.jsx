@@ -2,6 +2,7 @@
 /* eslint-disable consistent-return */
 /**
  * MobileRowSlider.jsx
+ * not a true new component, created to avoid using useState in a .map
  * Created by Nick Torres 5/14/2025
  */
 
