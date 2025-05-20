@@ -28,6 +28,7 @@ import CardBody from './components/cards/CardBody';
 import CardHero from './components/cards/CardHero';
 import CardButton from './components/cards/CardButton';
 import Button from './components/Button';
+import NewPicker from "./components/NewPicker";
 
 import "./styles/dist.scss";
 
@@ -62,5 +63,6 @@ export {
     CardHero,
     CardBody,
     CardButton,
-    Button
+    Button,
+    NewPicker
 };
