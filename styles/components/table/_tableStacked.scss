@@ -58,7 +58,7 @@ table.usa-dt-table__stacked {
           text-align: left;
 
           @media (max-width: $tablet-screen - 1) {
-            padding: 0 0 rem(12) rem(16);
+            padding: 0 rem(12) rem(12) rem(16);
           }
 
           .usda-table__cell-heading-container {
@@ -274,6 +274,11 @@ table.usa-dt-table__stacked {
           a {
             color: $gray-2;
             text-decoration: underline;
+          }
+
+          .usda-table__cell-text {
+            color: $gray-2 !important;
+            font-size: rem(18) !important;
           }
         }
 

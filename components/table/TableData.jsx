@@ -129,7 +129,7 @@ const TableData = ({
                                                  )}
                                              </div>
                                          )}
-                                                <div>
+                                                <div className="usda-table__cell-text">
                                                     {data.type === 'a' && j === 0 && isStacked && isMobile
                                                         ? (
                                                             <a
