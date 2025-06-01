@@ -11,20 +11,29 @@ import CardHero from "../../components/cards/CardHero";
 ```javascript
 import { CardContainer, CardHero, CardBody, CardButton } from 'data-transparency-ui';
 ```
-Cards are UI Elements that contain content and actions about a single subject
+Cards are UI elements that display content and actions on a single topic.
+
+A card is often a subset or summary of a larger idea. It acts as an entry point to more detailed information. This summary can contain a variety of content types, such as text, images and multimedia, or buttons and links.
 
 export const Template = (args) => <CardContainer {...args} />;
 
-## Containers Variants
+[Card Anatomy](https://figma-gov.com/design/Kg3hJpzFI0XRXY5Irk8e57/USAS-%E2%80%93-Design-System?node-id=0-13782&t=1H4iNeFxLWbyMEO9-4)
+
+## Container Variants
+There is a container variant for each types of card: Elevated, Filled, and Outlined.  Each provides the same legibility and functionality, so the type you use depends on style alone.
+There are three possible children of the Card Container Component: The Card Body, Card Button and Card Hero.
 <Canvas of={CardStories.Fill} />
 <Canvas of={CardStories.Elevated} />
 <Canvas of={CardStories.Outline} />
 <Canvas of={CardStories.WithCardButton} />
 
-## Card Container
-<Controls of={CardStories.Default} />
-
 ## Hero Variants
+Heroes can be an image, background fill without an image, and a hero image with background fill.
 <Canvas of={CardStories.HeroWithImage} />
 <Canvas of={CardStories.HeroWithBarFill} />
 <Canvas of={CardStories.HeroFillWithImage} />
+
+## Card Container Props
+<Controls of={CardStories.Default} />
+
+
