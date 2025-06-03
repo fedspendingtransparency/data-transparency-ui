@@ -17,22 +17,24 @@ A card is often a subset or summary of a larger idea. It acts as an entry point 
 
 export const Template = (args) => <CardContainer {...args} />;
 
-For more detail, see the USASpending Design System [Card Documentation](https://figma-gov.com/design/Kg3hJpzFI0XRXY5Irk8e57/USAS-%E2%80%93-Design-System?node-id=0-13720&t=VaRLbNN7sYCgvoio-0).
+For more description, see the USASpending Design System [Card Documentation](https://figma-gov.com/design/Kg3hJpzFI0XRXY5Irk8e57/USAS-%E2%80%93-Design-System?node-id=0-13720&t=VaRLbNN7sYCgvoio-0).
 
-A Card is composed of a Card Container Component and any combination of three child components: The Card Body, Card Button and Card Hero.  The card also includes other text elements specific to the USASpending Design System.  Please see the [Card Anatomy](https://figma-gov.com/design/Kg3hJpzFI0XRXY5Irk8e57/USAS-%E2%80%93-Design-System?node-id=0-13782&t=1H4iNeFxLWbyMEO9-4).
+A Card is composed of a Card Container Component and any combination of three child components: Card Body, Card Button and Card Hero.  Each card must have a Card Container and Card Body at minimum. The card also includes other text elements specific to the USASpending Design System.  Please see the [Card Anatomy](https://figma-gov.com/design/Kg3hJpzFI0XRXY5Irk8e57/USAS-%E2%80%93-Design-System?node-id=0-13782&t=1H4iNeFxLWbyMEO9-4).
 
 ## Container Variants
-There is a container variant for each types of card: Elevated, Filled, and Outlined.  Each provides the same legibility and functionality, so the type you use depends on style alone.
+There is a container variant for each card type: Elevated, Filled, and Outlined.  Each provides the same legibility and functionality, so the type you use depends on style alone.
 <Canvas of={CardStories.Fill} />
 <Canvas of={CardStories.Elevated} />
 <Canvas of={CardStories.Outline} />
-<Canvas of={CardStories.WithCardButton} />
 
 ## Hero Variants
 Heroes can be an image, background fill without an image, and a hero image with background fill.
 <Canvas of={CardStories.HeroWithImage} />
 <Canvas of={CardStories.HeroWithBarFill} />
 <Canvas of={CardStories.HeroFillWithImage} />
+
+## Card Button
+<Canvas of={CardStories.WithCardButton} />
 
 ## Card Container Props
 <Controls of={CardStories.Default} />
