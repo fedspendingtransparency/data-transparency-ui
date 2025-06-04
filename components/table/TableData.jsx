@@ -9,7 +9,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
 import { uniqueId } from 'lodash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import ExpandableRow from './ExpandableRow';
 import TableHeader from './TableHeader';
 import MobileRowSlider from './MobileRowSlider';
@@ -43,7 +42,6 @@ const TableData = ({
     isStacked,
     newMobileView = false
 }) => {
-    const [firstClick, setFirstClick] = useState(false);
     const [rowIndexForMessage, setRowIndexForMessage] = useState();
     const setFocus = () => {
         const selectedElement = document.querySelector(".selected-row");
@@ -55,23 +53,11 @@ const TableData = ({
     const localClickHandler = (row, index) => {
         if (!atMaxLevel) {
             // user taps a row in mobile
-            if (isMobile && !firstClick) {
-                setFirstClick(true);
+            if (isMobile) {
                 setRowIndexForMessage(index);
             }
-            // user taps the same row again, go to next level
-            else if (isMobile && firstClick && rowIndexForMessage === index) {
-                onClickHandler(row);
-                setFirstClick(false);
-            }
-            // user taps a row after already tapping a different row first
-            else if (isMobile && firstClick && rowIndexForMessage !== index) {
-                setRowIndexForMessage(index);
-            }
-            // desktop or tablet, just go to next level
-            else if (!isMobile) {
-                onClickHandler(row);
-            }
+
+            if (onClickHandler) onClickHandler(row);
         }
     };
 
@@ -115,20 +101,12 @@ const TableData = ({
                                  ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''}  ${(j === 0 && stickyFirstColumn) ? ' stickyColumn' : ''}
                                  ${j === 0 ? 'usda-mobile__header' : ''}`}>
                                                 {columns[j]
-                                         && (
-                                             <div className="usda-table__cell-heading-container">
-                                                 {isMobile
-                                                 && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
-                                                 {(isMobile && firstClick && j === 0 && rowIndexForMessage === i)
-                                                 && (
-                                                     <div className="usda-table__cell-message">
-                                                         View next level
-                                                         {' '}
-                                                         <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
-                                                     </div>
-                                                 )}
-                                             </div>
-                                         )}
+                                                && (
+                                                    <div className="usda-table__cell-heading-container">
+                                                        {isMobile
+                                                        && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
+                                                    </div>
+                                                )}
                                                 <div className="usda-table__cell-text">
                                                     {data.type === 'a' && j === 0 && isStacked && isMobile
                                                         ? (
@@ -154,8 +132,7 @@ const TableData = ({
                                 row={row}
                                 columns={columns}
                                 iValue={i}
-                                firstClick={firstClick}
-                                rowIndexForMessage={rowIndexForMessage} />
+                                atMaxLevel={atMaxLevel} />
                         </div>
                     </div>
                 )
@@ -213,14 +190,6 @@ const TableData = ({
                                             <div className="usda-table__cell-heading-container">
                                                 {isMobile
                                                 && <div className="usda-table__cell-heading">{columns[j].displayName}</div>}
-                                                {(isMobile && firstClick && j === 0 && rowIndexForMessage === i)
-                                                && (
-                                                    <div className="usda-table__cell-message">
-                                                        View next level
-                                                        {' '}
-                                                        <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
-                                                    </div>
-                                                )}
                                             </div>
                                         )}
                                         <div>
