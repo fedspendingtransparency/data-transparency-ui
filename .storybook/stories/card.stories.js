@@ -28,7 +28,7 @@ export default {
 };
 const Template = (args) => (
   <FlexGridRow hasGutter gutterSize="lg">
-    <FlexGridCol desktop={4} tablet={2} mobile={1} >
+    <FlexGridCol desktop={4} tablet={6} mobile={12} >
       <CardContainer {...args}></CardContainer>
     </FlexGridCol>
   </FlexGridRow>
