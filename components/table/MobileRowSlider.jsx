@@ -17,11 +17,25 @@ const propTypes = {
     row: PropTypes.array,
     columns: PropTypes.array,
     iValue: PropTypes.number,
-    firstClick: PropTypes.bool,
-    rowIndexForMessage: PropTypes.number
+    atMaxLevel: PropTypes.bool
 };
 const MobileRowSlider = (props) => {
     const [rowOpen, setRowOpen] = useState(false);
+
+    const onClickHandler = (e) => {
+        e.stopPropagation();
+        setRowOpen(!rowOpen);
+    };
+
+    const viewNextLevel = !props.atMaxLevel
+        ? (
+            <div className="usda-table__cell usda-table__cell_right button-type__text-left-icon-light">
+                View next level
+                {' '}
+                <FontAwesomeIcon icon={faAngleDoubleRight} />
+            </div>
+        ) : null;
+
     const toReturn = props.columns.length >= 6
         ? (
             <div className={`collapsible-row-div ${rowOpen ? `row-opened` : ''}`}>
@@ -44,21 +58,12 @@ const MobileRowSlider = (props) => {
                                                 <div
                                                     key={uniqueId()}
                                                     className={`usda-table__cell${props.columns[j]?.right ? ' usda-table__cell_right' : ''}
-                                    ${(j === 0 && props.stickyFirstColumn) ? ' stickyColumn' : ''} `}>
-                                                    {props.columns[j]
-                                            && (
-                                                <div className="usda-table__cell-heading-container">
-                                                    <div className="usda-table__cell-heading">{props.columns[j].displayName}</div>
-                                                    {(props.firstClick && j === 0 && props.rowIndexForMessage === props.iValue)
-                                                    && (
-                                                        <div className="usda-table__cell-message">
-                                                            View next level
-                                                            {' '}
-                                                            <FontAwesomeIcon icon={faAngleDoubleRight} color="#2378c3" />
+                                                ${(j === 0 && props.stickyFirstColumn) ? ' stickyColumn' : ''} `}>
+                                                    {props.columns[j] && (
+                                                        <div className="usda-table__cell-heading-container">
+                                                            <div className="usda-table__cell-heading">{props.columns[j].displayName}</div>
                                                         </div>
                                                     )}
-                                                </div>
-                                            )}
                                                     <div>
                                                         {data}
                                                     </div>
@@ -71,17 +76,16 @@ const MobileRowSlider = (props) => {
                     </div>
                 )}
                 <div className="mobile-gradient__wrapper">
-                    {/* {!rowOpen && <div id="mobile-row-gradient" />} */}
                     <span
                         className="collapsible-row-button"
                         role="button"
                         tabIndex={0}
-                        onClick={() => {
-                            setRowOpen(!rowOpen);
+                        onClick={(e) => {
+                            onClickHandler(e);
                         }}
                         onKeyUp={(e) => {
                             if (e.key === 'Enter') {
-                                setRowOpen(!rowOpen);
+                                onClickHandler(e);
                             }
                         }}>
                         {rowOpen ? 'Collapse additional details' : 'View additional details'}
@@ -94,7 +98,7 @@ const MobileRowSlider = (props) => {
                 </div>
             </div>
         ) : null;
-    return toReturn;
+    return toReturn || viewNextLevel;
 };
 MobileRowSlider.propTypes = propTypes;
 export default MobileRowSlider;
