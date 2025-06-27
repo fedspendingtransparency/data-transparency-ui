@@ -2,7 +2,7 @@
   "name": "data-transparency-ui",
   "version": "7.0.4",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "dist/index.js",
+  "main": "index.js",
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "scripts": {
@@ -79,7 +79,7 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+    "@babel/plugin-transform-object-rest-spread": "^7.20.7",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
