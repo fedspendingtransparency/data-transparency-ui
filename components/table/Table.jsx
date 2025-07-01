@@ -59,10 +59,7 @@ const Table = ({
     onClickHandler,
     isMobile,
     stickyFirstColumn = false,
-    highlightedColumns = {
-        standardColumns: 9,
-        highlightedColumns: 7
-    },
+    highlightedColumns,
     atMaxLevel = false,
     newMobileView = false
 }) => {
