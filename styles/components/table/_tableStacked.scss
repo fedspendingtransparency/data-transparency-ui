@@ -1,6 +1,6 @@
 // Responsive Stacked Table Variation
 
-table.usa-dt-table__stacked {
+table.usa-dt-table__stacked, div.usa-dt-table__stacked {
   max-width: 100%;
 
   @media all and (max-width: ($tablet-screen - 1)){
@@ -11,11 +11,11 @@ table.usa-dt-table__stacked {
       box-sizing: border-box;
     }
 
-    thead.usda-table__head {
+    thead.usda-table__head, div.usda-table__head {
       display: none;
     }
 
-    tbody.usda-table__body {
+    tbody.usda-table__body, div.usda-table__body {
       display: inline-table;
       width: 100%;
 
@@ -29,6 +29,10 @@ table.usa-dt-table__stacked {
 
           .usda-table__cell-heading {
             color: $gray-60;
+          }
+
+          .usda-table__cell-text {
+            font-size: $small-font-size;
           }
 
           td:first-of-type {

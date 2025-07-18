@@ -72,7 +72,9 @@ const propTypes = {
     stickyFirstColumn: PropTypes.bool,
     columnWidth: PropTypes.number,
     highlightedColumns: PropTypes.object,
-    index: PropTypes.number
+    index: PropTypes.number,
+    isMobile: PropTypes.bool,
+    isStacked: PropTypes.bool
 };
 
 const TableHeaderCell = ({
@@ -90,7 +92,9 @@ const TableHeaderCell = ({
     stickyFirstColumn = false,
     columnWidth,
     highlightedColumns,
-    index
+    index,
+    isMobile = false,
+    isStacked = false
 }) => {
     const handleClickedSort = (e, sortOn = title) => {
         updateSort(sortOn, e.target.value);
@@ -101,7 +105,28 @@ const TableHeaderCell = ({
         }
         return subColumnNames.length ? "1" : "2";
     };
-    return (
+    return isStacked && isMobile ? (
+        <div
+            className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} 
+            ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${highlightedColumns ? `table-header__subaward-color-${highlightedColumns.highlightedColumns}` : ''}`}
+            style={{ minWidth: columnWidth, display: "table-column" }}
+            colSpan={columnWidth ? '' : columnSpan}
+            rowSpan={rowsSpan()}>
+            <div className={`table-header__content${right ? ' table-header__content_right' : ''}`}>
+                <div className="table-header__label">
+                    {displayName}
+                    {icon && icon}
+                    {(updateSort && !subColumnNames.length && displayName) && (
+                        <SortIcon
+                            clickedSort={handleClickedSort}
+                            currentSort={currentSort}
+                            title={title}
+                            displayName={displayName} />
+                    )}
+                </div>
+            </div>
+        </div>
+    ) : (
         <th
             className={`${className} table-header${bodyHeader ? ' table-header_body-header' : ''} 
             ${stickyFirstColumn && index === 0 ? ' stickyColumn' : ''} ${highlightedColumns ? `table-header__subaward-color-${highlightedColumns.highlightedColumns}` : ''}`}
