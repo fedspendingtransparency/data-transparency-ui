@@ -81,7 +81,7 @@ const TableData = ({
                             }
                         }}
                         className={`usda-table__row-item usda-table__row ${rowIndexForMessage === i ? 'selected-row' : ''} ${highlightedColumns ? `special-hover-color-${highlightedColumns.highlightedColumns}` : ''}`}
-                        style={{ height: rowHeight }}>
+                        style={{ height: rowHeight, display: "table-row" }}>
                         {row.map((data, j) => {
                             if (j < 6) {
                                 return (

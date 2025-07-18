@@ -137,57 +137,116 @@ const Table = ({
                         options={union(getTablePickerOptionsAsc, getTablePickerOptionsDesc)} />
                 </div>
             )}
-            <table className={`usda-table ${stackedClass} ${classNames}`}>
-                {screenReaderCaption && (
-                    <caption className="usa-dt-sr-only">{screenReaderCaption}</caption>
-                )}
-                {highlightedColumns
+            {isStacked && isMobile
+                ? (
+                    <div className={`usda-table ${stackedClass} ${classNames}`}>
+                        {screenReaderCaption && (
+                            <caption className="usa-dt-sr-only">{screenReaderCaption}</caption>
+                        )}
+                        {highlightedColumns
                 && (
                     <colgroup>
                         <col span={highlightedColumns.standardColumns} />
                         <col span={highlightedColumns.highlightedColumns} className="usda-table__body-special-color" />
                     </colgroup>
                 )}
-                <thead className="usda-table__head">
-                    <tr className="usda-table__row" style={{ height: headerRowHeight }}>
-                        {columns.map((col, index) => (
-                            <TableHeader
-                                key={uniqueId()}
-                                currentSort={currentSort}
-                                updateSort={updateSort}
-                                stickyFirstColumn={stickyFirstColumn}
-                                highlightedColumns={highlightedColumns}
-                                index={index}
-                                {...col} />
-                        ))}
-                    </tr>
-                    <tr className="usda-table__row">
-                        {columns
-                            .filter((col) => col?.subColumnNames?.length)
-                            .reduce((acc, col) => {
-                                if (col?.subColumnNames?.length) {
-                                    return acc.concat(col.subColumnNames);
-                                }
-                                return acc.concat([{
-                                    ...col, displayName: '', className: 'empty-subheader'
-                                }]);
-                            }, [])
-                            .map((col, index) => (
-                                <TableHeader
-                                    key={uniqueId()}
-                                    className={col?.title ? 'nested-header' : 'empty'}
-                                    currentSort={currentSort}
-                                    updateSort={updateSort}
-                                    stickyFirstColumn={stickyFirstColumn}
-                                    index={index}
-                                    {...col} />
-                            ))}
-                    </tr>
-                </thead>
-                <tbody className="usda-table__body">
-                    {body}
-                </tbody>
-            </table>
+                        <div className="usda-table__head">
+                            <div className="usda-table__row" style={{ height: headerRowHeight }}>
+                                {columns.map((col, index) => (
+                                    <TableHeader
+                                        key={uniqueId()}
+                                        currentSort={currentSort}
+                                        updateSort={updateSort}
+                                        stickyFirstColumn={stickyFirstColumn}
+                                        highlightedColumns={highlightedColumns}
+                                        index={index}
+                                        isMobile={isMobile}
+                                        isStacked={isStacked}
+                                        {...col} />
+                                ))}
+                            </div>
+                            <div className="usda-table__row">
+                                {columns
+                                    .filter((col) => col?.subColumnNames?.length)
+                                    .reduce((acc, col) => {
+                                        if (col?.subColumnNames?.length) {
+                                            return acc.concat(col.subColumnNames);
+                                        }
+                                        return acc.concat([{
+                                            ...col, displayName: '', className: 'empty-subheader'
+                                        }]);
+                                    }, [])
+                                    .map((col, index) => (
+                                        <TableHeader
+                                            key={uniqueId()}
+                                            className={col?.title ? 'nested-header' : 'empty'}
+                                            currentSort={currentSort}
+                                            updateSort={updateSort}
+                                            stickyFirstColumn={stickyFirstColumn}
+                                            index={index}
+                                            isMobile={isMobile}
+                                            isStacked={isStacked}
+                                            {...col} />
+                                    ))}
+                            </div>
+                        </div>
+                        <div className="usda-table__body">
+                            {body}
+                        </div>
+                    </div>
+                ) : (
+                    <table className={`usda-table ${stackedClass} ${classNames}`}>
+                        {screenReaderCaption && (
+                            <caption className="usa-dt-sr-only">{screenReaderCaption}</caption>
+                        )}
+                        {highlightedColumns
+                && (
+                    <colgroup>
+                        <col span={highlightedColumns.standardColumns} />
+                        <col span={highlightedColumns.highlightedColumns} className="usda-table__body-special-color" />
+                    </colgroup>
+                )}
+                        <thead className="usda-table__head">
+                            <tr className="usda-table__row" style={{ height: headerRowHeight }}>
+                                {columns.map((col, index) => (
+                                    <TableHeader
+                                        key={uniqueId()}
+                                        currentSort={currentSort}
+                                        updateSort={updateSort}
+                                        stickyFirstColumn={stickyFirstColumn}
+                                        highlightedColumns={highlightedColumns}
+                                        index={index}
+                                        {...col} />
+                                ))}
+                            </tr>
+                            <tr className="usda-table__row">
+                                {columns
+                                    .filter((col) => col?.subColumnNames?.length)
+                                    .reduce((acc, col) => {
+                                        if (col?.subColumnNames?.length) {
+                                            return acc.concat(col.subColumnNames);
+                                        }
+                                        return acc.concat([{
+                                            ...col, displayName: '', className: 'empty-subheader'
+                                        }]);
+                                    }, [])
+                                    .map((col, index) => (
+                                        <TableHeader
+                                            key={uniqueId()}
+                                            className={col?.title ? 'nested-header' : 'empty'}
+                                            currentSort={currentSort}
+                                            updateSort={updateSort}
+                                            stickyFirstColumn={stickyFirstColumn}
+                                            index={index}
+                                            {...col} />
+                                    ))}
+                            </tr>
+                        </thead>
+                        <tbody className="usda-table__body">
+                            {body}
+                        </tbody>
+                    </table>
+                )}
         </>
     );
 };

@@ -64,7 +64,7 @@ const MobileRowSlider = (props) => {
                                                             <div className="usda-table__cell-heading">{props.columns[j].displayName}</div>
                                                         </div>
                                                     )}
-                                                    <div>
+                                                    <div className="usda-table__cell-text">
                                                         {data}
                                                     </div>
                                                 </div>
