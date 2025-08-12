@@ -60,36 +60,16 @@ const ShareIcon = ({
         onShareOptionClick('copy');
     };
 
-    const copyLinkSecond = () => {
-        Array
-            .from(document.querySelectorAll('.js-dtui-url-for-share-icon'))
-            // eslint-disable-next-line consistent-return
-            .forEach((node) => {
-                if (node.getAttribute('value').includes('about-the-data') || node.getAttribute('value').includes('glossary')) {
-                    return node.select();
-                }
-            });
-
-        document.execCommand("copy");
-        setConfirmationText(true);
-        onShareOptionClick('copy');
-    };
-
     const socialSharePickerOptions = socialShareOptions
         .filter(({ name }) => {
             if (!includedDropdownOptions.length) return true;
             return includedDropdownOptions.includes(name);
         })
         .map((option) => {
-            if (option.name === 'copy' && !url.includes('about-the-data')) {
+            if (option.name === 'copy') {
                 return {
                     ...option,
                     onClick: copyLink
-                };
-            } if (option.name === 'copy' && url.includes('about-the-data')) {
-                return {
-                    ...option,
-                    onClick: copyLinkSecond
                 };
             }
             return {
@@ -103,7 +83,7 @@ const ShareIcon = ({
             hideConfirmationText();
         }
         return hideConfirmationText.cancel;
-    }, [showConfirmationText, setConfirmationText, hideConfirmationText]);
+    }, []);
 
     return (
         <div className={`${classNames ? `usda-share-icon${disabledClass} ${classNames}` : `usda-share-icon${disabledClass}`}`}>
