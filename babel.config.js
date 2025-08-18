@@ -22,7 +22,7 @@ const plugins = [
     ],
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-object-rest-spread",
-    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-class-properties",
     "@babel/plugin-proposal-optional-chaining",
     ["@babel/plugin-transform-react-jsx", {
         pragmaFrag: "React.Fragment"
