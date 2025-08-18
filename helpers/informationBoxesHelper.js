@@ -1,4 +1,4 @@
-import { startCase } from 'lodash';
+import { startCase } from 'lodash-es';
 import { formatMoney, formatNumber, unitValues, formatMoneyWithPrecision, formatNumberWithPrecision, calculateUnitForSingleValue } from './moneyFormatter';
 
 export const formattedValue = (value, isMonetary, isForTabletPortaitUp) => {

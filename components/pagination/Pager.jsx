@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { range } from 'lodash';
+import { range } from 'lodash-es';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { formatNumberWithPrecision } from '../../helpers/moneyFormatter';

@@ -6,7 +6,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { uniqueId } from 'lodash';
+import { uniqueId } from 'lodash-es';
 
 require('../styles/components/_picker.scss');
 

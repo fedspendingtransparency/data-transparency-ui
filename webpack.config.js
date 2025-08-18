@@ -60,10 +60,10 @@ module.exports = {
             root: "ReactDOM"
         },
         lodash: {
-            commonjs: "lodash",
-            commonjs2: "lodash",
-            amd: "lodash",
-            root: "lodash"
+            commonjs: "lodash-es",
+            commonjs2: "lodash-es",
+            amd: "lodash-es",
+            root: "lodash-es"
         },
         accounting: {
             commonjs: "accounting",

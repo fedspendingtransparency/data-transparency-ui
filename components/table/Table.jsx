@@ -5,7 +5,7 @@
 
 import React from 'react';
 import PropTypes, { shape, oneOf, oneOfType } from 'prop-types';
-import { uniqueId, union } from 'lodash';
+import { uniqueId, union } from 'lodash-es';
 import ErrorMessage from '../messages/ErrorMessage';
 import LoadingMessage from '../messages/LoadingMessage';
 import NoResultsMessage from '../messages/NoResultsMessage';
