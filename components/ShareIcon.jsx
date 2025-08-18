@@ -83,7 +83,7 @@ const ShareIcon = ({
             hideConfirmationText();
         }
         return hideConfirmationText.cancel;
-    }, []);
+    }, [showConfirmationText]);
 
     return (
         <div className={`${classNames ? `usda-share-icon${disabledClass} ${classNames}` : `usda-share-icon${disabledClass}`}`}>

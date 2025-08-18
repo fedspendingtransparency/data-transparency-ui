@@ -1,6 +1,6 @@
 {
   "name": "data-transparency-ui",
-  "version": "7.0.9",
+  "version": "7.1.1",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "dist/index.js",
   "style": "dist/data-transparency-ui.css",
