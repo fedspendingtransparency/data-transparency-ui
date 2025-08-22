@@ -7,7 +7,7 @@
 
 import React, { useEffect, useState } from 'react';
 import PropTypes, { oneOfType } from 'prop-types';
-import { uniqueId } from 'lodash';
+import { uniqueId } from 'lodash-es';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ExpandableRow from './ExpandableRow';
 import TableHeader from './TableHeader';

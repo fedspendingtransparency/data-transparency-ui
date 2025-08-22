@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-es';
 import { formattedValue, numberToText } from '../helpers/informationBoxesHelper';
 
 require('../styles/components/_informationBoxes.scss');

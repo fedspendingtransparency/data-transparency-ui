@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-es';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { resetOrSubmitSearch, shouldResetSearchTerm } from '../helpers/searchBarHelper';

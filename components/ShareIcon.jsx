@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { debounce } from "lodash";
+import { debounce } from "lodash-es";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Picker from "./Picker";
 import { socialShareOptions } from '../helpers/socialShare';

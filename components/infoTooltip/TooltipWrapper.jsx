@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { throttle, uniqueId } from "lodash";
+import { throttle, uniqueId } from "lodash-es";
 import cx from 'classnames';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

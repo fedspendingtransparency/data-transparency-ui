@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-es';
 
 export const useDynamicStickyClass = (stickyRef, fixedStickyBreakpoint = 0) => {
     const [dynamicStickyBreakpoint, setDynamicStickyBreakpoint] = useState(0);

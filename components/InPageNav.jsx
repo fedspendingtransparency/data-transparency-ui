@@ -7,7 +7,7 @@ import React, {
     useEffect, useState, useRef, useCallback
 } from 'react';
 import PropTypes from 'prop-types';
-import { throttle } from "lodash";
+import { throttle } from "lodash-es";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { mediumScreen, largeScreen, xLargeScreen } from '../dataMapping/mobileBreakpoints';
 import { checkIsOverflow, getElementData, reset } from '../helpers/inPageNavHelper';
