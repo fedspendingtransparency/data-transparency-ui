@@ -17,7 +17,8 @@ module.exports = {
         '@storybook/addon-controls',
         '@chromatic-com/storybook',
         '@storybook/addon-webpack5-compiler-babel',
-        '@storybook/addon-interactions'
+        '@storybook/addon-interactions',
+        '@storybook/addon-styling-webpack'
     ],
     webpack: (config, options) => {
         options.cache.set = () => Promise.resolve();

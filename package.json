@@ -39,6 +39,7 @@
     "@storybook/addon-console": "^3.0.0",
     "@storybook/addon-docs": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-styling-webpack": "^2.0.0",
     "@storybook/addon-viewport": "^8.6.12",
     "@storybook/addon-webpack5-compiler-babel": "^3.0.5",
     "@storybook/blocks": "^8.6.12",
