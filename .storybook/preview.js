@@ -1,7 +1,6 @@
 import React from 'react';
-import { withConsole } from '@storybook/addon-console';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
@@ -129,6 +128,5 @@ export const parameters = {
 
 export const decorators = [
   (storyFn) => <div style={{ width: "100%" }}>{storyFn()}</div>,
-  (storyFn, context) => withConsole()(storyFn)(context)
 ];
 export const tags = ['autodocs'];

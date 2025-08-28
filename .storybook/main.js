@@ -1,5 +1,6 @@
 
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 export default {
     // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
@@ -10,34 +11,64 @@ export default {
 module.exports = {
     stories: ['./**/stories/*.@(stories.@(js))','./**/stories/*.@(mdx)'],
     addons: [
-        '@storybook/addon-docs',
-        '@storybook/blocks',
-        '@storybook/addon-a11y',
-        '@storybook/addon-viewport',
-        '@storybook/addon-actions',
-        '@storybook/addon-essentials',
-        '@storybook/addon-controls',
-        '@chromatic-com/storybook',
-        '@storybook/addon-webpack5-compiler-babel',
-        '@storybook/addon-interactions'
+    "@storybook/addon-links",
+    "@storybook/addon-webpack5-compiler-babel",
+    "@chromatic-com/storybook",
+    "@storybook/addon-docs",
+    "@storybook/addon-styling-webpack",
     ],
-    webpack: (config, options) => {
-        options.cache.set = () => Promise.resolve();
-        return config;
-    },
-    webpackFinal: async (config) => {
-        config.module.rules.push({
-          test: /\.scss$/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
-          include: path.resolve(__dirname, '../src'), // Adjust path to your source directory
-        });
-
-        return config;
-    },
-    framework: {
+  webpack: (config, options) => {
+      options.cache.set = () => Promise.resolve();
+      return config;
+  },
+  webpackFinal: async (config) => {
+    config.plugins.push(new MiniCssExtractPlugin());
+    config.module.rules.push({
+            test: /\.js$|jsx$/,
+            exclude: /node_modules\.*/,
+            loader: "babel-loader"
+        },
+        {
+            test: /\.css$/,
+            use: [
+                {
+                    loader: MiniCssExtractPlugin.loader
+                },
+                {
+                    loader: "css-loader"
+                }
+            ]
+        },
+        {
+            include: /\.(eot|ttf|woff|woff2|png|svg|ico|gif|jpg|pdf|webp)$/,
+            loader: 'file-loader',
+            type: 'javascript/auto',
+            options: {
+                name: '[path][name].[ext]'
+            }
+        },
+        {
+            test: /\.scss$/,
+            use: [
+                { loader: MiniCssExtractPlugin.loader },
+                { loader: "css-loader", options: { url: false, sourceMap: true } },
+                {
+                    loader: "sass-loader",
+                    options: {
+                        sourceMap: true,
+                        sassOptions: {
+                            includePaths: ["./src/_scss", "./node_modules"]
+                        }
+                    }
+                }
+            ]
+    });
+    return config;
+  },
+  framework: {
         name: '@storybook/react-webpack5',
         options: {}
-    },
+  },
     docs: {},
     typescript: {
         reactDocgen: 'react-docgen-typescript'

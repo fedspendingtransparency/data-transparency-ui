@@ -1,0 +1,19 @@
+[12:29:03.721] [INFO] Checking the health of your Storybook..
+[12:29:03.722] [DEBUG] Getting Storybook info...
+[12:29:03.723] [DEBUG] Loading main config...
+[12:29:03.827] [DEBUG] Getting stories paths...
+[12:29:03.845] [DEBUG] Getting package manager...
+[12:29:04.529] [DEBUG] Getting Storybook version...
+[12:29:07.359] [WARN] .storybook: 1 issue found
+[12:29:07.359] [INFO] You are currently using Storybook 9.1.3 but you have packages which are incompatible with it:
+
+- @storybook/source-loader@8.6.14 which depends on ^8.6.14
+ Repo: https://github.com/storybookjs/storybook/tree/next/code/lib/source-loader
+
+Please consider updating your packages or contacting the maintainers for compatibility details.
+
+For more on Storybook 9 compatibility, see the linked GitHub issue:
+https://github.com/storybookjs/storybook/issues/30944
+[12:29:07.365] [INFO] Storybook doctor is complete!
+[12:29:07.365] [INFO] You can always recheck the health of your project(s) by running:
+npx storybook doctor
