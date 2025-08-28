@@ -90,7 +90,6 @@ import dataTransparencyUiTheme from './theme';
 
 // where global scss styles get applied
 import '../styles/storybook.scss';
-
 export const parameters = {
   docs: {
     container: DocsContainer,
