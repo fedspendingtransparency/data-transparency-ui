@@ -173,6 +173,7 @@ const StackTemplate = (args) => (
   </TableWrapper>
   </>
 )
+
 export const DefaultTable = TableInTableWrapperTemplate.bind({});
 DefaultTable.args = {
   rows: rowData
