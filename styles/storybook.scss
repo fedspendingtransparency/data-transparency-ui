@@ -11,3 +11,8 @@ html {
     height: 100vh;
     display: flex;
 }
+
+// for some reason our fonts aren't applying in all cases, this fixes that, ideally we wouldn't have to do this
+* {
+    font-family: sans-serif;
+}

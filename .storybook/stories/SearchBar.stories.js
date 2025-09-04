@@ -1,5 +1,5 @@
 import SearchBar from '../../components/SearchBar';
-import { within, userEvent, expect } from '@storybook/test';
+import { within, userEvent, expect } from 'storybook/test';
 
 export default {
   title: 'Tables/SearchBar',
