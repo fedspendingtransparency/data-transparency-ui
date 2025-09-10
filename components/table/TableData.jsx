@@ -108,7 +108,7 @@ const TableData = ({
                                                     </div>
                                                 )}
                                                 <div className="usda-table__cell-text">
-                                                    {data.type === 'a' && j === 0 && isStacked && isMobile
+                                                    {data?.type === 'a' && j === 0 && isStacked && isMobile
                                                         ? (
                                                             <a
                                                                 target={data.props.target}
@@ -193,7 +193,7 @@ const TableData = ({
                                             </div>
                                         )}
                                         <div>
-                                            {data.type === 'a' && j === 0 && isStacked && isMobile
+                                            {data?.type === 'a' && j === 0 && isStacked && isMobile
                                                 ? (
                                                     <a
                                                         target={data.props.target}
@@ -209,7 +209,8 @@ const TableData = ({
                                         </div>
                                     </td>
                                 )
-                        ))}
+                        )
+                        )}
                     </tr>
                 );
             })}
