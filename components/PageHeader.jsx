@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import InPageNav from './InPageNav';
@@ -8,7 +8,6 @@ require('../styles/components/_pageHeader.scss');
 const PageHeader = ({
     title,
     overLine = "",
-    // stickyBreakPoint = 0,
     toolBar = [],
     backgroundColor = '#1a4480',
     pageName,
