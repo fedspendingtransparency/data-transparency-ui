@@ -1,7 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import { useDynamicStickyClass } from '../helpers/pageHeaderHelper';
 import InPageNav from './InPageNav';
 
 require('../styles/components/_pageHeader.scss');
@@ -9,7 +8,7 @@ require('../styles/components/_pageHeader.scss');
 const PageHeader = ({
     title,
     overLine = "",
-    stickyBreakPoint = 0,
+    // stickyBreakPoint = 0,
     toolBar = [],
     backgroundColor = '#1a4480',
     pageName,
@@ -18,28 +17,6 @@ const PageHeader = ({
     jumpToSection,
     inPageNav = false
 }) => {
-    const stickyHeader = useRef(null);
-    const [
-        isSticky,
-        ,
-        ,
-        handleScroll,
-        measureScreen
-    ] = useDynamicStickyClass(stickyHeader, stickyBreakPoint);
-
-    useEffect(() => {
-        measureScreen();
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', measureScreen);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            window.removeEventListener('resize', measureScreen);
-        };
-    });
-
-    const stickyClass = isSticky ? ' usda-page-header--sticky' : '';
-
     const renderMobileShareIcon = () => {
         const shareIcon = toolBar?.find((o) => o?.type.displayName === 'Share Icon');
         if (shareIcon) {
@@ -57,7 +34,7 @@ const PageHeader = ({
     };
 
     return (
-        <section className={`usda-page-header${stickyClass}`} ref={stickyHeader} style={{backgroundColor: backgroundColor}}>
+        <section className="usda-page-header usda-page-header--sticky" style={{ backgroundColor }}>
             <div className="usda-page-header__container">
                 <div className="usda-page-header__mobile-top">
                     <div className="usda-page-header__header">
@@ -93,12 +70,14 @@ const PageHeader = ({
                     </div>
                 )}
             </div>
-            {inPageNav && <InPageNav
-                detectActiveSection
-                pageName={pageName}
-                sections={sections}
-                activeSection={activeSection}
-                jumpToSection={jumpToSection} />}
+            {inPageNav && (
+                <InPageNav
+                    detectActiveSection
+                    pageName={pageName}
+                    sections={sections}
+                    activeSection={activeSection}
+                    jumpToSection={jumpToSection} />
+            )}
         </section>
     );
 };

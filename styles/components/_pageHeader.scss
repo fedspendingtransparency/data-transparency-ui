@@ -9,7 +9,7 @@ $z-header: 100;
   width: 100%;
 
   &.usda-page-header--sticky {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: $z-header;
