@@ -16,11 +16,6 @@
     list-style-type: none;
     max-width: 100%;
 
-    .li {
-      padding-top: 0 !important;
-      margin-top: -6px !important;
-    }
-
     @media(min-width: $medium-screen) {
       margin: 0 rem(20);
     }
