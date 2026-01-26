@@ -104,6 +104,7 @@ $z-header: 100;
     flex-wrap: nowrap;
     align-items: center;
     color: $gray-cool-5;
+    min-height: rem(60);
 
     @include for-phone-only {
       flex: 0 0 auto;

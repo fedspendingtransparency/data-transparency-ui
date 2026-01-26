@@ -1,7 +1,7 @@
 @import "../global/index";
 
 .usda-in-page-nav__container {
-  height: rem(34);
+  height: rem(53);
   width: 100%;
   background-color: $theme-color-headline-inverse;
   border-bottom: $theme-color-body-inverse 2px solid;
@@ -9,12 +9,17 @@
   top: 60px;
 
   .usda-in-page-nav__wrapper {
-    height: rem(34);
+    height: rem(53);
     display: flex;
     align-items: center;
     flex-direction: row;
     list-style-type: none;
     max-width: 100%;
+
+    .li {
+      padding-top: 0 !important;
+      margin-top: -6px !important;
+    }
 
     @media(min-width: $medium-screen) {
       margin: 0 rem(20);
@@ -164,15 +169,15 @@
         scroll-snap-type: x mandatory;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none;
+        min-height: rem(60);
       }
     }
 
     li {
-      display: inline;
+      display: flex;
       cursor: pointer;
       margin: 0 $global-margin * 4 0 0;
-      padding-top: rem(6);
-      height: 100%;
+      align-items: center;
 
       &.active {
         font-weight: $font-semibold;
