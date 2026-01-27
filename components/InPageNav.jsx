@@ -22,7 +22,7 @@ const propTypes = {
     pageName: PropTypes.string
 };
 
-function InPageNav(props) {
+const InPageNav = (props) => {
     const {
         sections, jumpToSection, pageName, detectActiveSection
     } = props;
@@ -109,8 +109,11 @@ function InPageNav(props) {
 
             // check for 2 items
             if (index - 2 >= 0) {
-                const leftPosition = elementData[index - 2]?.originalLeftOffset + (padding / 2);
-                ulEl.scrollTo({ left: leftPosition, behavior: 'smooth' });
+                const leftOffset = elementData[index - 2]?.originalLeftOffset;
+                if (leftOffset) {
+                    const leftPosition = leftOffset + (padding / 2);
+                    ulEl.scrollTo({ left: leftPosition, behavior: 'smooth' });
+                }
             }
             else {
                 reset(navBar);
@@ -349,7 +352,7 @@ function InPageNav(props) {
             </nav>
         </div>
     );
-}
+};
 
 InPageNav.propTypes = propTypes;
 export default InPageNav;
