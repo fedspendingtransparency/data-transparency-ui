@@ -46,30 +46,36 @@ const DownloadIconButton = ({
                 tooltipPosition={tooltipPosition}
                 tooltipComponent={tooltipComponent}>
                 <button
+                    type="button"
                     className="usda-button"
                     title={buttonText}
                     aria-label={buttonText}
                     disabled={downloadInFlight}
                     onClick={startDownload}
-                    style={{backgroundColor: backgroundColor}}>
-                    <FontAwesomeIcon icon={icon} spin={downloadInFlight} color='#dfe1e2'/>
+                    style={{ backgroundColor }}
+                    tabIndex={!isEnabled ? -1 : 0}
+                    aria-hidden={!isEnabled}>
+                    <FontAwesomeIcon icon={icon} spin={downloadInFlight} color="#dfe1e2" />
+                    <span style={{ color: '#dfe1e2' }}>{buttonText}</span>
                 </button>
-                <span style={{color: '#dfe1e2'}}>{buttonText}</span>
             </TooltipWrapper>
         );
     }
     return (
         <div className={`usda-download-btn${disabledClass}`}>
             <button
+                type="button"
                 className="usda-button"
                 title={buttonText}
                 aria-label={buttonText}
                 disabled={downloadInFlight}
                 onClick={startDownload}
-                style={{backgroundColor: backgroundColor}}>
+                style={{ backgroundColor }}
+                tabIndex={!isEnabled ? -1 : 0}
+                aria-hidden={!isEnabled}>
                 <FontAwesomeIcon icon={icon} spin={downloadInFlight} />
+                <span>{buttonText}</span>
             </button>
-            <span>{buttonText}</span>
         </div>
     );
 };
