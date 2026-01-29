@@ -13,7 +13,7 @@ const defaultControlledProps = {
     isExpanded: false
 };
 
-function SectionWrapper({
+const SectionWrapper = ({
     title,
     icon,
     children,
@@ -33,7 +33,7 @@ function SectionWrapper({
         props: {}
     },
     description
-}) {
+}) => {
     const [isExpanded, setExpanded] = useState(defaultExpandedState);
     const toggleExpand = () => {
         if (controlledProps.isControlled) {
@@ -57,6 +57,7 @@ function SectionWrapper({
                     descTooltip={descTooltip} />
                 {isCollapsible && (
                     <FontAwesomeIcon
+                        aria-label="usda-section-title__expand-icon"
                         tabIndex={0}
                         onKeyDown={createOnKeyDownHandler(toggleExpand)}
                         className="usda-section-title__expand-icon"
@@ -70,7 +71,7 @@ function SectionWrapper({
             {showChildren && !isComingSoon && children}
         </section>
     );
-}
+};
 
 SectionWrapper.propTypes = {
     icon: PropTypes.element.isRequired,
