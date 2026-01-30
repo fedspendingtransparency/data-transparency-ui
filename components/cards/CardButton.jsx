@@ -93,7 +93,8 @@ const CardButton = ({
                         buttonSize={buttonSize}
                         textAlignment={textAlignment}
                         buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]}
-                        backgroundColor={backgroundColor} />
+                        backgroundColor={backgroundColor}
+                        disabled={disabled} />
                 </div>
             )
                 : (
@@ -109,7 +110,8 @@ const CardButton = ({
                             buttonSize={buttonSize}
                             textAlignment={textAlignment}
                             buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]}
-                            backgroundColor={backgroundColor} />
+                            backgroundColor={backgroundColor}
+                            disabled={disabled} />
                     </div>
                 )}
         </div>
