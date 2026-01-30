@@ -21,7 +21,8 @@ const propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object
-    ])
+    ]),
+    disabled: PropTypes.bool
 };
 
 const CardButton = ({
@@ -35,7 +36,8 @@ const CardButton = ({
     children,
     backgroundColor,
     buttonSize,
-    textAlignment
+    textAlignment,
+    disabled = false
 }) => {
     const variantMapper = {
         primary: "primary",
@@ -70,7 +72,8 @@ const CardButton = ({
                     buttonSize="md"
                     buttonType={variantMapper[variant] === undefined ? "secondary" : variantMapper[variant]}
                     backgroundColor="light"
-                    textAlignment="center" />
+                    textAlignment="center"
+                    disabled={disabled} />
             </div>
         );
     }
