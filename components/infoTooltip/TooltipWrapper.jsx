@@ -305,23 +305,22 @@ const TooltipWrapper = ({
             <div
                 ref={(div) => {
                     tooltipContainer.current = div;
-                }}>
-                <div
-                    role="button"
-                    tabIndex="0"
-                    aria-label="Tooltip Hover Wrapper"
-                    className="tooltip__hover-wrapper"
-                    onBlur={closeTooltip}
-                    onFocus={showTooltipFunc}
-                    onKeyPress={showTooltipFunc}
-                    onMouseEnter={showTooltipFunc}
-                    onMouseLeave={closeTooltip}
-                    onClick={showTooltipFunc}>
-                    {children}
-                    {icon && tooltipIcons[icon]}
-                </div>
-                {tooltip}
+                }}
+                aria-describedby=""
+                role="button"
+                tabIndex="0"
+                aria-label="Tooltip Hover Wrapper"
+                className="tooltip__hover-wrapper"
+                onBlur={closeTooltip}
+                onFocus={showTooltipFunc}
+                onKeyPress={showTooltipFunc}
+                onMouseEnter={showTooltipFunc}
+                onMouseLeave={closeTooltip}
+                onClick={showTooltipFunc}>
+                {icon && tooltipIcons[icon]}
             </div>
+            {children}
+            {tooltip}
         </div>
     );
 };

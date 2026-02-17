@@ -5,8 +5,8 @@
 
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
-import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
+import TooltipWrapper from "../infoTooltip/TooltipWrapper";
+import TooltipComponent from "../infoTooltip/TooltipComponent";
 import { createOnKeyDownHandler } from '../../helpers/keyboardEventsHelper';
 import { formatNumber } from '../../helpers/moneyFormatter';
 
@@ -52,12 +52,13 @@ const Tab = (props) => {
                         {props.count >= 0 && (
                             <div aria-label={`Count of ${formatNumber(props.count)} for ${props.label}`} className={`count${props.active ? ' active' : ''}`}>
                                 {formatNumber(props.count)}
-                            </div>)
-                        }
-                        {props.tooltip && <TooltipWrapper
-                            tooltipComponent={(<TooltipComponent title={props.label}>{props.tooltip}</TooltipComponent>)}
-                            icon="info" />
-                        }
+                            </div>
+                        )}
+                        {props.tooltip && (
+                            <TooltipWrapper
+                                tooltipComponent={(<TooltipComponent title={props.label}>{props.tooltip}</TooltipComponent>)}
+                                icon="info" />
+                        )}
                     </div>
                 </div>
             </div>
