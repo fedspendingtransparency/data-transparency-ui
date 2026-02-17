@@ -46,7 +46,7 @@ const Tabs = ({
             className={`usa-dt-tab-list${tablessStyle ? ' tabless-tabs' : ''}`}
             role="tablist">
             {!tablessStyle && <div className="usa-dt-tab-list__border-pre-filler" />}
-                {tabs}
+            {tabs}
             <div className="usa-dt-tab-list__border-post-filler" />
         </div>
     );
