@@ -306,7 +306,6 @@ const TooltipWrapper = ({
                 ref={(div) => {
                     tooltipContainer.current = div;
                 }}
-                aria-describedby=""
                 role="button"
                 tabIndex="0"
                 aria-label="Tooltip Hover Wrapper"
