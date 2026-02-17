@@ -41,10 +41,11 @@ const DownloadIconButton = ({
 
     if (tooltipComponent) {
         return (
-            <TooltipWrapper
-                className={`usda-download-btn${disabledClass}`}
-                tooltipPosition={tooltipPosition}
-                tooltipComponent={tooltipComponent}>
+            <>
+                <TooltipWrapper
+                    className={`usda-download-btn${disabledClass}`}
+                    tooltipPosition={tooltipPosition}
+                    tooltipComponent={tooltipComponent} />
                 <button
                     type="button"
                     className="usda-button"
@@ -58,7 +59,7 @@ const DownloadIconButton = ({
                     <FontAwesomeIcon icon={icon} spin={downloadInFlight} color="#dfe1e2" />
                     <span style={{ color: '#dfe1e2' }}>{buttonText}</span>
                 </button>
-            </TooltipWrapper>
+            </>
         );
     }
     return (
