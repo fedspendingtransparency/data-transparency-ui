@@ -5,8 +5,8 @@
 
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import TooltipWrapper from "../infoTooltip/TooltipWrapper";
-import TooltipComponent from "../infoTooltip/TooltipComponent";
+import TooltipWrapper from '../../components/infoTooltip/TooltipWrapper';
+import TooltipComponent from '../../components/infoTooltip/TooltipComponent';
 import { createOnKeyDownHandler } from '../../helpers/keyboardEventsHelper';
 import { formatNumber } from '../../helpers/moneyFormatter';
 
