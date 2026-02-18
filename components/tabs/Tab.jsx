@@ -52,13 +52,12 @@ const Tab = (props) => {
                         {props.count >= 0 && (
                             <div aria-label={`Count of ${formatNumber(props.count)} for ${props.label}`} className={`count${props.active ? ' active' : ''}`}>
                                 {formatNumber(props.count)}
-                            </div>
-                        )}
-                        {props.tooltip && (
-                            <TooltipWrapper
-                                tooltipComponent={(<TooltipComponent title={props.label}>{props.tooltip}</TooltipComponent>)}
-                                icon="info" />
-                        )}
+                            </div>)
+                        }
+                        {props.tooltip && <TooltipWrapper
+                            tooltipComponent={(<TooltipComponent title={props.label}>{props.tooltip}</TooltipComponent>)}
+                            icon="info" />
+                        }
                     </div>
                 </div>
             </div>
