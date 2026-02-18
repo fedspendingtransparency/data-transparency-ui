@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /**
  * Tooltip.jsx
  * Created by Lizzie Salita 3/8/19
@@ -305,21 +306,22 @@ const TooltipWrapper = ({
             <div
                 ref={(div) => {
                     tooltipContainer.current = div;
-                }}
-                role="button"
-                tabIndex="0"
-                aria-label="Tooltip Hover Wrapper"
-                className="tooltip__hover-wrapper"
-                onBlur={closeTooltip}
-                onFocus={showTooltipFunc}
-                onKeyPress={showTooltipFunc}
-                onMouseEnter={showTooltipFunc}
-                onMouseLeave={closeTooltip}
-                onClick={showTooltipFunc}>
-                {icon && tooltipIcons[icon]}
+                }}>
+                <div
+                    role="presentation"
+                    tabIndex="0"
+                    className="tooltip__hover-wrapper"
+                    onBlur={closeTooltip}
+                    onFocus={showTooltipFunc}
+                    onKeyPress={showTooltipFunc}
+                    onMouseEnter={showTooltipFunc}
+                    onMouseLeave={closeTooltip}
+                    onClick={showTooltipFunc}>
+                    {children}
+                    {icon && tooltipIcons[icon]}
+                </div>
+                {tooltip}
             </div>
-            {children}
-            {tooltip}
         </div>
     );
 };

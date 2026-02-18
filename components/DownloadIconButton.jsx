@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-interactive-element-to-noninteractive-role */
 /**
  * DownloadIconButton.jsx
  * Created by Lizzie Salita 7/9/20
@@ -41,25 +42,23 @@ const DownloadIconButton = ({
 
     if (tooltipComponent) {
         return (
-            <>
-                <TooltipWrapper
-                    className={`usda-download-btn${disabledClass}`}
-                    tooltipPosition={tooltipPosition}
-                    tooltipComponent={tooltipComponent} />
+            <TooltipWrapper
+                className={`usda-download-btn${disabledClass}`}
+                tooltipPosition={tooltipPosition}
+                tooltipComponent={tooltipComponent}>
                 <button
                     type="button"
+                    role="presentation"
                     className="usda-button"
                     title={buttonText}
-                    aria-label={buttonText}
                     disabled={downloadInFlight || !isEnabled}
                     onClick={startDownload}
                     style={{ backgroundColor }}
-                    tabIndex={!isEnabled ? -1 : 0}
-                    aria-hidden={!isEnabled}>
+                    tabIndex={!isEnabled ? -1 : 0}>
                     <FontAwesomeIcon icon={icon} spin={downloadInFlight} color="#dfe1e2" />
                     <span style={{ color: '#dfe1e2' }}>{buttonText}</span>
                 </button>
-            </>
+            </TooltipWrapper>
         );
     }
     return (
