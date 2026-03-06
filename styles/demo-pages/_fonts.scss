@@ -59,6 +59,7 @@ $usa-dt-font-path: '../' !default;
             font-family: $font-family;
             font-style: $style;
             font-weight: $weight;
+            font-display: swap;
 
             src: font-source-declaration(
             $font-family,
