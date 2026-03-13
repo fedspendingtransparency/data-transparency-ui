@@ -37,9 +37,8 @@
     "@chromatic-com/storybook": "^5.0.1",
     "@storybook/addon-a11y": "^10.2.19",
     "@storybook/addon-docs": "^10.2.19",
-    "@storybook/addon-styling-webpack": "^2.0.0",
-    "@storybook/addon-webpack5-compiler-babel": "^4.0.0",
-    "@storybook/react-webpack5": "^10.2.19",
+    "@storybook/builder-vite": "^10.2.19",
+    "@storybook/react-vite": "^10.2.19",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.0.0",
     "babel-loader": "^8.0.5",
@@ -66,9 +65,9 @@
     "sass-loader": "^8.0.0",
     "storybook": "^10.2.19",
     "trim": "^1.0.1",
-    "webpack": "^5.98.0",
-    "webpack-bundle-analyzer": "^4.10.2",
-    "webpack-cli": "^6.0.1"
+    "vite": "^8.0.0",
+    "vite-plugin-babel": "^1.5.1",
+    "vite-plugin-html-purgecss": "^0.1.1"
   },
   "dependencies": {
     "@babel/plugin-transform-object-rest-spread": "^7.20.7",
