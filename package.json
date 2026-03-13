@@ -10,7 +10,7 @@
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
     "test": "./node_modules/.bin/jest; exit 0;",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o docs"
   },
   "repository": {
     "type": "git",
@@ -34,10 +34,13 @@
     "@chromatic-com/storybook": "^5.0.1",
     "@storybook/addon-a11y": "^10.2.19",
     "@storybook/addon-docs": "^10.2.19",
+    "@storybook/addon-vitest": "^10.2.19",
     "@storybook/builder-vite": "^10.2.19",
     "@storybook/react-vite": "^10.2.19",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.0.0",
+    "@vitest/browser-playwright": "^4.1.0",
+    "@vitest/coverage-v8": "^4.1.0",
     "babel-plugin-module-resolver": "^5.0.0",
     "enzyme": "^3.10.0",
     "eslint": "^8.19.0",
@@ -52,6 +55,7 @@
     "jest-cli": "^28.1.2",
     "jsdom": "^24.0.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "playwright": "^1.58.2",
     "postcss": "^8.5.3",
     "react-is": "^19.1.0",
     "storybook": "^10.2.19",
@@ -59,7 +63,8 @@
     "vite": "^8.0.0",
     "vite-plugin-babel": "^1.5.1",
     "vite-plugin-html-purgecss": "^0.1.1",
-    "vite-plugin-purgecss": "^0.2.13"
+    "vite-plugin-purgecss": "^0.2.13",
+    "vitest": "^4.1.0"
   },
   "dependencies": {
     "@babel/plugin-transform-object-rest-spread": "^7.20.7",

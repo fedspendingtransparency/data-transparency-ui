@@ -1,0 +1,58 @@
+@import "../global/index";
+
+.usda-section__container {
+  margin-top: rem(15);
+  margin-bottom: rem(15);
+  flex-wrap: wrap;
+
+  .usda-section-title__container {
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .tooltip-wrapper {
+      display: none;
+      @include for-tablet-portrait-up {
+        font-size: rem(20);
+        display: block;
+        align-self: flex-end;
+        @include for-phone-only {
+          align-self: center;
+        }
+        .tooltip__hover-wrapper {
+          display: flex;
+        }
+      }
+    }
+
+    .usda-section-title__desc {
+      display: none;
+      @include for-tablet-portrait-up {
+        display: block;
+        align-self: flex-end;
+        font-size: rem(14);
+        color: $color-base;
+        strong {
+          font-weight: $font-semibold;
+        }
+      }
+    }
+
+    .usda-section-title__expand-icon {
+      color: $color-primary;
+      align-self: flex-end;
+      font-size: rem(20);
+      margin-right: rem(10);
+      padding: 0;
+      cursor: pointer;
+    }
+  }
+
+  hr {
+    width: 100%;
+    height: rem(2);
+    background: #494440;
+    border: none;
+  }
+}

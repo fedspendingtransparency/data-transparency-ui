@@ -1,0 +1,14 @@
+@import "../global/index";
+
+.search-results-table-wrapper__outer-container {
+  position: relative;
+
+  .search-results-table-wrapper__table-container {
+    position: relative;
+    width: rem(800);
+    overflow-x: scroll;
+    border: solid 1px #dfe1e2;
+    border-radius: rem(8);
+    mask-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 1) 16px);
+  }
+}

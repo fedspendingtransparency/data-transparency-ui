@@ -20,9 +20,11 @@ export default {
     },
     staticDirs: ['../public', '../static','../assets','../assets/fonts', '../assets/img', '../styles'],
     addons: [
-    "@storybook/addon-links",
-    "@chromatic-com/storybook",
-    "@storybook/addon-docs",
+      "@storybook/addon-links",
+      "@chromatic-com/storybook",
+      "@storybook/addon-docs",
+      '@storybook/addon-vitest',
+      '@storybook/addon-a11y'
     ],
   optimizeDeps: {
     rolldownOptions: {
