@@ -1,19 +1,344 @@
-[12:29:03.721] [INFO] Checking the health of your Storybook..
-[12:29:03.722] [DEBUG] Getting Storybook info...
-[12:29:03.723] [DEBUG] Loading main config...
-[12:29:03.827] [DEBUG] Getting stories paths...
-[12:29:03.845] [DEBUG] Getting package manager...
-[12:29:04.529] [DEBUG] Getting Storybook version...
-[12:29:07.359] [WARN] .storybook: 1 issue found
-[12:29:07.359] [INFO] You are currently using Storybook 9.1.3 but you have packages which are incompatible with it:
+[09:16:44.527] [INFO] Storybook upgrade - v10.2.19
+[09:16:44.531] [INFO] detect-projects-spinner-start: Detecting projects...
+[09:16:44.532] [DEBUG] Finding Storybook projects...
+[09:16:44.723] [DEBUG] Found 1 Storybook projects
+[09:16:44.726] [INFO] detect-projects-spinner: Detecting projects: 1 projects
+[09:16:44.726] [DEBUG] Getting Storybook data...
+[09:16:44.726] [DEBUG] Getting Storybook info...
+[09:16:45.038] [DEBUG] Loading main config...
+[09:16:45.038] [DEBUG] Getting stories paths...
+[09:16:45.056] [DEBUG] Getting package manager...
+[09:16:45.582] [DEBUG] Getting package.json info for C:/Users/j1nxt02/develop/data-transparency-ui/package.json...
+[09:16:45.582] [DEBUG] Getting Storybook version...
+[09:16:45.583] [DEBUG] Detecting CSF factory usage...
+[09:16:45.612] [DEBUG] C:/Users/j1nxt02/develop/data-transparency-ui/.storybook - Validating before version... 9.1.3
+[09:16:45.612] [DEBUG] C:/Users/j1nxt02/develop/data-transparency-ui/.storybook - Validating upgrade compatibility...
+[09:16:45.612] [DEBUG] C:/Users/j1nxt02/develop/data-transparency-ui/.storybook - Fetching NPM version information...
+[09:16:45.612] [DEBUG] Getting CLI versions from NPM for storybook...
+[09:16:45.613] [DEBUG] Executing command: npm info storybook version
+[09:16:45.641] [DEBUG] Getting CLI versions from NPM for storybook@next...
+[09:16:45.641] [DEBUG] Executing command: npm info storybook@next version
+[09:16:47.187] [DEBUG] C:/Users/j1nxt02/develop/data-transparency-ui/.storybook - Evaluating blockers...
+[09:16:47.208] [DEBUG] Getting installed version for @storybook/experimental-addon-test...
+[09:16:47.208] [DEBUG] Executing command: npm ls --json --depth=99 2>NUL
+[09:16:48.296] [DEBUG] Executing command: npm ls --json --depth=0 2>NUL
+[09:16:49.400] [DEBUG] Error finding installations for @storybook/experimental-addon-test: ExecaError: Command failed with exit code 1: npm.cmd ls --json "--depth=0" "2>NUL"
 
-- @storybook/source-loader@8.6.14 which depends on ^8.6.14
- Repo: https://github.com/storybookjs/storybook/tree/next/code/lib/source-loader
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.11.0
+npm info using node@v22.22.0
+npm verbose title npm ls 2>NUL
+npm verbose argv "ls" "--json" "--depth" "0" "2>NUL"
+npm verbose logfile logs-max:10 dir:C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_16_48_624Z-
+npm verbose logfile C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_16_48_624Z-debug-0.log
+npm warn Unknown env config "http.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "https.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "post-build-test-port". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "always-auth". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "https.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "post_build_test_port". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm verbose stack Error: Invalid tag name "2>NUL" of package "2>NUL": Tags may not have any characters that encodeURIComponent encodes.
+npm verbose stack     at invalidTagName (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:141:15)
+npm verbose stack     at fromRegistry (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:469:13)
+npm verbose stack     at resolve (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:112:12)
+npm verbose stack     at npa (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:56:10)
+npm verbose stack     at Node.satisfies (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\node.js:1160:20)
+npm verbose stack     at C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:455:39
+npm verbose stack     at Array.some (<anonymous>)
+npm verbose stack     at filterByPositionalArgs (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:454:26)
+npm verbose stack     at C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:500:5
+npm verbose stack     at Array.map (<anonymous>)
+npm error code EINVALIDTAGNAME
+npm error Invalid tag name "2>NUL" of package "2>NUL": Tags may not have any characters that encodeURIComponent encodes.
+npm verbose cwd C:\Users\j1nxt02\develop\data-transparency-ui
+npm verbose os Windows_NT 10.0.22631
+npm verbose node v22.22.0
+npm verbose npm  v11.11.0
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_16_48_624Z-debug-0.log
+
+{
+  "error": {
+    "code": "EINVALIDTAGNAME",
+    "summary": "Invalid tag name \"2>NUL\" of package \"2>NUL\": Tags may not have any characters that encodeURIComponent encodes.",
+    "detail": ""
+  }
+}
+[09:16:49.400] [DEBUG] No installations found for @storybook/experimental-addon-test
+[09:16:49.400] [INFO] detect-projects-spinner-stop: 1 project detected
+[09:16:49.401] [DEBUG] Found 1 valid projects and 0 error projects
+[09:16:49.401] [INFO] Upgrading from [1m9.1.3[22m to [1m10.2.19[22m
+[09:16:49.403] [INFO] upgrade-dependencies-task-start: Fetching versions to update package.json files..
+[09:16:49.403] [DEBUG] Updating dependencies in C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:16:49.403] [INFO] upgrade-dependencies-task: C:/Users/j1nxt02/develop/data-transparency-ui/package.json
+[09:16:49.404] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:49.404] [DEBUG] Getting CLI versions from NPM for @chromatic-com/storybook...
+[09:16:49.404] [DEBUG] Executing command: npm info @chromatic-com/storybook version
+[09:16:49.433] [DEBUG] Getting CLI versions from NPM for @storybook/addon-webpack5-compiler-babel...
+[09:16:49.433] [DEBUG] Executing command: npm info @storybook/addon-webpack5-compiler-babel version
+[09:16:51.132] [DEBUG] {
+  "upgradedDependencies": [
+    "@storybook/addon-links@^10.2.19"
+  ]
+}
+[09:16:51.132] [DEBUG] {
+  "upgradedDevDependencies": [
+    "@storybook/addon-a11y@^10.2.19",
+    "@storybook/addon-docs@^10.2.19",
+    "@storybook/react-webpack5@^10.2.19",
+    "storybook@^10.2.19",
+    "@chromatic-com/storybook@^5.0.1",
+    "@storybook/addon-webpack5-compiler-babel@^4.0.0"
+  ]
+}
+[09:16:51.132] [DEBUG] {
+  "upgradedPeerDependencies": []
+}
+[09:16:51.132] [DEBUG] Getting package.json info for C:/Users/j1nxt02/develop/data-transparency-ui/package.json...
+[09:16:51.132] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:51.132] [DEBUG] Getting CLI versions from NPM for @storybook/addon-links...
+[09:16:51.132] [DEBUG] Executing command: npm info @storybook/addon-links version
+[09:16:53.173] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:53.175] [DEBUG] Getting package.json info for C:/Users/j1nxt02/develop/data-transparency-ui/package.json...
+[09:16:53.175] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:53.175] [DEBUG] Getting CLI versions from NPM for @storybook/addon-a11y...
+[09:16:53.175] [DEBUG] Executing command: npm info @storybook/addon-a11y version
+[09:16:55.406] [DEBUG] Getting CLI versions from NPM for @storybook/addon-docs...
+[09:16:55.406] [DEBUG] Executing command: npm info @storybook/addon-docs version
+[09:16:56.901] [DEBUG] Getting CLI versions from NPM for @storybook/react-webpack5...
+[09:16:56.901] [DEBUG] Executing command: npm info @storybook/react-webpack5 version
+[09:16:58.710] [DEBUG] Using cached version for storybook...
+[09:16:58.710] [DEBUG] Using cached version for @chromatic-com/storybook...
+[09:16:58.710] [DEBUG] Using cached version for @storybook/addon-webpack5-compiler-babel...
+[09:16:58.710] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.711] [DEBUG] Getting package.json info for C:/Users/j1nxt02/develop/data-transparency-ui/package.json...
+[09:16:58.711] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.711] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.712] [INFO] upgrade-dependencies-task-success: Updated package versions in package.json files
+[09:16:58.712] [INFO] detect-automigrations-task-start: Detecting automigrations...
+[09:16:58.713] [DEBUG] Starting automigration collection across 1 projects and 19 fixes...
+[09:16:58.713] [INFO] detect-automigrations-task: Checking automigrations for
+C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:16:58.713] [DEBUG] Processing project: C:/Users/j1nxt02/develop/data-transparency-ui/.storybook
+[09:16:58.713] [DEBUG] Checking fix eslintPlugin for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:16:58.713] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.714] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.715] [WARN] Unable to find eslint config file, skipping
+[09:16:58.715] [DEBUG] Checking fix addon-mdx-gfm-remove for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:16:58.716] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.716] [DEBUG] Checking fix addon-storysource-code-panel for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:16:58.716] [DEBUG] Checking fix upgrade-storybook-related-dependencies for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:16:58.716] [DEBUG] Checking for incompatible storybook packages...
+[09:16:58.716] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.719] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:16:58.720] [DEBUG] Getting installed version for @storybook/addon-styling-webpack...
+[09:16:58.720] [DEBUG] Executing command: npm ls --json --depth=99 2>NUL
+[09:16:59.853] [DEBUG] Executing command: npm ls --json --depth=0 2>NUL
+[09:17:00.944] [DEBUG] Error finding installations for @storybook/addon-styling-webpack: ExecaError: Command failed with exit code 1: npm.cmd ls --json "--depth=0" "2>NUL"
+
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.11.0
+npm info using node@v22.22.0
+npm verbose title npm ls 2>NUL
+npm verbose argv "ls" "--json" "--depth" "0" "2>NUL"
+npm verbose logfile logs-max:10 dir:C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_17_00_182Z-
+npm verbose logfile C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_17_00_182Z-debug-0.log
+npm warn Unknown env config "http.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "https.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "post-build-test-port". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "always-auth". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "https.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "post_build_test_port". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm verbose stack Error: Invalid tag name "2>NUL" of package "2>NUL": Tags may not have any characters that encodeURIComponent encodes.
+npm verbose stack     at invalidTagName (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:141:15)
+npm verbose stack     at fromRegistry (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:469:13)
+npm verbose stack     at resolve (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:112:12)
+npm verbose stack     at npa (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:56:10)
+npm verbose stack     at Node.satisfies (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\node.js:1160:20)
+npm verbose stack     at C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:455:39
+npm verbose stack     at Array.some (<anonymous>)
+npm verbose stack     at filterByPositionalArgs (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:454:26)
+npm verbose stack     at C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:500:5
+npm verbose stack     at Array.map (<anonymous>)
+npm error code EINVALIDTAGNAME
+npm error Invalid tag name "2>NUL" of package "2>NUL": Tags may not have any characters that encodeURIComponent encodes.
+npm verbose cwd C:\Users\j1nxt02\develop\data-transparency-ui
+npm verbose os Windows_NT 10.0.22631
+npm verbose node v22.22.0
+npm verbose npm  v11.11.0
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_17_00_182Z-debug-0.log
+
+{
+  "error": {
+    "code": "EINVALIDTAGNAME",
+    "summary": "Invalid tag name \"2>NUL\" of package \"2>NUL\": Tags may not have any characters that encodeURIComponent encodes.",
+    "detail": ""
+  }
+}
+[09:17:00.944] [DEBUG] No installations found for @storybook/addon-styling-webpack
+[09:17:00.944] [DEBUG] Getting CLI versions from NPM for @storybook/addon-styling-webpack...
+[09:17:00.944] [DEBUG] Executing command: npm info @storybook/addon-styling-webpack version
+[09:17:02.622] [DEBUG] Checking fix initial-globals for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.631] [DEBUG] Checking fix addon-globals-api for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.638] [DEBUG] Checking fix addon-a11y-addon-test for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.638] [DEBUG] Checking fix consolidated-imports for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.639] [DEBUG] Checking fix addon-experimental-test for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.639] [DEBUG] Using cached installed version for @storybook/experimental-addon-test...
+[09:17:02.639] [DEBUG] Checking fix rnstorybook-config for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.640] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:17:02.640] [DEBUG] Checking fix migrate-addon-console for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.640] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:17:02.640] [DEBUG] Checking fix nextjs-to-nextjs-vite for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.640] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:17:02.640] [DEBUG] Checking fix remove-addon-interactions for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.640] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:17:02.640] [DEBUG] Checking fix renderer-to-framework for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.641] [DEBUG] Checking fix remove-essential-addons for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.641] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:17:02.641] [DEBUG] Checking fix addon-a11y-parameters for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.641] [DEBUG] Checking fix remove-docs-autodocs for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.646] [DEBUG] Checking fix wrap-getAbsolutePath for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.651] [DEBUG] Checking fix fix-faux-esm-require for project C:/Users/j1nxt02/develop/data-transparency-ui/.storybook...
+[09:17:02.652] [INFO] detect-automigrations-task: 
+Automigrations detected:
+[09:17:02.654] [INFO] detect-automigrations-task: [32m[32m✔[32m addon-globals-api[39m
+[09:17:02.654] [INFO] detect-automigrations-task-success: 1 automigration(s) detected
+[09:17:05.438] [PROMPT] Select automigrations to run {"choice":["addon-globals-api"]}
+[09:17:05.439] [INFO] automigrate-C:/Users/j1nxt02/develop/data-transparency-ui/.storybook-task-start: Running automigrations for C:/Users/j1nxt02/develop/data-transparency-ui/.storybook
+[09:17:05.590] [INFO] automigrate-C:/Users/j1nxt02/develop/data-transparency-ui/.storybook-task: [32m[32m✔[32m addon-globals-api[39m
+[09:17:05.590] [INFO] automigrate-C:/Users/j1nxt02/develop/data-transparency-ui/.storybook-task-success: Completed automigrations for C:/Users/j1nxt02/develop/data-transparency-ui/.storybook
+[09:17:05.591] [INFO] Installing dependencies...
+[09:17:05.591] [INFO] install-dependencies-spinner-start: Installing dependencies...
+[09:17:05.592] [DEBUG] Executing command: npm install --force
+[09:17:20.822] [INFO] Installing dependencies...: 
+> data-transparency-ui@7.1.8 prepare
+> npm run build-cl
+
+
+[09:17:20.822] [INFO] install-dependencies-spinner: Installing dependencies...: > data-transparency-ui@7.
+[09:17:21.266] [INFO] Installing dependencies...: 
+> data-transparency-ui@7.1.8 build-cl
+> webpack --progress --config webpack.config.js
+
+
+[09:17:21.266] [INFO] install-dependencies-spinner: Installing dependencies...: > data-transparency-ui@7.
+[09:17:28.901] [INFO] Installing dependencies...: asset [1m[32mdata-transparency-ui.css[39m[22m 209 KiB [1m[33m[compared for emit][39m[22m (name: main)
+asset [1m[32mindex.js[39m[22m 187 KiB [1m[33m[compared for emit][39m[22m [1m[32m[minimized][39m[22m (name: main) 1 related asset
+Entrypoint [1mmain[39m[22m 395 KiB = [1m[32mdata-transparency-ui.css[39m[22m 209 KiB [1m[32mindex.js[39m[22m 187 KiB
+orphan modules 3.06 MiB [1m[33m[orphan][39m[22m 742 modules
+runtime modules 937 bytes 4 modules
+built modules 2.07 MiB (javascript) 208 KiB (css/mini-extract) [1m[33m[built][39m[22m
+  javascript modules 2.07 MiB
+    cacheable modules 2.07 MiB 48 modules
+    [1mexternal {"commonjs":"react","commonjs2":"react","amd":"React","root":"React"}[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal {"commonjs":"prop-types","commonjs2":"prop-types","amd":"prop-types","r...(truncated)[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal {"commonjs":"accounting","commonjs2":"accounting","amd":"accounting","r...(truncated)[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    [1mexternal {"commonjs":"react-dom","commonjs2":"react-dom","amd":"ReactDOM","roo...(truncated)[39m[22m 42 bytes [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+  css modules 208 KiB
+    modules by path [1m./styles/components/*.scss[39m[22m 109 KiB 16 modules
+    modules by path [1m./styles/components/infoTooltip/*.scss[39m[22m 6.84 KiB
+      css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js![1m./styles/components/infoTooltip/_tooltipWrapper.scss[39m[22m 3.53 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+      css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js![1m./styles/components/infoTooltip/_tooltipComponent.scss[39m[22m 3.31 KiB [1m[33m[built][39m[22m [1m[33m[code generated][39m[22m
+    + 5 modules
+webpack 5.98.0 compiled [1m[32msuccessfully[39m[22m in 6504 ms
+
+[09:17:28.901] [INFO] install-dependencies-spinner: Installing dependencies...: asset [1m[32mdata-trans
+[09:17:28.972] [INFO] Installing dependencies...: 
+added 16 packages, removed 38 packages, changed 61 packages, and audited 1375 packages in 23s
+
+[09:17:28.972] [INFO] install-dependencies-spinner: Installing dependencies...: added 16 packages, remove
+[09:17:28.973] [INFO] Installing dependencies...: 
+210 packages are looking for funding
+  run `npm fund` for details
+
+[09:17:28.973] [INFO] install-dependencies-spinner: Installing dependencies...: 210 packages are looking 
+[09:17:29.009] [INFO] Installing dependencies...: 
+43 vulnerabilities (3 low, 13 moderate, 27 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+[09:17:29.009] [INFO] install-dependencies-spinner: Installing dependencies...: 43 vulnerabilities (3 low
+[09:17:29.038] [INFO] Dependencies installed
+[09:17:29.038] [INFO] install-dependencies-spinner-stop: Dependencies installed
+[09:17:29.040] [INFO] Checking the health of your project(s)..
+[09:17:29.041] [DEBUG] Using cached package.json for C:\Users\j1nxt02\develop\data-transparency-ui\package.json...
+[09:17:29.043] [DEBUG] Executing command: npm ls --json --depth=99 2>NUL
+[09:17:30.122] [DEBUG] Executing command: npm ls --json --depth=0 2>NUL
+[09:17:31.165] [DEBUG] Error finding installations for @storybook/*, storybook: ExecaError: Command failed with exit code 1: npm.cmd ls --json "--depth=0" "2>NUL"
+
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.11.0
+npm info using node@v22.22.0
+npm verbose title npm ls 2>NUL
+npm verbose argv "ls" "--json" "--depth" "0" "2>NUL"
+npm verbose logfile logs-max:10 dir:C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_17_30_426Z-
+npm verbose logfile C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_17_30_426Z-debug-0.log
+npm warn Unknown env config "http.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "https.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "post-build-test-port". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown env config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown project config "timeout". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "always-auth". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "http.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "https.proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn Unknown user config "post_build_test_port". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm verbose stack Error: Invalid tag name "2>NUL" of package "2>NUL": Tags may not have any characters that encodeURIComponent encodes.
+npm verbose stack     at invalidTagName (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:141:15)
+npm verbose stack     at fromRegistry (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:469:13)
+npm verbose stack     at resolve (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:112:12)
+npm verbose stack     at npa (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\npm-package-arg\lib\npa.js:56:10)
+npm verbose stack     at Node.satisfies (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\node.js:1160:20)
+npm verbose stack     at C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:455:39
+npm verbose stack     at Array.some (<anonymous>)
+npm verbose stack     at filterByPositionalArgs (C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:454:26)
+npm verbose stack     at C:\Users\j1nxt02\AppData\Roaming\npm\node_modules\npm\lib\commands\ls.js:500:5
+npm verbose stack     at Array.map (<anonymous>)
+npm error code EINVALIDTAGNAME
+npm error Invalid tag name "2>NUL" of package "2>NUL": Tags may not have any characters that encodeURIComponent encodes.
+npm verbose cwd C:\Users\j1nxt02\develop\data-transparency-ui
+npm verbose os Windows_NT 10.0.22631
+npm verbose node v22.22.0
+npm verbose npm  v11.11.0
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: C:\Users\j1nxt02\AppData\Local\npm-cache\_logs\2026-03-13T15_17_30_426Z-debug-0.log
+
+{
+  "error": {
+    "code": "EINVALIDTAGNAME",
+    "summary": "Invalid tag name \"2>NUL\" of package \"2>NUL\": Tags may not have any characters that encodeURIComponent encodes.",
+    "detail": ""
+  }
+}
+[09:17:31.165] [WARN] C:/Users/j1nxt02/develop/data-transparency-ui/.storybook: 1 issue found
+[09:17:31.166] [INFO] You are currently using Storybook [1m10.2.19[22m but you have packages which are incompatible with it:
+
+- @storybook/addon-styling-webpack@2.0.0 which depends on ^9.0.0
 
 Please consider updating your packages or contacting the maintainers for compatibility details.
 
-For more on Storybook 9 compatibility, see the linked GitHub issue:
-https://github.com/storybookjs/storybook/issues/30944
-[12:29:07.365] [INFO] Storybook doctor is complete!
-[12:29:07.365] [INFO] You can always recheck the health of your project(s) by running:
-npx storybook doctor
+For more details on compatibility guidance, see:
+https://github.com/storybookjs/storybook/issues/32836
+[09:17:31.167] [INFO] Storybook doctor is complete!
+[09:17:31.167] [INFO] You can always recheck the health of your project(s) by running:
+[36mnpx storybook doctor[39m
+[09:17:31.168] [INFO] [33mYour project(s) have been upgraded successfully, but some issues were found which need your attention, please check Storybook doctor logs above.[39m
+[09:17:31.170] [INFO] If you want to learn more about the automigrations that executed in your project(s), please check the following links:
+• ]8;;https://github.com/storybookjs/storybook/blob/next/MIGRATION.md#viewportbackgrounds-addon-synchronized-configuration-and-globals-usageaddon-globals-api]8;;
+[09:17:31.171] [INFO] For a full list of changes, please check our migration guide: [36mhttps://storybook.js.org/docs/releases/migration-guide?ref=upgrade[39m
+[09:17:46.969] [INFO] Storybook upgrade completed!

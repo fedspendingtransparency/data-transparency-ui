@@ -109,7 +109,7 @@ export const parameters = {
     tags: ['autodocs']
   },
   viewport: {
-    viewports: INITIAL_VIEWPORTS,
+    options: INITIAL_VIEWPORTS,
   },
   a11y: {
     element: 'body',
