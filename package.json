@@ -7,13 +7,10 @@
   "types": "index.d.ts",
   "type": "module",
   "scripts": {
-    "prepare": "npm run build-cl",
-    "build-cl": "webpack --progress --config webpack.config.js",
-    "build-sb": "storybook build -c .storybook -o docs",
-    "start": "storybook dev --port 3001",
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
     "test": "./node_modules/.bin/jest; exit 0;",
-    "build": "npm run build-cl && npm run build-sb"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "repository": {
     "type": "git",
@@ -77,6 +74,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.1",
     "@storybook/addon-links": "^10.2.19",
+    "@vitejs/plugin-react": "^6.0.1",
     "accounting": "^0.4.1",
     "acorn": "^8.7.1",
     "ajv": "^8.11.0",
@@ -235,5 +233,10 @@
     "ie 6-8",
     "Firefox > 20",
     "iOS 7"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
 }
