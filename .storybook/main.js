@@ -1,15 +1,11 @@
 
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import path from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default {
-    // Replace your-framework with the framework you are using (e.g., react-webpack5, vue3-vite)
     framework: '@storybook/react-webpack5',
     stories: ['./stories/*.mdx', './stories/*.stories.@(js|jsx|mjs|ts|tsx)'],
-    staticDirs: ['../public', '../static','../assets','../assets/fonts', '../assets/img']
-};
-module.exports = {
-    stories: ['./**/stories/*.@(stories.@(js))','./**/stories/*.@(mdx)'],
+    staticDirs: ['../public', '../static','../assets','../assets/fonts', '../assets/img'],
     addons: [
     "@storybook/addon-links",
     "@storybook/addon-webpack5-compiler-babel",
@@ -64,10 +60,6 @@ module.exports = {
             ]
     });
     return config;
-  },
-  framework: {
-        name: '@storybook/react-webpack5',
-        options: {}
   },
     docs: {},
     typescript: {

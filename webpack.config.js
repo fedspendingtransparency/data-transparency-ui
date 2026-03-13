@@ -1,7 +1,10 @@
-const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import path from "path";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import {fileURLToPath} from 'url';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+export default {
     mode: "production",
     target: "node",
     entry: path.resolve(__dirname, "index.js"),
