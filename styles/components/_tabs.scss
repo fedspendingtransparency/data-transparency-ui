@@ -63,7 +63,7 @@
           border-bottom-right-radius: 0;
           border-bottom-left-radius: 0;
 
-          @media($large-screen) {
+          @media(min-width:$large-screen) {
               padding: rem(15);
           }
           &:hover{

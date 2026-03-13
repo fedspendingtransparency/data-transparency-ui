@@ -1,7 +1,12 @@
 
 import path from 'path';
+import { build, optimizeDeps } from 'vite';
 import babel from 'vite-plugin-babel';
-import htmlPurge from 'vite-plugin-html-purgecss'
+import htmlPurge from 'vite-plugin-html-purgecss';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default {
     framework: '@storybook/react-vite',
@@ -9,16 +14,27 @@ export default {
     core: {
         builder: '@storybook/builder-vite',
     },
+    build: {
+        outDir: path.resolve(__dirname, "./docs"),
+    },
     staticDirs: ['../public', '../static','../assets','../assets/fonts', '../assets/img'],
     addons: [
     "@storybook/addon-links",
     "@chromatic-com/storybook",
     "@storybook/addon-docs",
     ],
+  optimizeDeps: {
+    rolldownOptions: {
+      resolve: {
+        extensions: ['.js', '.jsx'],
+      },
+      plugins: [babel()]
+    }
+  },
   async viteFinal(config) {
     return {
       ...config,
-      plugins: [...(config.plugins ?? []), htmlPurge(), babel()],
+      plugins: [...(config.plugins ?? []), htmlPurge.default()],
     };
   },
     docs: {},
