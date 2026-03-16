@@ -1,5 +1,6 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
 
-import path from 'path';
+import path, { dirname } from 'path';
 import babel from 'vite-plugin-babel';
 import htmlPurge from 'vite-plugin-html-purgecss';
 import {fileURLToPath} from 'url';
@@ -42,8 +43,8 @@ export default {
       plugins: [...(config.plugins ?? []), htmlPurge.default()],
     };
   },
-    docs: {},
-    typescript: {
-        reactDocgen: 'react-docgen-typescript'
-    }
+  docs: {},
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
+  }
 };
