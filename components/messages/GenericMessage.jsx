@@ -6,7 +6,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-require('../../styles/components/_messages.scss');
+import '../../styles/components/_messages.scss';
 
 const propTypes = {
     title: PropTypes.string.isRequired,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import InPageNav from './InPageNav';
 
-require('../styles/components/_pageHeader.scss');
+import '../styles/components/_pageHeader.scss';
 
 const PageHeader = ({
     title,

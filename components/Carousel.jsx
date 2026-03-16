@@ -7,7 +7,7 @@ import React, { cloneElement, useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { uniqueId } from 'lodash-es';
 
-require('../styles/components/_carousel.scss');
+import '../styles/components/_carousel.scss';
 
 const propTypes = {
     items: PropTypes.arrayOf(PropTypes.element)

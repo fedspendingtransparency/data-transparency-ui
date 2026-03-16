@@ -5,7 +5,7 @@ import SectionHeader from './SectionHeader';
 import ComingSoon from './messages/ComingSoon';
 import { createOnKeyDownHandler } from '../helpers/keyboardEventsHelper';
 
-require('../styles/components/_sectionWrapper.scss');
+import '../styles/components/_sectionWrapper.scss';
 
 const defaultControlledProps = {
     isControlled: false,

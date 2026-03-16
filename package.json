@@ -7,10 +7,12 @@
   "types": "index.d.ts",
   "type": "module",
   "scripts": {
+    "build-cl": "vite build ",
+    "build-sb": "storybook build -c .storybook -o docs",
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
     "test": "./node_modules/.bin/jest; exit 0;",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o docs"
+    "start": "storybook dev -p 6006",
+    "build": "npm run build-cl && npm run build-sb"
   },
   "repository": {
     "type": "git",

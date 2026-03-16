@@ -6,7 +6,7 @@
 import React from 'react';
 import GenericMessage from './GenericMessage';
 
-require('../../styles/components/_messages.scss');
+import '../../styles/components/_messages.scss';
 
 const ComingSoon = ({
     className

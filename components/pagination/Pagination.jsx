@@ -12,6 +12,7 @@ import { calculatePageRange } from '../../helpers/paginationHelper';
 import Pager from './Pager';
 import LimitSelector from './LimitSelector';
 import GoToPage from './GoToPage';
+import '../../styles/components/pagination/_pagination.scss';
 
 const propTypes = {
     changePage: PropTypes.func.isRequired,
@@ -26,7 +27,6 @@ const propTypes = {
     hideLast: PropTypes.bool
 };
 
-require('../../styles/components/pagination/_pagination.scss');
 
 const Pagination = ({
     changePage,
