@@ -4,6 +4,7 @@ import path, { dirname } from 'path';
 import babel from 'vite-plugin-babel';
 import htmlPurge from 'vite-plugin-html-purgecss';
 import {fileURLToPath} from 'url';
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,8 +25,7 @@ export default {
       "@chromatic-com/storybook",
       "@storybook/addon-docs",
       '@storybook/addon-vitest',
-      '@storybook/addon-a11y',
-      'vite-plugin-babel'
+      '@storybook/addon-a11y'
     ],
   optimizeDeps: {
     rolldownOptions: {
