@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 export default {
     framework: '@storybook/react-vite',
-    stories: ['./**/stories/*.@(stories.@(js))','./**/stories/*.@(mdx)'],
+    stories: ['./**/stories/*.@(stories.@(jsx))','./**/stories/*.@(mdx)'],
     core: {
         builder: '@storybook/builder-vite',
     },
@@ -25,7 +25,8 @@ export default {
       "@chromatic-com/storybook",
       "@storybook/addon-docs",
       '@storybook/addon-vitest',
-      '@storybook/addon-a11y'
+      '@storybook/addon-a11y',
+      '@babel/plugin-syntax-jsx'
     ],
   optimizeDeps: {
     rolldownOptions: {

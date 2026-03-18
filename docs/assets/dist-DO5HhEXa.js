@@ -1,1 +1,0 @@
-import{i as e}from"./dist-mZMihOtR.js";var t=e((e=>{Object.defineProperty(e,`__esModule`,{value:!0}),e.global=e.default=void 0,e.global=e.default=globalThis||self}));export{t};
