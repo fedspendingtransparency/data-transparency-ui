@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /**
  * Tooltip.jsx
  * Created by Lizzie Salita 3/8/19
@@ -307,9 +308,8 @@ const TooltipWrapper = ({
                     tooltipContainer.current = div;
                 }}>
                 <div
-                    role="button"
+                    role="presentation"
                     tabIndex="0"
-                    aria-label="Tooltip Hover Wrapper"
                     className="tooltip__hover-wrapper"
                     onBlur={closeTooltip}
                     onFocus={showTooltipFunc}
