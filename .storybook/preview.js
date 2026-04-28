@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs';
+import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
 
