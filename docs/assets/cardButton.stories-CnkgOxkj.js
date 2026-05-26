@@ -1,5 +1,0 @@
-import{a as e,n as t,r as n}from"./chunk-BneVvdWh.js";import{t as r}from"./react-Cwb31_nw.js";import{n as i}from"./prop-types-Uhstmmt3.js";import{t as a}from"./jsx-runtime-Cw9gq7QB.js";import{i as o,n as s,r as c,t as l}from"./FlexGridRow-BKyjTHsp.js";import{n as u,t as d}from"./CardButton-DHCJ8icj.js";var f=n({Default:()=>_,__namedExportsOrder:()=>v,default:()=>h}),p,m,h,g,_,v,y=t((()=>{p=i(),u(),o(),s(),e(r(),1),m=a(),h={title:`General/Cards/CardButton`,component:d,tags:[`autodocs`,`!dev`]},g=e=>{let t=(0,p.c)(2),n;return t[0]===e?n=t[1]:(n=(0,m.jsx)(l,{hasGutter:!0,gutterSize:`lg`,children:(0,m.jsx)(c,{desktop:4,tablet:2,mobile:1,children:(0,m.jsx)(d,{...e})})}),t[0]=e,t[1]=n),n},_=g.bind({}),_.parameters={..._.parameters,docs:{..._.parameters?.docs,source:{originalSource:`args => <FlexGridRow hasGutter gutterSize="lg">\r
-    <FlexGridCol desktop={4} tablet={2} mobile={1}>\r
-      <CardButton {...args}></CardButton>\r
-    </FlexGridCol>\r
-  </FlexGridRow>`,..._.parameters?.docs?.source}}},v=[`Default`]}));y();export{_ as Default,v as __namedExportsOrder,h as default,y as n,f as t};
