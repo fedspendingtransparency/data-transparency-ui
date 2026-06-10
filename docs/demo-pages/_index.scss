@@ -1,0 +1,54 @@
+@import "./fonts";
+
+$font-sans:           'Source Sans Pro';
+$font-serif:          'Merriweather', $georgia;
+
+html {
+    font-family: $font-sans;
+}
+
+.sbdocs-content .sbdocs-img {
+    margin: 1.5rem 0;
+}
+
+.story__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-sans;
+    padding: 100px;
+    @media (max-width: $tablet-screen) {
+        padding: 30px;
+    }
+}
+
+#docs-root {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span,
+    ul li {
+        font-family: $font-sans;
+    }
+    h2 a {
+        // color: $color-black;
+        font-size: 24px;
+        margin: none;
+        padding: none;
+        font-family: $font-sans;
+    }
+}
+
+@import "./pagination";
+@import "./tooltip";
+@import "./picker";
+@import "./quarterPicker";
+@import "./tabs";
+@import "./section-title";
+@import "./pageHeader";
+@import "./flexGrid";
+@import "./table";

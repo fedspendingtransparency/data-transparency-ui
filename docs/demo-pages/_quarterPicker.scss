@@ -1,0 +1,11 @@
+.quarter-picker-story {
+    .usa-dt-quarter-picker ul.usa-dt-quarter-picker__list li.usa-dt-quarter-picker__list-item {
+        // when the list item is the container for a list
+        &.usa-dt-quarter-picker__period-list-container {
+            height: rem(50);
+            .usa-dt-quarter-picker__period-list {
+                padding: 0 rem(5);
+            }
+        }
+    }
+}

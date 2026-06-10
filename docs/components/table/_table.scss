@@ -1,0 +1,301 @@
+@import "../../global/index";
+
+table.usda-table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-family: $font-sans;
+    color: $color-gray;
+    overflow-x: scroll;
+
+    thead.usda-table__head {
+        @import './tableHeader';
+    }
+
+    tbody.usda-table__body {
+        font-size: rem(14);
+
+        td.usda-table__cell {
+            text-align: left;
+            vertical-align: baseline;
+
+            &.usda-table__cell_right {
+                text-align: right;
+            }
+        }
+
+        td.usda-table__cell.stickyColumn {
+            position: sticky;
+            left: 0;
+            border-right: solid 1px $gray-cool-10 !important;
+        }
+
+        tr.usda-table__row {
+            td.usda-table__cell {
+                padding: rem(15);
+            }
+
+            td.usda-table__cell.stickyColumn {
+                background-color: $color-white;
+            }
+
+            &.usda-table__row_expandable {
+                button.usda-table__expand-button {
+                    @include button-unstyled;
+                    color: $color-primary;
+                    margin-right: rem(8);
+                }
+
+                td.usda-table__cell {
+                    padding-right: rem(35);
+
+                    .usda-table__expandable-cell-content {
+                        display: flex;
+                        align-items: flex-start;
+                    }
+                }
+
+                td.usda-table__cell_name {
+                    // add extra padding when no arrow is present because there are no children
+                    padding-left: rem(30);
+                }
+            }
+
+            .table-header_body-header {
+                // First column headers
+                padding: rem(15);
+            }
+        }
+
+        .usda-table__message-cell {
+            border: solid rem(1) $gray-cool-10;
+        }
+
+        tr.usda-table__child-row {
+            background-color: $color-white;
+
+            &.usda-table__child-row_divider {
+                font-weight: $font-semibold;
+            }
+
+            td.usda-table__cell {
+                &.usda-table__cell_child {
+                    padding: 0;
+
+                    .usda-table__child-cell-content {
+                        padding: rem(10) rem(15);
+                        margin-right: rem(20);
+                    }
+
+                    &:first-of-type {
+                        // add extra padding to the first cell of every child row
+                        padding-left: rem(20);
+
+                        .usda-table__child-cell-content {
+                            padding-left: rem(30);
+                            border-left: solid rem(1) $gray-cool-10;
+                        }
+                    }
+                }
+            }
+
+            &.usda-table__child-row_last {
+                // on the last row's first cell, add space below the line
+                td.usda-table__cell {
+                    &.usda-table__cell_child {
+                        &:first-of-type {
+                            padding-bottom: rem(5);
+
+                            .usda-table__child-cell-content {
+                                padding-bottom: rem(5);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.table-for-new-search-page {
+        margin-top: 0;
+        margin-bottom: 0;
+        .usda-table__body-special-color {
+            background-color: $blue-warm-5;
+        }
+
+        th {
+            border: none;
+            border-top: rem(1) solid $gray-cool-10;
+            border-right: rem(1) solid $gray-cool-10;
+            border-bottom: rem(1) solid $gray-cool-10;
+        }
+
+        td {
+            border: none;
+            border-right: rem(1) solid $gray-cool-10;
+            border-bottom: rem(1) solid $gray-cool-10;
+        }
+
+
+        td.stickyColumn {
+            border-left:rem(1) solid $gray-cool-10;
+        }
+        th.stickyColumn:first-of-type {
+            border-left:rem(1) solid $gray-cool-10;
+        }
+
+        thead.usda-table__head {
+            th.table-header {
+                color: $theme-color-headline;
+                &:first-of-type {
+                    border-top-left-radius: rem(4);
+                }
+                &:last-of-type {
+                    border-top-right-radius: rem(4);
+                }
+
+                .table-header__content {
+                    padding: rem(12) rem(16);
+                }
+            }
+        }
+
+        tbody.usda-table__body {
+            color: $gray-90;
+            line-height: 1.5;
+
+            tr:last-of-type {
+                td:first-of-type {
+                    border-bottom-left-radius: rem(4);
+                }
+
+                td:last-of-type {
+                    border-bottom-right-radius: rem(4);
+                }
+            }
+
+            .usda-table__row {
+                &:hover {
+                    background-color: $gray-cool-2;
+
+                    &.special-hover-color-7 td:nth-last-of-type(-n + 7) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-6 td:nth-last-of-type(-n + 6) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-5 td:nth-last-of-type(-n + 5) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-4 td:nth-last-of-type(-n + 4) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-3 td:nth-last-of-type(-n + 3) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-2 td:nth-last-of-type(-n + 2) {
+                        background-color: $blue-warm-10;
+                    }
+
+                    &.special-hover-color-1 td:nth-last-of-type(-n + 1) {
+                        background-color: $blue-warm-10;
+                    }
+                }
+
+                td.usda-table__cell {
+                    padding: rem(8) rem(16);
+                    height: inherit;
+
+                    @media (max-width: ($tablet-screen - 1)) {
+                        padding: 0 rem(16) rem(12);
+                    }
+                }
+
+                // if the td contains an a tag, we want the entire cell to be clickable
+                // so we move the padding into the a tag
+                td.usda-table__cell:has(a) {
+                    padding: 0;
+
+                    a {
+                        padding: rem(8) rem(16);
+                        display: block;
+                        width: 100%;
+                        height: inherit;
+                        color: $theme-color-1;
+
+                        &:hover {
+                            color: $blue-vivid-70;
+                        }
+
+                        &:visited {
+                            color: $violet-70v;
+                        }
+                    }
+
+                    svg {
+                        display: none;
+                    }
+
+                    @media (max-width: ($tablet-screen - 1)) {
+                        padding: 0 rem(16) rem(12);
+
+                        a {
+                            padding: 0;
+                        }
+
+                        svg {
+                            display: unset;
+                            padding-left: rem(4);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.award-results-table-dtui {
+            // this is needed to make the right border and the box shadow appear on the sticky column
+            border-collapse: separate;
+            th.table-header:last-of-type {
+                border-right: rem(1) solid $gray-cool-10;
+            }
+
+            thead.usda-table__head {
+                th {
+                    position: -webkit-sticky; /* Safari */
+                    position: sticky;
+                    top: 0;
+                }
+            }
+
+            tbody.usda-table__body {
+                .usda-table__row {
+                    td.usda-table__cell {
+                        vertical-align: top;
+                        // because of overlapping css rules, we need to delete the borders here
+                        // to avoid double borders
+                        // and add the bottom border
+
+                        &:last-of-type {
+                            border-right: rem(1) solid $gray-cool-10;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: $gray-cool-2;
+
+                        td.usda-table__cell.stickyColumn {
+                            background-color: $gray-cool-2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@import './tableStacked';
+@import './topfiveTable';

@@ -1,0 +1,18 @@
+@import "./global/index";
+@import "./shared/index";
+@import "./demo-pages/index";
+
+html {
+    font-size: $em-base;
+    font-family: $font-sans;
+}
+
+#root {
+    height: 100vh;
+    display: flex;
+}
+
+// for some reason our fonts aren't applying in all cases, this fixes that, ideally we wouldn't have to do this
+* {
+    font-family: sans-serif;
+}
