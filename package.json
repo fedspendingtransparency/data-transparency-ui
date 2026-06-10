@@ -72,10 +72,7 @@
     "vite-plugin-html-purgecss": "^0.1.1",
     "vite-plugin-node-polyfills": "^0.25.0",
     "vite-plugin-purgecss": "^0.2.13",
-    "vitest": "^4.1.0",
-    "webpack": "^5.104.1",
-    "webpack-bundle-analyzer": "^4.10.2",
-    "webpack-cli": "^6.0.1"
+    "vitest": "^4.1.0"
   },
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.28.6",
@@ -165,8 +162,6 @@
     "**/follow-redirects": "1.15.6",
     "express": "4.21.0",
     "**/express": "4.21.0",
-    "webpack-dev-middleware": "5.3.4",
-    "**/webpack-dev-middleware": "5.3.4",
     "**/ws": "8.18.0",
     "ws": "8.18.0",
     "**/path-to-regexp": "0.1.12",
