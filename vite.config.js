@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
+import viteTsconfigPaths from 'vite-tsconfig-paths';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +17,7 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 
 export default defineConfig({
+    mode: "production",
     build: {
         commonjsOptions: { transformMixedEsModules: true, include: [/linked-dep/, /node_modules/] },
         outDir: path.resolve(__dirname, "./docs"),
@@ -33,7 +35,7 @@ export default defineConfig({
             entry: path.resolve(__dirname, 'index.js'),
             name: 'data-transparency-ui',
             // Outputs both ES modules (.js/.mjs) and CommonJS (.cjs)
-            formats: ['es', 'cjs'],
+            formats: ['es', 'umd'],
             fileName: (format) => `index.${format}.js`
         }
     },
@@ -42,7 +44,7 @@ export default defineConfig({
             resolve: {
                 extensions: ['.js', '.jsx']
             },
-            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()]
+            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills(), viteTsconfigPaths()]
         }
     },
     plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()],
