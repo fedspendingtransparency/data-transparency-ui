@@ -58,10 +58,11 @@ export default defineConfig({
             resolve: {
                 extensions: ['.js', '.jsx']
             },
-            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills(), viteTsconfigPaths()]
+            plugins: [react({
+                jsxRuntime: 'preserve'
+            }), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills(), viteTsconfigPaths()]
         }
     },
-    plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()],
     test: {
         projects: [{
             extends: true,
