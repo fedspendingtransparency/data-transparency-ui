@@ -38,7 +38,6 @@ export default defineConfig({
         }
     },
     optimizeDeps: {
-        include: ['linked-dep'],
         rolldownOptions: {
             resolve: {
                 extensions: ['.js', '.jsx']
