@@ -19,14 +19,20 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 export default defineConfig({
     mode: "production",
     build: {
-        commonjsOptions: { transformMixedEsModules: true, include: [/linked-dep/, /node_modules/] },
-        outDir: path.resolve(__dirname, "./docs"),
+        commonjsOptions: { transformMixedEsModules: true, include: [/node_modules/] },
+        outDir: path.resolve(__dirname, "./dist"),
         rolldownOptions: {
             input: "index.js",
             external: ['react', 'react/jsx-runtime', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
             output: {
                 globals: {
-                    react: 'React'
+                    react: 'React',
+                    'lodash-es': 'lodash-es',
+                    'react/jsx-runtime': 'react/jsx-runtime',
+                    'react-dom': 'ReactDOM',
+                    accounting: 'accounting',
+                    'prop-types': 'prop-types'
+
                 }
             }
         },
@@ -34,6 +40,7 @@ export default defineConfig({
             // Defines the entry point file
             entry: path.resolve(__dirname, 'index.js'),
             name: 'data-transparency-ui',
+            outDir: 'dist',
             // Outputs both ES modules (.js/.mjs) and CommonJS (.cjs)
             formats: ['es', 'umd'],
             fileName: (format) => `index.${format}.js`
