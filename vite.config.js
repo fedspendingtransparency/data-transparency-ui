@@ -9,6 +9,7 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import viteTsconfigPaths from 'vite-tsconfig-paths';
+import { getBabelOutputPlugin } from '@rollup/plugin-babel';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,12 +42,18 @@ export default defineConfig({
             entry: path.resolve(__dirname, 'index.js'),
             name: 'data-transparency-ui',
             outDir: 'dist',
+            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills(), viteTsconfigPaths()],
             // Outputs both ES modules (.js/.mjs) and CommonJS (.cjs)
             formats: ['es', 'umd'],
             fileName: (format) => `index.${format}.js`
         }
     },
     optimizeDeps: {
+        esbuildOptions: {
+            loader: {
+                '.js': 'jsx'
+            }
+        },
         rolldownOptions: {
             resolve: {
                 extensions: ['.js', '.jsx']
