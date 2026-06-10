@@ -6,6 +6,9 @@
   "style": "dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
     "test": "./node_modules/.bin/jest; exit 0;",
