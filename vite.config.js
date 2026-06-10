@@ -21,11 +21,7 @@ export default defineConfig({
         outDir: path.resolve(__dirname, "./docs"),
         rolldownOptions: {
             input: "index.js",
-            external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types']
-        },
-        rollupOptions: {
-            // Make sure to externalize deps you don't want bundled into your library
-            external: ['react'],
+            external: ['react', 'react/jsx-runtime', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
             output: {
                 globals: {
                     react: 'React'
@@ -34,7 +30,7 @@ export default defineConfig({
         },
         lib: {
             // Defines the entry point file
-            entry: path.resolve(__dirname, 'src/index.js'),
+            entry: path.resolve(__dirname, 'index.js'),
             name: 'data-transparency-ui',
             // Outputs both ES modules (.js/.mjs) and CommonJS (.cjs)
             formats: ['es', 'cjs'],
