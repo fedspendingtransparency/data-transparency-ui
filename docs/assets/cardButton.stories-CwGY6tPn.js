@@ -1,0 +1,5 @@
+import{a as e,i as t}from"./preload-helper-xPQekRTU.js";import{z as n}from"./iframe-D1TnZi13.js";import{t as r}from"./jsx-runtime-CaZkqeYb.js";import{i,n as a,r as o,t as s}from"./FlexGridRow-BXUVX5vr.js";import{n as c,t as l}from"./CardButton-BYD131KB.js";var u=e({Default:()=>m,__namedExportsOrder:()=>h,default:()=>f}),d,f,p,m,h,g=t((()=>{c(),i(),a(),n(),d=r(),f={title:`General/Cards/CardButton`,component:l,tags:[`autodocs`,`!dev`]},p=e=>(0,d.jsx)(s,{hasGutter:!0,gutterSize:`lg`,children:(0,d.jsx)(o,{desktop:4,tablet:2,mobile:1,children:(0,d.jsx)(l,{...e})})}),m=p.bind({}),m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`args => <FlexGridRow hasGutter gutterSize="lg">\r
+    <FlexGridCol desktop={4} tablet={2} mobile={1}>\r
+      <CardButton {...args}></CardButton>\r
+    </FlexGridCol>\r
+  </FlexGridRow>`,...m.parameters?.docs?.source}}},h=[`Default`]}));g();export{m as Default,h as __namedExportsOrder,f as default,g as n,u as t};

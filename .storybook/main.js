@@ -19,7 +19,7 @@ export default {
         outDir: path.resolve(__dirname, "./docs"),
         emptyOutDir: true
     },
-    staticDirs: ['../static','../assets','../assets/fonts', '../assets/img', '../styles'],
+    staticDirs: ['../assets','../assets/fonts', '../assets/img', '../styles'],
     addons: [
       "@storybook/addon-links",
       "@chromatic-com/storybook",
