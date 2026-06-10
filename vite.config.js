@@ -17,14 +17,32 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 export default defineConfig({
     build: {
-        commonjsOptions: { transformMixedEsModules: true },
+        commonjsOptions: { transformMixedEsModules: true, include: [/linked-dep/, /node_modules/] },
         outDir: path.resolve(__dirname, "./docs"),
         rolldownOptions: {
             input: "index.js",
             external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types']
+        },
+        rollupOptions: {
+            // Make sure to externalize deps you don't want bundled into your library
+            external: ['react'],
+            output: {
+                globals: {
+                    react: 'React'
+                }
+            }
+        },
+        lib: {
+            // Defines the entry point file
+            entry: path.resolve(__dirname, 'src/index.js'),
+            name: 'data-transparency-ui',
+            // Outputs both ES modules (.js/.mjs) and CommonJS (.cjs)
+            formats: ['es', 'cjs'],
+            fileName: (format) => `index.${format}.js`
         }
     },
     optimizeDeps: {
+        include: ['linked-dep'],
         rolldownOptions: {
             resolve: {
                 extensions: ['.js', '.jsx']
