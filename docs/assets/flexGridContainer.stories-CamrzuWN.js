@@ -1,6 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-Cwb31_nw.js";import{n as r}from"./prop-types-Uhstmmt3.js";import{t as i}from"./jsx-runtime-Cw9gq7QB.js";import{n as a,t as o}from"./FlexGridContainer-Cl2BWF3u.js";var s,c,l,u,d;t((()=>{s=r(),e(n(),1),a(),c=i(),l={title:`Layout/Flex Grid/Flex Grid Container`,component:o,tags:[`autodocs`]},u=e=>{let t=(0,s.c)(3),n;t[0]===Symbol.for(`react.memo_cache_sentinel`)?(n=(0,c.jsx)(`div`,{className:`story-flex-grid-heading`,children:`Visual Example`}),t[0]=n):n=t[0];let r;return t[1]===e?r=t[2]:(r=(0,c.jsxs)(`div`,{className:`story-flex-grid`,children:[n,(0,c.jsx)(o,{...e,children:`container`})]}),t[1]=e,t[2]=r),r},u.args={className:``},u.__docgenInfo={description:``,methods:[],displayName:`DefaultFlexGridContainer`},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`args => <div className="story-flex-grid">\r
-    <div className="story-flex-grid-heading">Visual Example</div>\r
-    <FlexGridContainer {...args}>\r
-      container\r
-  </FlexGridContainer>\r
-  </div>`,...u.parameters?.docs?.source}}},d=[`DefaultFlexGridContainer`]}))();export{u as DefaultFlexGridContainer,d as __namedExportsOrder,l as default};
