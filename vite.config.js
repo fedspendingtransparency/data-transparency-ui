@@ -21,7 +21,10 @@ export default defineConfig({
         outDir: path.resolve(__dirname, "./dist"),
         rolldownOptions: {
             input: "index.js",
-            external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types']
+            external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
+            output: {
+                interop: "auto"
+            }
         },
         lib: {
             entry: path.resolve(__dirname, 'index.js'),
