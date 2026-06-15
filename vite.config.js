@@ -9,7 +9,6 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
@@ -19,10 +18,16 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 export default defineConfig({
     build: {
         commonjsOptions: { transformMixedEsModules: true },
-        outDir: path.resolve(__dirname, "./docs"),
+        outDir: path.resolve(__dirname, "./dist"),
         rolldownOptions: {
             input: "index.js",
             external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types']
+        },
+        lib: {
+            entry: path.resolve(__dirname, 'index.js'),
+            name: 'data-transparency-ui',
+            fileName: 'index.js',
+            formats: ['umd'] // Set your required formats
         }
     },
     optimizeDeps: {
@@ -30,7 +35,22 @@ export default defineConfig({
             resolve: {
                 extensions: ['.js', '.jsx']
             },
-            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()]
+            plugins: [react(
+                {
+                    babel: {
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    targets: 'defaults, not ie 11', // Define your target environments
+                                    useBuiltIns: 'usage', // Inject polyfills automatically
+                                    corejs: 3 // Ensure core-js version matches
+                                }
+                            ]
+                        ]
+                    }
+                }
+            ), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()]
         }
     },
     plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()],
