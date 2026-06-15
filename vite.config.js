@@ -19,6 +19,9 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 
 export default defineConfig({
     mode: "production",
+    oxc: {
+        jsx: "preserve"
+    },
     build: {
         commonjsOptions: { transformMixedEsModules: true, include: [/node_modules/] },
         outDir: path.resolve(__dirname, "./dist"),
@@ -26,13 +29,15 @@ export default defineConfig({
             input: "index.js",
             external: ['react', 'react/jsx-runtime', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
             output: {
+                preserveModules: true,
                 globals: {
                     react: 'React',
                     'lodash-es': 'lodash-es',
                     'react/jsx-runtime': 'react/jsx-runtime',
                     'react-dom': 'ReactDOM',
                     accounting: 'accounting',
-                    'prop-types': 'prop-types'
+                    'prop-types': 'prop-types',
+                    lodash: '_'
 
                 }
             }
@@ -44,7 +49,7 @@ export default defineConfig({
             outDir: 'dist',
             plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills(), viteTsconfigPaths()],
             // Outputs both ES modules (.js/.mjs) and CommonJS (.cjs)
-            formats: ['es', 'umd'],
+            formats: ['es', 'umd', 'cjs'],
             fileName: (format) => `index.${format}.js`
         }
     },
