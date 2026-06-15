@@ -26,7 +26,7 @@ export default defineConfig({
         lib: {
             entry: path.resolve(__dirname, 'index.js'),
             name: 'data-transparency-ui',
-            fileName: 'index.js',
+            fileName: () => 'index.js',
             formats: ['umd'] // Set your required formats
         }
     },
@@ -35,22 +35,7 @@ export default defineConfig({
             resolve: {
                 extensions: ['.js', '.jsx']
             },
-            plugins: [react(
-                {
-                    babel: {
-                        presets: [
-                            [
-                                '@babel/preset-env',
-                                {
-                                    targets: 'defaults, not ie 11', // Define your target environments
-                                    useBuiltIns: 'usage', // Inject polyfills automatically
-                                    corejs: 3 // Ensure core-js version matches
-                                }
-                            ]
-                        ]
-                    }
-                }
-            ), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()]
+            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()]
         }
     },
     plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()],
