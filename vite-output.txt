@@ -1,16 +1,0 @@
-
-> data-transparency-ui@7.3.0 build-vite
-> vite build
-
-[36mvite v8.0.0 [32mbuilding client environment for production...[36m[39m
-[2Ktransforming...✓ 108 modules transformed.
-rendering chunks...
-
-[unplugin:dts] Start generate declaration files...
-[unplugin:dts] Declaration files built in 552ms.
-
-computing gzip size...
-dist/data-transparency-ui.css  133.83 kB │ gzip: 11.80 kB
-dist/index.js                  192.80 kB │ gzip: 58.67 kB
-
-[32m✓ built in 2.50s[39m
