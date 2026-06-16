@@ -29,26 +29,6 @@ export default {
     ],
   async viteFinal(config) {
     return mergeConfig(config, {
-      plugins: [
-        react({
-          babel: {
-            // Add your custom Babel plugins here
-            plugins: [
-              'babel-plugin-react-compiler', // Example: For React 19 optimization,
-              "@babel/plugin-syntax-jsx",
-              "@babel/plugin-transform-runtime",
-              "@babel/plugin-transform-object-rest-spread",
-              "@babel/plugin-transform-class-properties",
-              "@babel/plugin-transform-optional-chaining",
-              ["@babel/plugin-transform-react-jsx", {pragmaFrag: "React.Fragment"}]
-            ],
-            presets: ["@babel/preset-react", "@babel/preset-env"],
-            // Set to true if you want Vite to read your root .babelrc file
-              babelrc: false, 
-              configFile: false,
-          }
-        })
-      ]
     });
   },
   docs: {},

@@ -1,0 +1,1 @@
+import{i as e}from"./preload-helper-xPQekRTU.js";var t,n=e((()=>{t=(e,t=[],n=[13,32])=>r=>{n.includes(r.keyCode)&&e(...t)}}));export{n,t};

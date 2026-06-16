@@ -1,6 +1,0 @@
-import{o as e}from"./preload-helper-Bh_zBiAp.js";import{bt as t}from"./iframe-SKVCcPhH.js";import{t as n}from"./jsx-runtime-BsCa7uLg.js";import{n as r,t as i}from"./FlexGridContainer-zk3Baqe0.js";var a,o,s,c;e((()=>{t(),r(),a=n(),o={title:`Layout/Flex Grid/Flex Grid Container`,component:i,tags:[`autodocs`]},s=e=>(0,a.jsxs)(`div`,{className:`story-flex-grid`,children:[(0,a.jsx)(`div`,{className:`story-flex-grid-heading`,children:`Visual Example`}),(0,a.jsx)(i,{...e,children:`container`})]}),s.args={className:``},s.__docgenInfo={description:``,methods:[],displayName:`DefaultFlexGridContainer`},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`args => <div className="story-flex-grid">\r
-    <div className="story-flex-grid-heading">Visual Example</div>\r
-    <FlexGridContainer {...args}>\r
-      container\r
-  </FlexGridContainer>\r
-  </div>`,...s.parameters?.docs?.source}}},c=[`DefaultFlexGridContainer`]}))();export{s as DefaultFlexGridContainer,c as __namedExportsOrder,o as default};
