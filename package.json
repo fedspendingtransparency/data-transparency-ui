@@ -2,13 +2,16 @@
   "name": "data-transparency-ui",
   "version": "7.3.0",
   "description": "Library of UI components powering Data Transparency websites",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./index.js",
+  "module": "./index.js",
   "style": "./dist/data-transparency-ui.css",
   "types": "index.d.ts",
   "type": "module",
   "exports": {
-    "import": "./dist/index"
+    "types": "./index.d.ts",
+    "import": "./dist/index.es",
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.umd.js"
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",

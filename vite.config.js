@@ -2,7 +2,7 @@
 import path from 'path';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import htmlPurge from 'vite-plugin-purgecss';
-import { defineConfig } from 'vite';
+import { defineConfig, esmExternalRequirePlugin } from 'vite';
 import { fileURLToPath } from 'url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
@@ -19,6 +19,20 @@ export default defineConfig({
         outDir: path.resolve(__dirname, "./dist"),
         rolldownOptions: {
             input: "index.js",
+            plugins: [
+                esmExternalRequirePlugin({
+                    external: [/^react(-dom)?(\/.+)?$/],
+                }),
+                esmExternalRequirePlugin({
+                    external: [/^lodash(-es)?(\/.+)?$/],
+                }),
+                esmExternalRequirePlugin({
+                    external: ["accounting"],
+                }),  
+                esmExternalRequirePlugin({
+                    external: ["prop-types"],
+                }),                                        
+            ],
             external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
             output: {
                 globals: {
@@ -34,8 +48,8 @@ export default defineConfig({
         lib: {
             entry: './index.js',
             name: 'data-transparency-ui',
-            fileName: () => 'index.js',
-            formats: ['umd'] // Set your required formats
+            fileName: (format) => `index.${format}.js`,
+            formats: ['es', 'umd', 'cjs'] // Set your required formats
         }
     },
     optimizeDeps: {
