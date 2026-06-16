@@ -685,15 +685,9 @@
   window.global = window;
 </script>
 <title>Data Transparency UI</title>
-    <script type="module" crossorigin src="./assets/iframe-CR5qtvsD.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/chunk-BneVvdWh.js">
-    <link rel="modulepreload" crossorigin href="./assets/preload-helper-C3Oj7JNj.js">
-    <link rel="modulepreload" crossorigin href="./assets/dist-CwVA6-mW.js">
-    <link rel="modulepreload" crossorigin href="./assets/react-CWBrYIHY.js">
-    <link rel="modulepreload" crossorigin href="./assets/dist-DB6OxQUc.js">
-    <link rel="modulepreload" crossorigin href="./assets/chunk-3LY4VQVK-CiT1FtFr.js">
-    <link rel="modulepreload" crossorigin href="./assets/csf-B7wm8DVO.js">
-    <link rel="modulepreload" crossorigin href="./assets/theming-CbFHy6_e.js">
+    <script type="module" crossorigin src="./assets/iframe-SKVCcPhH.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-Bh_zBiAp.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BRf_StaL.js">
     <link rel="stylesheet" crossorigin href="./assets/iframe-DPkgS38N.css">
   </head>
 
@@ -826,10 +820,10 @@
         if (hostname !== 'localhost' && globalThis.CONFIG_TYPE === 'DEVELOPMENT') {
           const message = `Failed to load the Storybook preview file 'vite-app.js':
 
-It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
-Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
+      It looks like you're visiting the Storybook development server on another hostname than localhost: '${hostname}', but you haven't configured the necessary security features to support this.
+      Please re-run your Storybook development server with the '--host ${hostname}' flag, or manually configure your Vite allowedHosts configuration with viteFinal.
 
-See:`;
+      See:`;
           const docs = [
             'https://storybook.js.org/docs/api/cli-options#dev',
             'https://storybook.js.org/docs/api/main-config/main-config-vite-final',
@@ -841,7 +835,7 @@ See:`;
             `<p style="color: red; max-width: 70ch">${message.replaceAll(
               '\n',
               '<br/>'
-            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}<ul></p>`;
+            )}<ul>${docs.map((doc) => `<li><a href='${doc}' target='_blank'>${doc}</a></li>`).join('')}</ul></p>`;
           return;
         }
       }

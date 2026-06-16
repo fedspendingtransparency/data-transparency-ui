@@ -1,10 +1,10 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
 
 import path, { dirname } from 'path';
-import babel from 'vite-plugin-babel';
 import htmlPurge from 'vite-plugin-html-purgecss';
 import {fileURLToPath} from 'url';
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import react, { reactCompilerPreset } from '@vitejs/plugin-react';
+import { mergeConfig } from 'vite';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,23 +26,30 @@ export default {
       "@storybook/addon-docs",
       '@storybook/addon-vitest',
       '@storybook/addon-a11y',
-      '@babel/plugin-syntax-jsx'
     ],
-  optimizeDeps: {
-    rolldownOptions: {
-      resolve: {
-        extensions: ['.js', '.jsx'],
-      },
-      plugins: [babel()]
-    },
-    include: ['esm-dep > cjs-dep'],
-    needsInterop: ['storybook/internal/csf', 'storybook/internal/preview/runtime']
-  },
   async viteFinal(config) {
-    return {
-      ...config,
-      plugins: [...(config.plugins ?? []), htmlPurge.default()],
-    };
+    return mergeConfig(config, {
+      plugins: [
+        react({
+          babel: {
+            // Add your custom Babel plugins here
+            plugins: [
+              'babel-plugin-react-compiler', // Example: For React 19 optimization,
+              "@babel/plugin-syntax-jsx",
+              "@babel/plugin-transform-runtime",
+              "@babel/plugin-transform-object-rest-spread",
+              "@babel/plugin-transform-class-properties",
+              "@babel/plugin-transform-optional-chaining",
+              ["@babel/plugin-transform-react-jsx", {pragmaFrag: "React.Fragment"}]
+            ],
+            presets: ["@babel/preset-react", "@babel/preset-env"],
+            // Set to true if you want Vite to read your root .babelrc file
+              babelrc: false, 
+              configFile: false,
+          }
+        })
+      ]
+    });
   },
   docs: {},
   typescript: {

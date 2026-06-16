@@ -2,14 +2,6 @@ const presets = [
     "@babel/preset-react",
     [
         "@babel/preset-env",
-        {
-            targets: {
-                ie: "10",
-                node: "10"
-            },
-            useBuiltIns: "entry",
-            corejs: { version: 3, proposals: true }
-        }
     ]
 ];
 

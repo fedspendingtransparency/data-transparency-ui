@@ -1,0 +1,5 @@
+import{o as e,s as t}from"./preload-helper-Bh_zBiAp.js";import{bt as n}from"./iframe-SKVCcPhH.js";import{t as r}from"./jsx-runtime-BsCa7uLg.js";import{i,n as a,r as o,t as s}from"./FlexGridRow-RRoEs_lT.js";import{n as c,t as l}from"./CardHero-BYO9M8Hq.js";var u=t({Default:()=>m,__namedExportsOrder:()=>h,default:()=>f}),d,f,p,m,h,g=e((()=>{c(),i(),a(),n(),d=r(),f={title:`General/Cards/CardHero`,component:l,tags:[`autodocs`,`!dev`]},p=e=>(0,d.jsx)(s,{hasGutter:!0,gutterSize:`lg`,children:(0,d.jsx)(o,{desktop:4,tablet:2,mobile:1,children:(0,d.jsx)(l,{...e})})}),m=p.bind({}),m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`args => <FlexGridRow hasGutter gutterSize="lg">\r
+    <FlexGridCol desktop={4} tablet={2} mobile={1}>\r
+      <CardHero {...args}></CardHero>\r
+    </FlexGridCol>\r
+  </FlexGridRow>`,...m.parameters?.docs?.source}}},h=[`Default`]}));g();export{m as Default,h as __namedExportsOrder,f as default,g as n,u as t};

@@ -1,13 +1,11 @@
 // / <reference types="@vitest/browser-playwright" />
 import path from 'path';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
-import babel from '@rolldown/plugin-babel';
 import htmlPurge from 'vite-plugin-purgecss';
 import { defineConfig } from 'vite';
 import { fileURLToPath } from 'url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,11 +21,18 @@ export default defineConfig({
             input: "index.js",
             external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
             output: {
-                interop: "auto"
+                globals: {
+                    react: 'React',
+                    'lodash-es': 'lodash-es',
+                    'react-dom': 'ReactDOM',
+                    accounting: 'accounting',
+                    'prop-types': 'prop-types',
+                    lodash: '_'
+                }
             }
         },
         lib: {
-            entry: path.resolve(__dirname, 'index.js'),
+            entry: './index.js',
             name: 'data-transparency-ui',
             fileName: () => 'index.js',
             formats: ['umd'] // Set your required formats
@@ -38,10 +43,49 @@ export default defineConfig({
             resolve: {
                 extensions: ['.js', '.jsx']
             },
-            plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()]
+            plugins: [        
+                react({
+                    babel: {
+                        // Add your custom Babel plugins here
+                        plugins: [
+                            'babel-plugin-react-compiler', // Example: For React 19 optimization,
+                            "@babel/plugin-syntax-jsx",
+                            "@babel/plugin-transform-runtime",
+                            "@babel/plugin-transform-object-rest-spread",
+                            "@babel/plugin-transform-class-properties",
+                            "@babel/plugin-transform-optional-chaining",
+                            ["@babel/plugin-transform-react-jsx", {pragmaFrag: "React.Fragment"}]
+                        ],
+                        presets: ["@babel/preset-react", "@babel/preset-env"],
+                        // Set to true if you want Vite to read your root .babelrc file
+                        babelrc: false, 
+                        configFile: false,
+                    },
+                }),
+                htmlPurge()]
         }
     },
-    plugins: [react(), babel({ presets: [reactCompilerPreset()] }), htmlPurge(), nodePolyfills()],
+    plugins: [
+        react({
+            babel: {
+                // Add your custom Babel plugins here
+                plugins: [
+                    'babel-plugin-react-compiler', // Example: For React 19 optimization,
+                    "@babel/plugin-syntax-jsx",
+                    "@babel/plugin-transform-runtime",
+                    "@babel/plugin-transform-object-rest-spread",
+                    "@babel/plugin-transform-class-properties",
+                    "@babel/plugin-transform-optional-chaining",
+                    ["@babel/plugin-transform-react-jsx", {pragmaFrag: "React.Fragment"}]
+                ],
+                presets: ["@babel/preset-react", "@babel/preset-env"],
+                // Set to true if you want Vite to read your root .babelrc file
+                babelrc: false, 
+                configFile: false,
+            },
+        }),
+        htmlPurge()
+    ],
     test: {
         projects: [{
             extends: true,
