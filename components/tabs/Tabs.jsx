@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tab from './Tab';
 
-require('../../styles/components/_tabs.scss');
+import '../../styles/components/_tabs.scss';
 
 const propTypes = {
     types: PropTypes.arrayOf(PropTypes.shape({

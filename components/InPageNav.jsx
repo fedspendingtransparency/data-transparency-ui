@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { mediumScreen, largeScreen, xLargeScreen } from '../dataMapping/mobileBreakpoints';
 import { checkIsOverflow, getElementData, reset } from '../helpers/inPageNavHelper';
 
-require('../styles/components/_inPageNav.scss');
+import '../styles/components/_inPageNav.scss';
 
 const propTypes = {
     sections: PropTypes.array,

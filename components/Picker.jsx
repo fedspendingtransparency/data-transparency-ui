@@ -7,8 +7,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { uniqueId } from 'lodash-es';
-
-require('../styles/components/_picker.scss');
+import '../styles/components/_picker.scss';
 
 const fontAwesomeIconId = "usa-dt-picker__button-icon--svg";
 

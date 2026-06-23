@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { resetOrSubmitSearch, shouldResetSearchTerm } from '../helpers/searchBarHelper';
 
-require('../styles/components/_searchBar.scss');
+import '../styles/components/_searchBar.scss';
 
 const propTypes = {
     onSearch: PropTypes.func,

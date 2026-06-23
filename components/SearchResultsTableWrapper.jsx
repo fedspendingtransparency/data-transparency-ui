@@ -6,7 +6,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-require('../styles/components/_searchResultsTableWrapper.scss');
+import '../styles/components/_searchResultsTableWrapper.scss';
 
 const propTypes = {
     tableComponent: PropTypes.func.isRequired

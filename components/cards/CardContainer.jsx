@@ -6,7 +6,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-require('../../styles/components/cards/_cards.scss');
+import '../../styles/components/cards/_cards.scss';
 
 const propTypes = {
     variant: PropTypes.string, // elevated, outline, or none

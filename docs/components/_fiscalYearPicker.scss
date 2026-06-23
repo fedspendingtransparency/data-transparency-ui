@@ -1,0 +1,111 @@
+@import "../global/index";
+
+.usda-fy-picker__container {
+  max-height: 46px;
+  &:hover{
+    color: $blue-warm-70v;
+    }
+  &:active {
+    color: $blue-warm-70v;
+  }
+    @include for-tablet-portrait-down {
+      padding: rem(12) rem(10);
+      max-height: 52px;
+    }
+    .usa-dt-picker.usda-fy-picker {
+      background:$blue-warm-70v;
+      border: solid 2px rgba(223, 225, 226, 0.25);
+      height: 28px;
+      border-radius: rem(4);
+      z-index: 30;
+      @include for-tablet-landscape-up {
+        background: $blue-warm-70v;
+        border: solid 2px rgba(223, 225, 226, 0.25);
+        &:hover{
+          color: $gray-cool-5;
+          }
+        &:active {
+          color: $gray-cool-1;
+        }
+      }
+      .usa-dt-picker__dropdown-container {
+        height: 25px;
+      }
+      .usa-dt-picker__icon {
+        margin: 4px 8px 4.6px 8px;
+
+        svg {
+          color: $gray-cool-10;
+          width: rem(14);
+          height: rem(15.4);
+        }
+        &:hover{
+          color: $gray-cool-5;
+          }
+        &:active {
+          color: $gray-cool-1;
+        }
+      }
+      .fy-picker__list {
+        overflow-y: scroll;
+      }
+
+      .usa-dt-picker__button-text {
+        color: $gray-cool-10;
+        background: $blue-warm-70v;
+        font-weight: $font-semibold;
+        font-size: rem(16);
+        height: 24px;
+        line-height: 1.5;
+        margin: 0;
+        min-width: 53px;
+        @include for-tablet-landscape-up {
+          font-size: rem(16);
+          line-height: 1.5;
+          color: $gray-cool-10;
+          background: $blue-warm-70v;
+
+          &:hover{
+            color: $gray-cool-5;
+            }
+          &:active {
+            color: $gray-cool-1;
+            }
+        }
+      }
+      .usa-dt-picker__icon svg,
+      .usa-dt-picker__button-icon svg {
+        height: 15.4px;
+        width: 14px;
+        color: $gray-cool-5;
+        @include for-tablet-landscape-up {
+          color: $gray-cool-10;
+
+          &:hover{
+            color: $gray-cool-5;
+            }
+          &:active {
+            color: $gray-cool-1;
+            }
+        }
+      }
+      .usa-dt-picker__button-icon {
+        margin: 4px 8px 4.6px 8px;
+        width: 14px;
+        height: 15.4px;
+      }
+      .usa-dt-picker__button {
+        align-items: center;
+        @include for-tablet-landscape-up {
+          align-items: flex-end;
+        }
+      }
+    }
+    span:not(.usa-dt-picker__button-text):not(.usa-dt-picker__button-icon) {
+      display: none;
+      @include for-tablet-landscape-up {
+        display: flex;
+        color: $gray-cool-10;
+      }
+    }
+  }

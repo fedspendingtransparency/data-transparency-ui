@@ -13,7 +13,7 @@ import TableData from './TableData';
 import TableHeader from './TableHeader';
 import Picker from '../Picker';
 
-require('../../styles/components/table/_table.scss');
+import '../../styles/components/table/_table.scss';
 
 const propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object).isRequired,

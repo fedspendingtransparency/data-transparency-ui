@@ -5,7 +5,7 @@ import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
 import Picker from './Picker';
 import { allFiscalYears } from '../helpers/fiscalYearHelper';
 
-require('../styles/components/_fiscalYearPicker.scss');
+import '../styles/components/_fiscalYearPicker.scss';
 
 const defaultSort = (a, b) => {
     if (Number.isInteger(a)) return b - a;

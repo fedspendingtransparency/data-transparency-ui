@@ -1,5 +1,5 @@
 import { startCase } from 'lodash-es';
-import { formatMoney, formatNumber, unitValues, formatMoneyWithPrecision, formatNumberWithPrecision, calculateUnitForSingleValue } from './moneyFormatter';
+import { formatMoney, formatNumber, unitValues, formatMoneyWithPrecision, formatNumberWithPrecision, calculateUnitForSingleValue } from './moneyFormatter.js';
 
 export const formattedValue = (value, isMonetary, isForTabletPortaitUp) => {
     if (value !== 0 && !value) return null;

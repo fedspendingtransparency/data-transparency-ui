@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { uniqueId } from 'lodash-es';
 
-require('../styles/components/_newPicker.scss');
+import '../styles/components/_newPicker.scss';
 
 const propTypes = {
     size: PropTypes.oneOf(['sm', 'md', 'lg', 'small', 'medium', 'large']),

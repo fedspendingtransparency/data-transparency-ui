@@ -11,7 +11,7 @@ import { faSpinner, faFileDownload } from '@fortawesome/free-solid-svg-icons';
 
 import TooltipWrapper from './infoTooltip/TooltipWrapper';
 
-require('../styles/components/_downloadIconButton.scss');
+import '../styles/components/_downloadIconButton.scss';
 
 const propTypes = {
     onClick: PropTypes.func.isRequired,

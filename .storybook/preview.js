@@ -1,5 +1,4 @@
 import React from 'react';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -91,10 +90,6 @@ import dataTransparencyUiTheme from './theme';
 // where global scss styles get applied
 import '../styles/storybook.scss';
 export const parameters = {
-  docs: {
-    container: DocsContainer,
-    page: DocsPage,
-  },
   options: {
     name: 'Data Transparency UI',
     storySort: (a, b) => {
@@ -109,7 +104,7 @@ export const parameters = {
     tags: ['autodocs']
   },
   viewport: {
-    viewports: INITIAL_VIEWPORTS,
+    options: INITIAL_VIEWPORTS,
   },
   a11y: {
     element: 'body',
@@ -124,8 +119,4 @@ export const parameters = {
     },
   },
 };
-
-export const decorators = [
-  (storyFn) => <div style={{ width: "100%" }}>{storyFn()}</div>,
-];
 export const tags = ['autodocs'];

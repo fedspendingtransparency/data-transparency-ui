@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createClassString } from '../../helpers/flexGridHelper';
 
-require('../../styles/components/_flexGrid.scss');
+import '../../styles/components/_flexGrid.scss';
 
 export default function GridContainer({ children, className, ...props }) {
   return (

@@ -1,0 +1,85 @@
+@import "../global/index";
+
+.usa-dt-carousel {
+  .usa-dt-carousel__instructions {
+    position: absolute;
+    left: -999em;
+  }
+
+  .usa-dt-carousel-content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .usa-dt-carousel-item {
+          flex: 1 1 auto;
+          overflow-x: hidden;
+      }
+
+      .usa-dt-carousel-item__list {
+          @include unstyled-list;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          transition: transform 300ms;
+
+          &.usa-dt-carousel-item__list_dragging {
+              transition: none;
+          }
+
+          .usa-dt-carousel-item__list-item {
+              flex: 0 0 auto;
+              width: 100%;
+
+              // within the box, we need to center the image
+              .usa-dt-carousel-item__item {
+                  display: block;
+                  text-align: center;
+                  background-color: $color-white;
+                  padding: rem(10);
+                  margin-left: auto;
+                  margin-right: auto;
+              }
+          }
+      }
+  }
+
+  .usa-dt-carousel-pager {
+      .usa-dt-carousel-pager__list {
+          @include unstyled-list;
+          margin-top: rem(5);
+          
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .usa-dt-carousel-pager__list-item {
+              flex: 0 0 auto;
+          }
+
+          button.usa-dt-carousel-pager__dot-button {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            @include button-unstyled;
+            width: rem(30);
+            height: rem(30);
+            opacity: 0.4;
+            transition: opacity 150ms;
+
+              .usa-dt-carousel-pager__dot-decorator {
+                  width: rem(10);
+                  height: rem(10);
+                  border-radius: rem(5);
+                  background-color:$color-gray-medium;
+                  pointer-events: none;
+                  align-self: center;
+              }
+
+              &:hover, &:active, &.usa-dt-carousel-pager__dot-button_active {
+                  opacity: 0.8;
+              }
+          }
+      }
+  }
+}

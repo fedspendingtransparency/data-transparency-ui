@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { createClassString } from '../../helpers/flexGridHelper';
 
-require('../../styles/components/_flexGrid.scss');
+import '../../styles/components/_flexGrid.scss';
 
 const GridRow = ({
     children,

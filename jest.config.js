@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     rootDir: ".",
     testRegex: "tests/.*-(test)\\.jsx?$",
     verbose: true,

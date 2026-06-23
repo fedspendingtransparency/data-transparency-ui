@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { throttle } from 'lodash-es';
-import { formattedValue, numberToText } from '../helpers/informationBoxesHelper';
+import { formattedValue, numberToText } from '../helpers/informationBoxesHelper.js';
 
-require('../styles/components/_informationBoxes.scss');
+import '../styles/components/_informationBoxes.scss';
 
 const propTypes = {
     boxes: PropTypes.arrayOf(PropTypes.shape({
