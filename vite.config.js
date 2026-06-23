@@ -1,7 +1,6 @@
 // / <reference types="@vitest/browser-playwright" />
 import path from 'path';
 import react from '@vitejs/plugin-react';
-import htmlPurge from 'vite-plugin-purgecss';
 import { defineConfig, esmExternalRequirePlugin } from 'vite';
 import { fileURLToPath } from 'url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
@@ -33,10 +32,11 @@ export default defineConfig({
         }
     },
     build: {
+        cssCodeSplit: false,
         commonjsOptions: { transformMixedEsModules: true },
         outDir: path.resolve(__dirname, "./dist"),
         rolldownOptions: {
-            input: "index.js",
+            input: "./index.js",
             plugins: [
                 esmExternalRequirePlugin({
                     external: [/^react(-dom)?(\/.+)?$/]
@@ -91,8 +91,7 @@ export default defineConfig({
                         babelrc: false,
                         configFile: false
                     }
-                }),
-                htmlPurge()]
+                })]
         }
     },
     plugins: [
@@ -113,8 +112,7 @@ export default defineConfig({
                 babelrc: false,
                 configFile: false
             }
-        }),
-        htmlPurge()
+        })
     ],
     test: {
         projects: [{
