@@ -6,14 +6,32 @@ import { defineConfig, esmExternalRequirePlugin } from 'vite';
 import { fileURLToPath } from 'url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
+import autoprefixer from 'autoprefixer';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 
 export default defineConfig({
+    css: {
+        devSourcemap: true,
+        preprocessorOptions: {
+            scss: {
+                quietDeps: true,
+                loadPaths: ["./styles/components/cards",
+                    "./styles/components/infoTooltip",
+                    "./styles/components/pagination",
+                    "./styles/components/quarterPicker",
+                    "./styles/components/table"]
+            }
+        },
+        postcss: {
+            plugins: [
+                autoprefixer({}) // add options if needed
+            ]
+        }
+    },
     build: {
         commonjsOptions: { transformMixedEsModules: true },
         outDir: path.resolve(__dirname, "./dist"),

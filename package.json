@@ -1,6 +1,6 @@
 {
   "name": "data-transparency-ui",
-  "version": "7.3.0",
+  "version": "7.3.1",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "./index.js",
   "module": "./index.js",
@@ -92,7 +92,7 @@
     "acorn": "^8.7.1",
     "ajv": "^8.18.0",
     "ajv-keywords": "^5.1.0",
-    "autoprefixer": "^10.4.21",
+    "autoprefixer": "^10.5.1",
     "babel-plugin-module-resolver": "^5.0.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "classnames": "^2.2.6",

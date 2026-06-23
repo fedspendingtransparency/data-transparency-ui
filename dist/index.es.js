@@ -5536,19 +5536,17 @@ Qs.propTypes = {
 };
 //#endregion
 //#region components/flexGrid/FlexGridCol.jsx
-function $s({ children: e, className: t, desktopxl: n, desktop: r, mobile: i, tablet: a, width: o, ...s }) {
-	return /* @__PURE__ */ S("div", {
-		className: Xs([...[
-			[null, o],
-			["desktopxl", n],
-			["desktop", r],
-			["tablet", a],
-			["mobile", i]
-		].map(([e, t]) => t === void 0 ? "" : t.span !== void 0 && t.offset !== void 0 ? Xs([`${e ? `${e}:` : ""}usa-dt-flex-grid__col-${t.span}`, `${e ? `${e}:` : ""}usa-dt-flex-grid__offset-${t.offset}`]) : t.order === void 0 ? `${e ? `${e}:` : ""}usa-dt-flex-grid__col-${t}` : Xs([`${e ? `${e}:` : ""}usa-dt-flex-grid__col-${t.span}`, `${e ? `${e}:` : ""}usa-dt-flex-grid__order-${t.order}`])), t]) || "usa-dt-flex-grid__col",
-		...s,
-		children: e
-	});
-}
+var $s = ({ children: e, className: t, desktopxl: n, desktop: r, mobile: i, tablet: a, width: o, ...s }) => /* @__PURE__ */ S("div", {
+	className: Xs([...[
+		[null, o],
+		["desktopxl", n],
+		["desktop", r],
+		["tablet", a],
+		["mobile", i]
+	].map(([e, t]) => t === void 0 ? "" : t.span !== void 0 && t.offset !== void 0 ? Xs([`${e ? `${e}:` : ""}usa-dt-flex-grid__col-${t.span}`, `${e ? `${e}:` : ""}usa-dt-flex-grid__offset-${t.offset}`]) : t.order === void 0 ? `${e ? `${e}:` : ""}usa-dt-flex-grid__col-${t}` : Xs([`${e ? `${e}:` : ""}usa-dt-flex-grid__col-${t.span}`, `${e ? `${e}:` : ""}usa-dt-flex-grid__order-${t.order}`])), t]) || "usa-dt-flex-grid__col",
+	...s,
+	children: e
+});
 $s.propTypes = {
 	children: u.node,
 	className: u.string,
