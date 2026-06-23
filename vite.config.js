@@ -1,6 +1,6 @@
 // / <reference types="@vitest/browser-playwright" />
 import path from 'path';
-import react, { reactCompilerPreset } from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react';
 import htmlPurge from 'vite-plugin-purgecss';
 import { defineConfig, esmExternalRequirePlugin } from 'vite';
 import { fileURLToPath } from 'url';
@@ -21,17 +21,17 @@ export default defineConfig({
             input: "index.js",
             plugins: [
                 esmExternalRequirePlugin({
-                    external: [/^react(-dom)?(\/.+)?$/],
+                    external: [/^react(-dom)?(\/.+)?$/]
                 }),
                 esmExternalRequirePlugin({
-                    external: [/^lodash(-es)?(\/.+)?$/],
+                    external: [/^lodash(-es)?(\/.+)?$/]
                 }),
                 esmExternalRequirePlugin({
-                    external: ["accounting"],
-                }),  
+                    external: ["accounting"]
+                }),
                 esmExternalRequirePlugin({
-                    external: ["prop-types"],
-                }),                                        
+                    external: ["prop-types"]
+                })
             ],
             external: ['react', 'react-dom', 'lodash-es', 'accounting', 'prop-types'],
             output: {
@@ -39,8 +39,6 @@ export default defineConfig({
                     react: 'React',
                     'lodash-es': 'lodash-es',
                     'react-dom': 'ReactDOM',
-                    accounting: 'accounting',
-                    'prop-types': 'prop-types',
                     lodash: '_'
                 }
             }
@@ -57,7 +55,7 @@ export default defineConfig({
             resolve: {
                 extensions: ['.js', '.jsx']
             },
-            plugins: [        
+            plugins: [
                 react({
                     babel: {
                         // Add your custom Babel plugins here
@@ -68,13 +66,13 @@ export default defineConfig({
                             "@babel/plugin-transform-object-rest-spread",
                             "@babel/plugin-transform-class-properties",
                             "@babel/plugin-transform-optional-chaining",
-                            ["@babel/plugin-transform-react-jsx", {pragmaFrag: "React.Fragment"}]
+                            ["@babel/plugin-transform-react-jsx", { pragmaFrag: "React.Fragment" }]
                         ],
                         presets: ["@babel/preset-react", "@babel/preset-env"],
                         // Set to true if you want Vite to read your root .babelrc file
-                        babelrc: false, 
-                        configFile: false,
-                    },
+                        babelrc: false,
+                        configFile: false
+                    }
                 }),
                 htmlPurge()]
         }
@@ -90,13 +88,13 @@ export default defineConfig({
                     "@babel/plugin-transform-object-rest-spread",
                     "@babel/plugin-transform-class-properties",
                     "@babel/plugin-transform-optional-chaining",
-                    ["@babel/plugin-transform-react-jsx", {pragmaFrag: "React.Fragment"}]
+                    ["@babel/plugin-transform-react-jsx", { pragmaFrag: "React.Fragment" }]
                 ],
                 presets: ["@babel/preset-react", "@babel/preset-env"],
                 // Set to true if you want Vite to read your root .babelrc file
-                babelrc: false, 
-                configFile: false,
-            },
+                babelrc: false,
+                configFile: false
+            }
         }),
         htmlPurge()
     ],
