@@ -1,7 +1,6 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
 
 import path, { dirname } from 'path';
-import htmlPurge from 'vite-plugin-html-purgecss';
 import {fileURLToPath} from 'url';
 import react, { reactCompilerPreset } from '@vitejs/plugin-react';
 import { mergeConfig } from 'vite';
