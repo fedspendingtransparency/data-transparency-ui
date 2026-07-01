@@ -44,7 +44,7 @@ const handleShareClickReddit = (url) => {
 };
 
 const handleShareClickEmail = (subject, body) => {
-    const finalUrl = `mailto:?subject=${subject}&body=${body}`;
+    const finalUrl = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = finalUrl;
     // Analytics.event({ category: `${subject}`, action: 'share link click', label: 'email' });
 };
