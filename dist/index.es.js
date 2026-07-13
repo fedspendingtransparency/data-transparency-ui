@@ -5626,7 +5626,11 @@ tc.propTypes = ec;
 //#region components/cards/CardBody.jsx
 var nc = {
 	overline: u.string,
-	headline: u.oneOfType([u.string, u.object]),
+	headline: u.oneOfType([
+		u.string,
+		u.object,
+		u.node
+	]),
 	subhead: u.string,
 	text: u.oneOfType([u.string, u.object]),
 	variant: u.string,

@@ -10,7 +10,8 @@ const propTypes = {
     overline: PropTypes.string,
     headline: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.object
+        PropTypes.object,
+        PropTypes.node
     ]),
     subhead: PropTypes.string,
     text: PropTypes.oneOfType([
