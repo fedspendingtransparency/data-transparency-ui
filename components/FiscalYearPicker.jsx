@@ -38,9 +38,8 @@ const FiscalYearPicker = ({
                 className="usda-fy-picker"
                 icon={<FontAwesomeIcon icon={faCalendarAlt} size="xs" alt="FY Loading ..." />}
                 selectedOption={options.length
-                    ? options.find((obj) => obj.value === selectedFy || obj.value === parseInt(selectedFy, 10)).name || '--'
-                    : `FY ${selectedFy}`
-                }
+                    ? options.find((obj) => obj?.value === selectedFy || obj.value === parseInt(selectedFy, 10))?.name || '--'
+                    : `FY ${selectedFy}`}
                 sortFn={sortFn}
                 options={renderOptions()} />
             <span>Fiscal Year</span>

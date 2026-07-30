@@ -5289,7 +5289,7 @@ var Ls = {
 			size: "xs",
 			alt: "FY Loading ..."
 		}),
-		selectedOption: i.length ? i.find((e) => e.value === n || e.value === parseInt(n, 10)).name || "--" : `FY ${n}`,
+		selectedOption: i.length ? i.find((e) => e?.value === n || e.value === parseInt(n, 10))?.name || "--" : `FY ${n}`,
 		sortFn: o,
 		options: i.length ? i.map((e) => ({
 			...e,
