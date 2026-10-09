@@ -1,0 +1,5 @@
+import{n as e,r as t}from"./rolldown-runtime-DkW27tQK.js";import{t as n}from"./react-Q1GcV6wX.js";import{t as r}from"./jsx-runtime-DeHZSEgm.js";import{i,n as a,r as o,t as s}from"./FlexGridRow-C4NYYkHx.js";import{n as c,t as l}from"./CardHero-BM7oyH-k.js";var u=t({Default:()=>m,__namedExportsOrder:()=>h,default:()=>f}),d,f,p,m,h;function g(){return(g=e((()=>{c(),i(),a(),n(),d=r(),f={title:`General/Cards/CardHero`,component:l,tags:[`autodocs`,`!dev`]},p=e=>(0,d.jsx)(s,{hasGutter:!0,gutterSize:`lg`,children:(0,d.jsx)(o,{desktop:4,tablet:2,mobile:1,children:(0,d.jsx)(l,{...e})})}),m=p.bind({}),h=[`Default`],m.parameters={...m.parameters,docs:{...m.parameters?.docs,source:{originalSource:`args => <FlexGridRow hasGutter gutterSize="lg">\r
+    <FlexGridCol desktop={4} tablet={2} mobile={1}>\r
+      <CardHero {...args}></CardHero>\r
+    </FlexGridCol>\r
+  </FlexGridRow>`,...m.parameters?.docs?.source}}}})))()}export{u as n,g as r,m as t};
