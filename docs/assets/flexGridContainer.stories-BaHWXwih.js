@@ -1,0 +1,6 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{t}from"./react-Q1GcV6wX.js";import{t as n}from"./jsx-runtime-DeHZSEgm.js";import{n as r,t as i}from"./FlexGridContainer-C9_hImQP.js";var a,o,s,c;function l(){return(l=e((()=>{t(),r(),a=n(),o={title:`Layout/Flex Grid/Flex Grid Container`,component:i,tags:[`autodocs`]},s=e=>(0,a.jsxs)(`div`,{className:`story-flex-grid`,children:[(0,a.jsx)(`div`,{className:`story-flex-grid-heading`,children:`Visual Example`}),(0,a.jsx)(i,{...e,children:`container`})]}),s.args={className:``},s.__docgenInfo={description:``,methods:[],displayName:`DefaultFlexGridContainer`},c=[`DefaultFlexGridContainer`],s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`args => <div className="story-flex-grid">\r
+    <div className="story-flex-grid-heading">Visual Example</div>\r
+    <FlexGridContainer {...args}>\r
+      container\r
+  </FlexGridContainer>\r
+  </div>`,...s.parameters?.docs?.source}}}})))()}l();export{s as DefaultFlexGridContainer,c as __namedExportsOrder,o as default};

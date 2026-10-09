@@ -1,0 +1,16 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{c as t,l as n,s as r}from"./blocks-B4JQaNbb.js";import{t as i}from"./jsx-runtime-DeHZSEgm.js";import{i as a,r as o}from"./react-BXJ34t_g.js";import{i as s,n as c,t as l}from"./FlexGridRow-C4NYYkHx.js";import{n as u}from"./Button-BPJMV69Q.js";import{A as d,C as f,D as p,E as m,F as h,M as g,N as _,O as v,P as y,S as b,T as x,_ as S,a as C,b as w,c as T,d as E,f as D,g as O,h as k,i as A,j,k as M,l as N,m as P,n as F,o as I,p as L,r as R,s as z,t as B,u as V,v as H,w as U,x as W,y as G}from"./inlineButtons.stories-Dq_Kt1Jb.js";function K(e){let n={h1:`h1`,...a(),...e.components};return(0,J.jsxs)(J.Fragment,{children:[(0,J.jsx)(r,{of:h}),`
+`,(0,J.jsx)(n.h1,{id:`text-button-variants`,children:`Text Button Variants`}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:d}),(0,J.jsx)(t,{of:f}),(0,J.jsx)(t,{of:O})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:j}),(0,J.jsx)(t,{of:U}),(0,J.jsx)(t,{of:S})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:g}),(0,J.jsx)(t,{of:x}),(0,J.jsx)(t,{of:G})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:_}),(0,J.jsx)(t,{of:m}),(0,J.jsx)(t,{of:H})]}),`
+`,(0,J.jsx)(n.h1,{id:`text-dark-button-variants`,children:`Text Dark Button Variants`}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`,backgroundColor:`#323a44`},children:[(0,J.jsx)(t,{of:N}),(0,J.jsx)(t,{of:C}),(0,J.jsx)(t,{of:B})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`,backgroundColor:`#323a44`},children:[(0,J.jsx)(t,{of:V}),(0,J.jsx)(t,{of:I}),(0,J.jsx)(t,{of:F})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`,backgroundColor:`#323a44`},children:[(0,J.jsx)(t,{of:E}),(0,J.jsx)(t,{of:z}),(0,J.jsx)(t,{of:R})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`,backgroundColor:`#323a44`},children:[(0,J.jsx)(t,{of:D}),(0,J.jsx)(t,{of:T}),(0,J.jsx)(t,{of:A})]}),`
+`,(0,J.jsx)(n.h1,{id:`inline-button-variants`,children:`Inline Button Variants`}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:p}),(0,J.jsx)(t,{of:w}),(0,J.jsx)(t,{of:L})]}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:v}),(0,J.jsx)(t,{of:W}),(0,J.jsx)(t,{of:P})]}),`
+`,(0,J.jsx)(n.h1,{id:`intext-button-variants`,children:`Intext Button Variants`}),`
+`,(0,J.jsxs)(l,{width:3,desktop:3,hasGutter:!0,gutterSize:32,style:{marginLeft:`16px`,marginBottom:`16px`},children:[(0,J.jsx)(t,{of:M}),(0,J.jsx)(t,{of:b}),(0,J.jsx)(t,{of:k})]})]})}function q(e={}){let{wrapper:t}={...a(),...e.components};return t?(0,J.jsx)(t,{...e,children:(0,J.jsx)(K,{...e})}):K(e)}var J;function Y(){return(Y=e((()=>{J=i(),o(),n(),y(),u(),s(),c()})))()}Y();export{q as default};
