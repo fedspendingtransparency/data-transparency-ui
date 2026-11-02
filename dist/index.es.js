@@ -4,8 +4,8 @@ import m from "accounting";
 import { debounce as h, range as g, startCase as _, throttle as v, union as y, uniqueId as b } from "lodash-es";
 import { Fragment as x, jsx as S, jsxs as C } from "react/jsx-runtime";
 import w from "react-dom";
-//#region \0rolldown/runtime.js
-var T = Object.create, E = Object.defineProperty, D = Object.getOwnPropertyDescriptor, O = Object.getOwnPropertyNames, k = Object.getPrototypeOf, ee = Object.prototype.hasOwnProperty, A = (e, t) => () => (t || (e((t = { exports: {} }).exports, t), e = null), t.exports), j = (e, t, n, r) => {
+// \0rolldown/runtime.js
+var T = Object.create, E = Object.defineProperty, D = Object.getOwnPropertyDescriptor, O = Object.getOwnPropertyNames, k = Object.getPrototypeOf, ee = Object.prototype.hasOwnProperty, A = (e, t) => () => (t || (e((t = { exports: {} }).exports, t, t.exports), e = null), t.exports), j = (e, t, n, r) => {
 	if (t && typeof t == "object" || typeof t == "function") for (var i = O(t), a = 0, o = i.length, s; a < o; a++) s = i[a], !ee.call(e, s) && s !== n && E(e, s, {
 		get: ((e) => t[e]).bind(null, s),
 		enumerable: !(r = D(t, s)) || r.enumerable
@@ -63,8 +63,7 @@ var T = Object.create, E = Object.defineProperty, D = Object.getOwnPropertyDescr
 		end: i
 	};
 };
-//#endregion
-//#region node_modules/@fortawesome/fontawesome-svg-core/index.mjs
+// node_modules/@fortawesome/fontawesome-svg-core/index.mjs
 function ce(e, t) {
 	(t == null || t > e.length) && (t = e.length);
 	for (var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
@@ -2656,8 +2655,7 @@ var xa = Y.parse;
 Y.findIconDefinition, Y.toHtml;
 var Sa = Y.icon;
 Y.layer, Y.text, Y.counter;
-//#endregion
-//#region node_modules/@fortawesome/react-fontawesome/dist/index.js
+// node_modules/@fortawesome/react-fontawesome/dist/index.js
 function Ca(e) {
 	return e -= 0, e === e;
 }
@@ -2894,8 +2892,7 @@ var qa = new Na("FontAwesomeIcon"), Ja = {
 	return ja(_[0], v);
 });
 Q.displayName = "FontAwesomeIcon", `${Va.default}${Z.fixedWidth}`;
-//#endregion
-//#region components/pagination/Pager.jsx
+// components/pagination/Pager.jsx
 var Xa = {
 	changePage: u.func.isRequired,
 	totalItems: u.number.isRequired,
@@ -2991,8 +2988,7 @@ var Xa = {
 	}
 };
 Za.propTypes = Xa;
-//#endregion
-//#region components/pagination/LimitSelector.jsx
+// components/pagination/LimitSelector.jsx
 var Qa = {
 	changeLimit: u.func.isRequired,
 	pageSize: u.number,
@@ -3022,8 +3018,7 @@ var Qa = {
 	});
 };
 $a.propTypes = Qa;
-//#endregion
-//#region components/pagination/GoToPage.jsx
+// components/pagination/GoToPage.jsx
 var eo = {
 	changePage: u.func.isRequired,
 	totalPages: u.number,
@@ -3062,8 +3057,7 @@ var eo = {
 	});
 };
 to.propTypes = eo;
-//#endregion
-//#region components/pagination/Pagination.jsx
+// components/pagination/Pagination.jsx
 var no = {
 	changePage: u.func.isRequired,
 	totalItems: u.number.isRequired,
@@ -3113,8 +3107,7 @@ var no = {
 	});
 };
 ro.propTypes = no;
-//#endregion
-//#region components/Picker.jsx
+// components/Picker.jsx
 var io = "usa-dt-picker__button-icon--svg", ao = {
 	sortFn: u.func,
 	icon: u.node,
@@ -3241,8 +3234,7 @@ var io = "usa-dt-picker__button-icon--svg", ao = {
 	});
 };
 so.propTypes = ao;
-//#endregion
-//#region components/quarterPicker/QuarterButton.jsx
+// components/quarterPicker/QuarterButton.jsx
 var co = {
 	disabled: u.bool,
 	active: u.bool,
@@ -3275,8 +3267,7 @@ var co = {
 	});
 };
 lo.propTypes = co;
-//#endregion
-//#region components/quarterPicker/QuarterPicker.jsx
+// components/quarterPicker/QuarterPicker.jsx
 var uo = (e = []) => {
 	let [t, n] = l(e);
 	return [t, (e) => {
@@ -3406,8 +3397,7 @@ var uo = (e = []) => {
 	});
 };
 ho.propTypes = mo;
-//#endregion
-//#region helpers/searchBarHelper.js
+// helpers/searchBarHelper.js
 var go = (e, t, n) => !(e && t === e || t && e.length < n), _o = (e, t) => !(!t || e.target.value), vo = {
 	onSearch: u.func,
 	minChars: u.number,
@@ -3444,8 +3434,7 @@ var go = (e, t, n) => !(e && t === e || t && e.length < n), _o = (e, t) => !(!t 
 	});
 };
 yo.propTypes = vo;
-//#endregion
-//#region components/messages/GenericMessage.jsx
+// components/messages/GenericMessage.jsx
 var bo = {
 	title: u.string.isRequired,
 	description: u.string,
@@ -3469,8 +3458,7 @@ var bo = {
 	]
 });
 xo.propTypes = bo;
-//#endregion
-//#region components/messages/ErrorMessage.jsx
+// components/messages/ErrorMessage.jsx
 var So = { description: u.string }, Co = ({ description: e = "Something went wrong while gathering your data." }) => /* @__PURE__ */ S(xo, {
 	description: e,
 	title: "An error occurred",
@@ -3478,8 +3466,7 @@ var So = { description: u.string }, Co = ({ description: e = "Something went wro
 	className: "error"
 });
 Co.propTypes = So;
-//#endregion
-//#region node_modules/@babel/runtime/helpers/esm/extends.js
+// node_modules/@babel/runtime/helpers/esm/extends.js
 function wo() {
 	return wo = Object.assign ? Object.assign.bind() : function(e) {
 		for (var t = 1; t < arguments.length; t++) {
@@ -3489,8 +3476,7 @@ function wo() {
 		return e;
 	}, wo.apply(null, arguments);
 }
-//#endregion
-//#region node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
+// node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js
 function To(e, t) {
 	if (e == null) return {};
 	var n = {};
@@ -3500,38 +3486,32 @@ function To(e, t) {
 	}
 	return n;
 }
-//#endregion
-//#region node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
+// node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js
 function Eo(e, t) {
 	return Eo = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(e, t) {
 		return e.__proto__ = t, e;
 	}, Eo(e, t);
 }
-//#endregion
-//#region node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
+// node_modules/@babel/runtime/helpers/esm/inheritsLoose.js
 function Do(e, t) {
 	e.prototype = Object.create(t.prototype), e.prototype.constructor = e, Eo(e, t);
 }
-//#endregion
-//#region node_modules/dom-helpers/esm/hasClass.js
+// node_modules/dom-helpers/esm/hasClass.js
 function Oo(e, t) {
 	return e.classList ? !!t && e.classList.contains(t) : (" " + (e.className.baseVal || e.className) + " ").indexOf(" " + t + " ") !== -1;
 }
-//#endregion
-//#region node_modules/dom-helpers/esm/addClass.js
+// node_modules/dom-helpers/esm/addClass.js
 function ko(e, t) {
 	e.classList ? e.classList.add(t) : Oo(e, t) || (typeof e.className == "string" ? e.className = e.className + " " + t : e.setAttribute("class", (e.className && e.className.baseVal || "") + " " + t));
 }
-//#endregion
-//#region node_modules/dom-helpers/esm/removeClass.js
+// node_modules/dom-helpers/esm/removeClass.js
 function Ao(e, t) {
 	return e.replace(RegExp("(^|\\s)" + t + "(?:\\s|$)", "g"), "$1").replace(/\s+/g, " ").replace(/^\s*|\s*$/g, "");
 }
 function jo(e, t) {
 	e.classList ? e.classList.remove(t) : typeof e.className == "string" ? e.className = Ao(e.className, t) : e.setAttribute("class", Ao(e.className && e.className.baseVal || "", t));
 }
-//#endregion
-//#region node_modules/react-transition-group/esm/config.js
+// node_modules/react-transition-group/esm/config.js
 var Mo = { disabled: !1 }, No = process.env.NODE_ENV === "production" ? null : u.oneOfType([u.number, u.shape({
 	enter: u.number,
 	exit: u.number,
@@ -3702,8 +3682,7 @@ $.defaultProps = {
 	onExiting: Ho,
 	onExited: Ho
 }, $.UNMOUNTED = Lo, $.EXITED = Ro, $.ENTERING = zo, $.ENTERED = Bo, $.EXITING = Vo;
-//#endregion
-//#region node_modules/react-transition-group/esm/CSSTransition.js
+// node_modules/react-transition-group/esm/CSSTransition.js
 var Uo = function(e, t) {
 	return e && t && t.split(" ").forEach(function(t) {
 		return ko(e, t);
@@ -3779,14 +3758,12 @@ Go.defaultProps = { classNames: "" }, Go.propTypes = process.env.NODE_ENV === "p
 	onExiting: u.func,
 	onExited: u.func
 });
-//#endregion
-//#region node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js
+// node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js
 function Ko(e) {
 	if (e === void 0) throw ReferenceError("this hasn't been initialised - super() hasn't been called");
 	return e;
 }
-//#endregion
-//#region node_modules/react-transition-group/esm/utils/ChildMapping.js
+// node_modules/react-transition-group/esm/utils/ChildMapping.js
 function qo(e, n) {
 	var r = function(e) {
 		return n && i(e) ? n(e) : e;
@@ -3849,8 +3826,7 @@ function Zo(e, t, r) {
 		}
 	}), o;
 }
-//#endregion
-//#region node_modules/react-transition-group/esm/TransitionGroup.js
+// node_modules/react-transition-group/esm/TransitionGroup.js
 var Qo = Object.values || function(e) {
 	return Object.keys(e).map(function(t) {
 		return e[t];
@@ -3900,8 +3876,7 @@ es.propTypes = process.env.NODE_ENV === "production" ? {} : {
 	exit: u.bool,
 	childFactory: u.func
 }, es.defaultProps = $o;
-//#endregion
-//#region components/messages/LoadingMessage.jsx
+// components/messages/LoadingMessage.jsx
 var ts = ({ loadingText: e = "Gathering your data..." }) => /* @__PURE__ */ S(es, {
 	className: "usda-message usda-message_loading",
 	children: /* @__PURE__ */ S(Go, {
@@ -3961,8 +3936,7 @@ var ts = ({ loadingText: e = "Gathering your data..." }) => /* @__PURE__ */ S(es
 	})
 });
 ts.propTypes = { loadingText: u.string };
-//#endregion
-//#region components/messages/NoResultsMessage.jsx
+// components/messages/NoResultsMessage.jsx
 var ns = () => /* @__PURE__ */ S(xo, {
 	title: "No Results",
 	description: "No available data to display.",
@@ -4026,8 +4000,7 @@ var ns = () => /* @__PURE__ */ S(xo, {
 	})] }) : null] });
 };
 is.propTypes = rs;
-//#endregion
-//#region components/table/TableHeader.jsx
+// components/table/TableHeader.jsx
 var as = ({ clickedSort: e, displayName: t, currentSort: n, title: r }) => {
 	let i = n?.field === r && n?.direction === "asc" ? " table-header__icon_active" : "", a = n?.field === r && n?.direction === "desc" ? " table-header__icon_active" : "";
 	return /* @__PURE__ */ C("div", {
@@ -4274,8 +4247,7 @@ var cs = {
 	}) : null) || i;
 };
 hs.propTypes = ms;
-//#endregion
-//#region components/table/TableData.jsx
+// components/table/TableData.jsx
 var gs = {
 	columns: u.arrayOf(u.object).isRequired,
 	rows: u.arrayOf(f([u.array, u.object])).isRequired,
@@ -4395,8 +4367,7 @@ var gs = {
 	}) });
 };
 _s.propTypes = gs;
-//#endregion
-//#region components/table/Table.jsx
+// components/table/Table.jsx
 var vs = {
 	columns: u.arrayOf(u.object).isRequired,
 	rows: u.arrayOf(f([u.array, u.object])),
@@ -4567,8 +4538,7 @@ var vs = {
 	})] });
 };
 ys.propTypes = vs;
-//#endregion
-//#region styles/components/infoTooltip/_tooltipWrapper.scss
+// styles/components/infoTooltip/_tooltipWrapper.scss
 var bs = /* @__PURE__ */ M((/* @__PURE__ */ A(((e, t) => {
 	(function() {
 		var e = {}.hasOwnProperty;
@@ -4741,8 +4711,7 @@ var bs = /* @__PURE__ */ M((/* @__PURE__ */ A(((e, t) => {
 	});
 };
 Cs.propTypes = xs;
-//#endregion
-//#region components/infoTooltip/TooltipComponent.jsx
+// components/infoTooltip/TooltipComponent.jsx
 var ws = {
 	title: u.string.isRequired,
 	children: u.node.isRequired,
@@ -4765,8 +4734,7 @@ var ws = {
 	})]
 });
 Ts.propTypes = ws;
-//#endregion
-//#region helpers/keyboardEventsHelper.js
+// helpers/keyboardEventsHelper.js
 var Es = (e, t = [], n = [13, 32]) => (r) => {
 	n.includes(r.keyCode) && e(...t);
 }, Ds = {
@@ -4828,8 +4796,7 @@ var Es = (e, t = [], n = [13, 32]) => (r) => {
 	});
 };
 Os.propTypes = Ds;
-//#endregion
-//#region components/tabs/Tabs.jsx
+// components/tabs/Tabs.jsx
 var ks = {
 	types: u.arrayOf(u.shape({
 		label: u.string.isRequired,
@@ -4864,8 +4831,7 @@ var ks = {
 	});
 };
 As.propTypes = ks;
-//#endregion
-//#region components/messages/ComingSoon.jsx
+// components/messages/ComingSoon.jsx
 var js = ({ className: e }) => /* @__PURE__ */ S(xo, {
 	className: `coming soon ${e}`,
 	title: "Coming Soon",
@@ -4929,8 +4895,7 @@ var js = ({ className: e }) => /* @__PURE__ */ S(xo, {
 	});
 };
 Fs.propTypes = Ps;
-//#endregion
-//#region components/SectionHeader.jsx
+// components/SectionHeader.jsx
 function Is({ icon: t, title: n, overLine: r, description: i, titleTooltip: a, descTooltip: o }) {
 	return /* @__PURE__ */ C("div", {
 		className: "usda-section-title__sectionHeader",
@@ -4975,8 +4940,7 @@ Is.propTypes = {
 		props: u.object
 	})
 };
-//#endregion
-//#region components/SectionWrapper.jsx
+// components/SectionWrapper.jsx
 var Ls = {
 	isControlled: !1,
 	toggleExpand: () => {},
@@ -5045,8 +5009,7 @@ Rs.propTypes = {
 	classNames: u.string,
 	id: u.string
 };
-//#endregion
-//#region components/Carousel.jsx
+// components/Carousel.jsx
 var zs = { items: u.arrayOf(u.element) }, Bs = ({ items: e }) => {
 	let [t, r] = l(1), [i, a] = l(!1), s = c(null), u = c(0), d = c(b()), f = c(null), p = c(null), m = (e) => r(e), h = () => m(t);
 	o(() => (window.addEventListener("resize", h), () => window.removeEventListener("resize", h)), []);
@@ -5144,8 +5107,7 @@ var zs = { items: u.arrayOf(u.element) }, Bs = ({ items: e }) => {
 	});
 };
 Bs.propTypes = zs;
-//#endregion
-//#region helpers/inPageNavHelper.js
+// helpers/inPageNavHelper.js
 var Vs = (e, t) => {
 	let n = !1, r = !1, i = [...e?.childNodes], a = i[0]?.getBoundingClientRect(), o = i[i.length - 1]?.getBoundingClientRect();
 	return (a.left < 0 || e.scrollLeft > 0) && (n = !0), (o.right > e.clientWidth + t || o.right > e.scrollWidth) && (r = !0), {
@@ -5320,8 +5282,7 @@ var Vs = (e, t) => {
 	});
 };
 Gs.propTypes = Ws;
-//#endregion
-//#region components/PageHeader.jsx
+// components/PageHeader.jsx
 var Ks = ({ title: t, overLine: n = "", toolBar: r = [], backgroundColor: i = "#1a4480", pageName: a, sections: o, activeSection: s, jumpToSection: c, inPageNav: l = !1 }) => /* @__PURE__ */ C("section", {
 	className: "usda-page-header usda-page-header--sticky",
 	style: { backgroundColor: i },
@@ -5381,8 +5342,7 @@ Ks.propTypes = {
 	activeSection: u.string,
 	jumpToSection: u.func
 };
-//#endregion
-//#region components/DownloadIconButton.jsx
+// components/DownloadIconButton.jsx
 var qs = {
 	onClick: u.func.isRequired,
 	downloadInFlight: u.bool,
@@ -5483,8 +5443,7 @@ $s.displayName = "Fiscal Year Picker", $s.propTypes = {
 	handleFyChange: u.func,
 	sortFn: u.func
 };
-//#endregion
-//#region node_modules/@fortawesome/free-brands-svg-icons/index.mjs
+// node_modules/@fortawesome/free-brands-svg-icons/index.mjs
 var ec = {
 	prefix: "fab",
 	iconName: "linkedin",
@@ -5649,8 +5608,7 @@ var ec = {
 	});
 };
 oc.propTypes = ac, oc.displayName = "Share Icon";
-//#endregion
-//#region helpers/pageHeaderHelper.js
+// helpers/pageHeaderHelper.js
 var sc = (e, t = 0) => {
 	let [n, r] = l(0), [i, a] = l(!1);
 	return [
@@ -5667,8 +5625,7 @@ var sc = (e, t = 0) => {
 		}, 100)
 	];
 }, cc = (e) => e.map((e) => e && e.trim()).filter((e) => e).join(" ");
-//#endregion
-//#region components/flexGrid/FlexGridContainer.jsx
+// components/flexGrid/FlexGridContainer.jsx
 function lc({ children: e, className: t, ...n }) {
 	return /* @__PURE__ */ S("div", {
 		className: cc(["usa-dt-flex-grid__container", t]),
@@ -5680,8 +5637,7 @@ lc.propTypes = {
 	children: u.node.isRequired,
 	className: u.string
 };
-//#endregion
-//#region components/flexGrid/FlexGridRow.jsx
+// components/flexGrid/FlexGridRow.jsx
 var uc = ({ children: e, className: t, hasGutter: n = !1, gutterSize: r, ...i }) => {
 	let a = n ? "usa-dt-flex-grid__gutter" : "", o = (0, bs.default)({
 		"usa-dt-flex-grid__gutter-sm": r === "sm",
@@ -5704,8 +5660,7 @@ uc.propTypes = {
 	hasGutter: u.bool,
 	gutterSize: u.oneOf(["sm", "lg"])
 };
-//#endregion
-//#region components/flexGrid/FlexGridCol.jsx
+// components/flexGrid/FlexGridCol.jsx
 var dc = ({ children: e, className: t, desktopxl: n, desktop: r, mobile: i, tablet: a, width: o, ...s }) => {
 	let c = cc([...[
 		[null, o],
@@ -5769,8 +5724,7 @@ dc.propTypes = {
 		})
 	])
 };
-//#endregion
-//#region components/cards/CardContainer.jsx
+// components/cards/CardContainer.jsx
 var fc = {
 	variant: u.string,
 	size: u.string,
@@ -5795,8 +5749,7 @@ var fc = {
 	})
 });
 pc.propTypes = fc;
-//#endregion
-//#region components/cards/CardBody.jsx
+// components/cards/CardBody.jsx
 var mc = {
 	overline: u.string,
 	headline: u.oneOfType([
@@ -5840,8 +5793,7 @@ var mc = {
 	]
 });
 hc.propTypes = mc;
-//#endregion
-//#region components/cards/CardHero.jsx
+// components/cards/CardHero.jsx
 var gc = {
 	img: u.string,
 	fill: u.string,
@@ -5864,8 +5816,7 @@ var gc = {
 	})
 }) });
 _c.propTypes = gc;
-//#endregion
-//#region components/Button.jsx
+// components/Button.jsx
 var vc = {
 	buttonSize: u.oneOf([
 		"large",
@@ -5968,8 +5919,7 @@ var vc = {
 	});
 };
 yc.propTypes = vc;
-//#endregion
-//#region components/cards/CardButton.jsx
+// components/cards/CardButton.jsx
 var bc = {
 	link: u.string,
 	govLink: u.bool,
@@ -6046,8 +5996,7 @@ var bc = {
 	});
 };
 xc.propTypes = bc;
-//#endregion
-//#region components/NewPicker.jsx
+// components/NewPicker.jsx
 var Sc = {
 	size: u.oneOf([
 		"sm",
@@ -6185,5 +6134,4 @@ var Sc = {
 	});
 };
 wc.propTypes = Sc;
-//#endregion
 export { yc as Button, hc as CardBody, xc as CardButton, pc as CardContainer, _c as CardHero, Bs as Carousel, js as ComingSoon, Js as DownloadIconButton, Co as ErrorMessage, $s as FiscalYearPicker, dc as FlexGridCol, lc as FlexGridContainer, uc as FlexGridRow, xo as GenericMessage, Fs as InformationBoxes, ts as LoadingMessage, wc as NewPicker, ns as NoResultsMessage, Ks as PageHeader, ro as Pagination, so as Picker, ho as QuarterPicker, yo as SearchBar, Is as SectionHeader, Rs as SectionWrapper, oc as ShareIcon, ys as Table, As as Tabs, Ts as TooltipComponent, Cs as TooltipWrapper, uo as useCumulativeQuarterPicker, sc as useDynamicStickyClass };
