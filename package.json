@@ -16,7 +16,7 @@
   },
   "scripts": {
     "lint": "./node_modules/.bin/eslint --config .eslintrc --ext .jsx,.js components/*;",
-    "test": "./node_modules/.bin/jest; exit 0;",
+    "test": "jest",
     "start": "storybook dev -p 6006",
     "build-sb": "storybook build -c .storybook -o docs",
     "dev": "vite",

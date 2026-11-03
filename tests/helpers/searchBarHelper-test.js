@@ -1,4 +1,8 @@
-import { resetOrSubmitSearch, changeSearchTerm } from '../../helpers/searchBarHelper';
+/**
+ * @jest-environment jsdom
+ *
+ */
+import { resetOrSubmitSearch, shouldResetSearchTerm } from '../../helpers/searchBarHelper';
 
 describe('resetOrSubmitSearch', () => {
     it('should reset search when search the value and search term are the same', () => {
@@ -11,11 +15,11 @@ describe('resetOrSubmitSearch', () => {
         expect(resetOrSubmitSearch('frogs', '', 2)).toBeTruthy();
     });
 });
-describe('changeSearchTerm', () => {
-    it('should set the value on change', () => {
-        expect(changeSearchTerm('', 'f')).toBeTruthy();
+describe('shouldResetSearchTerm', () => {
+    it('should not reset when there is no submitted search term', () => {
+        expect(shouldResetSearchTerm({ target: { value: 'f' } }, '')).toBeFalsy();
     });
     it('should reset search when we have searched and there is no text in the input', () => {
-        expect(changeSearchTerm('yolo', { target: { value: '' } })).toBeFalsy();
+        expect(shouldResetSearchTerm({ target: { value: '' } }, 'yolo')).toBeTruthy();
     });
 });
