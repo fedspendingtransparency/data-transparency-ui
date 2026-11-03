@@ -4,9 +4,8 @@
  */
 
 import { checkIsOverflow } from '../../helpers/inPageNavHelper';
-import { JSDOM } from 'jsdom';
 
-let dom = new JSDOM('<!DOCTYPE html>'), doc = dom.window.document;
+const doc = document;
 let mockElement = doc.createElement('div');
 mockElement.innerHTML = `
    <ul style="width: 100px">
