@@ -55,9 +55,10 @@ export default defineConfig({
             output: {
                 globals: {
                     react: 'React',
-                    'lodash-es': 'lodash-es',
+                    'lodash-es': '_',
+                    'prop-types': 'PropTypes',
+                    accounting: 'accounting',
                     'react-dom': 'ReactDOM',
-                    lodash: '_'
                 }
             }
         },
