@@ -6,6 +6,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "../Button";
+import sanitizeUrl from '../../helpers/socialShareHelper';
 
 const propTypes = {
     link: PropTypes.string,
@@ -28,7 +29,7 @@ const propTypes = {
 const CardButton = ({
     link,
     govLink,
-    onlyPerformAction = "false",
+    onlyPerformAction = false,
     action,
     text,
     variant = "secondary",
@@ -50,14 +51,40 @@ const CardButton = ({
         text: "card__button--borderless"
     };
 
+    // Same-origin relative paths ("/search") are allowed; protocol-relative ("//host")
+    // and backslash variants are not, since browsers treat them as other hosts.
+    const getSafeRelativeUrl = (path) => {
+        if (typeof path !== "string" || !/^\/(?![/\\])/.test(path)) return null;
+        try {
+            const resolved = new URL(path, window.location.origin);
+            if (resolved.origin !== window.location.origin) return null;
+            return `${resolved.pathname}${resolved.search}${resolved.hash}`;
+        }
+        catch (err) {
+            return null;
+        }
+    };
+
+    const navigate = () => {
+        const safeUrl = link ? (getSafeRelativeUrl(link) || sanitizeUrl(link)) : null;
+        if (safeUrl) {
+            window.location.href = safeUrl;
+        }
+        if (action) action();
+    };
+
     const handleKeyUp = (e) => {
         if (e.key === "Enter") {
+            navigate();
+        }
+    };
+    const handleActionKeyUp = (e) => {
+        if (e.key === "Enter" && action) {
             action();
         }
     };
     const handleOnClick = () => {
-        window.location.href = link;
-        action();
+        navigate();
     };
 
     if (onlyPerformAction === true) {
@@ -65,7 +92,7 @@ const CardButton = ({
             <div className="card__button">
                 <Button
                     additionalClassnames={customClassName}
-                    onKeyUp={(e) => handleKeyUp(e)}
+                    onKeyUp={(e) => handleActionKeyUp(e)}
                     onClick={action}
                     copy={text || children}
                     buttonTitle={text || children}

@@ -96,7 +96,7 @@
     "react-transition-group": "^4.4.1"
   },
   "overrides": {
-    "minimist": "1.2.6",
+    "minimist": "1.2.8",
     "cross-spawn": "7.0.5",
     "glob-parent": "6.0.2",
     "json5": "2.2.3",
