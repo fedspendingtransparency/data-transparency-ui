@@ -5,6 +5,7 @@
 
 import PropTypes from "prop-types";
 import React from "react";
+import sanitizeUrl from '../../helpers/socialShareHelper';
 
 const propTypes = {
     img: PropTypes.string,
@@ -25,11 +26,10 @@ const CardHero = ({
             className={`card__hero ${variant}`}
             onClick={onClick}
             style={{ backgroundColor: `${fill}`, height: `${imageContainerHeight}` }}>
-            {thumbnail ?
-                <>{ children }</>
-                :
-                <img src={`${img}`} role="presentation" alt="" />
-            }
+            {thumbnail
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                ? <>{ children }</>
+                : <img src={`${sanitizeUrl(img)}`} role="presentation" alt="" />}
         </div>
     </div>
 );

@@ -1,5 +1,6 @@
 export default {
     rootDir: ".",
+    testEnvironment: "jsdom",
     testRegex: "tests/.*-(test)\\.jsx?$",
     verbose: true,
     bail: false,
@@ -23,5 +24,6 @@ export default {
         "\\.(css|less|scss)$": "<rootDir>/__mocks__/fileMock.js"
     },
     setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+    transformIgnorePatterns: ["/node_modules/(?!(lodash-es|@exodus/bytes)/)"],
     moduleFileExtensions: ['js', 'jsx']
 };

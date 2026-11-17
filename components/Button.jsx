@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 
 import '../styles/components/_buttons.scss';
+import sanitizeUrl from '../helpers/socialShareHelper';
 
 const propTypes = {
     buttonSize: PropTypes.oneOf(['large', 'medium', 'small', 'lg', 'md', 'sm']).isRequired,
@@ -157,7 +158,7 @@ const Button = (props) => {
 
     if (classNameList.includes('button-type__intext-light')) {
         return (
-            <a aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onKeyUp={props.onKeyUp} onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }} target="_blank" rel="noopener noreferrer" href={props.to}>{props.copy}</a>
+            <a aria-label={props.buttonTitle} className={classNameList} tabIndex="0" onKeyUp={props.onKeyUp} onClick={props.onClick} disabled={props.disabled} style={{ maxWidth: props.maxWidth }} target="_blank" rel="noopener noreferrer" href={sanitizeUrl(props.to)}>{props.copy}</a>
         );
     }
     if (classNameList.includes('left-icon')) {

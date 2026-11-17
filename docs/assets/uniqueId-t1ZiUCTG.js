@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{n as t,t as n}from"./toString-jSkGxItv.js";function r(e){var n=++i;return t(e)+n}var i;function a(){return(a=e((()=>{n(),i=0})))()}export{r as n,a as t};
