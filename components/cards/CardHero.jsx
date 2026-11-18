@@ -17,6 +17,15 @@ const propTypes = {
     onClick: PropTypes.func
 };
 
+// Same-origin relative image paths ("img/a.webp", "../img/a.webp", "/img/a.webp") are allowed.
+// Anything with a scheme, or a protocol-relative ("//host") / backslash variant, goes through sanitizeUrl.
+const getSafeImageSrc = (img) => {
+    if (typeof img !== "string") return null;
+    const stripped = img.trim().replace(/[\s\p{Cf}]/gu, '');
+    if (stripped === "" || /^([a-z][a-z0-9+.-]*:|[/\\]{2}|\\)/i.test(stripped)) return sanitizeUrl(img);
+    return encodeURI(stripped);
+};
+
 const CardHero = ({
     img, fill, variant, imageContainerHeight, thumbnail, children, onClick
 }) => (
@@ -29,7 +38,7 @@ const CardHero = ({
             {thumbnail
                 // eslint-disable-next-line react/jsx-no-useless-fragment
                 ? <>{ children }</>
-                : <img src={`${sanitizeUrl(img)}`} role="presentation" alt="" />}
+                : <img src={`${getSafeImageSrc(img)}`} role="presentation" alt="" />}
         </div>
     </div>
 );
