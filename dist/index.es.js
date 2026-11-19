@@ -5800,20 +5800,20 @@ var gc = /* @__PURE__ */ new Set([
 	"next",
 	"url",
 	"return",
-	"returnUrl",
+	"returnurl",
 	"return_url",
 	"goto",
 	"destination",
 	"dest",
 	"forward",
 	"user",
-	"userName",
+	"username",
 	"user_name",
 	"password",
 	"login"
 ]), _c = (e) => {
 	if (typeof e != "string" || e.trim() === "") return null;
-	let t = e.trim().replace(/[\s\p{Cf}]/gu, ""), n;
+	let t = e.trim().replace(/\p{Cf}/gu, ""), n;
 	try {
 		n = new URL(t);
 	} catch {
@@ -5822,12 +5822,12 @@ var gc = /* @__PURE__ */ new Set([
 	return n;
 }, vc = (e) => _c(e) ? e.startsWith("https://www.usaspending.gov/") : !1, yc = (e, t = !0) => {
 	let n = _c(e);
-	if (!n || n.protocol !== "https:" || !n.hostname || n.hostname.trim() === "") return null;
-	if (t) {
-		let e = [...n.searchParams.entries()];
-		for (let [t, r] of e) gc.has(t.toLowerCase()) && !vc(r) && n.searchParams.delete(t);
-	}
-	return encodeURI(n.toString());
+	return !n || n.protocol !== "https:" || !n.hostname || n.hostname.trim() === "" ? null : (t && n.search && (n.search = n.search.slice(1).split("&").filter((e) => {
+		let [t] = new URLSearchParams(e);
+		if (!t) return !0;
+		let [n, r] = t;
+		return !(gc.has(n.toLowerCase()) && !vc(r));
+	}).join("&")), n.href);
 }, bc = {
 	img: u.string,
 	fill: u.string,
@@ -5836,7 +5836,16 @@ var gc = /* @__PURE__ */ new Set([
 	thumbnail: u.bool,
 	children: u.element,
 	onClick: u.func
-}, xc = ({ img: e, fill: t, variant: n, imageContainerHeight: r, thumbnail: i, children: a, onClick: o }) => /* @__PURE__ */ S("div", { children: /* @__PURE__ */ S("div", {
+}, xc = (e) => {
+	if (typeof e != "string") return;
+	let t = e.trim(), n = t.replace(/[\s\p{Cf}]/gu, "");
+	if (n === "" || /^([a-z][a-z0-9+.-]*:|[/\\]{2}|\\)/i.test(n)) return yc(e) || void 0;
+	try {
+		return encodeURI(decodeURI(t));
+	} catch {
+		return encodeURI(t);
+	}
+}, Sc = ({ img: e, fill: t, variant: n, imageContainerHeight: r, thumbnail: i, children: a, onClick: o }) => /* @__PURE__ */ S("div", { children: /* @__PURE__ */ S("div", {
 	className: `card__hero ${n}`,
 	onClick: o,
 	style: {
@@ -5844,14 +5853,14 @@ var gc = /* @__PURE__ */ new Set([
 		height: `${r}`
 	},
 	children: i ? /* @__PURE__ */ S(x, { children: a }) : /* @__PURE__ */ S("img", {
-		src: `${yc(e)}`,
+		src: xc(e),
 		role: "presentation",
 		alt: ""
 	})
 }) });
-xc.propTypes = bc;
+Sc.propTypes = bc;
 // components/Button.jsx
-var Sc = {
+var Cc = {
 	buttonSize: u.oneOf([
 		"large",
 		"medium",
@@ -5885,7 +5894,7 @@ var Sc = {
 	disabled: u.bool,
 	maxWidth: u.string,
 	to: u.string
-}, Cc = (e) => {
+}, wc = (e) => {
 	let t = "";
 	return e.buttonSize === "large" || e.buttonSize === "lg" ? t += " button__lg " : e.buttonSize === "medium" || e.buttonSize === "md" ? t += " button__md " : (e.buttonSize === "small" || e.buttonSize === "sm") && (t += " button__sm "), e.buttonType === "primary" ? t += " button-type__primary-light " : e.buttonType === "secondary" ? e.backgroundColor === "light" ? t += " button-type__secondary-light " : e.backgroundColor === "dark" && (t += " button-type__secondary-dark ") : e.buttonType === "primaryIcon" ? e.backgroundColor === "light" && e.imageAlignment === "left" && (t += " button-type__primary-left-icon-light ") : e.buttonType === "secondaryIcon" ? e.backgroundColor === "light" ? e.imageAlignment === "left" && (t += " button-type__secondary-left-icon-light ") : e.backgroundColor === "dark" && e.imageAlignment === "left" && (t += " button-type__secondary-left-icon-dark ") : e.buttonType === "tertiary" ? t += " button-type__tertiary-light " : e.buttonType === "tertiaryIcon" ? e.imageAlignment === "left" && e.backgroundColor === "light" && (t += " button-type__tertiary-left-icon-light ") : e.buttonType === "text" ? e.backgroundColor === "light" ? e.imageAlignment === "left" ? t += " button-type__text-left-icon-light " : e.imageAlignment === "right" ? t += " button-type__text-right-icon-light " : t += " button-type__text-light " : e.backgroundColor === "dark" && (e.imageAlignment === "left" ? t += " button-type__text-left-icon-dark " : e.imageAlignment === "right" ? t += " button-type__text-right-icon-dark " : t += " button-type__text-dark ") : e.buttonType === "stacked" ? e.backgroundColor === "light" ? t += " button-type__stacked-icon-light " : e.backgroundColor === "dark" && (t += " button-type__stacked-icon-dark ") : e.buttonType === "icon" ? e.backgroundColor === "light" ? t += " button-type__icon-light " : e.backgroundColor === "dark" && (t += " button-type__icon-dark ") : e.buttonType === "inline" ? e.imageAlignment === "right" && (t += " button-type__inline-right-icon-light ") : e.buttonType === "intext" && (t += " button-type__intext-light "), e.textAlignment === "left" ? t += " button-text__left-align " : e.textAlignment === "center" && (t += " button-text__center-align "), e.additionalClassnames && (t += " ", t += e.additionalClassnames), t.includes("button-type__intext-light") ? /* @__PURE__ */ S("a", {
 		"aria-label": e.buttonTitle,
@@ -5952,9 +5961,9 @@ var Sc = {
 		children: e.copy
 	});
 };
-Cc.propTypes = Sc;
+wc.propTypes = Cc;
 // components/cards/CardButton.jsx
-var wc = {
+var Tc = {
 	link: u.string,
 	govLink: u.bool,
 	onlyPerformAction: u.bool,
@@ -5964,7 +5973,7 @@ var wc = {
 	customClassName: u.string,
 	children: u.oneOfType([u.string, u.object]),
 	disabled: u.bool
-}, Tc = ({ link: e, govLink: t, onlyPerformAction: n = !1, action: r, text: i, variant: a = "secondary", customClassName: o = "", children: s, backgroundColor: c, buttonSize: l, textAlignment: u, disabled: d = !1 }) => {
+}, Ec = ({ link: e, govLink: t, onlyPerformAction: n = !1, action: r, text: i, variant: a = "secondary", customClassName: o = "", children: s, backgroundColor: c, buttonSize: l, textAlignment: u, disabled: d = !1 }) => {
 	let f = {
 		primary: "primary",
 		secondary: "secondary",
@@ -5993,7 +6002,7 @@ var wc = {
 	};
 	return n === !0 ? /* @__PURE__ */ S("div", {
 		className: "card__button",
-		children: /* @__PURE__ */ S(Cc, {
+		children: /* @__PURE__ */ S(wc, {
 			additionalClassnames: o,
 			onKeyUp: (e) => _(e),
 			onClick: r,
@@ -6009,7 +6018,7 @@ var wc = {
 		className: "card__button",
 		children: t ? /* @__PURE__ */ S("div", {
 			className: `card__button--secondary ${p[a]}`,
-			children: /* @__PURE__ */ S(Cc, {
+			children: /* @__PURE__ */ S(wc, {
 				"aria-label": `${i}`,
 				tabIndex: "0",
 				additionalClassnames: o,
@@ -6025,7 +6034,7 @@ var wc = {
 			})
 		}) : /* @__PURE__ */ S("div", {
 			className: `${p[a]}`,
-			children: /* @__PURE__ */ S(Cc, {
+			children: /* @__PURE__ */ S(wc, {
 				"aria-label": `${i}`,
 				tabIndex: "0",
 				additionalClassnames: o,
@@ -6042,9 +6051,9 @@ var wc = {
 		})
 	});
 };
-Tc.propTypes = wc;
+Ec.propTypes = Tc;
 // components/NewPicker.jsx
-var Ec = {
+var Dc = {
 	size: u.oneOf([
 		"sm",
 		"md",
@@ -6081,7 +6090,7 @@ var Ec = {
 	parentWidth: u.number,
 	infoSection: u.bool,
 	infoSectionContent: u.string
-}, Dc = (e, t, n) => e.name === n ? -1 : t.name === n ? 1 : e.name < t.name ? -1 : +(e.name > t.name), Oc = ({ size: e, label: t = "", children: n, leftIcon: r, enabled: i, id: a = "", options: s, selectedOption: u, dropdownClassname: d = "", buttonClassname: f = "", minTextWidth: p = "", classname: m = "", sortFn: h = Dc, parentWidth: g, infoSection: _ = !1, infoSectionContent: v = "" }) => {
+}, Oc = (e, t, n) => e.name === n ? -1 : t.name === n ? 1 : e.name < t.name ? -1 : +(e.name > t.name), kc = ({ size: e, label: t = "", children: n, leftIcon: r, enabled: i, id: a = "", options: s, selectedOption: u, dropdownClassname: d = "", buttonClassname: f = "", minTextWidth: p = "", classname: m = "", sortFn: h = Oc, parentWidth: g, infoSection: _ = !1, infoSectionContent: v = "" }) => {
 	let y = c(null), x = c(null), [w, T] = l(!1), [E, D] = l(i || !1), O = "usa-dt-picker__button-icon--svg", k = _ ? "310px" : "initial", ee = (e) => {
 		e.preventDefault(), T(!w);
 	}, A = (e) => {
@@ -6180,5 +6189,5 @@ var Ec = {
 		})]
 	});
 };
-Oc.propTypes = Ec;
-export { Cc as Button, hc as CardBody, Tc as CardButton, pc as CardContainer, xc as CardHero, Bs as Carousel, js as ComingSoon, Js as DownloadIconButton, Co as ErrorMessage, $s as FiscalYearPicker, dc as FlexGridCol, lc as FlexGridContainer, uc as FlexGridRow, xo as GenericMessage, Fs as InformationBoxes, ts as LoadingMessage, Oc as NewPicker, ns as NoResultsMessage, Ks as PageHeader, ro as Pagination, so as Picker, ho as QuarterPicker, yo as SearchBar, Is as SectionHeader, Rs as SectionWrapper, oc as ShareIcon, ys as Table, As as Tabs, Ts as TooltipComponent, Cs as TooltipWrapper, uo as useCumulativeQuarterPicker, sc as useDynamicStickyClass };
+kc.propTypes = Dc;
+export { wc as Button, hc as CardBody, Ec as CardButton, pc as CardContainer, Sc as CardHero, Bs as Carousel, js as ComingSoon, Js as DownloadIconButton, Co as ErrorMessage, $s as FiscalYearPicker, dc as FlexGridCol, lc as FlexGridContainer, uc as FlexGridRow, xo as GenericMessage, Fs as InformationBoxes, ts as LoadingMessage, kc as NewPicker, ns as NoResultsMessage, Ks as PageHeader, ro as Pagination, so as Picker, ho as QuarterPicker, yo as SearchBar, Is as SectionHeader, Rs as SectionWrapper, oc as ShareIcon, ys as Table, As as Tabs, Ts as TooltipComponent, Cs as TooltipWrapper, uo as useCumulativeQuarterPicker, sc as useDynamicStickyClass };

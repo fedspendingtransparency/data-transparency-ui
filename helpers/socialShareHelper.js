@@ -1,17 +1,18 @@
+// entries must be lowercase; keys are lowercased before lookup
 const commonAttackParams = new Set([
     "redirect",
     "redirect_url",
     "next",
     "url",
     "return",
-    "returnUrl",
+    "returnurl",
     "return_url",
     "goto",
     "destination",
     "dest",
     "forward",
     "user",
-    "userName",
+    "username",
     "user_name",
     "password",
     "login"
@@ -20,10 +21,10 @@ const isRealUrl = (rawURL) => {
     // must be non-empty string
     if (typeof rawURL !== "string" || rawURL.trim() === "") return null;
 
-    // strip whitespace + invisible/zero-width unicode characters
+    // strip invisible/zero-width unicode characters; the URL parser encodes inner spaces
     const stripped = rawURL
         .trim()
-        .replace(/[\s\p{Cf}]/gu, '');
+        .replace(/\p{Cf}/gu, '');
 
     let parsed;
 
@@ -53,19 +54,21 @@ const sanitizeUrl = (rawURL, blockRedirect = true) => {
     // hostname must exist and not just whitespace
     if (!parsed.hostname || parsed.hostname.trim() === "") return null;
 
-    if (blockRedirect) {
-        const params = [...parsed.searchParams.entries()];
-
-        // remove open-direct query params
-        // allow valid urls.
-        for (const [key, value] of params) {
-            if (commonAttackParams.has(key.toLowerCase()) && !isBaseURL(value)) {
-                parsed.searchParams.delete(key);
-            }
-        }
+    if (blockRedirect && parsed.search) {
+        // remove open-redirect query params, allowing valid urls.
+        // the raw "key=value" pieces are filtered rather than using searchParams.delete,
+        // which would re-serialize every remaining param ("%20" -> "+", "/" -> "%2F")
+        const kept = parsed.search.slice(1).split('&').filter((piece) => {
+            const [entry] = new URLSearchParams(piece);
+            if (!entry) return true;
+            const [key, value] = entry;
+            return !(commonAttackParams.has(key.toLowerCase()) && !isBaseURL(value));
+        });
+        parsed.search = kept.join('&');
     }
 
-    return encodeURI(parsed.toString());
+    // href is already percent-encoded; encoding again would turn "%20" into "%2520"
+    return parsed.href;
 };
 
 export default sanitizeUrl;

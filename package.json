@@ -1,7 +1,7 @@
 {
   "name": "data-transparency-ui",
   "private": true,
-  "version": "7.3.6",
+  "version": "7.3.7",
   "description": "Library of UI components powering Data Transparency websites",
   "main": "./dist/index.es.js",
   "module": "./dist/index.es.js",
