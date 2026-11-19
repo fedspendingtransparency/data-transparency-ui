@@ -5837,9 +5837,14 @@ var gc = /* @__PURE__ */ new Set([
 	children: u.element,
 	onClick: u.func
 }, xc = (e) => {
-	if (typeof e != "string") return null;
-	let t = e.trim().replace(/[\s\p{Cf}]/gu, "");
-	return t === "" || /^([a-z][a-z0-9+.-]*:|[/\\]{2}|\\)/i.test(t) ? yc(e) : encodeURI(t);
+	if (typeof e != "string") return;
+	let t = e.trim(), n = t.replace(/[\s\p{Cf}]/gu, "");
+	if (n === "" || /^([a-z][a-z0-9+.-]*:|[/\\]{2}|\\)/i.test(n)) return yc(e) || void 0;
+	try {
+		return encodeURI(decodeURI(t));
+	} catch {
+		return encodeURI(t);
+	}
 }, Sc = ({ img: e, fill: t, variant: n, imageContainerHeight: r, thumbnail: i, children: a, onClick: o }) => /* @__PURE__ */ S("div", { children: /* @__PURE__ */ S("div", {
 	className: `card__hero ${n}`,
 	onClick: o,
@@ -5848,7 +5853,7 @@ var gc = /* @__PURE__ */ new Set([
 		height: `${r}`
 	},
 	children: i ? /* @__PURE__ */ S(x, { children: a }) : /* @__PURE__ */ S("img", {
-		src: `${xc(e)}`,
+		src: xc(e),
 		role: "presentation",
 		alt: ""
 	})

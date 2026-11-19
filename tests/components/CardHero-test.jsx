@@ -16,19 +16,26 @@ describe('CardHero image src', () => {
         ['img/a/b.webp', 'img/a/b.webp'],
         ['../../img/a/b.webp', '../../img/a/b.webp'],
         ['/img/a/b.webp', '/img/a/b.webp'],
-        ['https://www.usaspending.gov/img/b.webp', 'https://www.usaspending.gov/img/b.webp']
+        ['https://www.usaspending.gov/img/b.webp', 'https://www.usaspending.gov/img/b.webp'],
+        ['img/my file.webp', 'img/my%20file.webp'],
+        ['img/my%20file.webp', 'img/my%20file.webp'],
+        ['  img/a.webp  ', 'img/a.webp']
     ])('allows %s', (input, expected) => {
         expect(getSrc(input)).toBe(expected);
     });
 
     it.each([
         'javascript:alert(1)',
+        'java\tscript:alert(1)',
         'http://example.com/a.webp',
         '//evil.com/a.webp',
-        '\\evil.com\a.webp',
+        '\\\\evil.com\\a.webp',
+        '\\evil.com',
+        '/\\evil.com/a.webp',
         'data:text/html,hi',
-        ''
+        '',
+        undefined
     ])('rejects %s', (input) => {
-        expect(getSrc(input)).toBe('null');
+        expect(getSrc(input)).toBeNull();
     });
 });

@@ -19,11 +19,22 @@ const propTypes = {
 
 // Same-origin relative image paths ("img/a.webp", "../img/a.webp", "/img/a.webp") are allowed.
 // Anything with a scheme, or a protocol-relative ("//host") / backslash variant, goes through sanitizeUrl.
+// Returns undefined (rather than null) when rejected so React omits the src attribute entirely.
 const getSafeImageSrc = (img) => {
-    if (typeof img !== "string") return null;
-    const stripped = img.trim().replace(/[\s\p{Cf}]/gu, '');
-    if (stripped === "" || /^([a-z][a-z0-9+.-]*:|[/\\]{2}|\\)/i.test(stripped)) return sanitizeUrl(img);
-    return encodeURI(stripped);
+    if (typeof img !== "string") return undefined;
+    const trimmed = img.trim();
+    // whitespace/invisible chars are stripped only for the scheme check (e.g. "java\tscript:")
+    const stripped = trimmed.replace(/[\s\p{Cf}]/gu, '');
+    if (stripped === "" || /^([a-z][a-z0-9+.-]*:|[/\\]{2}|\\)/i.test(stripped)) {
+        return sanitizeUrl(img) || undefined;
+    }
+    // decode first so already-encoded paths ("a%20b.webp") aren't double-encoded
+    try {
+        return encodeURI(decodeURI(trimmed));
+    }
+    catch {
+        return encodeURI(trimmed);
+    }
 };
 
 const CardHero = ({
@@ -38,7 +49,7 @@ const CardHero = ({
             {thumbnail
                 // eslint-disable-next-line react/jsx-no-useless-fragment
                 ? <>{ children }</>
-                : <img src={`${getSafeImageSrc(img)}`} role="presentation" alt="" />}
+                : <img src={getSafeImageSrc(img)} role="presentation" alt="" />}
         </div>
     </div>
 );
