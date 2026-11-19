@@ -5800,20 +5800,20 @@ var gc = /* @__PURE__ */ new Set([
 	"next",
 	"url",
 	"return",
-	"returnUrl",
+	"returnurl",
 	"return_url",
 	"goto",
 	"destination",
 	"dest",
 	"forward",
 	"user",
-	"userName",
+	"username",
 	"user_name",
 	"password",
 	"login"
 ]), _c = (e) => {
 	if (typeof e != "string" || e.trim() === "") return null;
-	let t = e.trim().replace(/[\s\p{Cf}]/gu, ""), n;
+	let t = e.trim().replace(/\p{Cf}/gu, ""), n;
 	try {
 		n = new URL(t);
 	} catch {
@@ -5822,12 +5822,12 @@ var gc = /* @__PURE__ */ new Set([
 	return n;
 }, vc = (e) => _c(e) ? e.startsWith("https://www.usaspending.gov/") : !1, yc = (e, t = !0) => {
 	let n = _c(e);
-	if (!n || n.protocol !== "https:" || !n.hostname || n.hostname.trim() === "") return null;
-	if (t) {
-		let e = [...n.searchParams.entries()];
-		for (let [t, r] of e) gc.has(t.toLowerCase()) && !vc(r) && n.searchParams.delete(t);
-	}
-	return encodeURI(n.toString());
+	return !n || n.protocol !== "https:" || !n.hostname || n.hostname.trim() === "" ? null : (t && n.search && (n.search = n.search.slice(1).split("&").filter((e) => {
+		let [t] = new URLSearchParams(e);
+		if (!t) return !0;
+		let [n, r] = t;
+		return !(gc.has(n.toLowerCase()) && !vc(r));
+	}).join("&")), n.href);
 }, bc = {
 	img: u.string,
 	fill: u.string,
